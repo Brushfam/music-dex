@@ -1,0 +1,14 @@
+@import './../../../constants/constants.scss';
+
+.roadmap {
+  margin-top: 32px;
+  width: 1200px;
+
+  img {
+    width: 100%;
+  }
+
+  @media (max-width: $desktop-size) {
+    width: 100%;
+  }
+}

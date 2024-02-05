@@ -1,0 +1,24 @@
+@import './../../constants/constants.scss';
+
+.header {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  background-color: $light-grey;
+  height: 56px;
+  padding: 12px 0;
+
+  &_content {
+    width: 1376px;
+
+    @media (max-width: $desktop-size) {
+      width: 96%;
+    }
+
+    @media (max-width: $mobile-size) {
+      width: 88%;
+    }
+  }
+}

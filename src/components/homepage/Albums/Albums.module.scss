@@ -1,0 +1,12 @@
+.albumsWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.albums {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

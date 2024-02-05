@@ -1,0 +1,29 @@
+.albumCard {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 12px;
+  }
+
+  @mixin cardText {
+    margin-bottom: 6px;
+    margin-left: 6px;
+    line-height: 130%;
+    color: white;
+  }
+
+  .title {
+    @include cardText;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .author {
+    @include cardText;
+    font-size: 8px;
+    font-weight: 400;
+  }
+}

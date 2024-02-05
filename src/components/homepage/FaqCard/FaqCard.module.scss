@@ -1,0 +1,37 @@
+@mixin card {
+  width: 640px;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.firstCard {
+  @include card;
+  padding: 0 0 24px 0;
+}
+
+.questionCard {
+  @include card;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.question {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 130%;
+  color: white;
+}
+
+.answer {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  transition: all 1s ease-out;
+}

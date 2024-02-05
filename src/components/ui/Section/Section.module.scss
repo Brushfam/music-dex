@@ -1,0 +1,22 @@
+@mixin baseSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.pageSection {
+  @include baseSection;
+  max-width: 1140px;
+  padding: 60px 0;
+}
+
+.banner {
+  @include baseSection;
+  position: relative;
+  max-width: 960px;
+  margin-top: 56px;
+  padding: 140px 0;
+  max-height: 540px;
+  overflow: hidden;
+}

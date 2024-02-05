@@ -1,95 +1,108 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import s from "./page.module.scss";
+import { Section } from "@/components/ui/Section/Section";
+import {
+  ColumnContainer,
+  SpaceBetweenContainer,
+} from "@/components/ui/Containers/Containers";
+import { Button } from "@/components/ui/Button/Button";
+import { Header } from "@/components/Header/Header";
+import { Footer } from "@/components/Footer/Footer";
+import { FlowList } from "@/components/homepage/FlowList/FlowList";
+import { Terms } from "@/components/homepage/Terms/Terms";
+import { Roadmap } from "@/components/homepage/Roadmap/Roadmap";
+import { TeamList } from "@/components/homepage/TeamList/TeamList";
+import { FaqCard } from "@/components/homepage/FaqCard/FaqCard";
+import { faqData, firstQuestion } from "@/data/faqData";
+import { AlbumCard } from "@/components/homepage/AlbumCard/AlbumCard";
+import { Albums } from "@/components/homepage/Albums/Albums";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+    <main className={s.main}>
+      <Header />
+      {/*  Banner */}
+      <Section banner={true} id={"home-banner"}>
+        <div className={s.bannerContainer}>
+          <div className={s.shadowTop} />
+          <ColumnContainer>
+            <h2>Welcome to MusicDex</h2>
+            <p>Invest in Music Royalties and Shape the Future of Music</p>
+            <Button
+              title={"Learn more"}
+              color={"red"}
+              path={"#home-how-it-works"}
             />
-          </a>
+          </ColumnContainer>
+          <Albums />
+          <div className={s.shadowBottom} />
         </div>
+      </Section>
+      {/*  How it works */}
+      <div className={s.lightThemeWrapper}>
+        <Section id={"home-how-it-works"}>
+          <SpaceBetweenContainer>
+            <ColumnContainer>
+              <h3>MusicDex revolutionizes music investment</h3>
+              <p>Here&#39;s how it work:</p>
+            </ColumnContainer>
+            <FlowList />
+          </SpaceBetweenContainer>
+        </Section>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      {/*  Our terms */}
+      <div className={s.gradientWrapper}>
+        <Section id={"home-terms"}>
+          <ColumnContainer centered={true}>
+            <h3>Invest with confidence</h3>
+            <h5>Our terms include:</h5>
+          </ColumnContainer>
+          <Terms />
+        </Section>
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      {/* Roadmap */}
+      <Section id={"home-roadmap"}>
+        <ColumnContainer centered={true}>
+          <h3>Roadmap</h3>
+          <h5>Join us on our journey:</h5>
+          <Roadmap />
+        </ColumnContainer>
+      </Section>
+      {/* Team */}
+      <Section id={"home-team"}>
+        <ColumnContainer>
+          <h3 style={{ maxWidth: 510 }}>Meet the faces behind MusicDex</h3>
+          <TeamList />
+        </ColumnContainer>
+      </Section>
+      {/* FAQ */}
+      <Section id={"home-faq"}>
+        <SpaceBetweenContainer>
+          <ColumnContainer>
+            <h3>FAQ</h3>
+            <p className={s.faqDescriptionText}>
+              Do you need some help with something or do you have questions on
+              some features?
+            </p>
+          </ColumnContainer>
+          <ColumnContainer>
+            <FaqCard
+              question={firstQuestion.question}
+              answer={firstQuestion.answer}
+              first={true}
+            ></FaqCard>
+            {faqData.map((data, index) => {
+              return (
+                <FaqCard
+                  key={index.toString()}
+                  question={data.question}
+                  answer={data.answer}
+                />
+              );
+            })}
+          </ColumnContainer>
+        </SpaceBetweenContainer>
+      </Section>
+      <Footer />
     </main>
   );
 }

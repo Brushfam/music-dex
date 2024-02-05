@@ -1,0 +1,84 @@
+@import './../constants/constants.scss';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //min-height: 100vh;
+
+  @mixin headers {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    @include headers;
+    font-size: 60px;
+    max-width: 440px;
+    line-height: 110%;
+  }
+
+  h3 {
+    @include headers;
+    font-size: 32px;
+    max-width: 460px;
+    line-height: 130%;
+  }
+
+  h5 {
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+  }
+}
+
+.bannerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faqDescriptionText {
+  max-width: 430px;
+}
+
+@mixin wrappers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.lightThemeWrapper {
+  @include wrappers;
+  background: $light-grey;
+}
+
+.gradientWrapper {
+  @include wrappers;
+  background-image: url("/backgrounds/gradient.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 80%;
+}
+
+@mixin shadowElement {
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(180.00deg, rgba(17, 17, 17, 0),rgb(17, 17, 17) 100%)
+}
+
+.shadowBottom, .shadowTop {
+  @include shadowElement;
+  bottom: 0
+}
+
+.shadowTop {
+  @include shadowElement;
+  top: 0;
+  transform: rotate(-180.00deg);
+}
+

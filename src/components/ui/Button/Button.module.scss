@@ -1,0 +1,39 @@
+@import './../../../constants/constants.scss';
+
+.buttonDiv {
+  @mixin baseButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 24px 8px 24px;
+    margin-top: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+
+    p {
+      margin-right: 12px;
+      color: white;
+      font-weight: 500;
+    }
+
+    &:hover {
+      filter: brightness(80%);
+      cursor: pointer;
+    }
+  }
+
+  & {
+    @include baseButton;
+  }
+
+  &_red {
+    @include baseButton;
+    background: $main-red;
+  }
+
+  &_grey {
+    @include baseButton;
+    background: $light-grey;
+  }
+}
