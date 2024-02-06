@@ -9,15 +9,15 @@
 
   @media (max-width: 1140px) {
     display: grid;
-    grid-column-gap: 60px;
-    grid-row-gap: 20px;
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
     grid-template-columns: repeat(2, 1fr);
     width: auto;
   }
 
   @media (max-width: $mobile-size) {
-    grid-column-gap: 28px;
-    grid-row-gap: 10px;
+    grid-column-gap: 18px;
+    grid-row-gap: 18px;
   }
 }
 
