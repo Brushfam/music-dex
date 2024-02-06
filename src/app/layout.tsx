@@ -5,7 +5,7 @@ import "./globals.scss";
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"]});
 
 export const metadata: Metadata = {
-  title: "MusicDEX",
+  title: "MusicDex",
   description: "Invest in Music Royalties and Shape the Future of Music",
 };
 
