@@ -15,6 +15,7 @@ import { FaqCard } from "@/components/homepage/FaqCard/FaqCard";
 import { faqData, firstQuestion } from "@/data/faqData";
 import { AlbumCard } from "@/components/homepage/AlbumCard/AlbumCard";
 import { Albums } from "@/components/homepage/Albums/Albums";
+import { flowListData } from "@/data/flowListData";
 
 export default function Home() {
   return (
@@ -40,13 +41,13 @@ export default function Home() {
       {/*  How it works */}
       <div className={s.lightThemeWrapper}>
         <Section id={"home-how-it-works"}>
-          <SpaceBetweenContainer>
+          <div className={s.howItWorksContainer}>
             <ColumnContainer>
               <h3>MusicDex revolutionizes music investment</h3>
-              <p>Here&#39;s how it work:</p>
+              <p style={{ width: "100%" }}>Here&#39;s how it work:</p>
             </ColumnContainer>
-            <FlowList />
-          </SpaceBetweenContainer>
+            <FlowList listData={flowListData} symbol={"0"} />
+          </div>
         </Section>
       </div>
       {/*  Our terms */}
@@ -69,14 +70,14 @@ export default function Home() {
       </Section>
       {/* Team */}
       <Section id={"home-team"}>
-        <ColumnContainer>
-          <h3 style={{ maxWidth: 510 }}>Meet the faces behind MusicDex</h3>
-          <TeamList />
-        </ColumnContainer>
+        <div className={s.teamContainer}>
+            <h3 style={{ maxWidth: 510 }}>Meet the faces behind MusicDex</h3>
+            <TeamList />
+        </div>
       </Section>
       {/* FAQ */}
       <Section id={"home-faq"}>
-        <SpaceBetweenContainer>
+        <div className={s.faqContainer}>
           <ColumnContainer>
             <h3>FAQ</h3>
             <p className={s.faqDescriptionText}>
@@ -100,7 +101,7 @@ export default function Home() {
               );
             })}
           </ColumnContainer>
-        </SpaceBetweenContainer>
+        </div>
       </Section>
       <Footer />
     </main>

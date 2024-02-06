@@ -1,3 +1,5 @@
+@import './../../../constants/constants.scss';
+
 @mixin baseSection {
   display: flex;
   flex-direction: column;
@@ -9,6 +11,18 @@
   @include baseSection;
   max-width: 1140px;
   padding: 60px 0;
+
+  @media (max-width: $desktop-size) {
+    width: auto;
+  }
+
+  @media (max-width: $tablet-size) {
+    width: 72%;
+  }
+
+  @media (max-width: $mobile-size) {
+    width: 82%;
+  }
 }
 
 .banner {
@@ -19,4 +33,18 @@
   padding: 140px 0;
   max-height: 540px;
   overflow: hidden;
+
+  @media (max-width: $desktop-size) {
+    padding: 140px 2%;
+  }
+
+  @media (max-width: $desktop-md-size) {
+    width: 72%;
+    padding: 120px 0;
+  }
+
+  @media (max-width: $mobile-size) {
+    width: 88%;
+    padding: 140px 0;
+  }
 }

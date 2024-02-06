@@ -6,9 +6,26 @@
 
   img {
     width: 100%;
+
+    @media (max-width: $tablet-size) {
+      display: none;
+    }
   }
 
   @media (max-width: $desktop-size) {
     width: 100%;
+    padding: 0 6%;
+  }
+
+  @media (max-width: $tablet-size) {
+    padding: 0;
+  }
+}
+
+.mobileRoadmap {
+  display: none;
+
+  @media (max-width: $tablet-size) {
+    display: block;
   }
 }

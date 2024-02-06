@@ -1,18 +1,17 @@
 import s from "./FlowList.module.scss";
-import { flowListData } from "@/data/flowListData";
 import { Block } from "@/components/ui/Block/Block";
 
-export function FlowList() {
+export function FlowList(props: {listData:  {text: string;}[], symbol: string }) {
   return (
     <div className={s.list}>
-      {flowListData.map((data, index) => {
+      {props.listData.map((data, index) => {
         return (
           <Block key={index}>
             <div className={s.list_item}>
               <div className={s.list_numberBlock}>
-                <p>0{index + 1}</p>
+                <p>{props.symbol}{index + 1}</p>
               </div>
-              <p style={{ fontSize: 14 }}>{data.text}</p>
+              <p className={s.list_description}>{data.text}</p>
             </div>
           </Block>
         );

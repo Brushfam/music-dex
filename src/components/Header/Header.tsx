@@ -5,7 +5,7 @@ import Image from "next/image";
 export function Header() {
     return <div className={s.header}>
         <div className={s.header_content}>
-            <Link href={"/"}>
+            <Link href={"/"} style={{display: "block",width: 141}}>
                 <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} width={141} height={32}/>
             </Link>
         </div>

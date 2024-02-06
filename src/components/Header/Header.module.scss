@@ -5,7 +5,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  z-index: 1;
   background-color: $light-grey;
   height: 56px;
   padding: 12px 0;
@@ -14,11 +16,15 @@
     width: 1376px;
 
     @media (max-width: $desktop-size) {
-      width: 96%;
+      width: 88%;
     }
 
     @media (max-width: $mobile-size) {
       width: 88%;
     }
+  }
+
+  @media (max-width: $mobile-size) {
+    height: 68px;
   }
 }

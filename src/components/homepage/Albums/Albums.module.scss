@@ -1,8 +1,14 @@
+@import './../../../constants/constants.scss';
+
 .albumsWrapper {
   display: flex;
   flex-direction: row;
   gap: 16px;
   overflow: hidden;
+
+  @media (max-width: $desktop-md-size) {
+    display: none;
+  }
 }
 
 .albums {

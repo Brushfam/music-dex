@@ -1,20 +1,21 @@
 import s from "./Terms.module.scss";
 import {
   ColumnContainer,
-  RowContainer,
 } from "@/components/ui/Containers/Containers";
 import Image from "next/image";
+import {TermsRowContainer} from "@/components/homepage/Terms/TermsRowContainter";
 
 export function Terms() {
   return (
     <div className={s.terms}>
-      <RowContainer gap={100}>
-        <RowContainer gap={40}>
+      <TermsRowContainer>
+        <TermsRowContainer>
           <Image
             src={"/icons/curved-arrow.svg"}
             alt={"curved arrow"}
             width={180}
             height={80}
+            className={s.arrows}
           />
           <ColumnContainer>
             <div className={s.terms_block}>
@@ -27,8 +28,8 @@ export function Terms() {
             </div>
             <p>Minimum investment amounts</p>
           </ColumnContainer>
-        </RowContainer>
-        <RowContainer gap={40}>
+        </TermsRowContainer>
+        <TermsRowContainer>
           <ColumnContainer>
             <div className={s.terms_block}>
               <Image
@@ -47,10 +48,10 @@ export function Terms() {
             height={80}
             className={s.terms_mirrorx_img}
           />
-        </RowContainer>
-      </RowContainer>
-      <RowContainer gap={100}>
-        <RowContainer gap={40}>
+        </TermsRowContainer>
+      </TermsRowContainer>
+      <TermsRowContainer>
+        <TermsRowContainer>
           <Image
             src={"/icons/curved-arrow.svg"}
             alt={"curved arrow"}
@@ -70,8 +71,8 @@ export function Terms() {
             </div>
             <p>Token redemption options</p>
           </ColumnContainer>
-        </RowContainer>
-        <RowContainer gap={40}>
+        </TermsRowContainer>
+        <TermsRowContainer>
           <ColumnContainer>
             <div className={s.terms_block}>
               <Image
@@ -89,9 +90,10 @@ export function Terms() {
             width={180}
             height={80}
             style={{rotate: "180deg", marginTop: 69}}
+            className={s.arrows}
           />
-        </RowContainer>
-      </RowContainer>
+        </TermsRowContainer>
+      </TermsRowContainer>
     </div>
   );
 }
