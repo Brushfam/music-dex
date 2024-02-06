@@ -16,7 +16,7 @@ export function FaqCard(props: {question: string, answer: string, first?: boolea
           <p className={s.question}>{props.question}</p>
           <img
               src={
-                question ? "/icons/minus.png" : "/icons/plus.png"
+                question ? "/icons/minus.svg" : "/icons/plus.svg"
               }
               alt={"circle"}
           />
