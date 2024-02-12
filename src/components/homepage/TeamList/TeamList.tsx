@@ -1,5 +1,4 @@
 import s from './TeamList.module.scss'
-import Image from "next/image";
 import React from "react";
 
 export function TeamList() {

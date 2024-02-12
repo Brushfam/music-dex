@@ -1,9 +1,6 @@
 import s from "./page.module.scss";
 import { Section } from "@/components/ui/Section/Section";
-import {
-  ColumnContainer,
-  SpaceBetweenContainer,
-} from "@/components/ui/Containers/Containers";
+import { ColumnContainer } from "@/components/ui/Containers/Containers";
 import { Button } from "@/components/ui/Button/Button";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
@@ -13,7 +10,6 @@ import { Roadmap } from "@/components/homepage/Roadmap/Roadmap";
 import { TeamList } from "@/components/homepage/TeamList/TeamList";
 import { FaqCard } from "@/components/homepage/FaqCard/FaqCard";
 import { faqData, firstQuestion } from "@/data/faqData";
-import { AlbumCard } from "@/components/homepage/AlbumCard/AlbumCard";
 import { Albums } from "@/components/homepage/Albums/Albums";
 import { flowListData } from "@/data/flowListData";
 
@@ -71,8 +67,8 @@ export default function Home() {
       {/* Team */}
       <Section id={"home-team"}>
         <div className={s.teamContainer}>
-            <h3 style={{ maxWidth: 510 }}>Meet the faces behind MusicDex</h3>
-            <TeamList />
+          <h3 style={{ maxWidth: 510 }}>Meet the faces behind MusicDex</h3>
+          <TeamList />
         </div>
       </Section>
       {/* FAQ */}
