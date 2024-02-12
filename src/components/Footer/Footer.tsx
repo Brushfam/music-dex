@@ -1,5 +1,3 @@
-import { Section } from "@/components/ui/Section/Section";
-import { ColumnContainer } from "@/components/ui/Containers/Containers";
 import s from "./Footer.module.scss";
 import Image from "next/image";
 

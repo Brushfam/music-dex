@@ -1,39 +1,26 @@
 import s from './TeamList.module.scss'
-import Image from "next/image";
+import React from "react";
 
 export function TeamList() {
-  return (
-    <div className={s.teamList}>
-      <div className={s.cardWrapper}>
-        <div className={s.teamCard}>
-          <img src={"/team/Artem.png"} alt={"Artem"}/>
-          <p className={s.teamCard_name}>Artem</p>
-          <p className={s.teamCard_role}>Co-Founder</p>
-        </div>
-      </div>
-      <div className={s.cardWrapper}>
-        <div className={s.teamCard}>
-          <img src={"/team/Markian.png"} alt={"Markian"}/>
-          <p className={s.teamCard_name}>Markian Ivanichok</p>
-          <p className={s.teamCard_role}>Co-Founder</p>
-        </div>
-      </div>
-      <div className={s.cardWrapper}>
-        <div className={s.teamCard}>
-          <div className={s.teamCard_empty}>
-              <Image src={"/team/anon.svg"} alt={"anon"} width={90} height={95}/>
+
+    function Card(props: { path: string, name: string, role: string }) {
+      return (
+        <div className={s.cardWrapper}>
+          <div className={s.teamCard}>
+            <img src={props.path} alt={props.name} />
+            <p className={s.teamCard_name}>{props.name}</p>
+            <p className={s.teamCard_role}>{props.role}</p>
           </div>
-          <p className={s.teamCard_name}>Serhii Nykonorov</p>
-          <p className={s.teamCard_role}>COO</p>
         </div>
+      );
+    }
+
+    return (
+      <div className={s.teamList}>
+          <Card path={"/team/Artem.png"} name={"Artem"} role={"Co-Founder"}/>
+          <Card path={"/team/Markian.png"} name={"Markian Ivanichok"} role={"Co-Founder"}/>
+          <Card path={"/team/Alina.png"} name={"Alina Antropova"} role={"Growth Manager"}/>
+          <Card path={"/team/Tony.png"} name={"Tony Tonite"} role={"Music expert"}/>
       </div>
-      <div className={s.cardWrapper}>
-        <div className={s.teamCard}>
-          <img src={"/team/Tony.png"} alt={"Tony"}/>
-          <p className={s.teamCard_name}>Tony Tonite</p>
-          <p className={s.teamCard_role}>Music expert</p>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
