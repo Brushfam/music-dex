@@ -20,32 +20,3 @@ export function ColumnContainer(props: {
     </div>
   );
 }
-
-export function SpaceBetweenContainer(props: { children: React.ReactNode }) {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-      }}
-    >
-      {props.children}
-    </div>
-  );
-}
-
-export function RowContainer(props: { children: React.ReactNode, gap: number }) {
-    return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                gap: props.gap
-            }}
-        >
-            {props.children}
-        </div>
-    );
-}

@@ -110,7 +110,7 @@
     width: 100%;
   }
 
-  @media (max-width: 1040px) {
+  @media (max-width: $desktop-md-size) {
     gap:40px;
     flex-direction: column;
     justify-content: flex-start;
@@ -124,7 +124,7 @@
     max-width: 260px;
   }
 
-  @media (max-width: 1040px) {
+  @media (max-width: $desktop-md-size) {
     max-width: 100%;
   }
 
