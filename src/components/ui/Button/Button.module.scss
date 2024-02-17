@@ -4,7 +4,7 @@
   @mixin baseButton {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     padding: 8px 24px 8px 24px;
     margin-top: 40px;
@@ -30,11 +30,16 @@
   &_red {
     @include baseButton;
     background: $main-red;
-    box-shadow: 0px 0px 16px 0px rgba(254, 60, 6, 0.5);
   }
 
   &_grey {
     @include baseButton;
     background: $light-grey;
+  }
+
+  &_transparent {
+    @include baseButton;
+    background: transparent;
+    border: 1px solid rgb(255, 255, 255);
   }
 }

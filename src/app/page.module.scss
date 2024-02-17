@@ -85,6 +85,44 @@
   }
 }
 
+.tracksContainer {
+  @extend .howItWorksContainer;
+
+  @media (max-width: 1200px) {
+    margin: 0 20px;
+  }
+
+  @media (max-width: $desktop-md-size) {
+    margin: 0;
+  }
+
+  &_title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @media (max-width: $desktop-md-size) {
+      align-items: center;
+    }
+  }
+
+  &_description {
+    max-width: 450px;
+
+    @media (max-width: 1200px) {
+      max-width: 320px;
+    }
+
+    @media (max-width: $desktop-md-size) {
+      max-width: 50%;
+    }
+
+    @media (max-width: $tablet-size) {
+      max-width: 98%;
+    }
+  }
+}
+
 .teamContainer {
   display: flex;
   flex-direction: column;

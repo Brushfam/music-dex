@@ -10,7 +10,10 @@ import { Roadmap } from "@/components/homepage/Roadmap/Roadmap";
 import { TeamList } from "@/components/homepage/TeamList/TeamList";
 import { FaqCard } from "@/components/homepage/FaqCard/FaqCard";
 import { faqData, firstQuestion } from "@/data/faqData";
-import { Albums } from "@/components/homepage/Albums/Albums";
+import {
+  BannerTracks,
+  TracksSectionAlbums,
+} from "@/components/homepage/Tracks/Tracks";
 import { flowListData } from "@/data/flowListData";
 
 export default function Home() {
@@ -30,7 +33,7 @@ export default function Home() {
               path={"#home-how-it-works"}
             />
           </ColumnContainer>
-          <Albums />
+          <BannerTracks />
           <div className={s.shadowBottom} />
         </div>
       </Section>
@@ -56,6 +59,21 @@ export default function Home() {
           <Terms />
         </Section>
       </div>
+      {/*  Tracks */}
+      <Section id={"home-tracks"}>
+        <div className={s.tracksContainer}>
+          <div className={s.tracksContainer_title}>
+            <h3>Tracks Available for Investment</h3>
+            <p className={s.tracksContainer_description}>
+              Explore our curated selection of tracks ready for investment. Each
+              track represents a unique investment opportunity with potential
+              for passive income.
+            </p>
+            <Button title={"Explore all tracks"} color={"transparent"} path={"/catalog"} />
+          </div>
+          <TracksSectionAlbums />
+        </div>
+      </Section>
       {/* Roadmap */}
       <Section id={"home-roadmap"}>
         <ColumnContainer centered={true}>
