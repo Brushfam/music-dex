@@ -1,69 +1,44 @@
 @import './../constants/constants.scss';
 
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  //min-height: 100vh;
-
-  @mixin headers {
-    color: white;
-    font-weight: 600;
-    margin-bottom: 16px;
-
-    @media (max-width: $mobile-size) {
-      margin-bottom: 12px;
-    }
-  }
-
-  h2 {
-    @include headers;
-    font-size: 60px;
-    max-width: 440px;
-    line-height: 110%;
-
-    @media (max-width: $tablet-size) {
-      font-size: 52px;
-    }
-  }
-
-  h3 {
-    @include headers;
-    font-size: 32px;
-    max-width: 460px;
-    line-height: 130%;
-
-    @media (max-width: $desktop-size) {
-      max-width: 420px
-    }
-
-    @media (max-width: $desktop-md-size) {
-      font-size: 28px;
-    }
-
-    @media (max-width: $mobile-size) {
-      font-size: 24px;
-    }
-  }
-
-  h5 {
-    font-weight: 400;
-    font-size: 18px;
-    color: white;
-  }
-}
-
 .bannerContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  &_p {
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    max-width: 440px;
+  }
+
+  h3 {
+    max-width: 460px;
+
+    @media (max-width: $desktop-size) {
+      max-width: 420px
+    }
+  }
 }
 
 .howItWorksContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  h2 {
+    max-width: 440px;
+  }
+
+  h3 {
+    max-width: 460px;
+
+    @media (max-width: $desktop-size) {
+      max-width: 420px
+    }
+  }
 
   @media (max-width: $desktop-size) {
     justify-content: center;
@@ -96,6 +71,18 @@
     margin: 0;
   }
 
+  h2 {
+    max-width: 440px;
+  }
+
+  h3 {
+    max-width: 460px;
+
+    @media (max-width: $desktop-size) {
+      max-width: 420px
+    }
+  }
+
   &_title {
     display: flex;
     flex-direction: column;
@@ -108,6 +95,7 @@
 
   &_description {
     max-width: 450px;
+    margin-bottom: 40px;
 
     @media (max-width: 1200px) {
       max-width: 320px;
@@ -180,7 +168,7 @@
 
 .lightThemeWrapper {
   @include wrappers;
-  background: $light-grey;
+  background: $primary-grey;
 }
 
 .gradientWrapper {

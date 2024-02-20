@@ -1,4 +1,5 @@
 import s from "./page.module.scss";
+import cs from "./commonStyles.module.scss";
 import { Section } from "@/components/ui/Section/Section";
 import { ColumnContainer } from "@/components/ui/Containers/Containers";
 import { Button } from "@/components/ui/Button/Button";
@@ -8,17 +9,16 @@ import { FlowList } from "@/components/homepage/FlowList/FlowList";
 import { Terms } from "@/components/homepage/Terms/Terms";
 import { Roadmap } from "@/components/homepage/Roadmap/Roadmap";
 import { TeamList } from "@/components/homepage/TeamList/TeamList";
-import { FaqCard } from "@/components/homepage/FaqCard/FaqCard";
-import { faqData, firstQuestion } from "@/data/faqData";
 import {
   BannerTracks,
   TracksSectionAlbums,
 } from "@/components/homepage/Tracks/Tracks";
 import { flowListData } from "@/data/flowListData";
+import Faq from "@/components/Faq/Faq";
 
 export default function Home() {
   return (
-    <main className={s.main}>
+    <main className={cs.main}>
       <Header />
       {/*  Banner */}
       <Section banner={true} id={"home-banner"}>
@@ -26,7 +26,9 @@ export default function Home() {
           <div className={s.shadowTop} />
           <ColumnContainer>
             <h2>Welcome to MusicDex</h2>
-            <p>Invest in Music Royalties and Shape the Future of Music</p>
+            <p className={s.bannerContainer_p}>
+              Invest in Music Royalties and Shape the Future of Music
+            </p>
             <Button
               title={"Learn more"}
               color={"red"}
@@ -69,7 +71,11 @@ export default function Home() {
               track represents a unique investment opportunity with potential
               for passive income.
             </p>
-            <Button title={"Explore all tracks"} color={"transparent"} path={"/catalog"} />
+            <Button
+              title={"Explore all tracks"}
+              color={"transparent"}
+              path={"/catalog"}
+            />
           </div>
           <TracksSectionAlbums />
         </div>
@@ -89,34 +95,7 @@ export default function Home() {
           <TeamList />
         </div>
       </Section>
-      {/* FAQ */}
-      <Section id={"home-faq"}>
-        <div className={s.faqContainer}>
-          <ColumnContainer>
-            <h3>FAQ</h3>
-            <p className={s.faqDescriptionText}>
-              Do you need some help with something or do you have questions on
-              some features?
-            </p>
-          </ColumnContainer>
-          <ColumnContainer>
-            <FaqCard
-              question={firstQuestion.question}
-              answer={firstQuestion.answer}
-              first={true}
-            ></FaqCard>
-            {faqData.map((data, index) => {
-              return (
-                <FaqCard
-                  key={index.toString()}
-                  question={data.question}
-                  answer={data.answer}
-                />
-              );
-            })}
-          </ColumnContainer>
-        </div>
-      </Section>
+      <Faq />
       <Footer />
     </main>
   );

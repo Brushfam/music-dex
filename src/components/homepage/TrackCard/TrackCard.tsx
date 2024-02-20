@@ -1,4 +1,3 @@
-import { Block } from "@/components/ui/Block/Block";
 import s from "./TrackCard.module.scss";
 
 function TrackCardComponent(props: {
@@ -7,13 +6,13 @@ function TrackCardComponent(props: {
   author: string;
 }) {
   return (
-    <Block>
-      <div className={s.albumCard}>
+    <div className={s.trackCardWrapper}>
+      <div className={s.trackCard}>
         <img src={props.image} alt={props.title} />
         <p className={s.title}>{props.title}</p>
         <p className={s.author}>{props.author}</p>
       </div>
-    </Block>
+    </div>
   );
 }
 

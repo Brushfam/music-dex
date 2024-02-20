@@ -25,7 +25,7 @@
   padding: 6px;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 8px;
-  background: rgba(52, 52, 52, 0.5);
+  background: $secondary-grey;
 
   @media (max-width: $mobile-size) {
     padding: 4px;
@@ -100,7 +100,7 @@
     font-weight: 400;
     line-height: 150%;
     text-align: left;
-    color: $main-red;
+    color: $main-orange;
 
     @media (max-width: $desktop-size) {
       font-size: 14px;
