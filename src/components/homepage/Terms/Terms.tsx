@@ -1,11 +1,13 @@
 import s from "./Terms.module.scss";
-import {
-  ColumnContainer,
-} from "@/components/ui/Containers/Containers";
+import { ColumnContainer } from "@/components/ui/Containers/Containers";
 import Image from "next/image";
-import {TermsRowContainer} from "@/components/homepage/Terms/TermsRowContainter";
+import React from "react";
 
 export function Terms() {
+  function TermsRowContainer(props: { children: React.ReactNode }) {
+    return <div className={s.rowContainer}>{props.children}</div>;
+  }
+
   return (
     <div className={s.terms}>
       <TermsRowContainer>
@@ -58,7 +60,7 @@ export function Terms() {
             width={180}
             height={80}
             className={s.terms_mirrory_img}
-            style={{marginTop: 69}}
+            style={{ marginTop: 69 }}
           />
           <ColumnContainer>
             <div className={s.terms_block}>
@@ -89,7 +91,7 @@ export function Terms() {
             alt={"curved arrow"}
             width={180}
             height={80}
-            style={{rotate: "180deg", marginTop: 69}}
+            style={{ rotate: "180deg", marginTop: 69 }}
             className={s.arrows}
           />
         </TermsRowContainer>
