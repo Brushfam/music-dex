@@ -1,0 +1,141 @@
+.pageWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 120px;
+}
+
+.headerText {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 120%;
+    color: #FFFFFF;
+}
+
+.lastUpdatedText {
+    margin-top: 8px;
+    font-weight: 400;
+    line-height: 120%;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+.NavigationWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.navigationText, .navigationTitle {
+    font-weight: 600;
+    line-height: 120%;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+}
+
+.navigationTitle {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.navigationText {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.contentWrapper {
+    width: 1140px;
+    margin-top: 36px;
+}
+
+.point {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 80px;
+    width: 100%;
+    scroll-margin: 140px;
+}
+
+.pointText p, .pointTitle p {
+    font-weight: 400;
+    line-height: 120%;
+    margin-bottom: 14px;
+}
+
+.pointTitle p {
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+}
+
+.pointText p {
+    font-size: 16px;
+    text-indent: 16px;
+    text-align: justify;
+}
+
+.pointText img {
+    margin-right: 6px;
+    height: 16px;
+    margin-top: 2px;
+}
+
+.listDiv {
+    display: flex;
+    flex-direction: row;
+    margin-left: 44px;
+}
+
+@media (max-width: 1440px) {
+    .contentWrapper {
+        width: 990px;
+    }
+
+    .pageWrapper {
+        padding: 120px 80px 0 80px;
+    }
+}
+
+@media (max-width: 1040px) {
+    .contentWrapper {
+        width: 100%;
+    }
+
+    .pageWrapper {
+        padding: 120px 100px 0 100px;
+    }
+}
+
+@media (max-width: 800px) {
+    .pageWrapper {
+        padding: 80px 0px 0 0px;
+    }
+}
+
+@media (max-width: 480px) {
+    .headerText {
+        font-size: 32px;
+    }
+
+    .navigationTitle {
+        font-size: 20px;
+    }
+
+    .navigationText {
+        font-size: 20px;
+    }
+
+    .lastUpdatedText {
+        font-size: 14px;
+    }
+
+    .point {
+        margin-bottom: 60px;
+    }
+}
+
