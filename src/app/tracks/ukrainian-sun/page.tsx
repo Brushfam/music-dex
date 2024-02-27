@@ -3,7 +3,6 @@ import s from "./page.module.scss";
 import { Header } from "@/components/Header/Header";
 import Faq from "@/components/Faq/Faq";
 import { Footer } from "@/components/Footer/Footer";
-import { Section } from "@/components/ui/Section/Section";
 import { Labels } from "@/components/Labels/Labels";
 import { trackData } from "@/data/trackData";
 import { TrackDetails } from "@/components/TrackDetails/TrackDetails";

@@ -2,7 +2,8 @@
 
 .footerSection {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
   max-width: 1140px;
   padding: 60px 0;
@@ -13,27 +14,20 @@
 
   @media (max-width: $desktop-md-size) {
     width: 640px;
+    align-items: flex-end;
   }
 
   @media (max-width: $tablet-size) {
     width: 100%;
     gap: 40px;
     align-items: center;
+    flex-direction: column;
     padding: 60px 0 30px 0;
   }
 
   @media (max-width: $mobile-size) {
     width: 82%;
   }
-}
-
-.footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  width: 100%;
-  padding: 60px 10%;
 }
 
 .footerText {
@@ -48,22 +42,30 @@
   }
 }
 
-.emailWrapper {
+.footerLinksBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  a {
+    color: white;
+  }
+
+  @media (max-width: $tablet-size) {
+    align-items: center;
+  }
+}
+
+.linksBlockWrapper {
   position: relative;
   height: 100%;
 }
 
 .emailBlock {
-  position: absolute;
-  bottom: 0;
-  right: 0;
   display: flex;
   flex-direction: row;
   gap: 4px;
-
-  @media (max-width: $tablet-size) {
-    position: initial;
-  }
 }
 
 .columnContainer {
