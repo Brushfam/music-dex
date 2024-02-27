@@ -674,7 +674,7 @@ export const points = [
           <p>
             Ми дбаємо про конфіденційність і безпеку даних. Перегляньте нашу
             політику конфіденційності за адресою:{" "}
-            <a href={"https://musicdex.co/documents/privacy-policy"}>
+            <a href={"https://musicdex.co/documents/privacy-policy"} style={{color: "white"}}>
               https://musicdex.co/documents/privacy-policy
             </a>
             . Користуючись Послугами, ви погоджуєтеся дотримуватися нашої
