@@ -14,7 +14,7 @@
 
   @media (max-width: $desktop-md-size) {
     width: 640px;
-    align-items: flex-end;
+    gap: 48px;
   }
 
   @media (max-width: $tablet-size) {
@@ -30,7 +30,7 @@
   }
 }
 
-.footerText {
+.footerMainText {
   margin-top: 16px;
 
   @media (max-width: $desktop-md-size) {
@@ -42,32 +42,6 @@
   }
 }
 
-.footerLinksBlock {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-
-  a {
-    color: white;
-  }
-
-  @media (max-width: $tablet-size) {
-    align-items: center;
-  }
-}
-
-.linksBlockWrapper {
-  position: relative;
-  height: 100%;
-}
-
-.emailBlock {
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
-}
-
 .columnContainer {
   display: flex;
   flex-direction: column;
@@ -75,5 +49,91 @@
 
   @media (max-width: $tablet-size) {
     align-items: center;
+  }
+}
+
+.linksBlock {
+  display: flex;
+  flex-direction: row;
+  gap: 44px;
+
+  @media (max-width: $desktop-md-size) {
+    gap: 28px;
+  }
+
+  @media (max-width: $tablet-size) {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+.linksColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  p, a {
+    font-size: 14px;
+  }
+
+  a {
+    color: white;
+    align-self: flex-start;
+  }
+
+  @media (max-width: $tablet-size) {
+    align-items: center;
+
+    p, a {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    a {
+      align-self: center;
+    }
+  }
+}
+
+.mediaWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @media (max-width: $tablet-size) {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.mediaDesktop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+
+  @media (max-width: $tablet-size) {
+    display: none;
+  }
+}
+
+.mediaMobile {
+  display: none;
+
+  @media (max-width: $tablet-size) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1),0 4px 4px 0 rgba(0, 0, 0, 0.05),0 1px 0 0 rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(20px);
+    background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.02),rgba(255, 255, 255, 0.1) 100%);
   }
 }

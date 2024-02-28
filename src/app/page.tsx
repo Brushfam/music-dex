@@ -13,7 +13,7 @@ import {
   BannerTracks,
   TracksSectionAlbums,
 } from "@/components/homepage/Tracks/Tracks";
-import { flowListData } from "@/data/flowListData";
+import { flowListData } from "@/data/homepage/flowListData";
 import Faq from "@/components/Faq/Faq";
 
 export default function Home() {

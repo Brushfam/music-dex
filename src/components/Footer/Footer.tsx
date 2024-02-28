@@ -1,5 +1,6 @@
 import s from "./Footer.module.scss";
 import Image from "next/image";
+import {SocialMedia} from "@/components/Footer/SocialMedia";
 
 export function Footer() {
   return (
@@ -11,24 +12,21 @@ export function Footer() {
           width={200}
           height={43}
         />
-        <p className={s.footerText}>
+        <p className={s.footerMainText}>
           Invest in Music Royalties and Shape the Future of Music
         </p>
       </div>
-      <div className={s.linksBlockWrapper}>
-          <div className={s.footerLinksBlock}>
-              <a href={"/documents/privacy-policy"}>Privacy Policy</a>
-              <a href={"/documents/terms-and-conditions"}>Terms and Conditions</a>
-              <div className={s.emailBlock}>
-                  <p>Email:</p>
-                  <a
-                      href={"mailto:markian@musicdex.co"}
-                      style={{color: "white", cursor: "pointer"}}
-                  >
-                      markian@musicdex.co
-                  </a>
-              </div>
-          </div>
+      <div className={s.linksBlock}>
+        <SocialMedia/>
+        <div className={s.linksColumn}>
+          <p style={{ marginBottom: 6 }}>Email</p>
+          <a href={"mailto:markian@musicdex.co"} target="_blank">markian@musicdex.co</a>
+        </div>
+        <div className={s.linksColumn}>
+          <p style={{ marginBottom: 6 }}>Other</p>
+          <a href={"/documents/privacy-policy"}>Privacy Policy</a>
+          <a href={"/documents/terms-and-conditions"}>Terms and Conditions</a>
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import s from "./TeamList.module.scss";
 import React from "react";
-import { teamListData } from "@/data/teamListData";
+import { teamListData } from "@/data/homepage/teamListData";
 
 export function TeamList() {
   function Card(props: { path: string; name: string; role: string }) {
