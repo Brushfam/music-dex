@@ -1,6 +1,6 @@
 import s from './Roadmap.module.scss'
 import {FlowList} from "@/components/homepage/FlowList/FlowList"
-import {roadmapData} from "@/data/roadmapData";
+import {roadmapData} from "@/data/homepage/roadmapData";
 
 export function Roadmap() {
     return <div className={s.roadmap}>
