@@ -1,4 +1,14 @@
-export const point0 = [
+const ListText = (textList) => {
+    return (
+        <ul style={{ marginLeft: 22, marginBottom: 10 }}>
+            {textList.map((text, index) => {
+                return <li key={index.toString()}>{text}</li>;
+            })}
+        </ul>
+    );
+};
+
+export const point0EN = [
   {
     text: (
       <p>
@@ -42,17 +52,7 @@ export const point0 = [
   },
 ];
 
-const ListText = (textList) => {
-  return (
-    <ul style={{ marginLeft: 22, marginBottom: 10 }}>
-      {textList.map((text, index) => {
-        return <li key={index.toString()}>{text}</li>;
-      })}
-    </ul>
-  );
-};
-
-export const points = [
+export const pointsEN = [
   {
     title: <p>1. Collection of the Information</p>,
     point: [
@@ -624,3 +624,4 @@ export const points = [
     ],
   },
 ];
+
