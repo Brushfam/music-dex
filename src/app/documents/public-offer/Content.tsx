@@ -1,17 +1,16 @@
-"use client"
+"use client";
 import s from "../documents.module.css";
-import {
-  generalInformationUA,
-  generalInformationEN,
-  pointsUA,
-  pointsEN,
-} from "@/data/documents/terms-and-conditions/termsContent";
 import { UseDocs } from "@/context/DocsContext";
+import {
+  point0EN,
+  point0UA,
+  pointsEN,
+  pointsUA,
+} from "@/data/documents/public-offer/publicOfferContent";
 
 export default function Content() {
   const docsContext = UseDocs();
-  let generalInformationData =
-    docsContext.lang === "UA" ? generalInformationUA : generalInformationEN;
+  let generalInformationData = docsContext.lang === "UA" ? point0UA : point0EN;
   let pointsData = docsContext.lang === "UA" ? pointsUA : pointsEN;
 
   return (

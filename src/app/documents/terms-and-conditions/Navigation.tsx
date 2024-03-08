@@ -1,15 +1,18 @@
-
+"use client"
 import s from "../documents.module.css";
-import {termsNavigation} from "@/data/documents/terms-and-conditions/termsNavigation";
+import {termsNavigationEN, termsNavigationUA} from "@/data/documents/terms-and-conditions/termsNavigation";
+import {UseDocs} from "@/context/DocsContext";
 
 export default function Navigation() {
+    const docsContext = UseDocs()
+    let navigationData = docsContext.lang === "UA" ? termsNavigationUA : termsNavigationEN
+
   return (
       <div className={s.NavigationWrapper}>
         <p className={s.navigationText} style={{ cursor: "auto" }}>
-            MusicDex terms and conditions
+            Agreement on the Terms and Conditions of Use
         </p>
-        {termsNavigation &&
-            termsNavigation.map((item, i) => {
+        {navigationData.map((item, i) => {
             return (
               <a
                 key={i.toString()}

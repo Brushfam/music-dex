@@ -2,24 +2,23 @@ import s from "../documents.module.css";
 import cs from "../../commonStyles.module.scss";
 import { Header } from "@/components/Header/Header";
 import { Section } from "@/components/ui/Section/Section";
+import { Contacts } from "@/app/documents/components/Contacts/Contacts";
 import Faq from "@/components/Faq/Faq";
 import { Footer } from "@/components/Footer/Footer";
-import Navigation from "@/app/documents/terms-and-conditions/Navigation";
-import Content from "@/app/documents/terms-and-conditions/Content";
-import { Contacts } from "@/app/documents/components/Contacts/Contacts";
 import { DocsProvider } from "@/context/DocsContext";
+import Navigation from "@/app/documents/public-offer/Navigation";
+import Content from "@/app/documents/public-offer/Content";
 
-export default function Terms() {
+export default function PublicOffer() {
   return (
     <DocsProvider>
       <div className={cs.main}>
         <Header />
         <div className={s.pageWrapper}>
-          <Section id={"terms-and-conditions"}>
+          <Section id={"privacy-policy"}>
             <div className={s.titleBlock}>
-              <p className={s.headerText}>
-                TERMS OF USE
-              </p>
+              <p className={s.headerText}>PUBLIC OFFER AGREEMENT</p>
+              <p className={s.lastUpdatedText}>Last updated Feb 27, 2024</p>
             </div>
             <Navigation />
             <Content />

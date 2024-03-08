@@ -1,12 +1,12 @@
 import s from "../documents.module.css";
-import { point0, points } from "@/data/documents/privacy-policy/privacyPolicyContent";
+import { point0EN, pointsEN } from "@/data/documents/privacy-policy/privacyPolicyContent";
 
 export default function Content() {
   return (
     <div className={s.contentWrapper}>
       <div className={s.point}>
-        {point0 &&
-          point0.map((item, i) => {
+        {point0EN &&
+            point0EN.map((item, i) => {
             return (
               <div key={i.toString()} className={s.pointText}>
                 {item.text}
@@ -14,8 +14,8 @@ export default function Content() {
             );
           })}
       </div>
-      {points &&
-        points.map((item, itemNumber) => {
+      {pointsEN &&
+          pointsEN.map((item, itemNumber) => {
           return (
             <div
               key={itemNumber.toString()}

@@ -23,9 +23,10 @@ export function Footer() {
           <a href={"mailto:markian@musicdex.co"} target="_blank">markian@musicdex.co</a>
         </div>
         <div className={s.linksColumn}>
-          <p style={{ marginBottom: 6 }}>Other</p>
+          <p style={{marginBottom: 6}}>Other</p>
           <a href={"/documents/privacy-policy"}>Privacy Policy</a>
           <a href={"/documents/terms-and-conditions"}>Terms and Conditions</a>
+          <a href={"/documents/public-offer"}>Public Offer</a>
         </div>
       </div>
     </div>
