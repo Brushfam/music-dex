@@ -6,7 +6,7 @@ import Faq from "@/components/Faq/Faq";
 import { Footer } from "@/components/Footer/Footer";
 import Navigation from "@/app/documents/privacy-policy/Navigation";
 import Content from "@/app/documents/privacy-policy/Content";
-import { Contacts } from "@/app/documents/components/Contacts";
+import { Contacts } from "@/app/documents/components/Contacts/Contacts";
 import { DocsProvider } from "@/context/DocsContext";
 
 export default function PrivacyPolicy() {

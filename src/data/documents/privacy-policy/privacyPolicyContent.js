@@ -1,12 +1,4 @@
-const ListText = (textList) => {
-    return (
-        <ul style={{ marginLeft: 22, marginBottom: 10 }}>
-            {textList.map((text, index) => {
-                return <li key={index.toString()}>{text}</li>;
-            })}
-        </ul>
-    );
-};
+import {DocsTextList} from "@/components/DocsTextList/DocsTextList";
 
 export const point0EN = [
   {
@@ -180,7 +172,7 @@ export const pointsEN = [
         ),
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "We need it to provide the Services, and personalized features and to protect the safety and security of the Services; ",
           "It satisfies a legitimate interest (which is not overridden by Your rights and interests), such as for research and development, to market and promote the Services and to protect our legal rights and interests;",
           "You give us consent to do so for a specific purpose;",
@@ -216,7 +208,7 @@ export const pointsEN = [
         ),
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "Request access to Your personal information. You may have the right to request access to any personal information We hold about You as well as related information, including the purposes for processing the personal information, the recipients or categories of recipients with whom the personal information has been shared, where possible, the period for which the personal information will be stored, the source of personal information, and the existence of any automated decision making. ",
           "Request correction of Your personal information. You may have the right to obtain without undue delay the rectification of any inaccurate personal information We hold about You. ",
           "Request erasure of Your personal information. You may have the right to request that personal information held about You is deleted.",
@@ -276,7 +268,7 @@ export const pointsEN = [
         ),
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "provide website hosting, maintenance, and security services;",
           "conduct data analysis and create reports;",
           "offer certain functionality;",
@@ -316,7 +308,7 @@ export const pointsEN = [
         ),
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "to take precautions against liability;",
           "protect MusicDex from fraudulent, abusive, or unlawful uses;",
           "to investigate and defend ourselves against third-party claims or allegations; to assist government enforcement agencies; ",
@@ -519,7 +511,7 @@ export const pointsEN = [
         ),
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "remember Your information so that You will not have to re-enter it during Your visit or the next time You access the MusicDex Service;",
           "provide customized third-party advertisements, content and information;",
           "monitor and report on the effectiveness of third-party marketing campaigns;",

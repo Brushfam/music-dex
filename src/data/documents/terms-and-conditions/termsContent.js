@@ -1,12 +1,4 @@
-const ListText = (textList) => {
-  return (
-    <ul style={{ marginLeft: 22, marginBottom: 10 }}>
-      {textList.map((text, index) => {
-        return <li key={index.toString()}>{text}</li>;
-      })}
-    </ul>
-  );
-};
+import { DocsTextList } from "@/components/DocsTextList/DocsTextList";
 
 export const generalInformationEN = [
   {
@@ -228,7 +220,7 @@ export const pointsEN = [
         ),
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "Curating and creating musical performances and songs;",
           "Licensing of master rights and song rights (copyright and/or publication rights);",
           "Worldwide distribution of music products created or licensed by MusicDex, in particular, in relevant streaming and download stores;",
@@ -378,7 +370,7 @@ export const pointsEN = [
         ),
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "You may not change or modify the Platform or any part thereof.",
           "You agree not to take any actions on the Platform that violate applicable law or the rights of third parties.",
           "You agree not to post any information that you believe to be false, misleading or inaccurate.",
@@ -402,7 +394,7 @@ export const pointsEN = [
         ),
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "any behavior that may interrupt, suspend, slow down, or impede the uninterrupted operation of the Services;",
           "all intrusions or attempted intrusions into MusicDex systems;",
           "any misappropriation of the Website's system resources;",
@@ -602,7 +594,7 @@ export const pointsEN = [
         text: <p>MusicDex assumes responsibility for:</p>,
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "The funds raised on the platform are used exclusively for the respective project, for example, to cover part of the costs of music production and marketing.",
           "MusicDex guarantees the fulfillment and observance of agreements with artists, producers, partner labels, licensors, and investors.",
           "Music products are distributed in all relevant stores for streaming and downloading, in accordance with standard industry practices.",
@@ -1047,7 +1039,7 @@ export const pointsUA = [
         ),
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "Кураторство та створення музичних постановок і пісень;",
           "Ліцензування майстер-прав та прав на пісні (авторських прав та/або прав на публікацію);",
           "Всесвітнє розповсюдження музичної продукції, створеної або ліцензованої MusicDex, зокрема, у відповідних магазинах потокового мовлення та завантаження;",
@@ -1207,7 +1199,7 @@ export const pointsUA = [
         ),
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "Ви не маєте права змінювати або модифікувати Платформу або її частини.",
           "Ви погоджуєтеся не вчиняти на Платформі жодних дій, які порушують чинне законодавство або права третіх осіб.",
           "Ви погоджуєтеся не публікувати будь-яку інформацію, яка, на вашу думку, є неправдивою, оманливою або неточною.",
@@ -1230,7 +1222,7 @@ export const pointsUA = [
         ),
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "будь-яка поведінка, яка може перервати, призупинити, уповільнити або перешкодити безперервній роботі Послуг;",
           "усі вторгнення або спроби вторгнень у системи MusicDex;",
           "будь-яке незаконне привласнення системних ресурсів Сайту;",
@@ -1457,7 +1449,7 @@ export const pointsUA = [
         text: <p>MusicDex бере на себе відповідальність за:</p>,
       },
       {
-        text: ListText([
+        text: DocsTextList([
           "Кошти, зібрані на платформі, використовуються виключно для відповідного проекту, наприклад, для покриття частини витрат на виробництво музики та її маркетинг.",
           "MusicDex гарантує виконання та дотримання домовленостей з артистами, продюсерами, лейблами-партнерами, ліцензіарами та інвесторами.",
           "Музична продукція розповсюджується у всіх відповідних магазинах для потокового прослуховування та скачування, відповідно до стандартних галузевих практик.",
