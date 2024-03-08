@@ -18,7 +18,6 @@ export default function PublicOffer() {
           <Section id={"privacy-policy"}>
             <div className={s.titleBlock}>
               <p className={s.headerText}>PUBLIC OFFER AGREEMENT</p>
-              <p className={s.lastUpdatedText}>Last updated Feb 27, 2024</p>
             </div>
             <Navigation />
             <Content />
