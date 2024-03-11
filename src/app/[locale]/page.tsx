@@ -15,6 +15,7 @@ import {
 } from "@/app/[locale]/_components/Tracks/Tracks";
 import Faq from "@/components/Faq/Faq";
 import { useTranslations } from "next-intl";
+import {flowListDataEN, flowListDataUK} from "@/data/homepage/flowListData";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -47,7 +48,7 @@ export default function Home() {
               <h3>{t("how_it_works_header")}</h3>
               <p style={{ width: "100%" }}>{t("how_it_works")}</p>
             </ColumnContainer>
-            <FlowList />
+            <FlowList dataEN={flowListDataEN} dataUK={flowListDataUK} symbol={"0"}/>
           </div>
         </Section>
       </div>

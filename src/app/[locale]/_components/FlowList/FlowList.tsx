@@ -1,12 +1,11 @@
 "use client"
 import s from "./FlowList.module.scss";
-import { flowListDataEN, flowListDataUK } from "@/data/homepage/flowListData";
 import { GreyBlock } from "@/components/ui/GreyBlock/GreyBlock";
 import {useLocale} from "use-intl";
 
-export function FlowList() {
+export function FlowList(props: {dataEN: {text: string}[], dataUK: {text: string}[], symbol: string}) {
   const locale = useLocale();
-  const flowList = locale === "uk" ? flowListDataUK : flowListDataEN
+  const flowList = locale === "uk" ? props.dataUK : props.dataEN
 
   return (
     <div className={s.list}>
@@ -15,7 +14,7 @@ export function FlowList() {
           <GreyBlock key={index}>
             <div className={s.list_item}>
               <div className={s.list_numberBlock}>
-                <p>0{index + 1}</p>
+                <p>{props.symbol}{index + 1}</p>
               </div>
               <p className={s.list_description}>{data.text}</p>
             </div>
