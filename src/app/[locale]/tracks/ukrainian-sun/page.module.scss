@@ -1,0 +1,239 @@
+@import '../../../../constants/constants';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.sectionWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  @media (max-width: 1200px) {
+    padding: 0 40px;
+  }
+
+  @media (max-width: $tablet-size) {
+    padding: 0;
+  }
+}
+
+.trackPageSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 1140px;
+  padding: 60px 0;
+
+  @media (max-width: $desktop-size) {
+    width: auto;
+  }
+
+  @media (max-width: $tablet-size) {
+    width: 72%;
+  }
+
+  @media (max-width: 600px) {
+    width: 92%;
+    padding: 32px 0;
+  }
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  padding-top: 55px;
+  z-index: -1;
+  background-image: url("/backgrounds/track-bg-desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media (max-width: $mobile-size) {
+    padding-top: 66px;
+    background-image: url("/backgrounds/track-bg-mobile.png");
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  margin-top: 56px;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1280px;
+  border-radius: 32px;
+  background: rgb(30, 30, 30);
+
+  @media (max-width: $tablet-size) {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  @media (max-width: 600px) {
+    padding: 12px;
+    gap: 16px;
+    border-radius: 20px;
+  }
+  
+  @media (max-width: $mobile-size) {
+    margin-top: 96px;
+  }
+}
+
+.trackCover {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 12px;
+  height: 480px;
+  width: 310px;
+  min-width: 310px;
+
+  border-radius: 16px;
+  background-image: url("/albums/ukrainian-sun-vertical.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &_songName {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+  }
+
+  @media (max-width: $tablet-size) {
+    width: 100%;
+  }
+
+  @media (max-width: $mobile-size) {
+    max-height: 390px;
+  }
+}
+
+.trackDescription {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $mobile-size) {
+    padding: 8px 8px 8px 8px;
+  }
+}
+
+.titleText {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 130%;
+  color: white;
+}
+
+.descriptionText {
+  font-size: 14px;
+  padding: 22px 0;
+  margin-bottom: 22px;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(90deg, rgba(35,35,32,1) 0%, rgba(175,175,175,1) 50%, rgba(35,35,35,1) 100%) 30;
+}
+
+.videoSectionContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 24px;
+  max-height: 364px;
+  margin-bottom: 60px;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    max-height: 800px;
+    width: 90%;
+  }
+}
+
+.videoContainer {
+  display: flex;
+  flex-direction: column;
+  width: 520px;
+  row-gap: 22px;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: $dark-grey;
+
+  @media (max-width: 1200px) {
+    width: 390px;
+  }
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
+}
+
+.aboutArtistWrapper {
+  overflow: auto;
+}
+
+.aboutArtist {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 16px 8px 16px 16px;
+  margin-top: 8px;
+  width: 580px;
+  border-radius: 8px;
+  background-color: $light-grey;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: white;
+
+  overflow: auto;
+
+  @media (max-width: 1200px) {
+    width: 440px;
+  }
+
+  @media (max-width: 1000px) {
+    max-height: 310px;
+    width: 100%;
+  }
+}
+
+.shadowBox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, $light-grey 100%);
+  height: 40%;
+}
+
+.aboutArtist::-webkit-scrollbar {
+  width: auto;
+}
+
+.aboutArtist::-webkit-scrollbar-track {
+  width: 2px;
+  background-color: rgb(48, 48, 48);
+  border: 4px solid transparent;
+  background-clip: content-box;
+}
+
+.aboutArtist::-webkit-scrollbar-thumb {
+  background-color: rgb(82, 82, 82);;
+  height: 125px;
+  width: 3px;
+  border: 5px solid transparent;
+  border-radius: 10px;
+  background-clip: content-box;
+}
+
+.aboutArtist::-webkit-scrollbar-corner {
+  width: 0;
+  background: transparent;
+}

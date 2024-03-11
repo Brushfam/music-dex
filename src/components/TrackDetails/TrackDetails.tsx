@@ -1,7 +1,12 @@
+"use client"
 import s from "./TrackDetails.module.scss";
-import { trackData } from "@/data/trackData";
+import {trackDataEN, trackDataUK} from "@/data/trackData";
+import {useLocale} from "use-intl";
 
 export function TrackDetails() {
+    const currentLocale = useLocale();
+    const trackData = currentLocale === "uk" ? trackDataUK : trackDataEN
+
   return (
     <div className={s.trackDetails}>
       <div className={s.trackDetails_topRow}>

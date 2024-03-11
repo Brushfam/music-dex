@@ -1,6 +1,6 @@
 import { DocsTextList } from "../../../components/DocsTextList/DocsTextList";
 
-export const point0EN = [
+export const introductionEN = [
   {
     text: (
       <p>
@@ -54,7 +54,7 @@ export const point0EN = [
   },
 ];
 
-export const point0UA = [
+export const introductionUA = [
   {
     text: (
       <p>

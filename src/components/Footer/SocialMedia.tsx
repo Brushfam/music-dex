@@ -1,10 +1,13 @@
 import s from "./Footer.module.scss";
 import { socialMediaData } from "@/data/socialMediaData";
+import {useTranslations} from "next-intl";
 
 export function SocialMedia() {
+    const t = useTranslations("Footer");
+
   return (
     <div className={s.linksColumn}>
-      <p style={{ marginBottom: 6 }}>Social Media</p>
+      <p style={{ marginBottom: 6 }}>{t("social_media")}</p>
       <div className={s.mediaWrapper}>
         {socialMediaData.map((media, index) => {
           return (

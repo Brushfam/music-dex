@@ -1,0 +1,121 @@
+@import '../../../../constants/constants';
+
+.teamList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+
+  @media (max-width: 1140px) {
+    display: grid;
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    width: auto;
+  }
+
+  @media (max-width: $mobile-size) {
+    grid-column-gap: 18px;
+    grid-row-gap: 18px;
+  }
+}
+
+.cardWrapper {
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  background: $secondary-grey;
+
+  @media (max-width: $mobile-size) {
+    padding: 4px;
+  }
+
+  @media (max-width: $mobile-size) {
+    width: 150px;
+  }
+}
+
+.teamCard {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $mobile-size) {
+    position: relative;
+    height: 216px;
+  }
+
+  img {
+    width: 255px;
+    height: 240px;
+    margin-bottom: 24px;
+
+    @media (max-width: $desktop-size) {
+      width: 219px;
+      height: 206px;
+    }
+
+    @media (max-width: $tablet-size) {
+      width: 175px;
+      height: 165px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: $mobile-size) {
+      width: 140px;
+      height: 132px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &_name {
+    margin-bottom: 12px;
+    margin-left: 18px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 110%;
+    text-align: left;
+    color: white;
+
+    @media (max-width: $desktop-size) {
+      font-size: 20px;
+    }
+
+    @media (max-width: $tablet-size) {
+      font-size: 16px;
+      margin-left: 12px;
+    }
+
+    @media (max-width: $mobile-size) {
+      font-size: 17px;
+      margin-left: 8px;
+      margin-bottom: 0;
+    }
+  }
+
+  &_role {
+    margin-bottom: 18px;
+    margin-left: 18px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: left;
+    color: $main-orange;
+
+    @media (max-width: $desktop-size) {
+      font-size: 14px;
+    }
+
+    @media (max-width: $tablet-size) {
+      margin-left: 12px;
+    }
+
+    @media (max-width: $mobile-size) {
+      margin-bottom: 0;
+      margin-left: 0;
+      position: absolute;
+      bottom: 0;
+      left: 8px;
+    }
+  }
+}
