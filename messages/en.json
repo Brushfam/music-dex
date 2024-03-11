@@ -1,0 +1,64 @@
+{
+  "Home": {
+    "banner_header": "Welcome to MusicDex",
+    "banner_description": "Invest in Music Royalties and Shape the Future of Music",
+    "learn_more_button": "Learn more",
+    "how_it_works_header": "MusicDex revolutionizes music investment",
+    "how_it_works": "Here's how it work:",
+    "terms_header": "Invest with confidence",
+    "terms_description": "Our terms include:",
+    "tracks_header": "Tracks Available for Investment",
+    "tracks_description": "Explore our curated selection of tracks ready for investment. Each track represents a unique investment opportunity with potential for passive income.",
+    "tracks_button": "Explore all tracks",
+    "roadmap_header": "Roadmap",
+    "roadmap_description": "Join us on our journey:",
+    "team_header": "Meet the faces behind MusicDex",
+    "Terms": {
+      "first": "Minimum investment amounts",
+      "second": "Royalty distribution frequency",
+      "thirds": "Token redemption options",
+      "fourth": "Investor protection measures"
+    }
+  },
+
+  "Catalog": {
+    "header": "Choose your track",
+    "description": "Invest in Music Royalties and Shape the Future of Music",
+    "song_title": "Tony Tonite x Yarmak - Українське Сонце",
+    "song_genre": "Rap",
+    "song_location": "Ukraine",
+    "song_button": "View Listing"
+  },
+
+  "UkrainianSun": {
+    "song_genre": "Rap",
+    "song_location": "Ukraine",
+    "details": "DETAILS",
+    "watch_video": "WATCH OFFICIAL VIDEO"
+  },
+
+  "FAQ": {
+    "description": "Do you need some help with something or do you have questions on some features?"
+  },
+  "Footer": {
+    "description": "Invest in Music Royalties and Shape the Future of Music",
+    "email": "Email",
+    "social_media": "Social Media",
+    "other": "Other",
+    "privacy_policy": "Privacy Policy",
+    "terms": "Terms and Conditions",
+    "public_offer": "Public Offer"
+  },
+
+  "PrivacyPolicy": {
+    "header": "MusicDex Privacy Policy",
+    "last_updated": "Last updated Feb 27, 2024"
+  },
+  "Terms": {
+    "header": "Terms of use",
+    "description": "Agreement on the Terms and Conditions of Use"
+  },
+  "PublicOffer": {
+    "header": "PUBLIC OFFER AGREEMENT"
+  }
+}

@@ -1,4 +1,22 @@
-export const contactsData = [
+export const contactsDataEN = [
+    {
+        text: "MUSICDEX LLC",
+    },
+    {
+        text: "Ukraine, Kyiv, 01104, Bolsunovska str., building 13-15",
+    },
+    {
+        text: "EDRPOU code 45327185"
+    },
+    {
+        text: "IBAN: UA963052990000026006030137627 for JSC CB \"PRIVATBANK\" (EDRPOU code 14360570, bank code 305299)",
+    },
+    {
+        text: "Director Serhii Volodymyrovych Vozny, acts on the basis of the statute",
+    }
+]
+
+export const contactsDataUK = [
     {
         text: "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ МЮЗІКДЕКС",
     },

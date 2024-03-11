@@ -1,4 +1,4 @@
-export const flowListData = [
+export const flowListDataEN = [
     {
         text: "Artists tokenize their tracks on our platform"
     },
@@ -10,5 +10,20 @@ export const flowListData = [
     },
     {
         text: "Investors can track their investments and earnings through our user-friendly interface"
+    }
+]
+
+export const flowListDataUK = [
+    {
+        text: "Артист токенізує свої треки на платформі"
+    },
+    {
+        text: "Інвестори купують токени, стаючи стейкхолдерами роялті треків"
+    },
+    {
+        text: "Роялті генеруються з стрімінгу треків і розподіляються між токенхолдерами автоматично"
+    },
+    {
+        text: "Інвестори можуть слідкувати за своїми інвестиціями і заробляти через зрозумілий інтерфейс"
     }
 ]

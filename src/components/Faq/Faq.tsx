@@ -1,19 +1,24 @@
-import s from "@/app/page.module.scss";
+"use client";
+import s from "@/app/[locale]/page.module.scss";
 import { ColumnContainer } from "@/components/ui/Containers/Containers";
-import { FaqCard } from "@/components/homepage/FaqCard/FaqCard";
-import { faqData, firstQuestion } from "@/data/faqData";
+import { FaqCard } from "@/components/Faq/FaqCard/FaqCard";
+import { faqDataEN, faqDataUK } from "@/data/faqData";
 import { Section } from "@/components/ui/Section/Section";
+import { useTranslations } from "next-intl";
+import { useLocale } from "use-intl";
 
 export default function Faq() {
+  const t = useTranslations("FAQ");
+  const currentLocale = useLocale();
+  const faqQuestions = currentLocale === "en" ? faqDataEN : faqDataUK;
+  const firstQuestion = faqQuestions[0];
+
   return (
     <Section id={"home-faq"}>
       <div className={s.faqContainer}>
         <ColumnContainer>
           <h3>FAQ</h3>
-          <p className={s.faqDescriptionText}>
-            Do you need some help with something or do you have questions on
-            some features?
-          </p>
+          <p className={s.faqDescriptionText}>{t("description")}</p>
         </ColumnContainer>
         <ColumnContainer>
           <FaqCard
@@ -21,7 +26,7 @@ export default function Faq() {
             answer={firstQuestion.answer}
             first={true}
           ></FaqCard>
-          {faqData.map((data, index) => {
+          {faqQuestions.slice(1, faqQuestions.length).map((data, index) => {
             return (
               <FaqCard
                 key={index.toString()}

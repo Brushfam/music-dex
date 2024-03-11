@@ -4,35 +4,25 @@ import cs from "../../app/commonStyles.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { UseDocs } from "@/context/DocsContext";
+import { useLocale } from "use-intl";
+import { createSharedPathnamesNavigation } from "next-intl/navigation";
 
-function DocsLangSwitcher() {
+function LangSwitcher() {
   const pathname = usePathname();
-  const docsContext = UseDocs();
+  const currentLocale = useLocale();
+  const { Link: LocalLink } = createSharedPathnamesNavigation({
+    locales: ["en", "uk"],
+  });
 
-  function getCurrentLang() {
-    return docsContext.lang === null ? "EN" : docsContext.lang;
-  }
-
-  function handleSwitch() {
-    if (getCurrentLang() === "EN") {
-      docsContext.setLang("UA");
-    } else {
-      docsContext.setLang("EN");
-    }
-  }
-
-  return pathname.includes("/documents/terms") ||
-    pathname.includes("/documents/public-offer") ? (
-    <button
+  return (
+    <LocalLink
+      href={pathname.substring(3) || "/"}
+      locale={currentLocale == "en" ? "uk" : "en"}
       className={cs.headerButton}
-      onClick={() => {
-        handleSwitch();
-      }}
     >
-      <p>{getCurrentLang()}</p>
-    </button>
-  ) : null;
+      <p>{currentLocale.toUpperCase()}</p>
+    </LocalLink>
+  );
 }
 
 export function Header() {
@@ -47,7 +37,7 @@ export function Header() {
             height={32}
           />
         </Link>
-        <DocsLangSwitcher />
+        <LangSwitcher />
       </div>
     </div>
   );

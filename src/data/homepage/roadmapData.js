@@ -1,4 +1,4 @@
-export const roadmapData = [
+export const roadmapDataEN = [
     {
         text: "MVP launch preparation"
     },
@@ -10,5 +10,20 @@ export const roadmapData = [
     },
     {
         text: "Continuous platform enhancement and expansion"
+    }
+]
+
+export const roadmapDataUA = [
+    {
+        text: "Підготовка запуску MVP"
+    },
+    {
+        text: "Партнерство з лідируючими агрегаторами"
+    },
+    {
+        text: "Токенізація треків і запуск IPO"
+    },
+    {
+        text: "Продовження розвитку і покращення платформи"
     }
 ]
