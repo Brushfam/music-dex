@@ -23,7 +23,7 @@
   }
 }
 
-.howItWorksContainer {
+.flowContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -38,6 +38,17 @@
     @media (max-width: $desktop-size) {
       max-width: 370px
     }
+
+    @media (max-width: $desktop-md-size) {
+      text-align: center;
+    }
+  }
+
+  &_title {
+    width: 100%;
+    @media (max-width: $desktop-md-size) {
+      text-align: center;
+    }
   }
 
   @media (max-width: $desktop-size) {
@@ -49,10 +60,6 @@
     flex-direction: column;
     align-items: center;
     gap: 32px;
-
-    p, h3 {
-      text-align: center;
-    }
   }
 
   @media (max-width: $tablet-size) {
@@ -61,7 +68,7 @@
 }
 
 .tracksContainer {
-  @extend .howItWorksContainer;
+  @extend .flowContainer;
 
   @media (max-width: 1200px) {
     margin: 0 20px;

@@ -7,7 +7,7 @@
   img {
     width: 100%;
 
-    @media (max-width: $tablet-size) {
+    @media (max-width: 940px) {
       display: none;
     }
   }
@@ -17,7 +17,7 @@
     padding: 0 6%;
   }
 
-  @media (max-width: $tablet-size) {
+  @media (max-width: 940px) {
     padding: 0;
   }
 }
@@ -25,7 +25,7 @@
 .mobileRoadmap {
   display: none;
 
-  @media (max-width: $tablet-size) {
+  @media (max-width: 940px) {
     display: block;
   }
 }
