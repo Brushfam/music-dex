@@ -42,10 +42,10 @@ export default function Home() {
       {/*  How it works */}
       <div className={s.lightThemeWrapper}>
         <Section id={"home-how-it-works"}>
-          <div className={s.howItWorksContainer}>
+          <div className={s.flowContainer}>
             <ColumnContainer>
               <h3>{t("how_it_works_header")}</h3>
-              <p style={{ width: "100%" }}>{t("how_it_works")}</p>
+              <p className={s.flowContainer_title}>{t("how_it_works")}</p>
             </ColumnContainer>
             <FlowList
               dataEN={flowListDataEN}
