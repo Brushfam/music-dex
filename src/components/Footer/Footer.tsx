@@ -3,6 +3,7 @@ import Image from "next/image";
 import { SocialMedia } from "@/components/Footer/SocialMedia";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export function Footer() {
   const { Link: LocalLink } = createSharedPathnamesNavigation({
@@ -13,12 +14,14 @@ export function Footer() {
   return (
     <div className={s.footerSection} id={"footer"}>
       <div className={s.columnContainer}>
-        <Image
-          alt={"logo"}
-          src={"/logos/MusicDex-logo.svg"}
-          width={200}
-          height={43}
-        />
+        <Link href={"/"} style={{ display: "block" }}>
+          <Image
+            alt={"logo"}
+            src={"/logos/MusicDex-logo.svg"}
+            width={200}
+            height={43}
+          />
+        </Link>
         <p className={s.footerMainText}>{t("description")}</p>
       </div>
       <div className={s.linksBlock}>
@@ -33,7 +36,7 @@ export function Footer() {
             }}
           >
             <Image
-              src={"icons/email-footer.svg"}
+              src={"/icons/email-footer.svg"}
               alt={"email"}
               width={18}
               height={18}
