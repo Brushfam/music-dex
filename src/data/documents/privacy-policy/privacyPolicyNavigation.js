@@ -1,41 +1,77 @@
-export const privacyPolicyNavigation = [
+export const privacyPolicyNavigationEN = [
     {
         point: "Collection of the information"
     },
     {
-        point: "Use of the information"
+        point: "How is information collected?"
     },
     {
-        point: "Your rights"
+        point: "Use of information"
+    },
+    {
+        point: "Retention of the Information"
+    },
+    {
+        point: "Your Rights"
     },
     {
         point: "Disclosure of the information"
     },
     {
-        point: "Your choices and access to your personal information"
+        point: "Data protection"
     },
     {
-        point: "Advertisers and third parties"
+        point: "International Transfer"
     },
     {
-        point: "Data security"
+        point: "Data Security"
     },
     {
-        point: "Retention of the information"
+        point: "Google Analytics and cookies"
     },
     {
-        point: "Minors"
+        point: "Changes and Updates to this Privacy Policy"
     },
     {
-        point: "Сookies"
+        point: "MusicDex Contact Information"
+    },
+]
+
+export const privacyPolicyNavigationUK = [
+    {
+        point: "Збір інформації"
     },
     {
-        point: "International transfer"
+        point: "Способи збирання інформації"
     },
     {
-        point: "Changes and updates to this privacy policy"
+        point: "Використання інформації"
     },
     {
-        point: "MusicDex contact information"
+        point: "Збереження інформації"
+    },
+    {
+        point: "Ваші права"
+    },
+    {
+        point: "Розголошення інформації"
+    },
+    {
+        point: "Захист даних"
+    },
+    {
+        point: "Міжнародна передача даних"
+    },
+    {
+        point: "Безпека даних"
+    },
+    {
+        point: "Google Analytics і файли cookies"
+    },
+    {
+        point: "Зміни та оновлення цієї Політики конфіденційності"
+    },
+    {
+        point: "Контактна інформація MusicDex"
     },
 ]
