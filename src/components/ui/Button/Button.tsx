@@ -24,23 +24,34 @@ export function Button(props: {
     locales: ["en", "uk"],
   });
 
-  return (
+  function Arrow(props: { parameter: boolean }) {
+    return props.parameter ? (
+      <Image
+        src={"/icons/button-arrow.svg"}
+        alt={"arrow"}
+        width={16}
+        height={16}
+      />
+    ) : null;
+  }
+
+  return props.path ? (
     <LocalLink
-      href={props.path || "/"}
+      href={props.path}
       className={colors[props.color]}
       onClick={props.action}
     >
       <p>{props.title}</p>
-      {props.arrow ? (
-        <Image
-          src={"/icons/button-arrow.svg"}
-          alt={"arrow"}
-          width={16}
-          height={16}
-        />
-      ) : (
-        <></>
-      )}
+      <Arrow parameter={props.arrow} />
     </LocalLink>
+  ) : (
+    <button
+      type={"button"}
+      className={colors[props.color]}
+      onClick={props.action}
+    >
+      <p>{props.title}</p>
+      <Arrow parameter={props.arrow} />
+    </button>
   );
 }
