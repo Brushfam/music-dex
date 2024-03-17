@@ -17,14 +17,13 @@ import {
   pointsEN,
   pointsUA,
 } from "@/data/documents/public-offer/publicOfferContent";
-import {useTranslations} from "next-intl";
+import { useTranslations } from "next-intl";
 
 export default function PublicOffer() {
   const t = useTranslations("PublicOffer");
-  
+
   return (
     <div className={cs.main}>
-      <Header />
       <div className={s.pageWrapper}>
         <Section id={"privacy-policy"}>
           <p className={s.headerText}>{t("header")}</p>

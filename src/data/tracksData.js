@@ -1,0 +1,147 @@
+export const ukrainianSunDataEN = {
+  rights_holder: "Tony Tonite",
+  price: 0.0001,
+  details: [
+    {
+      type: "Song Release:",
+      value: "December 2022",
+    },
+    {
+      type: "Published On Platform",
+      value: "February 2024",
+    },
+    {
+      type: "Blockchain:",
+      value: "Polygon",
+    },
+    {
+      type: "Total supply:",
+      value: "100",
+    },
+  ],
+  description:
+    "The premiere of the track took place a week before the New Year, just when all people are used to " +
+    "summing up, but 2022 has become a year of struggle for every Ukrainian. They choose their " +
+    "freedom at a very high price - at the cost of human lives. With this track, Tony Tonite and Yarmak " +
+    "want to support all defenders who will welcome the New Year in the trenches.",
+  about_artist: [
+    "Tony Tonite is a Ukrainian singer, sound producer. ",
+    "In 2009, after graduation, he opened a music production studio in the center of Kyiv. After, he began a solo career as an artist and started releasing tracks under the pseudonym Tony Tonite.",
+    'He recorded his first album "POPSHIT EP" in 2013. Also, in 2013, Tony released the track "Ау-ау-ау", which became a turning point in his career. For a long time, the track was in the rotation ' +
+      "of the world-famous British radio station BBC Radio.",
+    'In 2015, the track "Am in Love" was released, which was noticed in the authoritative music publication Hype Magazine. The next track "My Only" topped the charts of the French national entertainment ' +
+      'TV channel CStar. In June 2016, Tony Tonite released the album "Awake", on which he worked together with the iconic British producer and musician Adrian Tauze, better known by his stage name Tricky. Also ' +
+      'in 2016, the album "Ю" was released. The music video for the main track "Я хотел бы знать" received more than 1 million views in 2 weeks.',
+    "At the end of 2016, he severed all ties with the Gazgolder label and moved to Belarus. From 2017 to 2019, the artist continues work. In 2020, unable to withstand the Belarusian regime, " +
+      "he moved to Turkey with his family.",
+    'In 2021, Tony released his first Ukrainian-language track "Києве мій", which marked the artist\'s return to his native Ukrainian scene. ' +
+      'Another album "1987" was released in June 2021, which includes the joint track "I Wanna Be Foreva Young" with Ivan Dorn.',
+    "After the start of a full-scale war, he returned from Turkey to Kyiv to support his historic Motherland. He is engaged in volunteering, in particular, he participates in charity " +
+      "concerts in support of the military and displaced persons, and also directs his activities to the revival and formation of musical culture in Ukraine.",
+    'The artist recorded the track "Leleka" together with displaced children. This song started a charity collection to help the children of the war and to meet the needs of the Armed Forces of Ukraine.',
+  ],
+};
+
+export const ukrainianSunDataUK = {
+  rights_holder: "Tony Tonite:",
+  price: 0.0001,
+  details: [
+    {
+      type: "Реліз пісні:",
+      value: "Грудень 2022",
+    },
+    {
+      type: "Опубліковано:",
+      value: "Лютий 2024",
+    },
+    {
+      type: "Блокчейн:",
+      value: "Polygon",
+    },
+    {
+      type: "Загальна пропозиція:",
+      value: "100",
+    },
+  ],
+  description:
+      "Прем’єра треку відбувалася за тиждень до Нового року, саме тоді, коли всі люди звикли підбивати підсумки, " +
+      "однак 2022-й став роком незламності для кожного українця. Вони виборюють " +
+      "свою свободу дуже високою ціною. Ціною людських життів. Цим треком Tony Tonite та Yarmak " +
+      "хочуть підтримати усіх захисників, які будуть зустрічати Новий рік в окопах.",
+  about_artist: [
+    "Tony Tonite – український співак, саунд-продюсер.",
+    "У 2009 році, після закінчення навчання, відкрив музичну студію в центрі Києва. Після цього він почав сольну кар'єру і випускає треки під псевдонімом Tony Tonite.",
+    "Записав свій перший альбом «POPSHIT EP» у 2013 році. Того ж, 2013 року Тоні випуска трек «Ау-ау-ау», який стає переломним у кар’єрі. Довгий час трек знаходився у ротації всесвітньо відомої британської радіостанції BBC Radio",
+    "У 2015 виходить трек «Am in Love», на який звернули увагу в авторитетному музичному виданні Hype Magazine[9]. А наступний трек «My Only» очолив чарти національного розважального телеканалу Франції CStar.",
+    "У червні 2016 року Tony Tonite випустив альбом «Awake», над яким працював разом з культовим британським продюсером та музикантом Адріаном Таузем, більш відомим під сценічним псевдонімом Tricky.",
+    "Також у 2016 році вийшов альбом «Ю». Кліп на головну композицію «Я хотел бы знать» набрав понад 1 мільйон переглядів за 2 тижні.",
+    "У кінці 2016 року розірвав усі зв’язки з лейблом Gazgolder та переїхав до Білорусі. З 2017 по 2019 роки артист продовжує займатися творчістю. У 2020 році, не витримавши білоруського режиму, разом з родиною переїжджає до Туреччини.",
+    "У 2021 році Тунайт випустив свій перший україномовний трек «Києве мій», що ознаменував повернення артиста до рідної української сцени. " +
+    "У червні 2021 вийшов ще один альбом «1987», куди входить спільний трек з Іваном Дорном «I Wanna Be Foreva Young».",
+    "Після початку повномасштабної війни Росії проти України категорично припинив роботу та спілкування з російськими виконавцями. У квітні 2022 повернувся з Туреччини до Києва, щоб підтримати свою історичну Батьківщину. " +
+    "Займається волонтерством, зокрема бере участь в благодійних концертах на підтримку військових та переселенців, а також спрямовує свою діяльність на відродження та становлення музичної культури в Україні.",
+    "Трек «Leleka» артист записав спільно з дітьми-переселенцями. Цією піснею розпочався благодійний збір на допомогу дітям війни та на потреби ЗСУ."
+  ],
+};
+
+export const myKyivData = {
+  rights_holder: "Tony Tonite",
+  price: 0.0002,
+  details: [
+    {
+      type: "Song Release:",
+      value: "February 2023",
+    },
+    {
+      type: "Published On Platform",
+      value: "February 2024",
+    },
+    {
+      type: "Blockchain:",
+      value: "Polygon",
+    },
+    {
+      type: "Total supply:",
+      value: "100",
+    },
+  ],
+  description:
+      "The premiere of the track took place a week before the New Year, just when all people are used to " +
+      "summing up, but 2022 has become a year of struggle for every Ukrainian. They choose their " +
+      "freedom at a very high price - at the cost of human lives. With this track, Tony Tonite and Yarmak " +
+      "want to support all defenders who will welcome the New Year in the trenches."
+}
+
+export const og044Data = {
+  rights_holder: "Tony Tonite",
+  price: 0.0005,
+  details: [
+    {
+      type: "Song Release:",
+      value: "May 2022",
+    },
+    {
+      type: "Published On Platform",
+      value: "February 2024",
+    },
+    {
+      type: "Blockchain:",
+      value: "Polygon",
+    },
+    {
+      type: "Total supply:",
+      value: "100",
+    },
+  ],
+  description:
+      "The premiere of the track took place a week before the New Year, just when all people are used to " +
+      "summing up, but 2022 has become a year of struggle for every Ukrainian. They choose their " +
+      "freedom at a very high price - at the cost of human lives. With this track, Tony Tonite and Yarmak " +
+      "want to support all defenders who will welcome the New Year in the trenches."
+}
+
+export const tokensAddresses = {
+  ukrainianSun: "0x83577290e0dcfe0E5603134b7d64281D6ea4B04c",
+  myKyiv: "0x3FF43965c8219f7C1E88BDd0F30cfbD29AD301a3",
+  og044: "0x8c3C83Ea8828768d385B12fEb43fa065a088B7A4"
+}

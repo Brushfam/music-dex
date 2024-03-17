@@ -1,17 +1,21 @@
 "use client"
-import s from "./TrackDetails.module.scss";
-import {trackDataEN, trackDataUK} from "@/data/trackData";
-import {useLocale} from "use-intl";
 
-export function TrackDetails() {
-    const currentLocale = useLocale();
-    const trackData = currentLocale === "uk" ? trackDataUK : trackDataEN
+import s from "./TrackDetails.module.scss";
+import { trackDataType } from "@/types/types";
+import { useLocale } from "use-intl";
+
+export function TrackDetails(props: {
+  dataEN: trackDataType;
+  dataUK: trackDataType;
+}) {
+  const currentLocale = useLocale();
+  const trackData = currentLocale === "uk" ? props.dataUK : props.dataEN;
 
   return (
     <div className={s.trackDetails}>
       <div className={s.trackDetails_topRow}>
+        <p>Rights Holder:</p>
         <p>{trackData.rights_holder}</p>
-        <p>{trackData.name}</p>
       </div>
       {trackData.details.map((data, index) => {
         return (
@@ -21,6 +25,10 @@ export function TrackDetails() {
           </div>
         );
       })}
+      <div className={s.trackDetails_standartRow}>
+        <p style={{ fontWeight: 700 }}>Price per token:</p>
+        <p style={{ fontWeight: 700 }}>{trackData.price} MATIC</p>
+      </div>
     </div>
   );
 }

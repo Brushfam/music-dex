@@ -6,12 +6,12 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 12px;
     padding: 8px 24px 8px 24px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
 
     p {
-      margin-right: 12px;
       color: white;
       font-weight: 500;
     }
@@ -26,19 +26,42 @@
     @include baseButton;
   }
 
-  &_red {
+  &_main {
     @include baseButton;
     background: $main-orange;
   }
 
   &_grey {
     @include baseButton;
-    background: $primary-grey;
+    background: $light-grey;
   }
 
   &_transparent {
     @include baseButton;
     background: transparent;
     border: 1px solid rgb(255, 255, 255);
+  }
+
+  &_loading {
+    @include baseButton;
+    background: transparent;
+
+    p {
+      color: gray;
+      user-select: none;
+    }
+
+    &:hover {
+      filter: none;
+      cursor: initial;
+    }
+  }
+
+  &_formGrey {
+    @include baseButton;
+    background: $light-grey;
+    width: 100%;
+    height: 42px;
+    font-size: 16px;
   }
 }

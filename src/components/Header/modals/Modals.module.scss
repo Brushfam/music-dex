@@ -1,0 +1,90 @@
+@import '../../../constants/constants';
+
+.wrapper {
+  position: absolute;
+  right: 0;
+  top: 56px;
+}
+
+@mixin modalBlockStyle {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1),0 4px 4px 0 rgba(0, 0, 0, 0.05),0 1px 0 0 rgba(0, 0, 0, 0.05);
+  background: $light-grey;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  min-width: 192px;
+
+  @include modalBlockStyle;
+
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+  }
+
+  &:nth-child(1) {
+    border-bottom: none;
+  }
+}
+
+.loginRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 12px 8px 12px;
+  gap: 12px;
+
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(90.00deg, rgba(246, 96, 31, 0.3),rgba(246, 96, 31, 0) 100%);
+  }
+}
+
+.tokenItem {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  &_row {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.adminMenu {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 8px;
+  width: 216px;
+  gap: 10px;
+
+  p {
+    font-size: 14px;
+  }
+
+  @include modalBlockStyle;
+}
+
+@mixin message {
+  line-height: 120%;
+  color: white;
+}
+
+.successMessage {
+  @include message;
+}
+
+.errorMessage {
+  @include message;
+}

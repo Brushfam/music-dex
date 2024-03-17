@@ -24,7 +24,6 @@ export default function PrivacyPolicy() {
 
   return (
     <div className={cs.main}>
-      <Header />
       <div className={s.pageWrapper}>
         <Section id={"privacy-policy"}>
           <div className={s.titleBlock}>

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.scss";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import { UserProvider } from "@/context/UserContext";
+import { Header } from "@/components/Header/Header";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,6 +21,7 @@ interface RootLayoutProps {
     locale: string;
   };
 }
+
 export default function RootLayout({
   children,
   params: { locale },
@@ -26,11 +29,14 @@ export default function RootLayout({
   const messages = useMessages();
   return (
     <html lang={locale}>
-      <body className={inter.className}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
+      <UserProvider>
+        <body className={inter.className} suppressHydrationWarning={true}>
+          <NextIntlClientProvider messages={messages}>
+            <Header />
+            {children}
+          </NextIntlClientProvider>
+        </body>
+      </UserProvider>
     </html>
   );
 }
