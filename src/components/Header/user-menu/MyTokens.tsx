@@ -1,13 +1,17 @@
 "use client";
 
 import cs from "@/app/commonStyles.module.scss";
+import s from "@/components/Header/Header.module.scss";
 import { useEffect, useState } from "react";
 import { UserTokensModal } from "@/components/Header/modals/UserTokensModal";
 import { UseUser } from "@/context/UserContext";
 import { tokensAddresses } from "@/data/tracksData";
 import { getUserTokensData } from "@/services/unipass";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export function MyTokens() {
+  const t = useTranslations("Header");
   const userContext = UseUser();
   const [open, setOpen] = useState(false);
   const [userBalances, setUserBalances] = useState<number[]>([]);
@@ -49,7 +53,27 @@ export function MyTokens() {
           setOpen(!open);
         }}
       >
-        {open ? <p>Close</p> : <p>My tokens</p>}
+        {open ? (
+          <div className={s.mediaWrapper}>
+            <p>{t("close")}</p>
+            <Image
+              src={"/icons/header/arrow.svg"}
+              alt={"arrow"}
+              width={18}
+              height={10}
+            />
+          </div>
+        ) : (
+          <div className={s.mediaWrapper}>
+            <p>{t("my_tokens")}</p>
+            <Image
+              src={"/icons/header/tokens.svg"}
+              alt={"tokens"}
+              width={18}
+              height={18}
+            />
+          </div>
+        )}
       </button>
       {open ? (
         <UserTokensModal

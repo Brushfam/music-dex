@@ -11,6 +11,7 @@ import { LogoutButton } from "@/components/Header/user-menu/Logout";
 import { Login } from "@/components/Header/login/Login";
 import { useLocale } from "use-intl";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
+import {TrackOwner} from "@/components/Header/user-menu/TrackOwner";
 
 function LangSwitcher() {
   const pathname = usePathname();
@@ -36,16 +37,16 @@ export function Header() {
   return (
     <div className={s.header}>
       <div className={s.header_content}>
-        <Link href={"/"} style={{ display: "block", width: 141 }}>
+        <Link href={"/"} className={s.header_logo}>
           <Image
             alt={"logo"}
             src={"/logos/MusicDex-logo.svg"}
-            width={141}
-            height={32}
+            fill={true}
           />
         </Link>
         {userContext.currentUser ? (
           <div className={s.header_row}>
+            <TrackOwner/>
             <MyTokens />
             <LogoutButton />
             <LangSwitcher />

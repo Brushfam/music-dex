@@ -232,28 +232,25 @@ export async function getTestTokens(ethersTo: string) {
   }
 }
 
-export async function sendIncome(fromAddress: string) {
-  try {
-    const tokenAddress = songContractAddress;
-    const data = new utils.Interface([
-      "function sendIncome()",
-    ]).encodeFunctionData("sendIncome", []);
-    const tx = {
-      from: fromAddress,
-      to: tokenAddress,
-      value: parseEther("0.00001").toHexString(),
-      data: data,
-    };
-    let txHash = await unipassWallet.sendTransaction(tx);
-    if (await checkTxStatus(txHash)) {
-      console.log("send Token success", txHash);
-      return true;
-    } else {
-      console.error(`send Token failed, tx hash = ${txHash}`);
-      return false;
-    }
-  } catch (err) {
-    console.log("err", err);
-    return false;
+export async function sendIncome(
+  fromAddress: string,
+  tokenAddress: string,
+  amount: string,
+) {
+  const data = new utils.Interface([
+    "function sendIncome()",
+  ]).encodeFunctionData("sendIncome", []);
+  const tx = {
+    from: fromAddress,
+    to: tokenAddress,
+    value: parseEther(amount).toHexString(),
+    data: data,
+  };
+  let txHash = await unipassWallet.sendTransaction(tx);
+  if (await checkTxStatus(txHash)) {
+    console.log("send Token success", txHash);
+  } else {
+    console.error(`send Token failed, tx hash = ${txHash}`);
+    throw Error("Sending token failed");
   }
 }

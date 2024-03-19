@@ -37,6 +37,19 @@
     "watch_video": "WATCH OFFICIAL VIDEO"
   },
 
+  "Header": {
+    "login": "Log in",
+    "logout": "Log out",
+    "my_tokens": "My tokens",
+    "earned": "Earned",
+    "claim": "Claim",
+    "no_tokes": "You do not have any token.",
+    "my_track": "My track",
+    "send_income": "Send income",
+    "amount": "amount",
+    "close": "Close"
+  },
+
   "FAQ": {
     "description": "Do you need some help with something or do you have questions on some features?"
   },
@@ -52,7 +65,7 @@
 
   "PrivacyPolicy": {
     "header": "MusicDex Privacy Policy",
-    "last_updated": "Last updated: Mar 14, 2024"
+    "last_updated": "Last updated Feb 27, 2024"
   },
   "Terms": {
     "header": "Terms of use",

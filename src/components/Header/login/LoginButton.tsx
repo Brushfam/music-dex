@@ -1,12 +1,17 @@
 "use client";
 
 import cs from "@/app/commonStyles.module.scss";
+import s from "@/components/Header/Header.module.scss";
 import { Dispatch, SetStateAction } from "react";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export function LoginButton(props: {
   open: boolean;
   openModal: Dispatch<SetStateAction<boolean>>;
 }) {
+  const t = useTranslations("Header");
+
   return (
     <button
       type={"button"}
@@ -15,7 +20,27 @@ export function LoginButton(props: {
         props.openModal(!props.open);
       }}
     >
-      {props.open ? <p>Close</p> : <p>Log in</p>}
+      {props.open ? (
+        <div className={s.mediaWrapper}>
+          <p>{t("close")}</p>
+          <Image
+            src={"/icons/header/arrow.svg"}
+            alt={"arrow"}
+            width={18}
+            height={10}
+          />
+        </div>
+      ) : (
+        <div className={s.mediaWrapper}>
+          <p>{t("login")}</p>
+          <Image
+            src={"/icons/header/log-in.svg"}
+            alt={"log in"}
+            width={16}
+            height={18}
+          />
+        </div>
+      )}
     </button>
   );
 }

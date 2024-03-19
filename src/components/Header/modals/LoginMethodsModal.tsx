@@ -4,6 +4,7 @@ import s from "./Modals.module.scss";
 import Image from "next/image";
 import { UseUser } from "@/context/UserContext";
 import { hasAgreement, unipassLogin } from "@/services/unipass";
+import { getTrackOwnerData } from "@/services/helpers";
 
 export function LoginMethodsModal() {
   let userContext = UseUser();
@@ -22,7 +23,7 @@ export function LoginMethodsModal() {
   }
 
   function loginSetup(address: string) {
-    userContext.login(address);
+    userContext.login(address, getTrackOwnerData(address));
     let agreementPromise = hasAgreement(address);
     agreementPromise.then((value) => {
       userContext.setHasAgreement(value);
@@ -31,9 +32,9 @@ export function LoginMethodsModal() {
 
   return (
     <div className={s.wrapper}>
-      <div className={s.block}>
-        <div className={s.loginRow}>
-          <p>via walletConnect</p>
+      <div className={s.loginBlock}>
+        <div className={s.loginBlock_row}>
+          <p>WalletConnect</p>
           <Image
             src={"/icons/wallet.svg"}
             alt={"wallet icon"}
@@ -42,12 +43,12 @@ export function LoginMethodsModal() {
           />
         </div>
         <div
-          className={s.loginRow}
+          className={s.loginBlock_row}
           onClick={() => {
             emailOnClick();
           }}
         >
-          <p>via email</p>
+          <p>Email</p>
           <Image
             src={"/icons/email.svg"}
             alt={"email icon"}

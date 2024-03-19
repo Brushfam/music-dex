@@ -6,19 +6,21 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 type UserContentInterface = {
   currentUser: string;
   hasAgreement: string;
+  trackOwner: string;
   userTokens: string;
   setUserTokens: (tokens: string) => void;
   setHasAgreement: (value: string) => void;
-  login: (user: string) => void;
+  login: (user: string, trackOwnerData: string) => void;
   logout: () => void;
 };
 
 const UserContext = createContext<UserContentInterface>({
-  setHasAgreement(value: string): void {},
   currentUser: "",
   hasAgreement: "",
+  trackOwner: "",
   userTokens: "",
   setUserTokens(tokens: string): void {},
+  setHasAgreement(value: string): void {},
   login: () => {},
   logout: () => {},
 });
@@ -26,10 +28,12 @@ const UserContext = createContext<UserContentInterface>({
 export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [currentUser, setCurrentUser] = useLocalStorage("current-user");
   const [hasAgreement, setHasAgreement] = useLocalStorage("user-agreement");
+  const [trackOwner, setTrackOwner] = useLocalStorage("user-track-owner");
   const [userTokens, setUserTokens] = useLocalStorage("user-tokens");
 
-  const login = (user: string) => {
+  const login = (user: string, trackOwnerData: string) => {
     setCurrentUser(user);
+    setTrackOwner(trackOwnerData);
   };
 
   const logout = () => {
@@ -41,6 +45,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       value={{
         currentUser,
         hasAgreement,
+        trackOwner,
         userTokens,
         setUserTokens,
         setHasAgreement,

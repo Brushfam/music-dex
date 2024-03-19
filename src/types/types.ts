@@ -5,9 +5,8 @@ export type trackDataType = {
     description?: string,
 }
 
-export type TPurchaseArgs = {
-    amount: number;
-    productName: string;
-    productPrice: number;
-    productCount: number;
+export type trackOwnerType = {
+    address: string,
+    track: string,
+    tokenAddress: string
 }
