@@ -4,13 +4,16 @@ import { Labels } from "@/components/Labels/Labels";
 import { Button } from "@/components/ui/Button/Button";
 import { TrackDetails } from "@/components/TrackDetails/TrackDetails";
 import {
-  myKyivData,
-  og044Data,
+  myKyivDataEN, myKyivDataUK,
+  og044DataEN, og044DataUK,
   ukrainianSunDataEN,
   ukrainianSunDataUK,
 } from "@/data/tracksData";
+import {useTranslations} from "next-intl";
 
 export function Catalog() {
+  const t = useTranslations("Catalog");
+
   return (
     <div className={s.catalog}>
       <GreyBlock borderRadius={12}>
@@ -22,13 +25,13 @@ export function Catalog() {
           />
           <div className={s.trackCard_description}>
             <p className={s.trackCard_title}>Tony Tonite - Українське Сонце</p>
-            <Labels genre={"Rap"} location={"Ukraine"} />
+            <Labels genre={t("song_genre")} location={t("song_location")} />
             <TrackDetails
               dataEN={ukrainianSunDataEN}
               dataUK={ukrainianSunDataUK}
             />
             <Button
-              title={"View Listing"}
+              title={t("song_button")}
               color={"main"}
               arrow={true}
               path={"/tracks/ukrainian-sun"}
@@ -47,10 +50,10 @@ export function Catalog() {
           />
           <div className={s.trackCard_description}>
             <p className={s.trackCard_title}>Tony Tonite - Києве мій</p>
-            <Labels genre={"Rap"} location={"Ukraine"} />
-            <TrackDetails dataEN={myKyivData} dataUK={myKyivData} />
+            <Labels genre={t("song_genre")} location={t("song_location")} />
+            <TrackDetails dataEN={myKyivDataEN} dataUK={myKyivDataUK} />
             <Button
-              title={"View Listing"}
+              title={t("song_button")}
               color={"main"}
               arrow={true}
               path={"/tracks/demo/my-kyiv"}
@@ -67,10 +70,10 @@ export function Catalog() {
           />
           <div className={s.trackCard_description}>
             <p className={s.trackCard_title}>Tony Tonite - OG 044</p>
-            <Labels genre={"Rap"} location={"Ukraine"} />
-            <TrackDetails dataEN={og044Data} dataUK={og044Data} />
+            <Labels genre={t("song_genre")} location={t("song_location")} />
+            <TrackDetails dataEN={og044DataEN} dataUK={og044DataUK} />
             <Button
-              title={"View Listing"}
+              title={t("song_button")}
               color={"main"}
               arrow={true}
               path={"/tracks/demo/og044"}

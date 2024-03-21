@@ -10,16 +10,23 @@ import { Footer } from "@/components/Footer/Footer";
 import React, { useState } from "react";
 import { trackDataType } from "@/types/types";
 import { AgreementModal } from "@/components/AgreementModal/AgreementModal";
+import { useTranslations } from "next-intl";
+import { useLocale } from "use-intl";
 
 type PageTemplateProps = {
   children?: React.ReactNode;
   artist: string;
   songName: string;
   tokenAddress: string;
-  trackData: trackDataType;
+  trackDataEN: trackDataType;
+  trackDataUK: trackDataType;
 };
 
 export function PageTemplate(props: PageTemplateProps) {
+  const t = useTranslations("Catalog");
+  const currentLocale = useLocale();
+  const trackData =
+    currentLocale === "uk" ? props.trackDataUK : props.trackDataEN;
   const [agreementModal, setAgreementModal] = useState(false);
 
   function TrackDescription() {
@@ -28,8 +35,12 @@ export function PageTemplate(props: PageTemplateProps) {
         <p className={s.titleText} style={{ marginBottom: 16 }}>
           {props.songName}
         </p>
-        <Labels author={props.artist} genre={"Rap"} location={"Ukraine"} />
-        <p className={s.descriptionText}>{props.trackData.description}</p>
+        <Labels
+          author={props.artist}
+          genre={t("song_genre")}
+          location={t("song_location")}
+        />
+        <p className={s.descriptionText}>{trackData.description}</p>
         <p
           style={{
             fontSize: 16,
@@ -38,9 +49,9 @@ export function PageTemplate(props: PageTemplateProps) {
             marginBottom: 8,
           }}
         >
-          DETAILS
+          {t("details")}
         </p>
-        <TrackDetails dataEN={props.trackData} dataUK={props.trackData} />
+        <TrackDetails dataEN={props.trackDataEN} dataUK={props.trackDataUK} />
       </div>
     );
   }
@@ -58,7 +69,7 @@ export function PageTemplate(props: PageTemplateProps) {
             </div>
             <TrackDescription />
             <SharesBlock
-              price={props.trackData.price}
+              price={trackData.price}
               tokenAddress={props.tokenAddress}
               tokenName={props.songName}
               setModal={setAgreementModal}

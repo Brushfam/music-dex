@@ -25,9 +25,12 @@
     "header": "Choose your track",
     "description": "Invest in Music Royalties and Shape the Future of Music",
     "song_title": "Tony Tonite x Yarmak - Українське Сонце",
+    "rights_holder": "Rights Holder:",
     "song_genre": "Rap",
     "song_location": "Ukraine",
-    "song_button": "View Listing"
+    "price_text": "Price per token:",
+    "song_button": "Track page",
+    "details": "DETAILS"
   },
 
   "UkrainianSun": {
@@ -47,7 +50,13 @@
     "my_track": "My track",
     "send_income": "Send income",
     "amount": "amount",
-    "close": "Close"
+    "invalid_amount": "Invalid amount.",
+    "close": "Close",
+    "toaster": {
+      "income_info": "Sending income...",
+      "income_success": "Income was sent successfully.",
+      "income_error": "Sending income failed."
+    }
   },
 
   "FAQ": {
@@ -73,5 +82,36 @@
   },
   "PublicOffer": {
     "header": "PUBLIC OFFER AGREEMENT"
+  },
+
+  "AgreementModal": {
+    "close": "Close",
+    "accept": "Accept",
+    "loading_button": "Saving...",
+    "agreement_title": "PUBLIC OFFER AGREEMENT",
+    "toaster": {
+      "verifying_error": "Error during verification.",
+      "sign_error": "Something went wrong.",
+      "sign_success": "Agreement accepted!"
+    }
+  },
+
+  "SharesBlock": {
+    "header": "Select token amount",
+    "sold_out": "Sold out",
+    "price": "Price",
+    "ownership": "Ownership",
+    "min": "min.",
+    "max": "max.",
+    "please_login": "Please log in to buy tokens.",
+    "sign_agreement": "Agreement",
+    "agreement_description": "To buy tokens, you need to accept the terms of the agreement.",
+    "ByCrypto": {
+      "default": "Purchase by Crypto",
+      "loading": "Transaction executing...",
+      "info": "Please wait for the transaction to complete.",
+      "success": "Success! Your tokens will be transferred within 30 seconds.",
+      "error": "Something went wrong."
+    }
   }
 }

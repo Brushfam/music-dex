@@ -38,15 +38,11 @@ export function Header() {
     <div className={s.header}>
       <div className={s.header_content}>
         <Link href={"/"} className={s.header_logo}>
-          <Image
-            alt={"logo"}
-            src={"/logos/MusicDex-logo.svg"}
-            fill={true}
-          />
+          <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
         </Link>
         {userContext.currentUser ? (
           <div className={s.header_row}>
-            <TrackOwner/>
+            <TrackOwner />
             <MyTokens />
             <LogoutButton />
             <LangSwitcher />

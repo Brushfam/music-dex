@@ -3,43 +3,94 @@
 import s from "./AgreementModal.module.scss";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
-import { signAgreement, unipassSignMessage } from "@/services/unipass";
+import { signAgreement } from "@/services/unipass";
 import { UseUser } from "@/context/UserContext";
-import { unipassVerifySignature } from "@/services/unipass-server";
 import {
   introductionEN,
+  introductionUA,
   pointsEN,
+  pointsUA,
 } from "@/data/documents/public-offer/publicOfferContent";
+import { useTranslations } from "next-intl";
+import { useLocale } from "use-intl";
+import {toast} from "sonner";
 
 export function AgreementModal(props: {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const userContext = UseUser();
-  const [loadingMessage, setLoadingMessage] = useState("");
+  const currentLocale = useLocale();
+
+  const [introduction, points] =
+    currentLocale === "uk"
+      ? [introductionUA, pointsUA]
+      : [introductionEN, pointsEN];
+  const t = useTranslations("AgreementModal");
+  const [loading, setLoading] = useState(false);
 
   async function handleSignAgreement() {
-    setLoadingMessage("Signing...");
-    let sig = await unipassSignMessage("test");
-    if (!sig) {
-      return;
-    }
+    setLoading(true);
+    signAgreement(userContext.currentUser).then(() => {
+      userContext.setHasAgreement("true");
+      toast.success(t("toaster.sign_success"));
+      setLoading(false);
+      props.setModal(false);
+    }).catch((e) => {
+      toast.error(t("toaster.sign_error"));
+      console.log(e)
+      props.setModal(false);
+    })
+  }
 
-    setLoadingMessage("Saving...");
-    await unipassVerifySignature("test", sig, userContext.currentUser);
-    await signAgreement(userContext.currentUser);
+  function LoadingButton() {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
+        <Button title={t("loading_button")} color={"loading"} arrow={false} />
+      </div>
+    );
+  }
 
-    userContext.setHasAgreement("true");
-    setLoadingMessage("");
-    props.setModal(false);
+  function ButtonsRow() {
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <Button
+          title={t("close")}
+          color={"grey"}
+          arrow={false}
+          action={() => {
+            props.setModal(false);
+          }}
+        />
+        <Button
+          title={t("accept")}
+          color={"main"}
+          arrow={false}
+          action={async () => {
+            await handleSignAgreement();
+          }}
+        />
+      </div>
+    );
   }
 
   return (
     <div className={s.overlay}>
       <div className={s.modal}>
         <div className={s.textBlock}>
-          <p className={s.headerText}>PUBLIC OFFER AGREEMENT</p>
+          <p className={s.headerText}>{t("agreement_title")}</p>
           <div className={s.point}>
-            {introductionEN.map((item, i) => {
+            {introduction.map((item, i) => {
               return (
                 <div key={i.toString()} className={s.pointText}>
                   {item.text}
@@ -47,7 +98,7 @@ export function AgreementModal(props: {
               );
             })}
           </div>
-          {pointsEN.map((item, itemNumber) => {
+          {points.map((item, itemNumber) => {
             return (
               <div
                 key={itemNumber.toString()}
@@ -70,41 +121,7 @@ export function AgreementModal(props: {
         <div className={s.dividerBlock}>
           <div className={s.shadowElement} />
         </div>
-        {loadingMessage.length ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-            }}
-          >
-            <Button title={loadingMessage} color={"loading"} arrow={false} />
-          </div>
-        ) : (
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <Button
-              title={"Close"}
-              color={"grey"}
-              arrow={false}
-              action={() => {
-                props.setModal(false);
-              }}
-            />
-            <Button
-              title={"Accept"}
-              color={"main"}
-              arrow={false}
-              action={async () => {
-                await handleSignAgreement();
-              }}
-            />
-          </div>
-        )}
+        {loading ? <LoadingButton /> : <ButtonsRow />}
       </div>
     </div>
   );

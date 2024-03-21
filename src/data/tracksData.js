@@ -84,7 +84,7 @@ export const ukrainianSunDataUK = {
   ],
 };
 
-export const myKyivData = {
+export const myKyivDataEN = {
   rights_holder: "Tony Tonite",
   price: 0.0002,
   details: [
@@ -112,7 +112,35 @@ export const myKyivData = {
       "want to support all defenders who will welcome the New Year in the trenches."
 }
 
-export const og044Data = {
+export const myKyivDataUK = {
+  rights_holder: "Tony Tonite",
+  price: 0.0002,
+  details: [
+    {
+      type: "Реліз пісні:",
+      value: "Грудень 2022",
+    },
+    {
+      type: "Опубліковано:",
+      value: "Лютий 2024",
+    },
+    {
+      type: "Блокчейн:",
+      value: "Polygon",
+    },
+    {
+      type: "Загальна пропозиція:",
+      value: "100",
+    },
+  ],
+  description:
+      "Прем’єра треку відбувалася за тиждень до Нового року, саме тоді, коли всі люди звикли підбивати підсумки, " +
+      "однак 2022-й став роком незламності для кожного українця. Вони виборюють " +
+      "свою свободу дуже високою ціною. Ціною людських життів. Цим треком Tony Tonite та Yarmak " +
+      "хочуть підтримати усіх захисників, які будуть зустрічати Новий рік в окопах."
+}
+
+export const og044DataEN = {
   rights_holder: "Tony Tonite",
   price: 0.0005,
   details: [
@@ -138,6 +166,34 @@ export const og044Data = {
       "summing up, but 2022 has become a year of struggle for every Ukrainian. They choose their " +
       "freedom at a very high price - at the cost of human lives. With this track, Tony Tonite and Yarmak " +
       "want to support all defenders who will welcome the New Year in the trenches."
+}
+
+export const og044DataUK = {
+  rights_holder: "Tony Tonite",
+  price: 0.0005,
+  details: [
+    {
+      type: "Реліз пісні:",
+      value: "Грудень 2022",
+    },
+    {
+      type: "Опубліковано:",
+      value: "Лютий 2024",
+    },
+    {
+      type: "Блокчейн:",
+      value: "Polygon",
+    },
+    {
+      type: "Загальна пропозиція:",
+      value: "100",
+    },
+  ],
+  description:
+      "Прем’єра треку відбувалася за тиждень до Нового року, саме тоді, коли всі люди звикли підбивати підсумки, " +
+      "однак 2022-й став роком незламності для кожного українця. Вони виборюють " +
+      "свою свободу дуже високою ціною. Ціною людських життів. Цим треком Tony Tonite та Yarmak " +
+      "хочуть підтримати усіх захисників, які будуть зустрічати Новий рік в окопах."
 }
 
 export const tokensAddresses = {

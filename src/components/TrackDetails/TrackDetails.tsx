@@ -1,20 +1,22 @@
-"use client"
+"use client";
 
 import s from "./TrackDetails.module.scss";
 import { trackDataType } from "@/types/types";
 import { useLocale } from "use-intl";
+import {useTranslations} from "next-intl";
 
 export function TrackDetails(props: {
   dataEN: trackDataType;
   dataUK: trackDataType;
 }) {
+    const t = useTranslations("Catalog");
   const currentLocale = useLocale();
   const trackData = currentLocale === "uk" ? props.dataUK : props.dataEN;
 
   return (
     <div className={s.trackDetails}>
       <div className={s.trackDetails_topRow}>
-        <p>Rights Holder:</p>
+        <p>{t("rights_holder")}</p>
         <p>{trackData.rights_holder}</p>
       </div>
       {trackData.details.map((data, index) => {
@@ -26,7 +28,7 @@ export function TrackDetails(props: {
         );
       })}
       <div className={s.trackDetails_standartRow}>
-        <p style={{ fontWeight: 700 }}>Price per token:</p>
+        <p style={{ fontWeight: 700 }}>{t("price_text")}</p>
         <p style={{ fontWeight: 700 }}>{trackData.price} MATIC</p>
       </div>
     </div>

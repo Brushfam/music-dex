@@ -1,4 +1,5 @@
 "use client";
+
 import s from "./Modals.module.scss";
 import { Button } from "@/components/ui/Button/Button";
 import { sendIncome } from "@/services/unipass";
@@ -6,6 +7,7 @@ import { UseUser } from "@/context/UserContext";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { trackOwnerType } from "@/types/types";
+import { toast } from "sonner";
 
 export function TrackOwnerModal(props: { trackOwnerData: trackOwnerType }) {
   const t = useTranslations("Header");
@@ -25,18 +27,20 @@ export function TrackOwnerModal(props: { trackOwnerData: trackOwnerType }) {
       return;
     }
 
-    let res = sendIncome(
-      userContext.currentUser,
-      props.trackOwnerData.tokenAddress,
-      found[0].trim(),
+    toast.promise(
+      sendIncome(
+        userContext.currentUser,
+        props.trackOwnerData.tokenAddress,
+        found[0].trim(),
+      ),
+      {
+        loading: t("toaster.income_info"),
+        success: () => {
+          return t("toaster.income_success");
+        },
+        error: t("toaster.income_error"),
+      },
     );
-    res
-      .then(() => {
-        console.log("success");
-      })
-      .catch((e) => {
-        console.log(e);
-      });
   }
 
   return (
@@ -62,7 +66,7 @@ export function TrackOwnerModal(props: { trackOwnerData: trackOwnerType }) {
         />
         {amountError ? (
           <p style={{ color: "#ff4d4d", lineHeight: "100%" }}>
-            Invalid amount.
+            {t("invalid_amount")}
           </p>
         ) : null}
         <Button

@@ -8,6 +8,7 @@ import {
   songContractAbi,
   songContractAddress,
 } from "@/data/contractsData";
+import { verifyMessageSignature } from "@unipasswallet/popup-utils";
 
 const unipassWallet = new UniPassPopupSDK({
   env: "test",
@@ -15,7 +16,7 @@ const unipassWallet = new UniPassPopupSDK({
   storageType: "localStorage",
   appSettings: {
     theme: UniPassTheme.DARK,
-    appName: "wallet integration demo",
+    appName: "MusicDex",
     appIcon: "",
   },
 });
@@ -30,9 +31,9 @@ function getBaseSigner() {
   const baseAccount = utils.HDNode.fromMnemonic(basePrivateKey).derivePath(
     `m/44'/60'/0'/0/${0}`,
   );
-  let _testProvider = new providers.JsonRpcProvider(
-      "https://rpc-mumbai.maticvigil.com/",
-  );
+  // let testProvider = new providers.JsonRpcProvider(
+  //     "https://rpc-mumbai.maticvigil.com/",
+  // );
   return new Wallet(baseAccount, unipassWallet.getProvider());
 }
 
@@ -87,8 +88,7 @@ export async function signAgreement(user: string) {
     baseContractAbi,
     getBaseSigner(),
   );
-  let signTx = await baseToken.signAgreement(user);
-  console.log(signTx);
+  await baseToken.signAgreement(user);
 }
 
 export async function hasAgreement(user: string) {
@@ -142,23 +142,19 @@ export async function unipassBuyTokens(
   amountToBuy: number,
   contractAddress: string,
 ) {
-  try {
-    await checkFreeTokens(contractAddress, amountToBuy);
-    const tx = {
-      from: user,
-      to: "0xBb39B8fe384Bad8Bd60Eb68EbCDE4F0569fC2017",
-      value: parseEther(amountToPay).toHexString(),
-      data: "0x",
-    };
-    let txHash = await unipassWallet.sendTransaction(tx);
-    if (await checkTxStatus(txHash)) {
-      console.log("send Native Token success", txHash);
-      await addTokenholderBalance(user, amountToBuy, contractAddress);
-    } else {
-      console.error(`send Native Token failed, tx hash = ${txHash}`);
-    }
-  } catch (err) {
-    console.log("err", err);
+  await checkFreeTokens(contractAddress, amountToBuy);
+  const tx = {
+    from: user,
+    to: "0xBb39B8fe384Bad8Bd60Eb68EbCDE4F0569fC2017",
+    value: parseEther(amountToPay).toHexString(),
+    data: "0x",
+  };
+  let txHash = await unipassWallet.sendTransaction(tx);
+  if (await checkTxStatus(txHash)) {
+    console.log("send Native Token success", txHash);
+    await addTokenholderBalance(user, amountToBuy, contractAddress);
+  } else {
+    console.error(`send Native Token failed, tx hash = ${txHash}`);
   }
 }
 

@@ -9,24 +9,19 @@ export async function unipassVerifySignature(
 ) {
   "use server";
   try {
-      let testProvider = new providers.JsonRpcProvider({
-          skipFetchSetup: true,
-          url: "https://rpc-mumbai.maticvigil.com/"
-      }
-      );
-    const ret = await verifyMessageSignature(
+    const testProvider = new providers.JsonRpcProvider({
+      skipFetchSetup: true,
+      url: "https://rpc-mumbai.maticvigil.com/",
+    });
+    return await verifyMessageSignature(
       message,
       sig,
       address,
       false,
       testProvider,
     );
-    if (ret) {
-      console.log("verify signature success");
-    } else {
-      console.error("verify signature failed");
-    }
   } catch (err) {
     console.log("auth err", err);
+    return false;
   }
 }

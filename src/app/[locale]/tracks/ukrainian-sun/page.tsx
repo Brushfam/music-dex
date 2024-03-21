@@ -1,5 +1,5 @@
 import s from "./page.module.scss";
-import { tokensAddresses, ukrainianSunDataEN } from "@/data/tracksData";
+import {tokensAddresses, ukrainianSunDataEN, ukrainianSunDataUK} from "@/data/tracksData";
 import { YoutubeVideo } from "@/app/[locale]/tracks/_components/YoutubeVideo";
 import { PageTemplate } from "@/app/[locale]/tracks/_components/PageTemplate/PageTemplate";
 import { useTranslations } from "next-intl";
@@ -13,7 +13,8 @@ export default function UkrainianSunTrack() {
       artist={"Tony Tonite"}
       songName={"Українське Сонце"}
       tokenAddress={tokensAddresses.ukrainianSun}
-      trackData={ukrainianSunDataEN}
+      trackDataEN={ukrainianSunDataEN}
+      trackDataUK={ukrainianSunDataUK}
     >
       <div className={s.sectionWrapper}>
         <div className={s.videoSectionContainer}>

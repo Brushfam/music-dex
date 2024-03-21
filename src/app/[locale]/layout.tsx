@@ -4,6 +4,7 @@ import "../globals.scss";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { UserProvider } from "@/context/UserContext";
 import { Header } from "@/components/Header/Header";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
       <UserProvider>
         <body className={inter.className} suppressHydrationWarning={true}>
           <NextIntlClientProvider messages={messages}>
+            <Toaster richColors />
             <Header />
             {children}
           </NextIntlClientProvider>

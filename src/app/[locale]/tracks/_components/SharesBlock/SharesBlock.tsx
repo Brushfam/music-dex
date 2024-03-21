@@ -9,6 +9,7 @@ import { UseUser } from "@/context/UserContext";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { ByCrypto } from "@/app/[locale]/tracks/_components/PaymentMethods/ByCrypto";
 import { Button } from "@/components/ui/Button/Button";
+import {useTranslations} from "next-intl";
 
 const theme = createTheme({
   palette: {
@@ -25,6 +26,7 @@ export function SharesBlock(props: {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const userContext = UseUser();
+    const t = useTranslations("SharesBlock");
   const price = props.price;
   const [prevAmount, setPrevAmount] = useState(price);
   const [tokenAmount, setTokenAmount] = useState(price);
@@ -92,12 +94,12 @@ export function SharesBlock(props: {
           <p style={{ fontSize: 16, userSelect: "none" }}>-</p>
         </div>
         <div className={s.priceTextBlock} style={{ width: 63 }}>
-          <p style={{ fontSize: 8, fontWeight: 500 }}>Price</p>
+          <p style={{ fontSize: 9, fontWeight: 500 }}>{t("price")}</p>
           <p style={{ fontSize: 18, fontWeight: 700 }}>{tokenAmount}</p>
         </div>
         <div className={s.priceTextBlock_divider} />
         <div className={s.priceTextBlock}>
-          <p style={{ fontSize: 8, fontWeight: 500 }}>Ownership</p>
+          <p style={{ fontSize: 9, fontWeight: 500 }}>{t("ownership")}</p>
           <p style={{ fontSize: 18, fontWeight: 700 }}>{getPercentAmount()}%</p>
         </div>
         <div
@@ -122,28 +124,28 @@ export function SharesBlock(props: {
           tokensToBuy={tokenAmount / price}
           address={props.tokenAddress}
         />
-        {/*<ByFiat*/}
-        {/*  amount={tokenAmount}*/}
-        {/*  productName={props.tokenName}*/}
-        {/*  productPrice={price}*/}
-        {/*  productCount={Math.ceil(tokenAmount / price)}*/}
-        {/*/>*/}
+        {/* by fiat */}
       </div>
     ) : (
-      <Button
-        title={"Sign Agreement"}
-        color={"main"}
-        arrow={false}
-        action={() => {
-          props.setModal(true);
-        }}
-      />
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        <Button
+          title={t("sign_agreement")}
+          color={"main"}
+          arrow={true}
+          action={() => {
+            props.setModal(true);
+          }}
+        />
+        <p style={{ textAlign: "center", fontSize: 13, lineHeight: "120%" }}>
+            {t("agreement_description")}
+        </p>
+      </div>
     );
   }
 
   return totalAmount ? (
     <div className={s.sharesBlock}>
-      <p className={s.title}>Select token amount</p>
+      <p className={s.title}>{t("header")}</p>
       <div className={s.priceBlockWrapper}>
         <PriceBlock />
         <ThemeProvider theme={theme}>
@@ -160,7 +162,7 @@ export function SharesBlock(props: {
         <div className={s.rowContainer}>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <p className={s.boldSmallText}>1</p>
-            <p className={s.smallText}>min.</p>
+            <p className={s.smallText}>{t("min")}</p>
           </div>
           <div
             style={{
@@ -170,7 +172,7 @@ export function SharesBlock(props: {
             }}
           >
             <p className={s.boldSmallText}>{totalAmount}</p>
-            <p className={s.smallText}>max.</p>
+            <p className={s.smallText}>{t("max")}</p>
           </div>
         </div>
       </div>
@@ -178,18 +180,18 @@ export function SharesBlock(props: {
         <PaymentButtons />
       ) : (
         <p style={{ color: "white", fontWeight: 600 }}>
-          Please log in to buy tokens.
+            {t("please_login")}
         </p>
       )}
     </div>
   ) : totalAmount === undefined ? (
     <div className={s.sharesBlock}>
-      <p className={s.title}>Select token amount</p>
+      <p className={s.title}>{t("header")}</p>
       <Spinner />
     </div>
   ) : (
     <div className={s.sharesBlock}>
-      <p className={s.title}>Sold out</p>
+      <p className={s.title}>{t("sold_out")}</p>
     </div>
   );
 }

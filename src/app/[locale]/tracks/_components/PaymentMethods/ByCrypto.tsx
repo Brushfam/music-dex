@@ -1,6 +1,8 @@
-import {Dispatch, SetStateAction, useState} from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
 import { unipassBuyTokens } from "@/services/unipass";
+import { useTranslations } from "next-intl";
+import { toast } from "sonner";
 
 export function ByCrypto(props: {
   user: string;
@@ -8,28 +10,42 @@ export function ByCrypto(props: {
   tokensToBuy: number;
   address: string;
 }) {
+  const t = useTranslations("SharesBlock.ByCrypto");
   const [loading, setLoading] = useState(false);
 
+  function handlePurchase() {
+    toast.promise(
+      unipassBuyTokens(
+        props.user,
+        props.tokensToPay,
+        props.tokensToBuy,
+        props.address,
+      ),
+      {
+        loading: t("info"),
+        success: () => {
+          setLoading(false);
+          return t("success");
+        },
+        error: () => {
+          setLoading(false);
+          return t("error")
+        },
+      },
+    );
+  }
+
   return loading ? (
-    <Button
-      title={"Transaction executing..."}
-      color={"loading"}
-      arrow={false}
-    />
+    <Button title={t("loading")} color={"loading"} arrow={false} />
   ) : (
     <Button
-      title={"Purchase by Crypto"}
+      title={t("default")}
       color={"main"}
       arrow={true}
-      action={async () => {
+      action={() => {
         setLoading(true);
-        await unipassBuyTokens(
-          props.user,
-          props.tokensToPay,
-          props.tokensToBuy,
-          props.address,
-        );
-        setLoading(false);
+        handlePurchase();
+
       }}
     />
   );

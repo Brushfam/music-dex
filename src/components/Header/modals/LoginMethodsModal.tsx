@@ -27,7 +27,9 @@ export function LoginMethodsModal() {
     let agreementPromise = hasAgreement(address);
     agreementPromise.then((value) => {
       userContext.setHasAgreement(value);
-    });
+    }).catch((e) => {
+      console.log(e)
+    })
   }
 
   return (
