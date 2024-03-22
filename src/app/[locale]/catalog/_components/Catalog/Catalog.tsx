@@ -15,7 +15,7 @@ export function Catalog() {
         <div className={s.trackCard}>
           <div style={{height: 210, overflow: "hidden", borderRadius: 10}}>
             <img
-              src={"/albums/dealer.png"}
+              src={"/albums/dealer.jpg"}
               alt={"track cover"}
               className={s.trackCard_cover}
             />
