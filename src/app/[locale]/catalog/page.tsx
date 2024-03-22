@@ -3,7 +3,7 @@ import s from "./page.module.scss";
 import { Footer } from "@/components/Footer/Footer";
 import Faq from "@/components/Faq/Faq";
 import { Section } from "@/components/ui/Section/Section";
-import { Catalog } from "@/app/[locale]/catalog/components/Catalog/Catalog";
+import { Catalog } from "@/app/[locale]/catalog/_components/Catalog/Catalog";
 import { useTranslations } from "next-intl";
 
 export default function CatalogPage() {

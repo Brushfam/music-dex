@@ -6,12 +6,12 @@ import { useTranslations } from "next-intl";
 import { AboutArtist } from "@/app/[locale]/tracks/ukrainian-sun/AboutArtist";
 
 export default function UkrainianSunTrack() {
-  const t = useTranslations("UkrainianSun");
+  const t = useTranslations("Dealer");
 
   return (
     <PageTemplate
       artist={"Tony Tonite"}
-      songName={"Українське Сонце"}
+      songName={"Дилер"}
       tokenAddress={tokensAddresses.ukrainianSun}
       trackDataEN={ukrainianSunDataEN}
       trackDataUK={ukrainianSunDataUK}
@@ -28,7 +28,7 @@ export default function UkrainianSunTrack() {
             >
               {t("watch_video")}
             </p>
-            <YoutubeVideo id={"hsHSJIAGUPg"} />
+            <YoutubeVideo id={"Jb5qdg30jSU"} />
           </div>
           <AboutArtist />
         </div>

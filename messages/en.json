@@ -24,7 +24,7 @@
   "Catalog": {
     "header": "Choose your track",
     "description": "Invest in Music Royalties and Shape the Future of Music",
-    "song_title": "Tony Tonite x Yarmak - Українське Сонце",
+    "song_title": "Tony Tonite - Дилер",
     "rights_holder": "Rights Holder:",
     "song_genre": "Rap",
     "song_location": "Ukraine",
@@ -33,7 +33,7 @@
     "details": "DETAILS"
   },
 
-  "UkrainianSun": {
+  "Dealer": {
     "song_genre": "Rap",
     "song_location": "Ukraine",
     "details": "DETAILS",
@@ -59,9 +59,6 @@
     }
   },
 
-  "FAQ": {
-    "description": "Do you need some help with something or do you have questions on some features?"
-  },
   "Footer": {
     "description": "Invest in Music Royalties and Shape the Future of Music",
     "email": "Write to us",
@@ -74,7 +71,7 @@
 
   "PrivacyPolicy": {
     "header": "MusicDex Privacy Policy",
-    "last_updated": "Last updated Feb 27, 2024"
+    "last_updated": "Last updated: Mar 14, 2024"
   },
   "Terms": {
     "header": "Terms of use",
