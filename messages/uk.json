@@ -24,17 +24,19 @@
   "Catalog": {
     "header": "Оберіть ваш трек",
     "description": "Інвестуйте в Музичні Роялті і Формуйте Майбутнє Музики",
-    "song_title": "Tony Tonite x Yarmak - Українське Сонце",
+    "song_title": "Tony Tonite - Дилер",
     "song_genre": "Реп",
     "song_location": "Україна",
-    "song_button": "Деталі лістингу"
+    "song_button": "Сторінка треку"
   },
 
-  "UkrainianSun": {
+  "Dealer": {
     "song_genre": "Реп",
     "song_location": "Україна",
     "details": "ДЕТАЛІ",
-    "watch_video": "ОФІЦІЙНЕ ВІДЕО"
+    "watch_video": "ОФІЦІЙНЕ ВІДЕО",
+    "shares_block_title": "Придбати",
+    "shares_block_description": "Будь ласка, зачекайте початку продажів."
   },
 
   "FAQ": {
