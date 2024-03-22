@@ -34,9 +34,18 @@
     "song_genre": "Rap",
     "song_location": "Ukraine",
     "details": "DETAILS",
-    "watch_video": "WATCH OFFICIAL VIDEO",
-    "shares_block_title": "Buy",
-    "shares_block_description": "Please, wait for start of sales."
+    "watch_video": "WATCH OFFICIAL VIDEO"
+  },
+
+  "SharesBlock": {
+    "header": "Select token amount",
+    "sold_out": "Sold out",
+    "amount": "Amount",
+    "ownership": "Ownership",
+    "min": "min.",
+    "max": "max.",
+    "button_title": "Buy",
+    "button_description": "Please, wait for start of sales."
   },
 
   "FAQ": {

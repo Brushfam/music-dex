@@ -47,6 +47,7 @@ export default function UkrainianSunTrack() {
               </p>
               <TrackDetails />
             </div>
+              <SharesBlock/>
           </div>
         </div>
       </div>
