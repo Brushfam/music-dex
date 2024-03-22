@@ -26,7 +26,7 @@ export const introductionEN = [
         building 13-15 (collectively, “MusicDex,” “we,” or “our”). MusicDex is a
         controller of your data. If you have any questions about your privacy or
         this policy, please contact us at{" "}
-        <span style={{ color: "white" }}>markian@musicdex.co</span>.
+        <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>.
       </p>
     ),
   },
@@ -59,7 +59,7 @@ export const introductionUK = [
         вулиця Болсуновська, буд. 13-15 (разом – “MusicDex”, “ми” або “наш”).
         MusicDex є контролером ваших даних. Якщо у вас є будь-які питання щодо
         конфіденційності або цієї політики, будь ласка, звертайтеся до нас за
-        адресою <span style={{ color: "white" }}>markian@musicdex.co</span>.
+        адресою <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>.
       </p>
     ),
   },
@@ -225,7 +225,7 @@ export const pointsEN = [
             process your information for the purposes you originally agreed to
             unless we have another legitimate basis for doing so in law. If you
             would like to exercise any of these rights, please get in touch with
-            us at <span style={{ color: "white" }}>markian@musicdex.co</span>.
+            us at <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>.
             Before assessing your request, we may request additional information
             to identify you. If you do not provide the requested information
             and, as a result, we are not in a position to identify you, we may
@@ -465,7 +465,7 @@ export const pointsEN = [
         text: (
           <p>
             For any questions, inquiries, or complaints, please contact us at:
-            <span style={{ color: "white" }}> markian@musicdex.co</span>.
+            <span style={{ color: "white" }}> musicdex.inc@gmail.com</span>.
           </p>
         ),
       },
@@ -641,7 +641,7 @@ export const pointsUK = [
             цілей, на які ви спочатку згодилися, якщо у нас немає іншої законної
             підстави для цього. Якщо ви хочете скористатися будь-якими з цих
             прав, будь ласка, зв&#39;яжіться з нами за адресою
-            <span style={{ color: "white" }}> markian@musicdex.co</span>. Перед
+            <span style={{ color: "white" }}> musicdex.inc@gmail.com</span>. Перед
             оцінкою вашого запиту ми можемо запросити додаткову інформацію для
             вашої ідентифікації. Якщо ви не надаєте запрошену інформацію і,
             відповідно, ми не зможемо вас ідентифікувати, ми можемо відмовити у
@@ -887,7 +887,7 @@ export const pointsUK = [
           <p>
             Для будь-яких питань, запитів чи скарг, будь ласка, зв&#39;яжіться з
             нами за адресою:{" "}
-            <span style={{ color: "white" }}>markian@musicdex.co</span>.
+            <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>.
           </p>
         ),
       },

@@ -45,11 +45,11 @@ export function Footer() {
             <p>{t("email")}</p>
           </div>
           <a
-            href={"mailto:markian@musicdex.co"}
+            href={"mailto:musicdex.inc@gmail.com"}
             target="_blank"
             style={{ textDecoration: "underline" }}
           >
-            markian@musicdex.co
+            musicdex.inc@gmail.com
           </a>
         </div>
         <div className={s.linksColumn}>

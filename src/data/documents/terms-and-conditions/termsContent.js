@@ -254,7 +254,7 @@ export const pointsEN = [
             If you want to use the Services, Content or Marks in any way other
             than as described in this section or in the other Legal Terms,
             please send a request to:{" "}
-            <span style={{ color: "white" }}>markian@musicdex.co</span>. If we
+            <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>. If we
             ever give you permission to publish, reproduce or publicly display
             any portion of our Services or Content, you must identify us as the
             owner or licensor of the Services, Content or Marks and ensure that
@@ -337,7 +337,7 @@ export const pointsEN = [
           <p>
             Creating an account is free of charge. You can terminate your
             account at any time by sending an email to{" "}
-            <span style={{ color: "white" }}>markian@musicdex.co</span> or, if
+            <span style={{ color: "white" }}>musicdex.inc@gmail.com</span> or, if
             you have not acquired rights to the Platform after creating an
             account, delete your account using the function provided in your
             profile on the Platform.
@@ -550,7 +550,7 @@ export const pointsEN = [
             As an artist who wants to offer MusicDex as an opportunity, you need
             to submit your song and provide all the necessary information via
             this email:{" "}
-            <span style={{ color: "white" }}>markian@musicdex.co</span>.
+            <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>.
           </p>
         ),
       },
@@ -933,7 +933,7 @@ export const pointsEN = [
           <p>
             To resolve a complaint about the Services or for more information
             about using the Services, please contact us :{" "}
-            <span style={{ color: "white" }}>markian@musicdex.co</span>.
+            <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>.
           </p>
         ),
       },
@@ -1074,7 +1074,7 @@ export const pointsUA = [
             Якщо ви бажаєте будь-яким чином використовувати Послуги, Вміст або
             Знаки, крім тих, що описані в цьому розділі чи в інших Юридичних
             умовах, надішліть запит на адресу:{" "}
-            <span style={{ color: "white" }}>markian@musicdex.co</span>. Якщо ми
+            <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>. Якщо ми
             коли-небудь надамо вам дозвіл публікувати, відтворювати або публічно
             демонструвати будь-яку частину наших Послуг або Вмісту, ви повинні
             ідентифікувати нас як власників або ліцензіарів Послуг, Вмісту або
@@ -1164,7 +1164,7 @@ export const pointsUA = [
             Створення облікового запису є безкоштовним. Ви можете припинити дію
             свого облікового запису в будь-який час, надіславши електронного
             листа на адресу{" "}
-            <span style={{ color: "white" }}>markian@musicdex.co </span> або,
+            <span style={{ color: "white" }}>musicdex.inc@gmail.com </span> або,
             якщо ви не придбали права на Платформу після створення облікового
             запису, видалити свій обліковий запис, скориставшись функцією,
             передбаченою у вашому профілі на Платформі.
@@ -1391,7 +1391,7 @@ export const pointsUA = [
             Як артист, який бажає запропонувати музичний проект MusicDex в
             якості можливості, вам необхідно надіслати свою пісню та надати всю
             необхідну інформацію за адресою:{" "}
-            <span style={{ color: "white" }}>markian@musicdex.co </span>.
+            <span style={{ color: "white" }}>musicdex.inc@gmail.com </span>.
           </p>
         ),
       },
@@ -1818,7 +1818,7 @@ export const pointsUA = [
           <p>
             Щоб вирішити скаргу щодо Послуг або отримати додаткову інформацію
             щодо використання Послуг, зв’яжіться з нами за адресою:{" "}
-            <span style={{ color: "white" }}>markian@musicdex.co</span>.
+            <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>.
           </p>
         ),
       },
