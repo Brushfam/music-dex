@@ -4,11 +4,11 @@ export const trackDataEN = {
   details: [
     {
       type: "Song Release:",
-      value: "December 2022",
+      value: "March 2024",
     },
     {
       type: "Published On Platform",
-      value: "February 2024",
+      value: "March 2024",
     },
     {
       type: "Blockchain:",
@@ -16,10 +16,7 @@ export const trackDataEN = {
     },
   ],
   description:
-    "The premiere of the track took place a week before the New Year, just when all people are used to " +
-    "summing up, but 2022 has become a year of struggle for every Ukrainian. They choose their " +
-    "freedom at a very high price - at the cost of human lives. With this track, Tony Tonite and Yarmak " +
-    "want to support all defenders who will welcome the New Year in the trenches.",
+    "Tony Tonite is a Ukrainian singer, sound producer. He is engaged in volunteering, in particular, he participates in charity concerts in support of the military and displaced persons, and also directs his activities to the revival and formation of musical culture in Ukraine.",
   about_artist: [
     "Tony Tonite is a Ukrainian singer, sound producer. ",
     "In 2009, after graduation, he opened a music production studio in the center of Kyiv. After, he began a solo career as an artist and started releasing tracks under the pseudonym Tony Tonite.",
@@ -44,22 +41,18 @@ export const trackDataUK = {
   details: [
     {
       type: "Реліз пісні:",
-      value: "Грудень 2022",
+      value: "Березень 2024",
     },
     {
       type: "Опубліковано:",
-      value: "Лютий 2024",
+      value: "Березень 2024",
     },
     {
       type: "Блокчейн:",
       value: "Polygon",
     },
   ],
-  description:
-      "Прем’єра треку відбувалася за тиждень до Нового року, саме тоді, коли всі люди звикли підбивати підсумки, " +
-      "однак 2022-й став роком незламності для кожного українця. Вони виборюють " +
-      "свою свободу дуже високою ціною. Ціною людських життів. Цим треком Tony Tonite та Yarmak " +
-      "хочуть підтримати усіх захисників, які будуть зустрічати Новий рік в окопах.",
+  description: "Tony Tonite – український співак, саунд-продюсер. Займається волонтерством, зокрема бере участь в благодійних концертах на підтримку військових та переселенців, а також спрямовує свою діяльність на відродження та становлення музичної культури в Україні.",
   about_artist: [
     "Tony Tonite – український співак, саунд-продюсер.",
       "У 2009 році, після закінчення навчання, відкрив музичну студію в центрі Києва. Після цього він почав сольну кар'єру і випускає треки під псевдонімом Tony Tonite.",
