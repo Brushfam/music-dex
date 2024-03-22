@@ -34,9 +34,18 @@
     "song_genre": "Реп",
     "song_location": "Україна",
     "details": "ДЕТАЛІ",
-    "watch_video": "ОФІЦІЙНЕ ВІДЕО",
-    "shares_block_title": "Придбати",
-    "shares_block_description": "Будь ласка, зачекайте початку продажів."
+    "watch_video": "ОФІЦІЙНЕ ВІДЕО"
+  },
+
+  "SharesBlock": {
+    "header": "Оберіть кількість токенів",
+    "sold_out": "Продано",
+    "amount": "Кількість",
+    "ownership": "Власність",
+    "min": "мін.",
+    "max": "макс.",
+    "button_title": "Придбати",
+    "button_description": "Будь ласка, зачекайте на початок продажу."
   },
 
   "FAQ": {

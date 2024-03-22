@@ -22,7 +22,6 @@ export function Labels(props: {
       ) : (
         <></>
       )}
-      <div className={s.twoLabels}>
         {props.genre ? (
             <LabelBlock iconName={"genre.svg"} label={props.genre} />
         ) : (
@@ -33,7 +32,6 @@ export function Labels(props: {
         ) : (
             <></>
         )}
-      </div>
     </div>
   );
 }

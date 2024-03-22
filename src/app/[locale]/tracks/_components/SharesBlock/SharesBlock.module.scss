@@ -48,9 +48,10 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  padding: 10px 24px 10px 24px;
   width: 100%;
+  padding: 10px 24px 10px 24px;
+  margin-top: 22px;
+  gap: 22px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   background: transparent;
@@ -64,4 +65,81 @@
     filter: none;
     cursor: initial;
   }
+}
+
+
+.priceBlockWrapper {
+  width: 100%;
+}
+
+.priceBlock {
+  position: relative;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1),0 4px 4px 0 rgba(0, 0, 0, 0.05),0 1px 0 0 rgba(0, 0, 0, 0.05);
+  background: rgb(79, 79, 79);
+}
+
+.priceTextBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &_divider {
+    height: 41px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 16px;
+  }
+}
+
+.changeAmountButton {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 57px;
+  padding: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  box-shadow: 0px 13.04px 26.08px 0px rgba(0, 0, 0, 0.15),0px 9.78px 19.56px 0px rgba(0, 0, 0, 0.1),0px 3.26px 6.52px 0px rgba(0, 0, 0, 0.1);
+  background: rgb(52, 52, 52);
+  cursor: pointer;
+
+  p {
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  &:hover {
+    filter: brightness(120%);
+  }
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.smallText {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 110%;
+}
+
+.boldSmallText {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 110%;
 }
