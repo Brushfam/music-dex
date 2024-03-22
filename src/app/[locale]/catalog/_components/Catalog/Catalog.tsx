@@ -6,8 +6,8 @@ import { TrackDetails } from "@/components/TrackDetails/TrackDetails";
 import {
   myKyivDataEN, myKyivDataUK,
   og044DataEN, og044DataUK,
-  ukrainianSunDataEN,
-  ukrainianSunDataUK,
+  dealerEN,
+  dealerUK,
 } from "@/data/tracksData";
 import {useTranslations} from "next-intl";
 
@@ -18,23 +18,22 @@ export function Catalog() {
     <div className={s.catalog}>
       <GreyBlock borderRadius={12}>
         <div className={s.trackCard}>
-          <img
-            src={"/albums/ukrainian-sun-wide.png"}
-            alt={"track cover"}
-            className={s.trackCard_cover}
-          />
-          <div className={s.trackCard_description}>
-            <p className={s.trackCard_title}>Tony Tonite - Українське Сонце</p>
-            <Labels genre={t("song_genre")} location={t("song_location")} />
-            <TrackDetails
-              dataEN={ukrainianSunDataEN}
-              dataUK={ukrainianSunDataUK}
+          <div style={{ height: 210, overflow: "hidden", borderRadius: 6 }}>
+            <img
+              src={"/albums/dealer.jpg"}
+              alt={"track cover"}
+              className={s.trackCard_cover}
             />
+          </div>
+          <div className={s.trackCard_description}>
+            <p className={s.trackCard_title}>{t("song_title")}</p>
+            <Labels genre={t("song_genre")} location={t("song_location")} />
+            <TrackDetails dataEN={dealerEN} dataUK={dealerUK} />
             <Button
               title={t("song_button")}
               color={"main"}
               arrow={true}
-              path={"/tracks/ukrainian-sun"}
+              path={"/tracks/dealer"}
             />
           </div>
         </div>

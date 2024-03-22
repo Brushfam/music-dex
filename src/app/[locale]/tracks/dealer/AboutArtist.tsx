@@ -1,14 +1,14 @@
 "use client";
 import { useLocale } from "use-intl";
-import { ukrainianSunDataEN, ukrainianSunDataUK } from "@/data/tracksData";
-import s from "@/app/[locale]/tracks/ukrainian-sun/page.module.scss";
+import { dealerEN, dealerUK } from "@/data/tracksData";
+import s from "@/app/[locale]/tracks/dealer/page.module.scss";
 import { Tab } from "@/components/ui/Tab/Tab";
 import { ColumnContainer } from "@/components/ui/Containers/Containers";
 
 export function AboutArtist() {
   const currentLocale = useLocale();
   const trackData =
-    currentLocale === "uk" ? ukrainianSunDataUK : ukrainianSunDataEN;
+    currentLocale === "uk" ? dealerUK : dealerEN;
 
   return (
     <ColumnContainer>

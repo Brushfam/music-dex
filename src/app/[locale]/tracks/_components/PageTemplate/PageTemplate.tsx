@@ -63,7 +63,13 @@ export function PageTemplate(props: PageTemplateProps) {
         <div className={s.bg}></div>
         <div className={s.trackPageSection}>
           <div className={s.info}>
-            <div className={s.trackCover}>
+            <div
+              className={
+                props.songName === "Дилер"
+                  ? s.trackCoverDealer
+                  : s.trackCoverUKSun
+              }
+            >
               <p className={s.titleText}>{props.artist}</p>
               <p className={s.trackCover_songName}>{props.songName}</p>
             </div>

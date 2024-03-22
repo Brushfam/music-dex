@@ -29,7 +29,7 @@ export function TrackDetails(props: {
       })}
       <div className={s.trackDetails_standartRow}>
         <p style={{ fontWeight: 700 }}>{t("price_text")}</p>
-        <p style={{ fontWeight: 700 }}>{trackData.price} MATIC</p>
+        <p style={{ fontWeight: 700 }}>${trackData.price}</p>
       </div>
     </div>
   );

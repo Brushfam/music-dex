@@ -30,10 +30,6 @@
   }
 
   @media (max-width: 1100px) {
-    width: 62%;
-  }
-
-  @media (max-width: $tablet-size) {
     width: 72%;
   }
 
@@ -80,10 +76,6 @@
     align-items: center;
   }
 
-  @media (max-width: $tablet-size) {
-
-  }
-
   @media (max-width: 600px) {
     padding: 12px;
     gap: 16px;
@@ -106,7 +98,6 @@
   min-width: 310px;
 
   border-radius: 16px;
-  background-image: url("/albums/ukrainian-sun-vertical.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -121,7 +112,6 @@
   @media (max-width: 1100px) {
     width: 100%;
     max-height: 280px;
-    background-position: 0 80%;
   }
 
   @media (max-width: $tablet-size) {
@@ -133,6 +123,16 @@
     max-height: 390px;
     background-position: center;
   }
+}
+
+.trackCoverDealer {
+  @extend .trackCover;
+  background-image: url("/albums/dealer.jpg");
+}
+
+.trackCoverUKSun {
+  @extend .trackCover;
+  background-image: url("/albums/ukrainian-sun-vertical.png");
 }
 
 .trackDescription {

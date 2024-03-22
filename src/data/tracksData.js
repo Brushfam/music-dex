@@ -1,14 +1,14 @@
-export const ukrainianSunDataEN = {
+export const dealerEN = {
   rights_holder: "Tony Tonite",
-  price: 0.0001,
+  price: 0.1,
   details: [
     {
       type: "Song Release:",
-      value: "December 2022",
+      value: "March 2024",
     },
     {
       type: "Published On Platform",
-      value: "February 2024",
+      value: "March 2024",
     },
     {
       type: "Blockchain:",
@@ -20,10 +20,7 @@ export const ukrainianSunDataEN = {
     },
   ],
   description:
-    "The premiere of the track took place a week before the New Year, just when all people are used to " +
-    "summing up, but 2022 has become a year of struggle for every Ukrainian. They choose their " +
-    "freedom at a very high price - at the cost of human lives. With this track, Tony Tonite and Yarmak " +
-    "want to support all defenders who will welcome the New Year in the trenches.",
+    "Tony Tonite is a Ukrainian singer, sound producer. He is engaged in volunteering, in particular, he participates in charity concerts in support of the military and displaced persons, and also directs his activities to the revival and formation of musical culture in Ukraine.",
   about_artist: [
     "Tony Tonite is a Ukrainian singer, sound producer. ",
     "In 2009, after graduation, he opened a music production studio in the center of Kyiv. After, he began a solo career as an artist and started releasing tracks under the pseudonym Tony Tonite.",
@@ -42,17 +39,17 @@ export const ukrainianSunDataEN = {
   ],
 };
 
-export const ukrainianSunDataUK = {
+export const dealerUK = {
   rights_holder: "Tony Tonite:",
-  price: 0.0001,
+  price: 0.1,
   details: [
     {
       type: "Реліз пісні:",
-      value: "Грудень 2022",
+      value: "Березень 2024",
     },
     {
       type: "Опубліковано:",
-      value: "Лютий 2024",
+      value: "Березень 2024",
     },
     {
       type: "Блокчейн:",
@@ -64,10 +61,7 @@ export const ukrainianSunDataUK = {
     },
   ],
   description:
-      "Прем’єра треку відбувалася за тиждень до Нового року, саме тоді, коли всі люди звикли підбивати підсумки, " +
-      "однак 2022-й став роком незламності для кожного українця. Вони виборюють " +
-      "свою свободу дуже високою ціною. Ціною людських життів. Цим треком Tony Tonite та Yarmak " +
-      "хочуть підтримати усіх захисників, які будуть зустрічати Новий рік в окопах.",
+    "Tony Tonite – український співак, саунд-продюсер. Займається волонтерством, зокрема бере участь в благодійних концертах на підтримку військових та переселенців, а також спрямовує свою діяльність на відродження та становлення музичної культури в Україні.",
   about_artist: [
     "Tony Tonite – український співак, саунд-продюсер.",
     "У 2009 році, після закінчення навчання, відкрив музичну студію в центрі Києва. Після цього він почав сольну кар'єру і випускає треки під псевдонімом Tony Tonite.",
@@ -77,10 +71,10 @@ export const ukrainianSunDataUK = {
     "Також у 2016 році вийшов альбом «Ю». Кліп на головну композицію «Я хотел бы знать» набрав понад 1 мільйон переглядів за 2 тижні.",
     "У кінці 2016 року розірвав усі зв’язки з лейблом Gazgolder та переїхав до Білорусі. З 2017 по 2019 роки артист продовжує займатися творчістю. У 2020 році, не витримавши білоруського режиму, разом з родиною переїжджає до Туреччини.",
     "У 2021 році Тунайт випустив свій перший україномовний трек «Києве мій», що ознаменував повернення артиста до рідної української сцени. " +
-    "У червні 2021 вийшов ще один альбом «1987», куди входить спільний трек з Іваном Дорном «I Wanna Be Foreva Young».",
+      "У червні 2021 вийшов ще один альбом «1987», куди входить спільний трек з Іваном Дорном «I Wanna Be Foreva Young».",
     "Після початку повномасштабної війни Росії проти України категорично припинив роботу та спілкування з російськими виконавцями. У квітні 2022 повернувся з Туреччини до Києва, щоб підтримати свою історичну Батьківщину. " +
-    "Займається волонтерством, зокрема бере участь в благодійних концертах на підтримку військових та переселенців, а також спрямовує свою діяльність на відродження та становлення музичної культури в Україні.",
-    "Трек «Leleka» артист записав спільно з дітьми-переселенцями. Цією піснею розпочався благодійний збір на допомогу дітям війни та на потреби ЗСУ."
+      "Займається волонтерством, зокрема бере участь в благодійних концертах на підтримку військових та переселенців, а також спрямовує свою діяльність на відродження та становлення музичної культури в Україні.",
+    "Трек «Leleka» артист записав спільно з дітьми-переселенцями. Цією піснею розпочався благодійний збір на допомогу дітям війни та на потреби ЗСУ.",
   ],
 };
 
@@ -106,11 +100,11 @@ export const myKyivDataEN = {
     },
   ],
   description:
-      "The premiere of the track took place a week before the New Year, just when all people are used to " +
-      "summing up, but 2022 has become a year of struggle for every Ukrainian. They choose their " +
-      "freedom at a very high price - at the cost of human lives. With this track, Tony Tonite and Yarmak " +
-      "want to support all defenders who will welcome the New Year in the trenches."
-}
+    "The premiere of the track took place a week before the New Year, just when all people are used to " +
+    "summing up, but 2022 has become a year of struggle for every Ukrainian. They choose their " +
+    "freedom at a very high price - at the cost of human lives. With this track, Tony Tonite and Yarmak " +
+    "want to support all defenders who will welcome the New Year in the trenches.",
+};
 
 export const myKyivDataUK = {
   rights_holder: "Tony Tonite",
@@ -134,11 +128,11 @@ export const myKyivDataUK = {
     },
   ],
   description:
-      "Прем’єра треку відбувалася за тиждень до Нового року, саме тоді, коли всі люди звикли підбивати підсумки, " +
-      "однак 2022-й став роком незламності для кожного українця. Вони виборюють " +
-      "свою свободу дуже високою ціною. Ціною людських життів. Цим треком Tony Tonite та Yarmak " +
-      "хочуть підтримати усіх захисників, які будуть зустрічати Новий рік в окопах."
-}
+    "Прем’єра треку відбувалася за тиждень до Нового року, саме тоді, коли всі люди звикли підбивати підсумки, " +
+    "однак 2022-й став роком незламності для кожного українця. Вони виборюють " +
+    "свою свободу дуже високою ціною. Ціною людських життів. Цим треком Tony Tonite та Yarmak " +
+    "хочуть підтримати усіх захисників, які будуть зустрічати Новий рік в окопах.",
+};
 
 export const og044DataEN = {
   rights_holder: "Tony Tonite",
@@ -162,11 +156,11 @@ export const og044DataEN = {
     },
   ],
   description:
-      "The premiere of the track took place a week before the New Year, just when all people are used to " +
-      "summing up, but 2022 has become a year of struggle for every Ukrainian. They choose their " +
-      "freedom at a very high price - at the cost of human lives. With this track, Tony Tonite and Yarmak " +
-      "want to support all defenders who will welcome the New Year in the trenches."
-}
+    "The premiere of the track took place a week before the New Year, just when all people are used to " +
+    "summing up, but 2022 has become a year of struggle for every Ukrainian. They choose their " +
+    "freedom at a very high price - at the cost of human lives. With this track, Tony Tonite and Yarmak " +
+    "want to support all defenders who will welcome the New Year in the trenches.",
+};
 
 export const og044DataUK = {
   rights_holder: "Tony Tonite",
@@ -190,14 +184,14 @@ export const og044DataUK = {
     },
   ],
   description:
-      "Прем’єра треку відбувалася за тиждень до Нового року, саме тоді, коли всі люди звикли підбивати підсумки, " +
-      "однак 2022-й став роком незламності для кожного українця. Вони виборюють " +
-      "свою свободу дуже високою ціною. Ціною людських життів. Цим треком Tony Tonite та Yarmak " +
-      "хочуть підтримати усіх захисників, які будуть зустрічати Новий рік в окопах."
-}
+    "Прем’єра треку відбувалася за тиждень до Нового року, саме тоді, коли всі люди звикли підбивати підсумки, " +
+    "однак 2022-й став роком незламності для кожного українця. Вони виборюють " +
+    "свою свободу дуже високою ціною. Ціною людських життів. Цим треком Tony Tonite та Yarmak " +
+    "хочуть підтримати усіх захисників, які будуть зустрічати Новий рік в окопах.",
+};
 
 export const tokensAddresses = {
   ukrainianSun: "0x83577290e0dcfe0E5603134b7d64281D6ea4B04c",
   myKyiv: "0x3FF43965c8219f7C1E88BDd0F30cfbD29AD301a3",
-  og044: "0x8c3C83Ea8828768d385B12fEb43fa065a088B7A4"
-}
+  og044: "0x8c3C83Ea8828768d385B12fEb43fa065a088B7A4",
+};
