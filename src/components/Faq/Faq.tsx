@@ -8,7 +8,6 @@ import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
 
 export default function Faq() {
-  const t = useTranslations("FAQ");
   const currentLocale = useLocale();
   const faqQuestions = currentLocale === "en" ? faqDataEN : faqDataUK;
   const firstQuestion = faqQuestions[0];
@@ -18,7 +17,6 @@ export default function Faq() {
       <div className={s.faqContainer}>
         <ColumnContainer>
           <h3>FAQ</h3>
-          <p className={s.faqDescriptionText}>{t("description")}</p>
         </ColumnContainer>
         <ColumnContainer>
           <FaqCard
