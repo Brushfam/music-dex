@@ -103,6 +103,8 @@
     "please_login": "Please log in to buy tokens.",
     "sign_agreement": "Agreement",
     "agreement_description": "To buy tokens, you need to accept the terms of the agreement.",
+    "fiat_title": "Purchase by Fiat",
+    "fiat_description": "Coming soon!",
     "ByCrypto": {
       "default": "Purchase by Crypto",
       "loading": "Transaction executing...",

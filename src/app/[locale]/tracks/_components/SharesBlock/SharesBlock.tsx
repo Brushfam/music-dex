@@ -11,6 +11,7 @@ import { ByCrypto } from "@/app/[locale]/tracks/_components/PaymentMethods/ByCry
 import { Button } from "@/components/ui/Button/Button";
 import { useTranslations } from "next-intl";
 import { roundToTwo } from "@/services/helpers";
+import { Tooltip } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -39,8 +40,7 @@ export function SharesBlock(props: {
     } else {
       let total = getFreeTokenBalance(props.tokenAddress);
       total.then((res) => {
-          let halfOfSupply = res < 5_000 ? res : res - 5_000;
-          console.log(res)
+        let halfOfSupply = res < 5_000 ? res : res - 5_000;
         setTotalAmount(halfOfSupply);
       });
     }
@@ -98,12 +98,12 @@ export function SharesBlock(props: {
         >
           <p style={{ fontSize: 16, userSelect: "none" }}>-</p>
         </div>
-        <div className={s.priceTextBlock} style={{width: 59}}>
+        <div className={s.priceTextBlock} style={{ width: 59 }}>
           <p style={{ fontSize: 9, fontWeight: 500 }}>{t("price")}</p>
           <p style={{ fontSize: 16, fontWeight: 700 }}>${currentAmount}</p>
         </div>
         <div className={s.priceTextBlock_divider} />
-        <div className={s.priceTextBlock} style={{width: 59}}>
+        <div className={s.priceTextBlock} style={{ width: 59 }}>
           <p style={{ fontSize: 9, fontWeight: 500 }}>{t("tokens")}</p>
           <p style={{ fontSize: 16, fontWeight: 700 }}>{getTokenAmount()}</p>
         </div>
@@ -129,7 +129,11 @@ export function SharesBlock(props: {
           tokensToBuy={currentAmount / price}
           address={props.tokenAddress}
         />
-        {/* by fiat */}
+        <Tooltip title={t("fiat_description")} enterTouchDelay={0}>
+          <div className={s.disabledFiat}>
+            <p>{t("fiat_title")}</p>
+          </div>
+        </Tooltip>
       </div>
     ) : (
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>

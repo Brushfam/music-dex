@@ -112,3 +112,26 @@
   font-weight: 700;
   line-height: 110%;
 }
+
+.disabledFiat {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px 8px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: transparent;
+
+  p {
+    color: gray;
+    user-select: none;
+  }
+
+  &:hover {
+    filter: none;
+    cursor: initial;
+  }
+
+}
