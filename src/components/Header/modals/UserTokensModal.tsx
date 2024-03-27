@@ -9,7 +9,7 @@ export function UserTokensModal(props: {
   userEarning: number[];
 }) {
   const t = useTranslations("Header");
-  const tokenNamesArray = ["Мій Київ", "Дилер"];
+  const tokenNamesArray = ["Дилер"];
 
   function TokensList() {
     return (

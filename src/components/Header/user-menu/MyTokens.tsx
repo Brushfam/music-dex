@@ -20,7 +20,7 @@ export function MyTokens() {
   const [userEarning, setUserEarning] = useState<number[]>([]);
 
   useEffect(() => {
-    const tokenAddressesArray = [myKyivAddress, dealerAddress];
+    const tokenAddressesArray = [dealerAddress];
 
     let tokensDataPromise = getUsersData(
       userContext.currentUser,
