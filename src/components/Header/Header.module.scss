@@ -12,6 +12,18 @@
   height: 56px;
   padding: 12px 0;
 
+  &_logo {
+    position: relative;
+    display: block;
+    width: 141px;
+    height: 32px;
+
+    @media (max-width: $mobile-size) {
+      width: 127px;
+      height: 29px;
+    }
+  }
+
   &_content {
     display: flex;
     flex-direction: row;
@@ -30,5 +42,23 @@
 
   @media (max-width: $mobile-size) {
     height: 68px;
+  }
+
+  &_row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+.mediaWrapper {
+  img {
+    display: none;
+  }
+
+  @media (max-width: $tablet-size) {
+    img {display: block;}
+    p {display: none;}
   }
 }

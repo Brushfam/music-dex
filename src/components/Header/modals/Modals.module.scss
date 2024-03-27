@@ -1,0 +1,125 @@
+@import '../../../constants/constants';
+
+.wrapper {
+  position: absolute;
+  right: 0;
+  top: 56px;
+}
+
+@mixin modalBlockStyle {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1),0 4px 4px 0 rgba(0, 0, 0, 0.05),0 1px 0 0 rgba(0, 0, 0, 0.05);
+  background: $light-grey;
+}
+
+.loginBlock {
+  @include modalBlockStyle;
+  display: flex;
+  flex-direction: column;
+
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+  }
+
+  &_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 12px 8px 12px;
+    gap: 12px;
+
+    &:hover {
+      cursor: pointer;
+      background: linear-gradient(90.00deg, rgba(246, 96, 31, 0.3),rgba(246, 96, 31, 0) 100%);
+    }
+  }
+}
+
+.tokensBlock {
+  @include modalBlockStyle;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 8px;
+  min-width: 192px;
+
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+  }
+}
+
+.tokenItem {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 8px;
+  border-radius: 8px;
+  background-color: rgb(79, 79, 79);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  &_row {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.adminMenu {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 8px;
+  width: 190px;
+  gap: 10px;
+
+  p {
+    font-size: 14px;
+  }
+
+  @include modalBlockStyle;
+}
+
+.tmpButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: transparent;
+
+  font-size: 13px;
+  user-select: none;
+
+  &:hover {
+    filter: none;
+    cursor: initial;
+  }
+}
+
+.inputIncome {
+  height: 30px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border:none;
+  border-radius: 6px;
+  outline-style: none;
+  font-weight: 400;
+  font-size: 14px;
+  color: white;
+}
+
+.inputIncome::placeholder {
+  color: $text-grey;
+}
+
+

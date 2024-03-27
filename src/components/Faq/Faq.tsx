@@ -2,7 +2,7 @@
 import s from "@/app/[locale]/page.module.scss";
 import { ColumnContainer } from "@/components/ui/Containers/Containers";
 import { FaqCard } from "@/components/Faq/FaqCard/FaqCard";
-import { faqDataEN, faqDataUK } from "@/data/faqData";
+import { faqDataEN, faqDataUK } from "@/data/components/faqData";
 import { Section } from "@/components/ui/Section/Section";
 import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";

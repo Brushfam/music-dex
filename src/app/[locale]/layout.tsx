@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.scss";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import { UserProvider } from "@/context/UserContext";
+import { Header } from "@/components/Header/Header";
+import { Toaster } from "sonner";
 import Script from "next/script";
 
 const inter = Inter({
@@ -20,6 +23,7 @@ interface RootLayoutProps {
     locale: string;
   };
 }
+
 export default function RootLayout({
   children,
   params: { locale },
@@ -42,11 +46,15 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={inter.className}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
+      <UserProvider>
+        <body className={inter.className} suppressHydrationWarning={true}>
+          <NextIntlClientProvider messages={messages}>
+            <Toaster richColors />
+            <Header />
+            {children}
+          </NextIntlClientProvider>
+        </body>
+      </UserProvider>
     </html>
   );
 }
