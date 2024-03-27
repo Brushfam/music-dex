@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
-import { unipassBuyTokens } from "@/services/unipass";
+import { unipassBuyTokens} from "@/services/unipass";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 
@@ -15,7 +15,7 @@ export function ByCrypto(props: {
 
   function handlePurchase() {
     toast.promise(
-      unipassBuyTokens(
+        unipassBuyTokens(
         props.user,
         props.tokensToPay,
         props.tokensToBuy,
@@ -29,7 +29,7 @@ export function ByCrypto(props: {
         },
         error: () => {
           setLoading(false);
-          return t("error")
+          return t("error");
         },
       },
     );
@@ -45,7 +45,6 @@ export function ByCrypto(props: {
       action={() => {
         setLoading(true);
         handlePurchase();
-
       }}
     />
   );

@@ -1,6 +1,6 @@
 export const dealerEN = {
   rights_holder: "Tony Tonite",
-  price: 0.1,
+  price: 1.5,
   details: [
     {
       type: "Song Release:",
@@ -16,7 +16,7 @@ export const dealerEN = {
     },
     {
       type: "Total supply:",
-      value: "100",
+      value: "10000",
     },
   ],
   description:
@@ -41,7 +41,7 @@ export const dealerEN = {
 
 export const dealerUK = {
   rights_holder: "Tony Tonite:",
-  price: 0.1,
+  price: 1.5,
   details: [
     {
       type: "Реліз пісні:",
@@ -57,7 +57,7 @@ export const dealerUK = {
     },
     {
       type: "Загальна пропозиція:",
-      value: "100",
+      value: "10000",
     },
   ],
   description:
@@ -80,7 +80,7 @@ export const dealerUK = {
 
 export const myKyivDataEN = {
   rights_holder: "Tony Tonite",
-  price: 0.0002,
+  price: 0.01,
   details: [
     {
       type: "Song Release:",
@@ -96,7 +96,7 @@ export const myKyivDataEN = {
     },
     {
       type: "Total supply:",
-      value: "100",
+      value: "1000",
     },
   ],
   description:
@@ -108,7 +108,7 @@ export const myKyivDataEN = {
 
 export const myKyivDataUK = {
   rights_holder: "Tony Tonite",
-  price: 0.0002,
+  price: 0.1,
   details: [
     {
       type: "Реліз пісні:",
@@ -124,7 +124,7 @@ export const myKyivDataUK = {
     },
     {
       type: "Загальна пропозиція:",
-      value: "100",
+      value: "1000",
     },
   ],
   description:
@@ -136,7 +136,7 @@ export const myKyivDataUK = {
 
 export const og044DataEN = {
   rights_holder: "Tony Tonite",
-  price: 0.0005,
+  price: 0.2,
   details: [
     {
       type: "Song Release:",
@@ -152,7 +152,7 @@ export const og044DataEN = {
     },
     {
       type: "Total supply:",
-      value: "100",
+      value: "1000",
     },
   ],
   description:
@@ -164,7 +164,7 @@ export const og044DataEN = {
 
 export const og044DataUK = {
   rights_holder: "Tony Tonite",
-  price: 0.0005,
+  price: 0.2,
   details: [
     {
       type: "Реліз пісні:",
@@ -180,7 +180,7 @@ export const og044DataUK = {
     },
     {
       type: "Загальна пропозиція:",
-      value: "100",
+      value: "1000",
     },
   ],
   description:
@@ -188,10 +188,4 @@ export const og044DataUK = {
     "однак 2022-й став роком незламності для кожного українця. Вони виборюють " +
     "свою свободу дуже високою ціною. Ціною людських життів. Цим треком Tony Tonite та Yarmak " +
     "хочуть підтримати усіх захисників, які будуть зустрічати Новий рік в окопах.",
-};
-
-export const tokensAddresses = {
-  ukrainianSun: "0x83577290e0dcfe0E5603134b7d64281D6ea4B04c",
-  myKyiv: "0x3FF43965c8219f7C1E88BDd0F30cfbD29AD301a3",
-  og044: "0x8c3C83Ea8828768d385B12fEb43fa065a088B7A4",
 };

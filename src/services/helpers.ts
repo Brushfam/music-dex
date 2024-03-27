@@ -1,5 +1,6 @@
 import {ownersList} from "@/data/ownersList";
 
+// DATA PROCESSING
 export function getTrackOwnerData(address: string) {
   let trackOwnerData = "";
   for (let i = 0; i < ownersList.length; ++i) {
@@ -8,4 +9,9 @@ export function getTrackOwnerData(address: string) {
     }
   }
   return trackOwnerData;
+}
+
+// MATH FUNCTIONS
+export function roundToTwo(n: number) {
+  return Math.round(n * 100) / 100;
 }

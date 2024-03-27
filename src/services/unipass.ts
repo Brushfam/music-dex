@@ -1,17 +1,15 @@
 import { UniPassPopupSDK } from "@unipasswallet/popup-sdk";
 import { UniPassTheme, UPEvent, UPEventType } from "@unipasswallet/popup-types";
-import { Contract, providers, utils, Wallet } from "ethers";
-import { parseEther } from "ethers/lib/utils";
+import { utils } from "ethers";
 import {
-  baseContractAbi,
-  baseContractAddress,
-  songContractAbi,
-  songContractAddress,
-} from "@/data/contractsData";
-import { verifyMessageSignature } from "@unipasswallet/popup-utils";
+  addTokenholderBalance,
+  getFreeTokenBalance,
+  updateIncome
+} from "@/services/unipass-server";
 
+// constants
 const unipassWallet = new UniPassPopupSDK({
-  env: "test",
+  env: "prod",
   chainType: "polygon",
   storageType: "localStorage",
   appSettings: {
@@ -21,22 +19,11 @@ const unipassWallet = new UniPassPopupSDK({
   },
 });
 
-function getBaseSigner() {
-  const basePrivateKey =
-    process.env.NEXT_PUBLIC_TEST_KEY ?? process.env.BASE_KEY;
-  if (!basePrivateKey) {
-    throw new Error("Base key is empty");
-  }
+const treasury = "0xcCe3842E8ea4aa62A3b9073BD7C22BfA25210eAd";
+const usdt = "0xc2132D05D31c914a87C6611C10748AEb04B58e8F";
+const usdtDecimals = 1_000_000;
 
-  const baseAccount = utils.HDNode.fromMnemonic(basePrivateKey).derivePath(
-    `m/44'/60'/0'/0/${0}`,
-  );
-  // let testProvider = new providers.JsonRpcProvider(
-  //     "https://rpc-mumbai.maticvigil.com/",
-  // );
-  return new Wallet(baseAccount, unipassWallet.getProvider());
-}
-
+// helper functions
 const checkTxStatus = async (txHash: string) => {
   let tryTimes = 0;
   while (tryTimes++ < 3) {
@@ -48,17 +35,6 @@ const checkTxStatus = async (txHash: string) => {
   }
   return false;
 };
-
-export async function unipassSignMessage(message: string) {
-  try {
-    const options = { isEIP191Prefix: false, onAuthChain: true };
-    const sig = await unipassWallet.signMessage(message, options);
-    console.log("signature: " + sig);
-    return sig;
-  } catch (err) {
-    console.log("auth err", err);
-  }
-}
 
 // LOGIN
 export async function unipassLogin() {
@@ -82,51 +58,37 @@ export async function unipassLogin() {
   }
 }
 
-export async function signAgreement(user: string) {
-  const baseToken = new Contract(
-    baseContractAddress,
-    baseContractAbi,
-    getBaseSigner(),
-  );
-  await baseToken.signAgreement(user);
-}
-
-export async function hasAgreement(user: string) {
-  const baseToken = new Contract(
-    baseContractAddress,
-    baseContractAbi,
-    getBaseSigner(),
-  );
-  return await baseToken.hasAgreement(user);
-}
-
 export async function unipassLogout() {
   await unipassWallet.logout(false);
 }
 
 // SONG PAGE
-export async function getFreeTokenBalance(tokenAddress: string) {
-  const songToken = new Contract(
-    tokenAddress,
-    songContractAbi,
-    getBaseSigner(),
-  );
-  let signTx = await songToken.getFreeTokenBalance();
-  return signTx.toNumber();
-}
-
-async function addTokenholderBalance(
+export async function unipassBuyTokens(
   user: string,
-  amount: number,
+  amountToPay: string,
+  amountToBuy: number,
   contractAddress: string,
 ) {
-  const songToken = new Contract(
-    contractAddress,
-    songContractAbi,
-    getBaseSigner(),
-  );
-  let signTx = await songToken.addTokenholderBalance(user, amount);
-  console.log(signTx);
+  await checkFreeTokens(contractAddress, amountToBuy);
+  const toPay = parseFloat(amountToPay) * usdtDecimals;
+  const data = new utils.Interface([
+    "function transfer(address _to, uint256 _value)",
+  ]).encodeFunctionData("transfer", [treasury, toPay]);
+  const tx = {
+    from: user,
+    to: usdt,
+    value: "0x0",
+    data: data,
+  };
+
+  let txHash = await unipassWallet.sendTransaction(tx);
+  if (await checkTxStatus(txHash)) {
+    console.log("send Token success", txHash);
+    await addTokenholderBalance(user, amountToBuy, contractAddress);
+  } else {
+    console.error(`send Token failed, tx hash = ${txHash}`);
+    throw Error("Sending token failed");
+  }
 }
 
 async function checkFreeTokens(contractAddress: string, amountToBuy: number) {
@@ -136,117 +98,31 @@ async function checkFreeTokens(contractAddress: string, amountToBuy: number) {
   }
 }
 
-export async function unipassBuyTokens(
-  user: string,
-  amountToPay: string,
-  amountToBuy: number,
-  contractAddress: string,
-) {
-  await checkFreeTokens(contractAddress, amountToBuy);
-  const tx = {
-    from: user,
-    to: "0xBb39B8fe384Bad8Bd60Eb68EbCDE4F0569fC2017",
-    value: parseEther(amountToPay).toHexString(),
-    data: "0x",
-  };
-  let txHash = await unipassWallet.sendTransaction(tx);
-  if (await checkTxStatus(txHash)) {
-    console.log("send Native Token success", txHash);
-    await addTokenholderBalance(user, amountToBuy, contractAddress);
-  } else {
-    console.error(`send Native Token failed, tx hash = ${txHash}`);
-  }
-}
-
-// USER MENU
-export async function getUserBalance(address: string, tokenAddress: string) {
-  const songToken = new Contract(
-    tokenAddress,
-    songContractAbi,
-    getBaseSigner(),
-  );
-  let signTx = await songToken.getUserBalance(address);
-  return signTx.toNumber();
-}
-
-export async function getUserTotalEarned(
-  address: string,
-  tokenAddress: string,
-) {
-  const songToken = new Contract(
-    tokenAddress,
-    songContractAbi,
-    getBaseSigner(),
-  );
-  let signTx = await songToken.getUserTotalEarned(address);
-  return utils.formatEther(signTx);
-}
-
-export async function getUserTokensData(
-  userAddress: string,
-  addressesArray: string[],
-) {
-  type userTokensData = { amount: number; earning: number };
-  let promisesArray: userTokensData[] = [];
-
-  for (let i = 0; i < addressesArray.length; i += 1) {
-    let amount = await getUserBalance(userAddress, addressesArray[i]);
-    let earning = await getUserTotalEarned(userAddress, addressesArray[i]);
-    promisesArray.push({ amount: amount, earning: parseFloat(earning) });
-  }
-
-  return promisesArray;
-}
-
 // ADMIN MENU
-export async function sendIncomeOwner(amount: string) {
-  const songToken = new Contract(
-    songContractAddress,
-    songContractAbi,
-    getBaseSigner(),
-  );
-  let signTx = await songToken.sendIncome({ value: utils.parseEther(amount) });
-  console.log(signTx);
-}
-
-export async function getTestTokens(ethersTo: string) {
-  const ownerSigner = getBaseSigner();
-  let amount = utils.parseEther("0.001");
-  let tx = {
-    to: ethersTo,
-    value: amount,
-  };
-  let sendPromise = ownerSigner.sendTransaction(tx);
-
-  try {
-    const sendTx = await sendPromise;
-    console.log(sendTx);
-    return true;
-  } catch (err) {
-    console.log("err", err);
-    return false;
-  }
-}
-
-export async function sendIncome(
+export async function unipassSendIncome(
   fromAddress: string,
   tokenAddress: string,
   amount: string,
 ) {
+  const usdt = "0xc2132D05D31c914a87C6611C10748AEb04B58e8F";
+  const usdtDecimals = 1_000_000;
+  const income = parseFloat(amount) * usdtDecimals;
   const data = new utils.Interface([
-    "function sendIncome()",
-  ]).encodeFunctionData("sendIncome", []);
+    "function transfer(address _to, uint256 _value)",
+  ]).encodeFunctionData("transfer", [tokenAddress, income]);
   const tx = {
     from: fromAddress,
-    to: tokenAddress,
-    value: parseEther(amount).toHexString(),
+    to: usdt,
+    value: "0x0",
     data: data,
   };
   let txHash = await unipassWallet.sendTransaction(tx);
   if (await checkTxStatus(txHash)) {
     console.log("send Token success", txHash);
+    await updateIncome(tokenAddress, income);
   } else {
     console.error(`send Token failed, tx hash = ${txHash}`);
     throw Error("Sending token failed");
   }
 }
+

@@ -4,12 +4,13 @@ import s from "./SharesBlock.module.scss";
 import React, { useEffect, useState } from "react";
 import Slider from "@mui/material/Slider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { getFreeTokenBalance, hasAgreement } from "@/services/unipass";
+import { getFreeTokenBalance } from "@/services/unipass-server";
 import { UseUser } from "@/context/UserContext";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { ByCrypto } from "@/app/[locale]/tracks/_components/PaymentMethods/ByCrypto";
 import { Button } from "@/components/ui/Button/Button";
-import {useTranslations} from "next-intl";
+import { useTranslations } from "next-intl";
+import { roundToTwo } from "@/services/helpers";
 
 const theme = createTheme({
   palette: {
@@ -26,46 +27,50 @@ export function SharesBlock(props: {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const userContext = UseUser();
-    const t = useTranslations("SharesBlock");
+  const t = useTranslations("SharesBlock");
   const price = props.price;
   const [prevAmount, setPrevAmount] = useState(price);
-  const [tokenAmount, setTokenAmount] = useState(price);
+  const [currentAmount, setCurrentAmount] = useState(price);
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);
 
   useEffect(() => {
-    let total = getFreeTokenBalance(props.tokenAddress);
-    total.then((r) => {
-      setTotalAmount(r);
-    });
+    if (!props.tokenAddress.length) {
+      setTotalAmount(0);
+    } else {
+      let total = getFreeTokenBalance(props.tokenAddress);
+      total.then((res) => {
+          let halfOfSupply = res < 5_000 ? res : res - 5_000;
+          console.log(res)
+        setTotalAmount(halfOfSupply);
+      });
+    }
   }, [props.tokenAddress, userContext.hasAgreement]);
 
-  function getTotalAmount() {
+  function getMaxPrice() {
     if (!totalAmount) return 0;
-    return Math.round(totalAmount * price * 1e4) / 1e4;
+    return roundToTwo(totalAmount * price);
   }
 
-  function getPercentAmount() {
-    let tokens = tokenAmount / price;
-    let amount = (tokens / 100) * 100;
-    return Math.round(amount * 1e2) / 1e2;
+  function getTokenAmount() {
+    return Math.round(currentAmount / price);
   }
 
   function changeAmountButton(down?: boolean) {
     if (
-      (down && tokenAmount == price) ||
-      (!down && tokenAmount >= getTotalAmount())
+      (down && currentAmount == price) ||
+      (!down && currentAmount >= getMaxPrice())
     ) {
       return;
     }
 
     let newAmount;
     if (down) {
-      newAmount = Math.round((prevAmount - price) * 1e4) / 1e4;
+      newAmount = roundToTwo(prevAmount - price);
     } else {
-      newAmount = Math.round((prevAmount + price) * 1e4) / 1e4;
+      newAmount = roundToTwo(prevAmount + price);
     }
     setPrevAmount(newAmount);
-    setTokenAmount(newAmount);
+    setCurrentAmount(newAmount);
   }
 
   const handleSliderChange = (
@@ -73,11 +78,11 @@ export function SharesBlock(props: {
     value: number | number[],
     _activeThumb: number,
   ) => {
-    if (Array.isArray(value) || value > getTotalAmount()) {
+    if (Array.isArray(value) || value > getMaxPrice()) {
       return;
     } else {
       setPrevAmount(value);
-      setTokenAmount(value);
+      setCurrentAmount(value);
     }
   };
 
@@ -93,14 +98,14 @@ export function SharesBlock(props: {
         >
           <p style={{ fontSize: 16, userSelect: "none" }}>-</p>
         </div>
-        <div className={s.priceTextBlock} style={{ width: 63 }}>
+        <div className={s.priceTextBlock} style={{width: 59}}>
           <p style={{ fontSize: 9, fontWeight: 500 }}>{t("price")}</p>
-          <p style={{ fontSize: 18, fontWeight: 700 }}>{tokenAmount}</p>
+          <p style={{ fontSize: 16, fontWeight: 700 }}>${currentAmount}</p>
         </div>
         <div className={s.priceTextBlock_divider} />
-        <div className={s.priceTextBlock}>
-          <p style={{ fontSize: 9, fontWeight: 500 }}>{t("ownership")}</p>
-          <p style={{ fontSize: 18, fontWeight: 700 }}>{getPercentAmount()}%</p>
+        <div className={s.priceTextBlock} style={{width: 59}}>
+          <p style={{ fontSize: 9, fontWeight: 500 }}>{t("tokens")}</p>
+          <p style={{ fontSize: 16, fontWeight: 700 }}>{getTokenAmount()}</p>
         </div>
         <div
           className={s.changeAmountButton}
@@ -120,8 +125,8 @@ export function SharesBlock(props: {
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <ByCrypto
           user={userContext.currentUser}
-          tokensToPay={tokenAmount.toString()}
-          tokensToBuy={tokenAmount / price}
+          tokensToPay={currentAmount.toString()}
+          tokensToBuy={currentAmount / price}
           address={props.tokenAddress}
         />
         {/* by fiat */}
@@ -137,7 +142,7 @@ export function SharesBlock(props: {
           }}
         />
         <p style={{ textAlign: "center", fontSize: 13, lineHeight: "120%" }}>
-            {t("agreement_description")}
+          {t("agreement_description")}
         </p>
       </div>
     );
@@ -150,18 +155,18 @@ export function SharesBlock(props: {
         <PriceBlock />
         <ThemeProvider theme={theme}>
           <Slider
-            value={tokenAmount}
+            value={currentAmount}
             defaultValue={price}
             onChange={handleSliderChange}
             step={price}
             min={price}
-            max={price * totalAmount}
+            max={getMaxPrice()}
             style={{ margin: "4px 0 0 4px" }}
           />
         </ThemeProvider>
         <div className={s.rowContainer}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <p className={s.boldSmallText}>1</p>
+            <p className={s.boldSmallText}>{price}</p>
             <p className={s.smallText}>{t("min")}</p>
           </div>
           <div
@@ -171,7 +176,7 @@ export function SharesBlock(props: {
               alignItems: "flex-end",
             }}
           >
-            <p className={s.boldSmallText}>{totalAmount}</p>
+            <p className={s.boldSmallText}>{getMaxPrice() || ""}</p>
             <p className={s.smallText}>{t("max")}</p>
           </div>
         </div>
@@ -179,9 +184,7 @@ export function SharesBlock(props: {
       {userContext.currentUser ? (
         <PaymentButtons />
       ) : (
-        <p style={{ color: "white", fontWeight: 600 }}>
-            {t("please_login")}
-        </p>
+        <p style={{ color: "white", fontWeight: 600 }}>{t("please_login")}</p>
       )}
     </div>
   ) : totalAmount === undefined ? (

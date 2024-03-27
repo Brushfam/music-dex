@@ -1,7 +1,7 @@
 export const ownersList = [
     {
-        address: "0x4A1BE179111BC4264542c681C9d70b3633B83aAb",
-        track: "OG 044",
-        tokenAddress: "0x8c3C83Ea8828768d385B12fEb43fa065a088B7A4"
+        address: "0x992cE710C1a044cd0e68781dA2c917139C543A43",
+        track: "My Kyiv",
+        tokenAddress: "0x37Af7cc765226f80C3962B98d3e517C164f0F2f0"
     },
 ]

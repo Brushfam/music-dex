@@ -2,7 +2,7 @@
 
 import s from "./Modals.module.scss";
 import { Button } from "@/components/ui/Button/Button";
-import { sendIncome } from "@/services/unipass";
+import { unipassSendIncome } from "@/services/unipass";
 import { UseUser } from "@/context/UserContext";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
@@ -28,7 +28,7 @@ export function TrackOwnerModal(props: { trackOwnerData: trackOwnerType }) {
     }
 
     toast.promise(
-      sendIncome(
+        unipassSendIncome(
         userContext.currentUser,
         props.trackOwnerData.tokenAddress,
         found[0].trim(),

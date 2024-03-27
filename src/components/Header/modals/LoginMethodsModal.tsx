@@ -3,8 +3,9 @@
 import s from "./Modals.module.scss";
 import Image from "next/image";
 import { UseUser } from "@/context/UserContext";
-import { hasAgreement, unipassLogin } from "@/services/unipass";
+import { hasAgreement } from "@/services/unipass-server";
 import { getTrackOwnerData } from "@/services/helpers";
+import {unipassLogin} from "@/services/unipass";
 
 export function LoginMethodsModal() {
   let userContext = UseUser();

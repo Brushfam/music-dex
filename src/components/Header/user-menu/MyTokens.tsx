@@ -5,42 +5,44 @@ import s from "@/components/Header/Header.module.scss";
 import { useEffect, useState } from "react";
 import { UserTokensModal } from "@/components/Header/modals/UserTokensModal";
 import { UseUser } from "@/context/UserContext";
-import { tokensAddresses } from "@/data/tracksData";
-import { getUserTokensData } from "@/services/unipass";
+import { getUsersData } from "@/services/unipass-server";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { dealerAddress, myKyivAddress } from "@/data/contractsData";
+import { roundToTwo } from "@/services/helpers";
 
 export function MyTokens() {
   const t = useTranslations("Header");
   const userContext = UseUser();
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [userBalances, setUserBalances] = useState<number[]>([]);
   const [userEarning, setUserEarning] = useState<number[]>([]);
 
   useEffect(() => {
-    const tokenAddressesArray = [
-      tokensAddresses.ukrainianSun,
-      tokensAddresses.myKyiv,
-      tokensAddresses.og044,
-    ];
+    const tokenAddressesArray = [myKyivAddress, dealerAddress];
 
-    let promises = getUserTokensData(
+    let tokensDataPromise = getUsersData(
       userContext.currentUser,
       tokenAddressesArray,
     );
+    tokensDataPromise.then((rawData) => {
+      const data = JSON.parse(rawData)
+      let balances = [];
+      let earnings = [];
+      let usdtDecimals = 1_000_000;
 
-    promises.then((promisesArray) => {
-      Promise.all(promisesArray).then((data) => {
-        let balances = [];
-        let earnings = [];
-
-        for (let i = 0; i < data.length; i += 1) {
-          balances.push(data[i].amount);
-          earnings.push(data[i].earning);
+      for (let i = 0; i < data.length; i += 1) {
+        if (!data[i].amount) {
+          continue;
         }
-        setUserBalances(balances);
-        setUserEarning(earnings);
-      });
+        balances.push(data[i].amount);
+        let earning = roundToTwo(data[i].earning / usdtDecimals);
+        earnings.push(earning);
+      }
+      setUserBalances(balances);
+      setUserEarning(earnings);
+      setLoading(false);
     });
   }, [userContext.currentUser]);
 
@@ -77,12 +79,11 @@ export function MyTokens() {
       </button>
       {open ? (
         <UserTokensModal
+          loading={loading}
           userBalances={userBalances}
           userEarning={userEarning}
         />
-      ) : (
-        <></>
-      )}
+      ) : null}
     </div>
   );
 }

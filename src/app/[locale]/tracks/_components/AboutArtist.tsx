@@ -1,7 +1,7 @@
 "use client";
 import { useLocale } from "use-intl";
 import { dealerEN, dealerUK } from "@/data/tracksData";
-import s from "@/app/[locale]/tracks/dealer/page.module.scss";
+import s from "@/app/[locale]/tracks/_components/VideoSection/VideoSection.module.scss";
 import { Tab } from "@/components/ui/Tab/Tab";
 import { ColumnContainer } from "@/components/ui/Containers/Containers";
 

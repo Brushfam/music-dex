@@ -1,17 +1,18 @@
 "use client";
 import s from "@/components/Header/modals/Modals.module.scss";
 import { useTranslations } from "next-intl";
+import { Spinner } from "@/components/Spinner/Spinner";
 
 export function UserTokensModal(props: {
+  loading: boolean;
   userBalances: number[];
   userEarning: number[];
 }) {
   const t = useTranslations("Header");
-  // Hardcoded data
-  const tokenNamesArray = ["Ukrainian Sun", "My Kyiv", "OG 044"];
+  const tokenNamesArray = ["Мій Київ", "Дилер"];
 
-  return (
-    <div className={s.wrapper}>
+  function TokensList() {
+    return (
       <div className={s.tokensBlock}>
         {props.userBalances.length ? (
           props.userBalances.map((value, index) => {
@@ -25,9 +26,9 @@ export function UserTokensModal(props: {
                   <p>{t("earned")}</p>
                   <p>${props.userEarning[index]}</p>
                 </div>
-                <button type={"button"} className={s.tmpButton}>
-                  {t("claim")}
-                </button>
+                {/*<button type={"button"} className={s.tmpButton}>*/}
+                {/*  {t("claim")}*/}
+                {/*</button>*/}
               </div>
             ) : null;
           })
@@ -37,6 +38,18 @@ export function UserTokensModal(props: {
           </div>
         )}
       </div>
+    );
+  }
+
+  return (
+    <div className={s.wrapper}>
+      {props.loading ? (
+        <div className={s.tokensBlock} style={{height: 100, alignItems: "center", justifyContent: "center"}}>
+          <Spinner size={30}/>
+        </div>
+      ) : (
+        <TokensList />
+      )}
     </div>
   );
 }

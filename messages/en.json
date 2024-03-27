@@ -30,23 +30,23 @@
     "song_location": "Ukraine",
     "price_text": "Price per token:",
     "song_button": "Track page",
-    "details": "DETAILS"
+    "details": "DETAILS",
+    "watch_video": "WATCH OFFICIAL VIDEO"
   },
 
   "Dealer": {
     "song_genre": "Rap",
     "song_location": "Ukraine",
-    "details": "DETAILS",
-    "watch_video": "WATCH OFFICIAL VIDEO"
+    "details": "DETAILS"
   },
 
   "Header": {
-    "login": "Log in",
+    "login": "Connect wallet",
     "logout": "Log out",
     "my_tokens": "My tokens",
     "earned": "Earned",
     "claim": "Claim",
-    "no_tokes": "You do not have any token.",
+    "no_tokes": "You do not have any tokens yet.",
     "my_track": "My track",
     "send_income": "Send income",
     "amount": "amount",
@@ -97,7 +97,7 @@
     "header": "Select token amount",
     "sold_out": "Sold out",
     "price": "Price",
-    "ownership": "Ownership",
+    "tokens": "Tokens",
     "min": "min.",
     "max": "max.",
     "please_login": "Please log in to buy tokens.",
@@ -107,7 +107,7 @@
       "default": "Purchase by Crypto",
       "loading": "Transaction executing...",
       "info": "Please wait for the transaction to complete.",
-      "success": "Success! Your tokens will be transferred within 30 seconds.",
+      "success": "Success! Your tokens will be transferred within several minutes.",
       "error": "Something went wrong."
     }
   }

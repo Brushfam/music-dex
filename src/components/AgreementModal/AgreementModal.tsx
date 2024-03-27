@@ -3,7 +3,7 @@
 import s from "./AgreementModal.module.scss";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
-import { signAgreement } from "@/services/unipass";
+import { signAgreement } from "@/services/unipass-server";
 import { UseUser } from "@/context/UserContext";
 import {
   introductionEN,

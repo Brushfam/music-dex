@@ -12,6 +12,7 @@ import { trackDataType } from "@/types/types";
 import { AgreementModal } from "@/components/AgreementModal/AgreementModal";
 import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
+import {VideoSection} from "@/app/[locale]/tracks/_components/VideoSection/VideoSection";
 
 type PageTemplateProps = {
   children?: React.ReactNode;
@@ -83,6 +84,7 @@ export function PageTemplate(props: PageTemplateProps) {
           </div>
         </div>
       </div>
+      <VideoSection/>
       {props.children}
       <Faq />
       <Footer />
