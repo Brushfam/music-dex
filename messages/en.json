@@ -25,27 +25,38 @@
     "header": "Choose your track",
     "description": "Invest in Music Royalties and Shape the Future of Music",
     "song_title": "Tony Tonite - Дилер",
+    "rights_holder": "Rights Holder:",
     "song_genre": "Rap",
     "song_location": "Ukraine",
-    "song_button": "Track Page"
+    "price_text": "Price per token:",
+    "song_button": "Track page",
+    "details": "DETAILS",
+    "watch_video": "WATCH OFFICIAL VIDEO"
   },
 
   "Dealer": {
     "song_genre": "Rap",
     "song_location": "Ukraine",
-    "details": "DETAILS",
-    "watch_video": "WATCH OFFICIAL VIDEO"
+    "details": "DETAILS"
   },
 
-  "SharesBlock": {
-    "header": "Select token amount",
-    "sold_out": "Sold out",
-    "amount": "Amount",
-    "ownership": "Ownership",
-    "min": "min.",
-    "max": "max.",
-    "button_title": "Buy",
-    "button_description": "Please, wait for start of sales."
+  "Header": {
+    "login": "Connect wallet",
+    "logout": "Log out",
+    "my_tokens": "My tokens",
+    "earned": "Earned",
+    "claim": "Claim",
+    "no_tokes": "You do not have any tokens yet.",
+    "my_track": "My track",
+    "send_income": "Send income",
+    "amount": "amount",
+    "invalid_amount": "Invalid amount.",
+    "close": "Close",
+    "toaster": {
+      "income_info": "Sending income...",
+      "income_success": "Income was sent successfully.",
+      "income_error": "Sending income failed."
+    }
   },
 
   "Footer": {
@@ -68,5 +79,38 @@
   },
   "PublicOffer": {
     "header": "PUBLIC OFFER AGREEMENT"
+  },
+
+  "AgreementModal": {
+    "close": "Close",
+    "accept": "Accept",
+    "loading_button": "Saving...",
+    "agreement_title": "PUBLIC OFFER AGREEMENT",
+    "toaster": {
+      "verifying_error": "Error during verification.",
+      "sign_error": "Something went wrong.",
+      "sign_success": "Agreement accepted!"
+    }
+  },
+
+  "SharesBlock": {
+    "header": "Select token amount",
+    "sold_out": "Sold out",
+    "price": "Price",
+    "tokens": "Tokens",
+    "min": "min.",
+    "max": "max.",
+    "please_login": "Please log in to buy tokens.",
+    "sign_agreement": "Agreement",
+    "agreement_description": "To buy tokens, you need to accept the terms of the agreement.",
+    "fiat_title": "Purchase by Fiat",
+    "fiat_description": "Coming soon!",
+    "ByCrypto": {
+      "default": "Purchase by Crypto",
+      "loading": "Transaction executing...",
+      "info": "Please wait for the transaction to complete.",
+      "success": "Success! Your tokens will be transferred within several minutes.",
+      "error": "Something went wrong."
+    }
   }
 }

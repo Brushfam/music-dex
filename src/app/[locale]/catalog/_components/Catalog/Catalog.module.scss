@@ -7,6 +7,14 @@
   grid-template-columns: repeat(3, 390px);
   justify-content: center;
 
+  @media (max-width: $desktop-size) {
+    grid-template-columns: repeat(2, 390px);
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(1, 440px);
+  }
+
   @media (max-width: $mobile-size) {
     grid-template-columns: repeat(1, 100%);
   }

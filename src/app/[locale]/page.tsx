@@ -3,7 +3,6 @@ import cs from "../commonStyles.module.scss";
 import { Section } from "@/components/ui/Section/Section";
 import { ColumnContainer } from "@/components/ui/Containers/Containers";
 import { Button } from "@/components/ui/Button/Button";
-import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
 import { FlowList } from "@/app/[locale]/_components/FlowList/FlowList";
 import { Terms } from "@/app/[locale]/_components/Terms/Terms";
@@ -15,14 +14,13 @@ import {
 } from "@/app/[locale]/_components/Tracks/Tracks";
 import Faq from "@/components/Faq/Faq";
 import { useTranslations } from "next-intl";
-import {flowListDataEN, flowListDataUK} from "@/data/homepage/flowListData";
+import { flowListDataEN, flowListDataUK } from "@/data/homepage/flowListData";
 
 export default function Home() {
   const t = useTranslations("Home");
 
   return (
     <main className={cs.main}>
-      <Header />
       {/*  Banner */}
       <Section banner={true} id={"home-banner"}>
         <div className={s.bannerContainer}>
@@ -32,7 +30,8 @@ export default function Home() {
             <p className={s.bannerContainer_p}>{t("banner_description")}</p>
             <Button
               title={t("learn_more_button")}
-              color={"red"}
+              color={"main"}
+              arrow={true}
               path={"#home-how-it-works"}
             />
           </ColumnContainer>
@@ -48,7 +47,11 @@ export default function Home() {
               <h3>{t("how_it_works_header")}</h3>
               <p className={s.flowContainer_title}>{t("how_it_works")}</p>
             </ColumnContainer>
-            <FlowList dataEN={flowListDataEN} dataUK={flowListDataUK} symbol={"0"}/>
+            <FlowList
+              dataEN={flowListDataEN}
+              dataUK={flowListDataUK}
+              symbol={"0"}
+            />
           </div>
         </Section>
       </div>
@@ -73,6 +76,7 @@ export default function Home() {
             <Button
               title={t("tracks_button")}
               color={"transparent"}
+              arrow={true}
               path={"/catalog"}
             />
           </div>

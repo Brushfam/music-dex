@@ -1,13 +1,14 @@
-"use client"
+"use client";
 import { useLocale } from "use-intl";
-import { trackDataEN, trackDataUK } from "@/data/trackData";
-import s from "@/app/[locale]/tracks/dealer/page.module.scss";
+import { dealerEN, dealerUK } from "@/data/tracksData";
+import s from "@/app/[locale]/tracks/_components/VideoSection/VideoSection.module.scss";
 import { Tab } from "@/components/ui/Tab/Tab";
 import { ColumnContainer } from "@/components/ui/Containers/Containers";
 
 export function AboutArtist() {
   const currentLocale = useLocale();
-  const trackData = currentLocale === "uk" ? trackDataUK : trackDataEN;
+  const trackData =
+    currentLocale === "uk" ? dealerUK : dealerEN;
 
   return (
     <ColumnContainer>

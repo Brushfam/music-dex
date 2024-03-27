@@ -138,12 +138,11 @@
   justify-content: space-between;
 
   @media (max-width: $desktop-size) {
-    justify-content: normal;
-    gap:90px;
-    width: 100%;
+    width: 990px;
   }
 
   @media (max-width: $desktop-md-size) {
+    width: 100%;
     gap: 10px;
     flex-direction: column;
     justify-content: flex-start;

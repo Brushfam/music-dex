@@ -37,6 +37,7 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 130%;
+  user-select: none;
   color: white;
 
   @media (max-width: $mobile-size) {

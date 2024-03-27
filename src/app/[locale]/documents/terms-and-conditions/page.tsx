@@ -13,37 +13,36 @@ import {
 } from "@/data/documents/terms-and-conditions/termsNavigation";
 import {
   generalInformationEN,
-  generalInformationUA, pointsEN, pointsUA,
+  generalInformationUA,
+  pointsEN,
+  pointsUA,
 } from "@/data/documents/terms-and-conditions/termsContent";
-import {useTranslations} from "next-intl";
+import { useTranslations } from "next-intl";
 
 export default function Terms() {
   const t = useTranslations("Terms");
 
   return (
     <div className={cs.main}>
-      <Header />
       <div className={s.pageWrapper}>
         <Section id={"terms-and-conditions"}>
           <p className={s.headerText}>{t("header")}</p>
-          <p className={s.navigationTitle}>
-            {t("description")}
-          </p>
+          <p className={s.navigationTitle}>{t("description")}</p>
           <Navigation
-              navigationEN={termsNavigationEN}
-              navigationUA={termsNavigationUA}
+            navigationEN={termsNavigationEN}
+            navigationUA={termsNavigationUA}
           />
           <Content
-              introductionEN={generalInformationEN}
-              introductionUA={generalInformationUA}
-              pointsEN={pointsEN}
-              pointsUA={pointsUA}
+            introductionEN={generalInformationEN}
+            introductionUA={generalInformationUA}
+            pointsEN={pointsEN}
+            pointsUA={pointsUA}
           />
-          <Contacts/>
+          <Contacts />
         </Section>
       </div>
-      <Faq/>
-      <Footer/>
+      <Faq />
+      <Footer />
     </div>
   );
 }

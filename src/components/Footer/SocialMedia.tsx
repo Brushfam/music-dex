@@ -1,9 +1,9 @@
 import s from "./Footer.module.scss";
-import { socialMediaData } from "@/data/socialMediaData";
-import {useTranslations} from "next-intl";
+import { socialMediaData } from "@/data/components/socialMediaData";
+import { useTranslations } from "next-intl";
 
 export function SocialMedia() {
-    const t = useTranslations("Footer");
+  const t = useTranslations("Footer");
 
   return (
     <div className={s.linksColumn}>
