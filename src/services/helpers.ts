@@ -1,11 +1,11 @@
-import {ownersList} from "@/data/ownersList";
+import {adminList} from "@/data/adminList";
 
 // DATA PROCESSING
 export function getTrackOwnerData(address: string) {
   let trackOwnerData = "";
-  for (let i = 0; i < ownersList.length; ++i) {
-    if (address === ownersList[i].address) {
-      trackOwnerData = JSON.stringify(ownersList[i]);
+  for (let i = 0; i < adminList.length; ++i) {
+    if (address === adminList[i].address) {
+      trackOwnerData = JSON.stringify(adminList[i]);
     }
   }
   return trackOwnerData;
