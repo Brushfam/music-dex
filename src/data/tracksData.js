@@ -40,7 +40,7 @@ export const dealerEN = {
 };
 
 export const dealerUK = {
-  rights_holder: "Tony Tonite:",
+  rights_holder: "Tony Tonite",
   price: 2.2,
   details: [
     {
