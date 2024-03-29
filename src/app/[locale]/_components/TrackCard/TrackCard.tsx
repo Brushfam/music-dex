@@ -1,16 +1,11 @@
 import s from "./TrackCard.module.scss";
 
-function TrackCardComponent(props: {
-  image: string;
-  title: string;
-  author: string;
-}) {
+function TrackCardComponent(props: { image: string; title: string }) {
   return (
     <div className={s.trackCardWrapper}>
       <div className={s.trackCard}>
-        <img src={props.image} alt={props.title} />
+        <img src={props.image} alt={props.title} style={{ borderRadius: 4 }} />
         <p className={s.title}>{props.title}</p>
-        <p className={s.author}>{props.author}</p>
       </div>
     </div>
   );
@@ -19,9 +14,8 @@ function TrackCardComponent(props: {
 export function TrackCard1() {
   return (
     <TrackCardComponent
-      image={"/albums/album1.png"}
-      title={"Києве мій"}
-      author={"Tony Tonite"}
+      image={"/albums/homepage1.jpg"}
+      title={"Coming soon!"}
     />
   );
 }
@@ -29,9 +23,8 @@ export function TrackCard1() {
 export function TrackCard2() {
   return (
     <TrackCardComponent
-      image={"/albums/album2.png"}
-      title={"og 044"}
-      author={"Tony Tonite"}
+      image={"/albums/homepage2.jpg"}
+      title={"Coming soon!"}
     />
   );
 }
@@ -39,19 +32,12 @@ export function TrackCard2() {
 export function TrackCard3() {
   return (
     <TrackCardComponent
-      image={"/albums/album3.png"}
-      title={"Позивний ТТ"}
-      author={"Tony Tonite"}
+      image={"/albums/homepage3.jpg"}
+      title={"Coming soon!"}
     />
   );
 }
 
 export function TrackCard4() {
-  return (
-    <TrackCardComponent
-      image={"/albums/album4.png"}
-      title={"Українське сонце"}
-      author={"Tony Tonite feat. Yarmak"}
-    />
-  );
+  return <TrackCardComponent image={"/albums/dealer.jpg"} title={"Dealer"} />;
 }
