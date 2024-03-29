@@ -55,16 +55,6 @@ export default function Home() {
           </div>
         </Section>
       </div>
-      {/*  Our terms */}
-      <div className={s.gradientWrapper}>
-        <Section id={"home-terms"}>
-          <ColumnContainer centered={true}>
-            <h3>{t("terms_header")}</h3>
-            <h5>{t("terms_description")}</h5>
-          </ColumnContainer>
-          <Terms />
-        </Section>
-      </div>
       {/*  Tracks */}
       <Section id={"home-tracks"}>
         <div className={s.tracksContainer}>
@@ -83,6 +73,16 @@ export default function Home() {
           <TracksSectionAlbums />
         </div>
       </Section>
+      {/*  Our terms */}
+      <div className={s.gradientWrapper}>
+        <Section id={"home-terms"}>
+          <ColumnContainer centered={true}>
+            <h3>{t("terms_header")}</h3>
+            <h5>{t("terms_description")}</h5>
+          </ColumnContainer>
+          <Terms />
+        </Section>
+      </div>
       {/* Roadmap */}
       <Section id={"home-roadmap"}>
         <ColumnContainer centered={true}>
