@@ -1,6 +1,6 @@
 "use server";
 import { Contract, providers, utils, Wallet } from "ethers";
-import {baseContractAbi, baseContractAddress, songContractAbi} from "@/data/contractsData";
+import {baseContractAbi, baseContractAddress, erc20Abi, songContractAbi} from "@/data/contractsData";
 
 const infuraKey =
   process.env.NEXT_PUBLIC_TEST_INFURA_KEY ?? process.env.INFURA_KEY;
@@ -66,6 +66,18 @@ export async function getFreeTokenBalance(tokenAddress: string) {
   const songToken = new Contract(tokenAddress, songContractAbi, baseSigner);
   let signTx = await songToken.getFreeTokenBalance();
   return signTx.toNumber();
+}
+
+export async function hasEnoughBalance(user: string, amountToPay: string) {
+  const baseSigner = await getBaseSigner();
+  const usdtAddress = "0xc2132D05D31c914a87C6611C10748AEb04B58e8F";
+  const usdtDecimals = 1_000_000;
+  const toPay = parseFloat(amountToPay) * usdtDecimals;
+
+  const usdt = new Contract(usdtAddress, erc20Abi, baseSigner)
+  let balance = await usdt.balanceOf(user)
+  let fee = 1_00_000 // approximate max fee
+  return balance.toNumber() > (toPay + fee)
 }
 
 // USER MENU

@@ -43,6 +43,7 @@ export const dealerAddress: string = "0x7a7eAF21e22392b05c4698fC53611D4175b65572
 
 // erc-20
 export const erc20Abi = [
+    "function balanceOf(address owner) view returns (uint256)",
     "function transfer(address to, uint amount) returns (bool)",
     "event Transfer(address indexed from, address indexed to, uint amount)",
 ]

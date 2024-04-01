@@ -9,10 +9,11 @@ import Faq from "@/components/Faq/Faq";
 import { Footer } from "@/components/Footer/Footer";
 import React, { useState } from "react";
 import { trackDataType } from "@/types/types";
-import { AgreementModal } from "@/components/AgreementModal/AgreementModal";
+import { AgreementModal } from "@/components/modals/AgreementModal/AgreementModal";
 import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
-import {VideoSection} from "@/app/[locale]/tracks/_components/VideoSection/VideoSection";
+import { VideoSection } from "@/app/[locale]/tracks/_components/VideoSection/VideoSection";
+import { LowBalanceModal } from "@/components/modals/LowBalanceModal/LowBalanceModal";
 
 type PageTemplateProps = {
   children?: React.ReactNode;
@@ -29,6 +30,7 @@ export function PageTemplate(props: PageTemplateProps) {
   const trackData =
     currentLocale === "uk" ? props.trackDataUK : props.trackDataEN;
   const [agreementModal, setAgreementModal] = useState(false);
+  const [lowBalanceModal, setLowBalanceModal] = useState(false);
 
   function TrackDescription() {
     return (
@@ -59,6 +61,7 @@ export function PageTemplate(props: PageTemplateProps) {
 
   return (
     <div className={cs.main}>
+      {lowBalanceModal ? <LowBalanceModal setModal={setLowBalanceModal}/> : null}
       {agreementModal ? <AgreementModal setModal={setAgreementModal} /> : null}
       <div className={s.sectionWrapper}>
         <div className={s.bg}></div>
@@ -79,12 +82,13 @@ export function PageTemplate(props: PageTemplateProps) {
               price={trackData.price}
               tokenAddress={props.tokenAddress}
               tokenName={props.songName}
-              setModal={setAgreementModal}
+              setAgreementModal={setAgreementModal}
+              setLowBalanceModal={setLowBalanceModal}
             />
           </div>
         </div>
       </div>
-      <VideoSection/>
+      <VideoSection />
       {props.children}
       <Faq />
       <Footer />

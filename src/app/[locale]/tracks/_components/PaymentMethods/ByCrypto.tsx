@@ -1,19 +1,27 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
 import { unipassBuyTokens} from "@/services/unipass";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
+import {hasEnoughBalance} from "@/services/unipass-server";
 
 export function ByCrypto(props: {
   user: string;
   tokensToPay: string;
   tokensToBuy: number;
   address: string;
+  setLowBalanceModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const t = useTranslations("SharesBlock.ByCrypto");
   const [loading, setLoading] = useState(false);
 
-  function handlePurchase() {
+  async function handlePurchase() {
+    if (!(await hasEnoughBalance(props.user, props.tokensToPay))) {
+      props.setLowBalanceModal(true)
+      setLoading(false);
+      return;
+    }
+
     toast.promise(
         unipassBuyTokens(
         props.user,
@@ -42,9 +50,9 @@ export function ByCrypto(props: {
       title={t("default")}
       color={"main"}
       arrow={true}
-      action={() => {
+      action={async() => {
         setLoading(true);
-        handlePurchase();
+        await handlePurchase();
       }}
     />
   );
