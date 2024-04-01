@@ -1,6 +1,7 @@
 "use client";
 
-import s from "./AgreementModal.module.scss";
+import ms from "../Modals.module.scss";
+import s from "./AgreementModal.module.scss"
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
 import { signAgreement } from "@/services/unipass-server";
@@ -85,8 +86,8 @@ export function AgreementModal(props: {
   }
 
   return (
-    <div className={s.overlay}>
-      <div className={s.modal}>
+    <div className={ms.overlay}>
+      <div className={s.agreementModal}>
         <div className={s.textBlock}>
           <p className={s.headerText}>{t("agreement_title")}</p>
           <div className={s.point}>

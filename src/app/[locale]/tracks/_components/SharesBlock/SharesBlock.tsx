@@ -25,7 +25,8 @@ export function SharesBlock(props: {
   price: number;
   tokenAddress: string;
   tokenName: string;
-  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setAgreementModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setLowBalanceModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const userContext = UseUser();
   const t = useTranslations("SharesBlock");
@@ -128,6 +129,7 @@ export function SharesBlock(props: {
           tokensToPay={currentAmount.toString()}
           tokensToBuy={currentAmount / price}
           address={props.tokenAddress}
+          setLowBalanceModal={props.setLowBalanceModal}
         />
         <Tooltip title={t("fiat_description")} enterTouchDelay={0}>
           <div className={s.disabledFiat}>
@@ -142,7 +144,7 @@ export function SharesBlock(props: {
           color={"main"}
           arrow={true}
           action={() => {
-            props.setModal(true);
+            props.setAgreementModal(true);
           }}
         />
         <p style={{ textAlign: "center", fontSize: 13, lineHeight: "120%" }}>

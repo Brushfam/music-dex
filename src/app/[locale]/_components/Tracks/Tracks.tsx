@@ -10,18 +10,18 @@ export function BannerTracks() {
   return (
     <div className={s.banner_tracksWrapper}>
       <div className={s.banner_trackColumn} style={{ marginTop: 90 }}>
-        <TrackCard1 />
         <TrackCard2 />
-        <TrackCard3 />
         <TrackCard4 />
-        <TrackCard1 />
+        <TrackCard3 />
+        <TrackCard2 />
+        <TrackCard4 />
       </div>
       <div className={s.banner_trackColumn} style={{ marginBottom: 20 }}>
-        <TrackCard3 />
         <TrackCard4 />
-        <TrackCard1 />
-        <TrackCard2 />
         <TrackCard3 />
+        <TrackCard1 />
+        <TrackCard4 />
+        <TrackCard4 />
       </div>
     </div>
   );

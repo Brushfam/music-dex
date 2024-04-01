@@ -10,6 +10,9 @@ export const flowListDataEN = [
     },
     {
         text: "Investors can track their investments and earnings through our user-friendly interface"
+    },
+    {
+        text: "The investor's income and the track price increase depending on the number of listens"
     }
 ]
 
@@ -25,5 +28,8 @@ export const flowListDataUK = [
     },
     {
         text: "Інвестори можуть слідкувати за своїми інвестиціями і заробляти через зрозумілий інтерфейс"
+    },
+    {
+        text: "Дохід інвестора і ціна треку росте від кількості прослуховувань"
     }
 ]
