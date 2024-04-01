@@ -6,19 +6,29 @@ import React from "react";
 
 export function LowBalanceModal(props: {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  wallet: string;
 }) {
   const t = useTranslations("SharesBlock.LowBalanceModal");
+
+  function ModalContent() {
+    return props.wallet === "Unipass" ? (
+      <p className={s.content}>
+        {t("unipass")}{" "}
+        <a href={"https://wallet.unipass.id/"} target={"_blank"}>
+          wallet.unipass.id
+        </a>
+        .
+      </p>
+    ) : (
+      <p className={s.content}>{t("wallet_connect")}</p>
+    );
+  }
 
   return (
     <div className={ms.overlay}>
       <div className={s.lowBalanceModal}>
         <p className={s.title}>{t("title")}</p>
-        <p className={s.content}>
-          {t("unipass")}{" "}
-          <a href={"https://wallet.unipass.id/"} target={"_blank"}>
-            wallet.unipass.id
-          </a>.
-        </p>
+        <ModalContent />
         <div
           style={{
             display: "flex",

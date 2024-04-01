@@ -116,6 +116,7 @@
     "LowBalanceModal": {
       "title": "Low balance",
       "unipass": "There are not enough funds in your wallet. Please top up your account. Wallet link:",
+      "wallet_connect": "There are not enough funds in your wallet. Please top up your account.",
       "ok": "OK"
     }
   }
