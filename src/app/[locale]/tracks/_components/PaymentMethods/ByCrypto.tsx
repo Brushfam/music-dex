@@ -1,8 +1,12 @@
+"use client";
+
 import { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
-import { unipassBuyTokens} from "@/services/unipass";
+import { unipassBuyTokens, wcBuyTokens } from "@/services/unipass";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
+import { UseUser } from "@/context/UserContext";
+import { useWeb3ModalProvider } from "@web3modal/ethers5/react";
 
 export function ByCrypto(props: {
   user: string;
@@ -10,17 +14,27 @@ export function ByCrypto(props: {
   tokensToBuy: number;
   address: string;
 }) {
+  const userContext = UseUser();
+  const { walletProvider } = useWeb3ModalProvider();
   const t = useTranslations("SharesBlock.ByCrypto");
   const [loading, setLoading] = useState(false);
 
   function handlePurchase() {
     toast.promise(
-        unipassBuyTokens(
-        props.user,
-        props.tokensToPay,
-        props.tokensToBuy,
-        props.address,
-      ),
+      userContext.wallet === "Unipass"
+        ? unipassBuyTokens(
+            props.user,
+            props.tokensToPay,
+            props.tokensToBuy,
+            props.address,
+          )
+        : wcBuyTokens(
+            props.user,
+            props.tokensToPay,
+            props.tokensToBuy,
+            props.address,
+            walletProvider,
+          ),
       {
         loading: t("info"),
         success: () => {

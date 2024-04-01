@@ -6,14 +6,23 @@ import { unipassLogout } from "@/services/unipass";
 import { UseUser } from "@/context/UserContext";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { useDisconnect } from "@web3modal/ethers5/react";
 
 export function LogoutButton() {
   let userContext = UseUser();
+  const { disconnect } = useDisconnect();
   const t = useTranslations("Header");
 
   function handleOnClick() {
-    let res = unipassLogout();
-    res
+    const isUnipass = userContext.wallet === "Unipass"
+
+    if (!isUnipass && disconnect === undefined) {
+      userContext.logout();
+      return;
+    }
+
+    let logoutPromise = isUnipass ? unipassLogout() : disconnect();
+    logoutPromise
       .then(() => {
         userContext.logout();
       })

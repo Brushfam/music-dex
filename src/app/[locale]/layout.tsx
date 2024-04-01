@@ -6,6 +6,7 @@ import { UserProvider } from "@/context/UserContext";
 import { Header } from "@/components/Header/Header";
 import { Toaster } from "sonner";
 import Script from "next/script";
+import { Web3Modal } from "@/context/web3modal";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -46,15 +47,17 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <UserProvider>
-        <body className={inter.className} suppressHydrationWarning={true}>
-          <NextIntlClientProvider messages={messages}>
-            <Toaster richColors />
-            <Header />
-            {children}
-          </NextIntlClientProvider>
-        </body>
-      </UserProvider>
+      <body className={inter.className} suppressHydrationWarning={true}>
+        <UserProvider>
+          <Web3Modal>
+            <NextIntlClientProvider messages={messages}>
+              <Toaster richColors />
+              <Header />
+              {children}
+            </NextIntlClientProvider>
+          </Web3Modal>
+        </UserProvider>
+      </body>
     </html>
   );
 }

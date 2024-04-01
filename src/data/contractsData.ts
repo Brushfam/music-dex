@@ -38,11 +38,13 @@ export const songContractAbi = [
 ];
 
 export const myKyivAddress: string = "0x37Af7cc765226f80C3962B98d3e517C164f0F2f0"
-export const dealerAddress: string = "0x7a7eAF21e22392b05c4698fC53611D4175b65572"
+const dealerAddressDEV = "0x7f09E72ED6D68532833Ecf0B4AD0E294Af745aE5"
+const dealerAddressPROD = "0x7a7eAF21e22392b05c4698fC53611D4175b65572"
+export const dealerAddress: string = process.env.NEXT_PUBLIC_ADDRESSES_ENV === "prod" ? dealerAddressPROD : dealerAddressDEV
 
 
 // erc-20
 export const erc20Abi = [
-    "function transfer(address to, uint amount) returns (bool)",
+    "function transfer(address _to, uint256 _value) returns (bool)",
     "event Transfer(address indexed from, address indexed to, uint amount)",
 ]

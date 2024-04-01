@@ -40,8 +40,8 @@ export function SharesBlock(props: {
     } else {
       let total = getFreeTokenBalance(props.tokenAddress);
       total.then((res) => {
-        let halfOfSupply = res < 5_000 ? res : res - 5_000;
-        setTotalAmount(halfOfSupply);
+        let partOfSupply = res < 1000 ? res : 1000;
+        setTotalAmount(partOfSupply);
       });
     }
   }, [props.tokenAddress, userContext.hasAgreement]);

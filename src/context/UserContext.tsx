@@ -5,21 +5,19 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 type UserContentInterface = {
   currentUser: string;
+  wallet: string;
   hasAgreement: string;
   trackOwner: string;
-  userTokens: string;
-  setUserTokens: (tokens: string) => void;
   setHasAgreement: (value: string) => void;
-  login: (user: string, trackOwnerData: string) => void;
+  login: (user: string, trackOwnerData: string, wallet: string) => void;
   logout: () => void;
 };
 
 const UserContext = createContext<UserContentInterface>({
   currentUser: "",
+  wallet: "",
   hasAgreement: "",
   trackOwner: "",
-  userTokens: "",
-  setUserTokens(tokens: string): void {},
   setHasAgreement(value: string): void {},
   login: () => {},
   logout: () => {},
@@ -27,27 +25,34 @@ const UserContext = createContext<UserContentInterface>({
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [currentUser, setCurrentUser] = useLocalStorage("current-user");
+  const [wallet, setWallet] = useLocalStorage("user-wallet");
   const [hasAgreement, setHasAgreement] = useLocalStorage("user-agreement");
   const [trackOwner, setTrackOwner] = useLocalStorage("user-track-owner");
-  const [userTokens, setUserTokens] = useLocalStorage("user-tokens");
 
-  const login = (user: string, trackOwnerData: string) => {
+  const login = (
+    user: string,
+    trackOwnerData: string,
+    currentWallet: string,
+  ) => {
     setCurrentUser(user);
+    setWallet(currentWallet);
     setTrackOwner(trackOwnerData);
   };
 
   const logout = () => {
     setCurrentUser("");
+      setWallet("");
+      setHasAgreement("");
+      setTrackOwner("");
   };
 
   return (
     <UserContext.Provider
       value={{
         currentUser,
+        wallet,
         hasAgreement,
         trackOwner,
-        userTokens,
-        setUserTokens,
         setHasAgreement,
         login,
         logout,

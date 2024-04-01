@@ -30,6 +30,12 @@ export async function getProviderGasPrice() {
   return feeData.gasPrice;
 }
 
+export async function getProviderGasPriceClient() {
+  "use server";
+  const feeData = await polygonProvider.getFeeData();
+  return JSON.stringify(feeData.gasPrice);
+}
+
 // AGREEMENT
 export async function signAgreement(user: string) {
   const baseSigner = await getBaseSigner();

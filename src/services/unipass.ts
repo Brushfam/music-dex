@@ -1,11 +1,14 @@
 import { UniPassPopupSDK } from "@unipasswallet/popup-sdk";
 import { UniPassTheme, UPEvent, UPEventType } from "@unipasswallet/popup-types";
-import { utils } from "ethers";
+import { Contract, providers, utils } from "ethers";
 import {
   addTokenholderBalance,
   getFreeTokenBalance,
-  updateIncome
+  getProviderGasPriceClient,
+  updateIncome,
 } from "@/services/unipass-server";
+import { erc20Abi } from "@/data/contractsData";
+import { ExternalProvider } from "@ethersproject/providers";
 
 // constants
 const unipassWallet = new UniPassPopupSDK({
@@ -91,6 +94,46 @@ export async function unipassBuyTokens(
   }
 }
 
+export async function wcBuyTokens(
+  user: string,
+  amountToPay: string,
+  amountToBuy: number,
+  contractAddress: string,
+  currentProvider: ExternalProvider | undefined,
+) {
+  if (!currentProvider) {
+    throw Error("Provider not found.");
+  }
+  await checkFreeTokens(contractAddress, amountToBuy);
+
+  const usdtAddress = "0xc2132D05D31c914a87C6611C10748AEb04B58e8F";
+  const usdtDecimals = 1_000_000;
+  const toPay = parseFloat(amountToPay) * usdtDecimals;
+
+  const usdtProvider = new providers.Web3Provider(currentProvider);
+  const usdt = new Contract(usdtAddress, erc20Abi, usdtProvider.getSigner());
+
+  const gasPrice = await getProviderGasPriceClient();
+  let populatedTransaction = await usdt.populateTransaction.transfer(
+    treasury,
+    toPay,
+    {
+      gasPrice: JSON.parse(gasPrice),
+    },
+  );
+
+  const signer = usdtProvider.getSigner();
+  let tx = await signer.sendTransaction(populatedTransaction);
+  let res = await tx.wait();
+
+  if (res) {
+    console.log(res);
+    await addTokenholderBalance(user, amountToBuy, contractAddress);
+  } else {
+    throw Error("Sending token with WalletConnect failed");
+  }
+}
+
 async function checkFreeTokens(contractAddress: string, amountToBuy: number) {
   let freeBalance = await getFreeTokenBalance(contractAddress);
   if (freeBalance < amountToBuy) {
@@ -125,4 +168,3 @@ export async function unipassSendIncome(
     throw Error("Sending token failed");
   }
 }
-
