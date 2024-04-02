@@ -79,7 +79,8 @@
     "description": "Agreement on the Terms and Conditions of Use"
   },
   "PublicOffer": {
-    "header": "PUBLIC OFFER AGREEMENT"
+    "header": "PUBLIC OFFER AGREEMENT",
+    "second_header": "to order, purchase and sale and delivery of goods"
   },
 
   "AgreementModal": {

@@ -27,6 +27,7 @@ export default function PublicOffer() {
       <div className={s.pageWrapper}>
         <Section id={"privacy-policy"}>
           <p className={s.headerText}>{t("header")}</p>
+          <p className={s.secondHeader}>{t("second_header")}</p>
           <Navigation
             navigationEN={publicOfferNavigationEN}
             navigationUA={publicOfferNavigationUA}
