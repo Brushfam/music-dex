@@ -14,6 +14,13 @@
     color: #FFFFFF;
 }
 
+.secondHeader {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: #FFFFFF;
+}
+
 .lastUpdatedText {
     margin-top: 8px;
     font-weight: 400;
@@ -119,7 +126,11 @@
 
 @media (max-width: 480px) {
     .headerText {
-        font-size: 32px;
+        font-size: 28px;
+    }
+
+    .secondHeader {
+        font-size: 16px;
     }
 
     .navigationTitle {
