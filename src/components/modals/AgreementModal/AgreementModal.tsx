@@ -4,7 +4,7 @@ import ms from "../Modals.module.scss";
 import s from "./AgreementModal.module.scss"
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
-import { signAgreement } from "@/services/unipass-server";
+import { signAgreement } from "@/services/serverMethods";
 import { UseUser } from "@/context/UserContext";
 import {
   introductionEN,

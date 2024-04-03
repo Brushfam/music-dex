@@ -5,10 +5,6 @@ import s from "@/components/Header/Header.module.scss";
 import { Dispatch, SetStateAction } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { UseUser } from "@/context/UserContext";
-import { unipassLogin } from "@/services/unipass";
-import { getTrackOwnerData } from "@/services/helpers";
-import { hasAgreement } from "@/services/unipass-server";
 
 export function LoginButton(props: {
   open: boolean;

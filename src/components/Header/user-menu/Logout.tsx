@@ -2,7 +2,7 @@
 
 import cs from "@/app/commonStyles.module.scss";
 import s from "@/components/Header/Header.module.scss";
-import { unipassLogout } from "@/services/unipass";
+import { unipassLogout } from "@/services/ethersMethods";
 import { UseUser } from "@/context/UserContext";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -14,21 +14,12 @@ export function LogoutButton() {
   const t = useTranslations("Header");
 
   function handleOnClick() {
-    const isUnipass = userContext.wallet === "Unipass"
-
-    if (!isUnipass && disconnect === undefined) {
-      userContext.logout();
-      return;
-    }
-
-    let logoutPromise = isUnipass ? unipassLogout() : disconnect();
-    logoutPromise
-      .then(() => {
-        userContext.logout();
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    let logoutPromise =
+      userContext.wallet === "Unipass" ? unipassLogout() : disconnect();
+    logoutPromise.catch((e) => {
+      console.log(e);
+    });
+    userContext.logout();
   }
 
   return (

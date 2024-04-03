@@ -4,7 +4,7 @@ import s from "./SharesBlock.module.scss";
 import React, { useEffect, useState } from "react";
 import Slider from "@mui/material/Slider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { getFreeTokenBalance } from "@/services/unipass-server";
+import { getFreeTokenBalance } from "@/services/serverMethods";
 import { UseUser } from "@/context/UserContext";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { ByCrypto } from "@/app/[locale]/tracks/_components/PaymentMethods/ByCrypto";

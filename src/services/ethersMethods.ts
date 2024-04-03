@@ -6,7 +6,7 @@ import {
   getFreeTokenBalance,
   getProviderGasPriceClient,
   updateIncome,
-} from "@/services/unipass-server";
+} from "@/services/serverMethods";
 import { erc20Abi } from "@/data/contractsData";
 import { ExternalProvider } from "@ethersproject/providers";
 

@@ -3,9 +3,9 @@
 import s from "./Modals.module.scss";
 import Image from "next/image";
 import { UseUser } from "@/context/UserContext";
-import { hasAgreement } from "@/services/unipass-server";
+import { hasAgreement } from "@/services/serverMethods";
 import { getTrackOwnerData } from "@/services/helpers";
-import { unipassLogin } from "@/services/unipass";
+import { unipassLogin } from "@/services/ethersMethods";
 import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import { useEffect } from "react";
 

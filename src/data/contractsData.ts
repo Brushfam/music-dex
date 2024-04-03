@@ -37,7 +37,6 @@ export const songContractAbi = [
     "event Deposit(address indexed sender, uint256 value)"
 ];
 
-export const myKyivAddress: string = "0x37Af7cc765226f80C3962B98d3e517C164f0F2f0"
 const dealerAddressDEV = "0x7f09E72ED6D68532833Ecf0B4AD0E294Af745aE5"
 const dealerAddressPROD = "0x7a7eAF21e22392b05c4698fC53611D4175b65572"
 export const dealerAddress: string = process.env.NEXT_PUBLIC_ADDRESSES_ENV === "prod" ? dealerAddressPROD : dealerAddressDEV

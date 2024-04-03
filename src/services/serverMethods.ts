@@ -1,5 +1,5 @@
 "use server";
-import { Contract, providers, utils, Wallet } from "ethers";
+import {BigNumber, Contract, providers, utils, Wallet} from "ethers";
 import {baseContractAbi, baseContractAddress, erc20Abi, songContractAbi} from "@/data/contractsData";
 
 const infuraKey =
@@ -9,6 +9,7 @@ const polygonProvider = new providers.JsonRpcProvider({
   url: "https://polygon-mainnet.infura.io/v3/" + infuraKey,
   skipFetchSetup: true,
 });
+
 
 export async function getBaseSigner() {
   "use server";
@@ -74,7 +75,7 @@ export async function getFreeTokenBalance(tokenAddress: string) {
   return signTx.toNumber();
 }
 
-export async function hasEnoughBalance(user: string, amountToPay: string) {
+export async function hasEnoughUSDT(user: string, amountToPay: string) {
   const baseSigner = await getBaseSigner();
   const usdtAddress = "0xc2132D05D31c914a87C6611C10748AEb04B58e8F";
   const usdtDecimals = 1_000_000;
@@ -83,7 +84,13 @@ export async function hasEnoughBalance(user: string, amountToPay: string) {
   const usdt = new Contract(usdtAddress, erc20Abi, baseSigner)
   let balance = await usdt.balanceOf(user)
   let fee = 1_00_000 // approximate max fee
-  return balance.toNumber() > (toPay + fee)
+  return balance.toNumber() >= (toPay + fee)
+}
+
+export async function hasEnoughMATIC(user: string) {
+  const polygonFee = BigNumber.from("10000000000000000")  // 10e16
+  const balance = await polygonProvider.getBalance(user)
+  return balance.gte(polygonFee)
 }
 
 // USER MENU

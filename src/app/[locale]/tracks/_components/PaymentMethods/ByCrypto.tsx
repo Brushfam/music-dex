@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
-import { unipassBuyTokens, wcBuyTokens } from "@/services/unipass";
+import { unipassBuyTokens, wcBuyTokens } from "@/services/ethersMethods";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
-import {hasEnoughBalance} from "@/services/unipass-server";
+import { hasEnoughMATIC, hasEnoughUSDT } from "@/services/serverMethods";
 import { UseUser } from "@/context/UserContext";
 import { useWeb3ModalProvider } from "@web3modal/ethers5/react";
 
@@ -22,8 +22,11 @@ export function ByCrypto(props: {
   const [loading, setLoading] = useState(false);
 
   async function handlePurchase() {
-    if (!(await hasEnoughBalance(props.user, props.tokensToPay))) {
-      props.setLowBalanceModal(true)
+    const enoughUSDT = await hasEnoughUSDT(props.user, props.tokensToPay);
+    const enoughMATIC = await hasEnoughMATIC(props.user);
+
+    if (!enoughUSDT || !enoughMATIC) {
+      props.setLowBalanceModal(true);
       setLoading(false);
       return;
     }
@@ -64,7 +67,7 @@ export function ByCrypto(props: {
       title={t("default")}
       color={"main"}
       arrow={true}
-      action={async() => {
+      action={async () => {
         setLoading(true);
         await handlePurchase();
       }}
