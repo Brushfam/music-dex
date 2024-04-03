@@ -75,15 +75,16 @@ export async function getFreeTokenBalance(tokenAddress: string) {
   return signTx.toNumber();
 }
 
-export async function hasEnoughUSDT(user: string, amountToPay: string) {
+export async function hasEnoughUSDT(user: string, amountToPay: string, unipassWithoutMatic: boolean) {
   const baseSigner = await getBaseSigner();
   const usdtAddress = "0xc2132D05D31c914a87C6611C10748AEb04B58e8F";
   const usdtDecimals = 1_000_000;
   const toPay = parseFloat(amountToPay) * usdtDecimals;
 
   const usdt = new Contract(usdtAddress, erc20Abi, baseSigner)
-  let balance = await usdt.balanceOf(user)
-  let fee = 1_00_000 // approximate max fee
+  const balance = await usdt.balanceOf(user)
+  const fee = unipassWithoutMatic ? 1_00_000 : 0 // approximate max usdt fee
+
   return balance.toNumber() >= (toPay + fee)
 }
 

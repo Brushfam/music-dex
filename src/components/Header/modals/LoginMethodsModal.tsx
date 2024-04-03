@@ -16,15 +16,19 @@ export function LoginMethodsModal() {
 
   useEffect(() => {
     if (isConnected && address) {
-        let agreementPromise = hasAgreement(address);
-        agreementPromise
-            .then((value) => {
-                userContext.setHasAgreement(value);
-                userContext.login(address, getTrackOwnerData(address), "WalletConncet");
-            })
-            .catch((e) => {
-                console.log(e);
-            });
+      let agreementPromise = hasAgreement(address);
+      agreementPromise
+        .then((value) => {
+          userContext.setHasAgreement(value);
+          userContext.login(
+            address,
+            getTrackOwnerData(address),
+            "WalletConncet",
+          );
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     }
   }, [address, isConnected, userContext]);
 
@@ -41,17 +45,17 @@ export function LoginMethodsModal() {
       });
   }
 
-    function loginSetup(address: string, wallet: string) {
-        userContext.login(address, getTrackOwnerData(address), wallet);
-        let agreementPromise = hasAgreement(address);
-        agreementPromise
-            .then((value) => {
-                userContext.setHasAgreement(value);
-            })
-            .catch((e) => {
-                console.log(e);
-            });
-    }
+  function loginSetup(address: string, wallet: string) {
+    userContext.login(address, getTrackOwnerData(address), wallet);
+    let agreementPromise = hasAgreement(address);
+    agreementPromise
+      .then((value) => {
+        userContext.setHasAgreement(value);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
 
   return (
     <div className={s.wrapper}>

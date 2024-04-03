@@ -22,17 +22,34 @@ export function ByCrypto(props: {
   const [loading, setLoading] = useState(false);
 
   async function handlePurchase() {
-    const enoughUSDT = await hasEnoughUSDT(props.user, props.tokensToPay);
+    const isUnipas = userContext.wallet === "Unipass";
+    // with Unipass user can pay fee with USDT or with MATIC
+    // with WalletConnect user need to pay fee with MATIC
     const enoughMATIC = await hasEnoughMATIC(props.user);
+    let enoughBalance;
+    if (isUnipas) {
+      enoughBalance = await hasEnoughUSDT(
+        props.user,
+        props.tokensToPay,
+        !enoughMATIC,
+      );
+    } else {
+      const enoughUSDT = await hasEnoughUSDT(
+        props.user,
+        props.tokensToPay,
+        false,
+      );
+      enoughBalance = enoughMATIC && enoughUSDT;
+    }
 
-    if (!enoughUSDT || !enoughMATIC) {
+    if (!enoughBalance) {
       props.setLowBalanceModal(true);
       setLoading(false);
       return;
     }
 
     toast.promise(
-      userContext.wallet === "Unipass"
+      isUnipas
         ? unipassBuyTokens(
             props.user,
             props.tokensToPay,
