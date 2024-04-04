@@ -92,7 +92,8 @@
       "verifying_error": "Error during verification.",
       "sign_error": "Something went wrong.",
       "sign_success": "Agreement accepted!"
-    }
+    },
+    "checkbox": "I have read and agree"
   },
 
   "SharesBlock": {

@@ -124,3 +124,27 @@
   text-align: justify;
 }
 
+.checkboxBlock {
+  display: flex;
+  flex-direction: row;
+  justify-self: flex-start;
+  align-items: center;
+  gap: 4px;
+  max-width: 320px;
+  margin-bottom: 32px;
+  border-radius: 6px;
+  background: rgb(50, 50, 50);
+
+  @media (max-width: $mobile-size) {
+    margin-bottom: 24px;
+  }
+
+  p {
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+    padding-right: 9px;
+  }
+}
+
