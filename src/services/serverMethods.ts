@@ -29,12 +29,6 @@ export async function getProviderGasPrice() {
   return feeData.gasPrice;
 }
 
-export async function getProviderGasPriceClient() {
-  "use server";
-  const feeData = await polygonProvider.getFeeData();
-  return JSON.stringify(feeData.gasPrice);
-}
-
 // AGREEMENT
 export async function signAgreement(user: string) {
   const baseSigner = await getBaseSigner();
@@ -127,8 +121,8 @@ export async function addTokenholderBalance(
 
   let populatedTransaction =
       await songToken.populateTransaction.addTokenholderBalance(user, amount, {
-        maxPriorityFeePerGas: "60160000000",
-        maxFeePerGas: "601600000000"
+        maxPriorityFeePerGas: "60000000000",
+        maxFeePerGas: "600000000000"
       });
 
   const signer = await getBaseSigner();

@@ -116,8 +116,8 @@ export async function wcBuyTokens(
     treasury,
     toPay,
     {
-      maxPriorityFeePerGas: "60160000000",
-      maxFeePerGas: "601600000000",
+      maxPriorityFeePerGas: "60000000000",
+      maxFeePerGas: "600000000000",
     },
   );
 
