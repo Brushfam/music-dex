@@ -1,15 +1,13 @@
 "use server";
 import {BigNumber, Contract, providers, utils, Wallet} from "ethers";
-import {baseContractAbi, baseContractAddress, erc20Abi, songContractAbi} from "@/data/contractsData";
+import {baseContractAbi, baseContractAddress, usdtAbi, songContractAbi} from "@/data/contractsData";
 
-const infuraKey =
-  process.env.NEXT_PUBLIC_TEST_INFURA_KEY ?? process.env.INFURA_KEY;
+const rpcKey = process.env.PRIVATE_RPC;
 
 const polygonProvider = new providers.JsonRpcProvider({
-  url: "https://polygon-mainnet.infura.io/v3/" + infuraKey,
+  url: rpcKey ? rpcKey : "https://polygon-rpc.com/",
   skipFetchSetup: true,
 });
-
 
 export async function getBaseSigner() {
   "use server";
@@ -81,7 +79,7 @@ export async function hasEnoughUSDT(user: string, amountToPay: string, unipassWi
   const usdtDecimals = 1_000_000;
   const toPay = parseFloat(amountToPay) * usdtDecimals;
 
-  const usdt = new Contract(usdtAddress, erc20Abi, baseSigner)
+  const usdt = new Contract(usdtAddress, usdtAbi, baseSigner)
   const balance = await usdt.balanceOf(user)
   const fee = unipassWithoutMatic ? 1_00_000 : 0 // approximate max usdt fee
 
@@ -126,10 +124,11 @@ export async function addTokenholderBalance(
 ) {
   const baseSigner = await getBaseSigner();
   const songToken = new Contract(contractAddress, songContractAbi, baseSigner);
-  const gasPrice = await getProviderGasPrice();
+
   let populatedTransaction =
       await songToken.populateTransaction.addTokenholderBalance(user, amount, {
-        gasPrice: gasPrice,
+        maxPriorityFeePerGas: "60160000000",
+        maxFeePerGas: "601600000000"
       });
 
   const signer = await getBaseSigner();

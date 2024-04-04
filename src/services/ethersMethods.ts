@@ -4,10 +4,9 @@ import { Contract, providers, utils } from "ethers";
 import {
   addTokenholderBalance,
   getFreeTokenBalance,
-  getProviderGasPriceClient,
   updateIncome,
 } from "@/services/serverMethods";
-import { erc20Abi } from "@/data/contractsData";
+import { usdtAbi } from "@/data/contractsData";
 import { ExternalProvider } from "@ethersproject/providers";
 
 // constants
@@ -111,14 +110,14 @@ export async function wcBuyTokens(
   const toPay = parseFloat(amountToPay) * usdtDecimals;
 
   const usdtProvider = new providers.Web3Provider(currentProvider);
-  const usdt = new Contract(usdtAddress, erc20Abi, usdtProvider.getSigner());
+  const usdt = new Contract(usdtAddress, usdtAbi, usdtProvider.getSigner());
 
-  const gasPrice = await getProviderGasPriceClient();
   let populatedTransaction = await usdt.populateTransaction.transfer(
     treasury,
     toPay,
     {
-      gasPrice: JSON.parse(gasPrice),
+      maxPriorityFeePerGas: "60160000000",
+      maxFeePerGas: "601600000000",
     },
   );
 

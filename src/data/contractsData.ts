@@ -42,8 +42,9 @@ const dealerAddressPROD = "0x7a7eAF21e22392b05c4698fC53611D4175b65572"
 export const dealerAddress: string = process.env.NEXT_PUBLIC_ADDRESSES_ENV === "prod" ? dealerAddressPROD : dealerAddressDEV
 
 
-// erc-20
-export const erc20Abi = [
+// USDT
+export const usdtAbi = [
+    "function approve(address spender, uint value) public",
     "function balanceOf(address owner) view returns (uint256)",
     "function transfer(address _to, uint256 _value) returns (bool)",
     "event Transfer(address indexed from, address indexed to, uint amount)",
