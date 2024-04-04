@@ -3,19 +3,41 @@
 import s from "./Modals.module.scss";
 import Image from "next/image";
 import { UseUser } from "@/context/UserContext";
-import { hasAgreement } from "@/services/unipass-server";
+import { hasAgreement } from "@/services/serverMethods";
 import { getTrackOwnerData } from "@/services/helpers";
-import {unipassLogin} from "@/services/unipass";
+import { unipassLogin } from "@/services/ethersMethods";
+import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers5/react";
+import { useEffect } from "react";
 
 export function LoginMethodsModal() {
   let userContext = UseUser();
+  const { open: openWalletConnect } = useWeb3Modal();
+  const { address, isConnected } = useWeb3ModalAccount();
 
-  function emailOnClick() {
+  useEffect(() => {
+    if (isConnected && address) {
+      let agreementPromise = hasAgreement(address);
+      agreementPromise
+        .then((value) => {
+          userContext.setHasAgreement(value);
+          userContext.login(
+            address,
+            getTrackOwnerData(address),
+            "WalletConncet",
+          );
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
+  }, [address, isConnected, userContext]);
+
+  function unipassOnClick() {
     let res = unipassLogin();
     res
       .then((address) => {
         if (address) {
-          loginSetup(address);
+          loginSetup(address, "Unipass");
         }
       })
       .catch((e) => {
@@ -23,20 +45,27 @@ export function LoginMethodsModal() {
       });
   }
 
-  function loginSetup(address: string) {
-    userContext.login(address, getTrackOwnerData(address));
+  function loginSetup(address: string, wallet: string) {
+    userContext.login(address, getTrackOwnerData(address), wallet);
     let agreementPromise = hasAgreement(address);
-    agreementPromise.then((value) => {
-      userContext.setHasAgreement(value);
-    }).catch((e) => {
-      console.log(e)
-    })
+    agreementPromise
+      .then((value) => {
+        userContext.setHasAgreement(value);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
   return (
     <div className={s.wrapper}>
       <div className={s.loginBlock}>
-        <div className={s.loginBlock_row}>
+        <div
+          className={s.loginBlock_row}
+          onClick={() => {
+            openWalletConnect().catch((e) => console.log(e));
+          }}
+        >
           <p>WalletConnect</p>
           <Image
             src={"/icons/wallet.svg"}
@@ -48,7 +77,7 @@ export function LoginMethodsModal() {
         <div
           className={s.loginBlock_row}
           onClick={() => {
-            emailOnClick();
+            unipassOnClick();
           }}
         >
           <p>Email</p>

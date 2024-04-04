@@ -5,10 +5,10 @@ import s from "@/components/Header/Header.module.scss";
 import { useEffect, useState } from "react";
 import { UserTokensModal } from "@/components/Header/modals/UserTokensModal";
 import { UseUser } from "@/context/UserContext";
-import { getUsersData } from "@/services/unipass-server";
+import { getUsersData } from "@/services/serverMethods";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { dealerAddress, myKyivAddress } from "@/data/contractsData";
+import { dealerAddress } from "@/data/contractsData";
 import { roundToTwo } from "@/services/helpers";
 
 export function MyTokens() {

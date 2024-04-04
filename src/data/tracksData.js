@@ -1,6 +1,8 @@
+const isProduction = process.env.NEXT_PUBLIC_ADDRESSES_ENV === "prod";
+
 export const dealerEN = {
   rights_holder: "Tony Tonite",
-  price: 2.2,
+  price: isProduction ? 2.2 : 0.1,
   details: [
     {
       type: "Song Release:",
@@ -41,7 +43,7 @@ export const dealerEN = {
 
 export const dealerUK = {
   rights_holder: "Tony Tonite",
-  price: 2.2,
+  price: isProduction ? 2.2 : 0.1,
   details: [
     {
       type: "Реліз пісні:",
