@@ -29,7 +29,7 @@
     "song_genre": "Rap",
     "song_location": "Ukraine",
     "price_text": "Price per token:",
-    "song_button": "Track page",
+    "song_button": "Invest in a track",
     "details": "DETAILS",
     "watch_video": "WATCH OFFICIAL VIDEO",
     "locked_title": "Coming soon!"
@@ -92,7 +92,8 @@
       "verifying_error": "Error during verification.",
       "sign_error": "Something went wrong.",
       "sign_success": "Agreement accepted!"
-    }
+    },
+    "checkbox": "I have read and agree"
   },
 
   "SharesBlock": {

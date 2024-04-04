@@ -1,7 +1,7 @@
 "use client";
 
 import ms from "../Modals.module.scss";
-import s from "./AgreementModal.module.scss"
+import s from "./AgreementModal.module.scss";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
 import { signAgreement } from "@/services/serverMethods";
@@ -14,7 +14,8 @@ import {
 } from "@/data/documents/public-offer/publicOfferContent";
 import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
-import {toast} from "sonner";
+import { toast } from "sonner";
+import { Checkbox } from "@mui/material";
 
 export function AgreementModal(props: {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -28,19 +29,48 @@ export function AgreementModal(props: {
       : [introductionEN, pointsEN];
   const t = useTranslations("AgreementModal");
   const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(true);
 
   async function handleSignAgreement() {
     setLoading(true);
-    signAgreement(userContext.currentUser).then(() => {
-      userContext.setHasAgreement("true");
-      toast.success(t("toaster.sign_success"));
-      setLoading(false);
-      props.setModal(false);
-    }).catch((e) => {
-      toast.error(t("toaster.sign_error"));
-      console.log(e)
-      props.setModal(false);
-    })
+    signAgreement(userContext.currentUser)
+      .then(() => {
+        userContext.setHasAgreement("true");
+        toast.success(t("toaster.sign_success"));
+        setLoading(false);
+        props.setModal(false);
+      })
+      .catch((e) => {
+        toast.error(t("toaster.sign_error"));
+        console.log(e);
+        props.setModal(false);
+      });
+  }
+
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setDisabled(!event.target.checked);
+  };
+
+  function AgreementCheckbox() {
+    return (
+      <div style={{display: "flex"}}>
+        <div className={s.checkboxBlock}>
+          <Checkbox
+            checked={!disabled}
+            sx={{
+              color: "rgb(246, 96, 31)",
+              "&.Mui-checked": {
+                color: "rgb(246, 96, 31)",
+              },
+            }}
+            size={"small"}
+            onChange={handleCheckboxChange}
+            inputProps={{ "aria-label": "controlled" }}
+          />
+          <p>{t("checkbox")}</p>
+        </div>
+      </div>
+    );
   }
 
   function LoadingButton() {
@@ -75,10 +105,12 @@ export function AgreementModal(props: {
         />
         <Button
           title={t("accept")}
-          color={"main"}
+          color={disabled ? "loading" : "main"}
           arrow={false}
           action={async () => {
-            await handleSignAgreement();
+            if (!disabled) {
+              await handleSignAgreement();
+            }
           }}
         />
       </div>
@@ -118,6 +150,7 @@ export function AgreementModal(props: {
               </div>
             );
           })}
+          <AgreementCheckbox />
         </div>
         <div className={s.dividerBlock}>
           <div className={s.shadowElement} />

@@ -29,7 +29,7 @@
     "song_genre": "Реп",
     "song_location": "Україна",
     "price_text": "Ціна за токен:",
-    "song_button": "Сторінка треку",
+    "song_button": "Інвестувати в трек",
     "details": "ДЕТАЛІ",
     "watch_video": "ОФІЦІЙНЕ ВІДЕО",
     "locked_title": "Незабаром у продажі!"
@@ -92,7 +92,8 @@
       "verifying_error": "Помилка під час верифікації.",
       "sign_error": "Помилка під час збереження даних.",
       "sign_success": "Збережено успішно!"
-    }
+    },
+    "checkbox": "Я прочитав і погоджуюсь"
   },
 
   "SharesBlock": {

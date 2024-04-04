@@ -15,7 +15,7 @@ export const teamListData = [
         path: "/team/Alina.png",
         name: "Alina Antropova",
         nameUK: "Аліна Антропова",
-        role: "Growth Manager"
+        role: "Head of Product"
     },
     {
         path: "/team/Tony.png",
