@@ -1,7 +1,7 @@
 "use client";
 
 import ms from "../Modals.module.scss";
-import s from "./AgreementModal.module.scss"
+import s from "./AgreementModal.module.scss";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
 import { signAgreement } from "@/services/unipass-server";
@@ -14,7 +14,7 @@ import {
 } from "@/data/documents/public-offer/publicOfferContent";
 import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
-import {toast} from "sonner";
+import { toast } from "sonner";
 
 export function AgreementModal(props: {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -28,19 +28,31 @@ export function AgreementModal(props: {
       : [introductionEN, pointsEN];
   const t = useTranslations("AgreementModal");
   const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+
+  const handleScroll = (e: React.UIEvent<HTMLElement>) => {
+    const bottom =
+      e.currentTarget.scrollHeight - e.currentTarget.scrollTop ===
+      e.currentTarget.clientHeight;
+    if (bottom) {
+      setDisabled(false);
+    }
+  };
 
   async function handleSignAgreement() {
     setLoading(true);
-    signAgreement(userContext.currentUser).then(() => {
-      userContext.setHasAgreement("true");
-      toast.success(t("toaster.sign_success"));
-      setLoading(false);
-      props.setModal(false);
-    }).catch((e) => {
-      toast.error(t("toaster.sign_error"));
-      console.log(e)
-      props.setModal(false);
-    })
+    signAgreement(userContext.currentUser)
+      .then(() => {
+        userContext.setHasAgreement("true");
+        toast.success(t("toaster.sign_success"));
+        setLoading(false);
+        props.setModal(false);
+      })
+      .catch((e) => {
+        toast.error(t("toaster.sign_error"));
+        console.log(e);
+        props.setModal(false);
+      });
   }
 
   function LoadingButton() {
@@ -75,10 +87,12 @@ export function AgreementModal(props: {
         />
         <Button
           title={t("accept")}
-          color={"main"}
+          color={disabled ? "loading" : "main"}
           arrow={false}
           action={async () => {
-            await handleSignAgreement();
+            if (!disabled) {
+              await handleSignAgreement();
+            }
           }}
         />
       </div>
@@ -88,7 +102,7 @@ export function AgreementModal(props: {
   return (
     <div className={ms.overlay}>
       <div className={s.agreementModal}>
-        <div className={s.textBlock}>
+        <div className={s.textBlock} onScroll={handleScroll}>
           <p className={s.headerText}>{t("agreement_title")}</p>
           <div className={s.point}>
             {introduction.map((item, i) => {
