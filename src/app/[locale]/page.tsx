@@ -12,7 +12,7 @@ import {
   BannerTracks,
   TracksSectionAlbums,
 } from "@/app/[locale]/_components/Tracks/Tracks";
-import Faq from "@/components/Faq/Faq";
+import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import { useTranslations } from "next-intl";
 import { flowListDataEN, flowListDataUK } from "@/data/homepage/flowListData";
 
@@ -98,7 +98,7 @@ export default function Home() {
           <TeamList />
         </div>
       </Section>
-      <Faq />
+      <FaqSection />
       <Footer />
     </main>
   );

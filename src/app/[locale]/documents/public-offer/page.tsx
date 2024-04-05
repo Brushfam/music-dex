@@ -3,7 +3,7 @@ import cs from "../../../commonStyles.module.scss";
 import { Header } from "@/components/Header/Header";
 import { Section } from "@/components/ui/Section/Section";
 import { Contacts } from "@/app/[locale]/documents/_components/Contacts/Contacts";
-import Faq from "@/components/Faq/Faq";
+import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import { Footer } from "@/components/Footer/Footer";
 import Navigation from "@/app/[locale]/documents/_components/Navigation/Navigation";
 import Content from "@/app/[locale]/documents/_components/Content/Content";
@@ -41,7 +41,7 @@ export default function PublicOffer() {
           <Contacts />
         </Section>
       </div>
-      <Faq />
+      <FaqSection />
       <Footer />
     </div>
   );

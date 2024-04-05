@@ -2,7 +2,6 @@
 
 @mixin card {
   width: 640px;
-  gap: 12px;
   cursor: pointer;
 
   @media (max-width: $tablet-size) {
