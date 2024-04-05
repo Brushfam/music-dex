@@ -19,7 +19,7 @@ export function FaqCard(props: {
       <div className={s.top}>
         <p className={s.question}>{props.question}</p>
         <img
-          src={question ? "/icons/minus.svg" : "/icons/plus.svg"}
+          src={question ? "/icons/faq/minus.svg" : "/icons/faq/plus.svg"}
           alt={"circle"}
         />
       </div>

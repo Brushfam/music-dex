@@ -1,7 +1,7 @@
 import cs from "../../commonStyles.module.scss";
 import s from "./page.module.scss";
 import { Footer } from "@/components/Footer/Footer";
-import Faq from "@/components/Faq/Faq";
+import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import { Section } from "@/components/ui/Section/Section";
 import { Catalog } from "@/app/[locale]/catalog/_components/Catalog/Catalog";
 import { useTranslations } from "next-intl";
@@ -20,7 +20,7 @@ export default function CatalogPage() {
           <Catalog />
         </Section>
       </div>
-      <Faq />
+      <FaqSection />
       <Footer />
     </div>
   );

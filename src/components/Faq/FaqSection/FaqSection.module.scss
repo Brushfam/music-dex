@@ -1,0 +1,56 @@
+@import '../../../constants/constants';
+
+.faqContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (max-width: $desktop-size) {
+    width: 990px;
+  }
+
+  @media (max-width: $desktop-md-size) {
+    width: 100%;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+.faqDescriptionText {
+  max-width: 400px;
+
+  @media (max-width: $desktop-size) {
+    max-width: 260px;
+  }
+
+  @media (max-width: $desktop-md-size) {
+    max-width: 100%;
+  }
+
+  @media (max-width: $mobile-size) {
+    font-size: 14px;
+  }
+}
+
+.desktopFaqButton {
+  display: flex;
+
+  @media (max-width: $desktop-md-size) {
+    display: none;
+  }
+}
+
+.mobileFaqButton {
+  display: none;
+  margin-top: 10px;
+
+  @media (max-width: $desktop-md-size) {
+    display: flex;
+  }
+
+  @media (max-width: $mobile-size) {
+    display: grid;
+    width: 100%;
+  }
+}

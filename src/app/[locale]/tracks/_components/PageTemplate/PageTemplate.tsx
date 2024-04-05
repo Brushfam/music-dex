@@ -5,7 +5,7 @@ import s from "./PageTemplate.module.scss";
 import { Labels } from "@/components/Labels/Labels";
 import { TrackDetails } from "@/components/TrackDetails/TrackDetails";
 import { SharesBlock } from "@/app/[locale]/tracks/_components/SharesBlock/SharesBlock";
-import Faq from "@/components/Faq/Faq";
+import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import { Footer } from "@/components/Footer/Footer";
 import React, { useState } from "react";
 import { trackDataType } from "@/types/types";
@@ -97,7 +97,7 @@ export function PageTemplate(props: PageTemplateProps) {
       </div>
       <VideoSection />
       {props.children}
-      <Faq />
+      <FaqSection />
       <Footer />
     </div>
   );
