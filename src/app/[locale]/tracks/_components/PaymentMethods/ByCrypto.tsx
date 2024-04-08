@@ -66,6 +66,7 @@ export function ByCrypto(props: {
       {
         loading: t("info"),
         success: () => {
+          userContext.setLatestPurchase(Date.now().toString());
           setLoading(false);
           return t("success");
         },

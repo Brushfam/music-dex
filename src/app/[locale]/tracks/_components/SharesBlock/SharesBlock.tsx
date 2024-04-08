@@ -45,7 +45,7 @@ export function SharesBlock(props: {
         setTotalAmount(partOfSupply);
       });
     }
-  }, [props.tokenAddress, userContext.hasAgreement]);
+  }, [props.tokenAddress, userContext.hasAgreement, userContext.latestPurchase]);
 
   function getMaxPrice() {
     if (!totalAmount) return 0;
