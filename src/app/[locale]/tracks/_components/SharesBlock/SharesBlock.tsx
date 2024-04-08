@@ -31,6 +31,7 @@ export function SharesBlock(props: {
   const userContext = UseUser();
   const t = useTranslations("SharesBlock");
   const price = props.price;
+  const USD_TO_UAH = 38.8437;
   const [prevAmount, setPrevAmount] = useState(price);
   const [currentAmount, setCurrentAmount] = useState(price);
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);
@@ -45,7 +46,11 @@ export function SharesBlock(props: {
         setTotalAmount(partOfSupply);
       });
     }
-  }, [props.tokenAddress, userContext.hasAgreement, userContext.latestPurchase]);
+  }, [
+    props.tokenAddress,
+    userContext.hasAgreement,
+    userContext.latestPurchase,
+  ]);
 
   function getMaxPrice() {
     if (!totalAmount) return 0;
@@ -100,7 +105,7 @@ export function SharesBlock(props: {
           <p style={{ fontSize: 16, userSelect: "none" }}>-</p>
         </div>
         <div className={s.priceTextBlock} style={{ width: 59 }}>
-          <p style={{ fontSize: 9, fontWeight: 500 }}>{t("price")}</p>
+          <p style={{ fontSize: 9, fontWeight: 500 }}>{t("price")}*</p>
           <p style={{ fontSize: 16, fontWeight: 700 }}>${currentAmount}</p>
         </div>
         <div className={s.priceTextBlock_divider} />
@@ -159,6 +164,10 @@ export function SharesBlock(props: {
       <p className={s.title}>{t("header")}</p>
       <div className={s.priceBlockWrapper}>
         <PriceBlock />
+        <p className={s.nbuText}>
+          *UAH {roundToTwo(currentAmount * USD_TO_UAH)}
+          {t("nbu_text", { rate: USD_TO_UAH.toString() })}
+        </p>
         <ThemeProvider theme={theme}>
           <Slider
             value={currentAmount}
@@ -167,7 +176,7 @@ export function SharesBlock(props: {
             step={price}
             min={price}
             max={getMaxPrice()}
-            style={{ margin: "4px 0 0 4px" }}
+            style={{ margin: "0 0 0 4px" }}
           />
         </ThemeProvider>
         <div className={s.rowContainer}>
