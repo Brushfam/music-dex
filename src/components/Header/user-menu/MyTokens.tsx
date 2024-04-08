@@ -44,7 +44,7 @@ export function MyTokens() {
       setUserEarning(earnings);
       setLoading(false);
     });
-  }, [userContext.currentUser]);
+  }, [userContext.currentUser, userContext.latestPurchase]);
 
   return (
     <div style={{ position: "relative" }}>
