@@ -101,6 +101,7 @@
     "sold_out": "Sold out",
     "price": "Price",
     "tokens": "Tokens",
+    "nbu_text": ", according to the NBU exchange rate {rate} for 1 USD.",
     "min": "min.",
     "max": "max.",
     "please_login": "Please log in to buy tokens.",
