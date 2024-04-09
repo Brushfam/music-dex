@@ -5,7 +5,7 @@ import {
   addTokenholderBalance,
   getFreeTokenBalance,
   updateIncome,
-} from "@/services/serverMethods";
+} from "@/services/blockchain/serverMethods";
 import { usdtAbi } from "@/data/contractsData";
 import { ExternalProvider } from "@ethersproject/providers";
 

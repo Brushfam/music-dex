@@ -1,10 +1,10 @@
 "use client";
 
 import s from "./SharesBlock.module.scss";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "@mui/material/Slider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { getFreeTokenBalance } from "@/services/serverMethods";
+import { getFreeTokenBalance } from "@/services/blockchain/serverMethods";
 import { UseUser } from "@/context/UserContext";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { ByCrypto } from "@/app/[locale]/tracks/_components/PaymentMethods/ByCrypto";
@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/Button/Button";
 import { useTranslations } from "next-intl";
 import { roundToTwo } from "@/services/helpers";
 import { Tooltip } from "@mui/material";
+import { getUsdRate } from "@/services/services";
 
 const theme = createTheme({
   palette: {
@@ -31,12 +32,18 @@ export function SharesBlock(props: {
   const userContext = UseUser();
   const t = useTranslations("SharesBlock");
   const price = props.price;
-  const USD_TO_UAH = 38.8437;
+  let usdRate = useRef(38.8);
   const [prevAmount, setPrevAmount] = useState(price);
   const [currentAmount, setCurrentAmount] = useState(price);
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);
 
   useEffect(() => {
+    getUsdRate().then((rate) => {
+      usdRate.current = rate;
+    }).catch((e) => {
+        console.log(e)
+    });
+
     if (!props.tokenAddress.length) {
       setTotalAmount(0);
     } else {
@@ -165,8 +172,8 @@ export function SharesBlock(props: {
       <div className={s.priceBlockWrapper}>
         <PriceBlock />
         <p className={s.nbuText}>
-          *UAH {roundToTwo(currentAmount * USD_TO_UAH)}
-          {t("nbu_text", { rate: USD_TO_UAH.toString() })}
+          *UAH {roundToTwo(currentAmount * usdRate.current)}
+          {t("nbu_text", { rate: usdRate.current.toString() })}
         </p>
         <ThemeProvider theme={theme}>
           <Slider

@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
-import { unipassBuyTokens, wcBuyTokens } from "@/services/ethersMethods";
+import { unipassBuyTokens, wcBuyTokens } from "@/services/blockchain/ethersMethods";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
-import { hasEnoughMATIC, hasEnoughUSDT } from "@/services/serverMethods";
+import { hasEnoughMATIC, hasEnoughUSDT } from "@/services/blockchain/serverMethods";
 import { UseUser } from "@/context/UserContext";
 import { useWeb3ModalProvider } from "@web3modal/ethers5/react";
 

@@ -5,7 +5,7 @@ import s from "@/components/Header/Header.module.scss";
 import { useEffect, useState } from "react";
 import { UserTokensModal } from "@/components/Header/modals/UserTokensModal";
 import { UseUser } from "@/context/UserContext";
-import { getUsersData } from "@/services/serverMethods";
+import { getUsersData } from "@/services/blockchain/serverMethods";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { dealerAddress } from "@/data/contractsData";

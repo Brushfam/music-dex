@@ -2,7 +2,7 @@
 
 import cs from "@/app/commonStyles.module.scss";
 import s from "@/components/Header/Header.module.scss";
-import { unipassLogout } from "@/services/ethersMethods";
+import { unipassLogout } from "@/services/blockchain/ethersMethods";
 import { UseUser } from "@/context/UserContext";
 import { useTranslations } from "next-intl";
 import Image from "next/image";

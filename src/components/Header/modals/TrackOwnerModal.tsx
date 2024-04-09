@@ -2,7 +2,7 @@
 
 import s from "./Modals.module.scss";
 import { Button } from "@/components/ui/Button/Button";
-import { unipassSendIncome } from "@/services/ethersMethods";
+import { unipassSendIncome } from "@/services/blockchain/ethersMethods";
 import { UseUser } from "@/context/UserContext";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
