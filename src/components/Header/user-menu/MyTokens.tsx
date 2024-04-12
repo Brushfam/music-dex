@@ -5,43 +5,28 @@ import s from "@/components/Header/Header.module.scss";
 import { useEffect, useState } from "react";
 import { UserTokensModal } from "@/components/Header/modals/UserTokensModal";
 import { UseUser } from "@/context/UserContext";
-import { getUsersData } from "@/services/blockchain/serverMethods";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { dealerAddress } from "@/data/contractsData";
-import { roundToTwo } from "@/services/helpers";
+import { starknetGetUserData } from "@/services/blockchain/starknet";
 
 export function MyTokens() {
   const t = useTranslations("Header");
   const userContext = UseUser();
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [userBalances, setUserBalances] = useState<number[]>([]);
-  const [userEarning, setUserEarning] = useState<number[]>([]);
+  const [userBalances, setUserBalances] = useState<string[]>([]);
+  const [userEarning, setUserEarning] = useState<string[]>([]);
 
   useEffect(() => {
-    const tokenAddressesArray = [dealerAddress];
-
-    let tokensDataPromise = getUsersData(
-      userContext.currentUser,
-      tokenAddressesArray,
-    );
+    let tokensDataPromise = starknetGetUserData(userContext.currentUser);
     tokensDataPromise.then((rawData) => {
-      const data = JSON.parse(rawData)
-      let balances = [];
-      let earnings = [];
-      let usdtDecimals = 1_000_000;
-
-      for (let i = 0; i < data.length; i += 1) {
-        if (!data[i].amount) {
-          continue;
-        }
-        balances.push(data[i].amount);
-        let earning = roundToTwo(data[i].earning / usdtDecimals);
-        earnings.push(earning);
+      let values = [];
+      let k: keyof typeof rawData;
+      for (k in rawData) {
+        values.push(rawData[k])
       }
-      setUserBalances(balances);
-      setUserEarning(earnings);
+      setUserBalances([values[0].toString()]);
+      setUserEarning([values[1].toString()]);
       setLoading(false);
     });
   }, [userContext.currentUser, userContext.latestPurchase]);

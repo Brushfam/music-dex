@@ -5,8 +5,8 @@ import { Spinner } from "@/components/Spinner/Spinner";
 
 export function UserTokensModal(props: {
   loading: boolean;
-  userBalances: number[];
-  userEarning: number[];
+  userBalances: string[];
+  userEarning: string[];
 }) {
   const t = useTranslations("Header");
   const tokenNamesArray = ["Дилер"];

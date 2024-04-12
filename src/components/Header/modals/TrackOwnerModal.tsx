@@ -2,16 +2,12 @@
 
 import s from "./Modals.module.scss";
 import { Button } from "@/components/ui/Button/Button";
-import { unipassSendIncome } from "@/services/blockchain/ethersMethods";
-import { UseUser } from "@/context/UserContext";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { trackOwnerType } from "@/types/types";
-import { toast } from "sonner";
 
 export function TrackOwnerModal(props: { trackOwnerData: trackOwnerType }) {
   const t = useTranslations("Header");
-  const userContext = UseUser();
   const [amount, setAmount] = useState("");
   const [amountError, setAmountError] = useState(false);
 
@@ -26,21 +22,6 @@ export function TrackOwnerModal(props: { trackOwnerData: trackOwnerType }) {
       setAmountError(true);
       return;
     }
-
-    toast.promise(
-        unipassSendIncome(
-        userContext.currentUser,
-        props.trackOwnerData.tokenAddress,
-        found[0].trim(),
-      ),
-      {
-        loading: t("toaster.income_info"),
-        success: () => {
-          return t("toaster.income_success");
-        },
-        error: t("toaster.income_error"),
-      },
-    );
   }
 
   return (

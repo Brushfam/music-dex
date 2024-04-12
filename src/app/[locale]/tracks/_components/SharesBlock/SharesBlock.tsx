@@ -4,7 +4,6 @@ import s from "./SharesBlock.module.scss";
 import React, { useEffect, useRef, useState } from "react";
 import Slider from "@mui/material/Slider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { getFreeTokenBalance } from "@/services/blockchain/serverMethods";
 import { UseUser } from "@/context/UserContext";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { ByCrypto } from "@/app/[locale]/tracks/_components/PaymentMethods/ByCrypto";
@@ -44,15 +43,7 @@ export function SharesBlock(props: {
         console.log(e)
     });
 
-    if (!props.tokenAddress.length) {
-      setTotalAmount(0);
-    } else {
-      let total = getFreeTokenBalance(props.tokenAddress);
-      total.then((res) => {
-        let partOfSupply = res < 1000 ? res : 1000;
-        setTotalAmount(partOfSupply);
-      });
-    }
+    setTotalAmount(1000)
   }, [
     props.tokenAddress,
     userContext.hasAgreement,

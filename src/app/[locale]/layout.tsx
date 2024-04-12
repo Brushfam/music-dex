@@ -5,8 +5,7 @@ import { NextIntlClientProvider, useMessages } from "next-intl";
 import { UserProvider } from "@/context/UserContext";
 import { Header } from "@/components/Header/Header";
 import { Toaster } from "sonner";
-import Script from "next/script";
-import { Web3Modal } from "@/context/web3modal";
+import {StarknetProvider} from "@/context/starknetContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,30 +31,15 @@ export default function RootLayout({
   const messages = useMessages();
   return (
     <html lang={locale}>
-      <head>
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-E7NY2W59JZ"
-        />
-
-        <Script id="google-analytics">
-          {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-DRRFYE53MC');
-          `}
-        </Script>
-      </head>
       <body className={inter.className} suppressHydrationWarning={true}>
         <UserProvider>
-          <Web3Modal>
+          <StarknetProvider>
             <NextIntlClientProvider messages={messages}>
               <Toaster richColors />
               <Header />
               {children}
             </NextIntlClientProvider>
-          </Web3Modal>
+          </StarknetProvider>
         </UserProvider>
       </body>
     </html>

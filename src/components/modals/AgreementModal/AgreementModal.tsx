@@ -4,7 +4,6 @@ import ms from "../Modals.module.scss";
 import s from "./AgreementModal.module.scss";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
-import { signAgreement } from "@/services/blockchain/serverMethods";
 import { UseUser } from "@/context/UserContext";
 import {
   introductionEN,
@@ -16,6 +15,7 @@ import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
 import { toast } from "sonner";
 import { Checkbox } from "@mui/material";
+import {starknetSignAgreement} from "@/services/blockchain/starknet";
 
 export function AgreementModal(props: {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -33,7 +33,7 @@ export function AgreementModal(props: {
 
   async function handleSignAgreement() {
     setLoading(true);
-    signAgreement(userContext.currentUser)
+      starknetSignAgreement(userContext.currentUser)
       .then(() => {
         userContext.setHasAgreement("true");
         toast.success(t("toaster.sign_success"));
