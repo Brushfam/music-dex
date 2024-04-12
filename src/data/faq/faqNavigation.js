@@ -12,7 +12,7 @@ export const faqNavigationEN = [
     title: "Token",
   },
   {
-    title: "Royalty",
+    title: "Royalties",
   },
   {
     title: "For artists",
