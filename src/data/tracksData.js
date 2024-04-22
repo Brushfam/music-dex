@@ -14,7 +14,7 @@ export const dealerEN = {
     },
     {
       type: "Blockchain:",
-      value: "Polygon",
+      value: "Starknet",
     },
     {
       type: "Total supply:",
@@ -55,7 +55,7 @@ export const dealerUK = {
     },
     {
       type: "Блокчейн:",
-      value: "Polygon",
+      value: "Starknet",
     },
     {
       type: "Загальна пропозиція:",

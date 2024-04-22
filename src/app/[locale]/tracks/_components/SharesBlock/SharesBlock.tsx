@@ -38,11 +38,13 @@ export function SharesBlock(props: {
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);
 
   useEffect(() => {
-    getUsdRate().then((rate) => {
-      usdRate.current = rate;
-    }).catch((e) => {
-        console.log(e)
-    });
+    getUsdRate()
+      .then((rate) => {
+        usdRate.current = rate;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
 
     if (!props.tokenAddress.length) {
       setTotalAmount(0);
@@ -203,11 +205,10 @@ export function SharesBlock(props: {
           </div>
         </div>
       </div>
-      {userContext.currentUser ? (
-        <PaymentButtons />
-      ) : (
-        <p style={{ color: "white", fontWeight: 600 }}>{t("please_login")}</p>
-      )}
+      <div className={s.comingSoon}>
+        <Button title={t("coming_soon_button")} color={"loading"} arrow={false} />
+        <p className={s.comingSoonText}>{t("coming_soon")}</p>
+      </div>
     </div>
   ) : totalAmount === undefined ? (
     <div className={s.sharesBlock}>

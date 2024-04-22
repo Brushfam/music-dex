@@ -33,26 +33,15 @@ function LangSwitcher() {
 }
 
 export function Header() {
-  let userContext = UseUser();
   return (
     <div className={s.header}>
       <div className={s.header_content}>
         <Link href={"/"} className={s.header_logo}>
           <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
         </Link>
-        {userContext.currentUser ? (
-          <div className={s.header_row}>
-            <TrackOwner />
-            <MyTokens />
-            <LogoutButton />
-            <LangSwitcher />
-          </div>
-        ) : (
-          <div className={s.header_row}>
-            <Login />
-            <LangSwitcher />
-          </div>
-        )}
+        <div className={s.header_row}>
+          <LangSwitcher />
+        </div>
       </div>
     </div>
   );

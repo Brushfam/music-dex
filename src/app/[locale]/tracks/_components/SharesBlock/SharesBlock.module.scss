@@ -142,3 +142,16 @@
   }
 
 }
+
+.comingSoon {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.comingSoonText {
+  font-size: 14px;
+  line-height: 110%;
+  text-align: center;
+  color: white;
+}
