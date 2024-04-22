@@ -18,8 +18,10 @@
       "second": "Royalty distribution frequency",
       "thirds": "Token redemption options",
       "fourth": "Investor protection measures"
-    }
-  },
+    },
+    "built_on": "Built on:",
+    "starknet_description": "Validity-Rollup Layer 2 network that operates on top of Ethereum, enabling dApps to massively scale without compromising on security."
+},
 
   "Catalog": {
     "header": "Choose your track",
