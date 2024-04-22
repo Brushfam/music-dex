@@ -15,6 +15,7 @@ import {
 import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import { useTranslations } from "next-intl";
 import { flowListDataEN, flowListDataUK } from "@/data/homepage/flowListData";
+import { StarknetSection } from "@/app/[locale]/_components/Starknet/StarknetSection";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -83,6 +84,8 @@ export default function Home() {
           <Terms />
         </Section>
       </div>
+      {/* Starknet */}
+      <StarknetSection />
       {/* Roadmap */}
       <Section id={"home-roadmap"}>
         <ColumnContainer centered={true}>

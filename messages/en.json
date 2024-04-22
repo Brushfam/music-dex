@@ -18,7 +18,9 @@
       "second": "Royalty distribution frequency",
       "thirds": "Token redemption options",
       "fourth": "Investor protection measures"
-    }
+    },
+    "built_on": "Built on:",
+    "starknet_description": "Validity-Rollup Layer 2 network that operates on top of Ethereum, enabling dApps to massively scale without compromising on security."
   },
 
   "Catalog": {
@@ -121,6 +123,8 @@
       "unipass": "There are not enough funds in your wallet. Please top up your account. Wallet link:",
       "wallet_connect": "There are not enough funds in your wallet. Please, check your USDT and MATIC balance.",
       "ok": "OK"
-    }
+    },
+    "coming_soon": "Please, wait for start of sales.",
+    "coming_soon_button": "Buy"
   }
 }
