@@ -19,17 +19,6 @@ export function LoginMethodsModal() {
     }
   }, [address, userContext]);
 
-  function WalletIcon() {
-    return (
-      <Image
-        src={"/icons/wallet.svg"}
-        alt={"wallet icon"}
-        width={20}
-        height={20}
-      />
-    );
-  }
-
   return (
     <div className={s.wrapper}>
       <div className={s.loginBlock}>
@@ -43,7 +32,12 @@ export function LoginMethodsModal() {
               className={s.loginBlock_row}
             >
               <p>{name}</p>
-              <WalletIcon />
+              <Image
+                  src={"/logos/Braavos.svg"}
+                  alt={"Braavos logo"}
+                  width={22}
+                  height={22}
+              />
             </div>
           ) : (
             <a
@@ -53,7 +47,12 @@ export function LoginMethodsModal() {
               className={s.loginBlock_row}
             >
               <p>{name}</p>
-              <WalletIcon />
+              <Image
+                  src={"/logos/Argent-X.png"}
+                  alt={"Argent-X logo"}
+                  width={25}
+                  height={25}
+              />
             </a>
           );
         })}
