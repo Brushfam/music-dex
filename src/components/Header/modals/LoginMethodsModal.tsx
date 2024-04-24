@@ -3,91 +3,60 @@
 import s from "./Modals.module.scss";
 import Image from "next/image";
 import { UseUser } from "@/context/UserContext";
-import { hasAgreement } from "@/services/blockchain/serverMethods";
 import { getTrackOwnerData } from "@/services/helpers";
-import { unipassLogin } from "@/services/blockchain/ethersMethods";
-import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import { useEffect } from "react";
+import { useConnect, Connector, useAccount } from "@starknet-react/core";
 
 export function LoginMethodsModal() {
   let userContext = UseUser();
-  const { open: openWalletConnect } = useWeb3Modal();
-  const { address, isConnected } = useWeb3ModalAccount();
+  const { address } = useAccount();
+  const { connect, connectors } = useConnect();
+  const walletLinkList = ["https://www.argent.xyz/", "https://braavos.app/"];
 
   useEffect(() => {
-    if (isConnected && address) {
-      let agreementPromise = hasAgreement(address);
-      agreementPromise
-        .then((value) => {
-          userContext.setHasAgreement(value);
-          userContext.login(
-            address,
-            getTrackOwnerData(address),
-            "WalletConncet",
-          );
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+    if (address) {
+      userContext.login(address, getTrackOwnerData(address), "Starknet");
     }
-  }, [address, isConnected, userContext]);
+  }, [address, userContext]);
 
-  function unipassOnClick() {
-    let res = unipassLogin();
-    res
-      .then((address) => {
-        if (address) {
-          loginSetup(address, "Unipass");
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
-
-  function loginSetup(address: string, wallet: string) {
-    userContext.login(address, getTrackOwnerData(address), wallet);
-    let agreementPromise = hasAgreement(address);
-    agreementPromise
-      .then((value) => {
-        userContext.setHasAgreement(value);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+  function WalletIcon() {
+    return (
+      <Image
+        src={"/icons/wallet.svg"}
+        alt={"wallet icon"}
+        width={20}
+        height={20}
+      />
+    );
   }
 
   return (
     <div className={s.wrapper}>
       <div className={s.loginBlock}>
-        <div
-          className={s.loginBlock_row}
-          onClick={() => {
-            openWalletConnect().catch((e) => console.log(e));
-          }}
-        >
-          <p>WalletConnect</p>
-          <Image
-            src={"/icons/wallet.svg"}
-            alt={"wallet icon"}
-            width={20}
-            height={20}
-          />
-        </div>
-        <div
-          className={s.loginBlock_row}
-          onClick={() => {
-            unipassOnClick();
-          }}
-        >
-          <p>Email</p>
-          <Image
-            src={"/icons/email.svg"}
-            alt={"email icon"}
-            width={18}
-            height={13}
-          />
-        </div>
+        {connectors.map((connector: Connector, index) => {
+          const available = connector.available();
+          const name = connector.name;
+          return available ? (
+            <div
+              key={index.toString()}
+              onClick={() => connect({ connector })}
+              className={s.loginBlock_row}
+            >
+              <p>{name}</p>
+              <WalletIcon />
+            </div>
+          ) : (
+            <a
+              key={index.toString()}
+              href={walletLinkList[index]}
+              target={"_blank"}
+              className={s.loginBlock_row}
+            >
+              <p>{name}</p>
+              <WalletIcon />
+            </a>
+          );
+        })}
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { UserProvider } from "@/context/UserContext";
 import { Header } from "@/components/Header/Header";
 import { Toaster } from "sonner";
 import Script from "next/script";
-import { Web3Modal } from "@/context/web3modal";
+import {StarknetProvider} from "@/context/starknetContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -49,13 +49,13 @@ export default function RootLayout({
       </head>
       <body className={inter.className} suppressHydrationWarning={true}>
         <UserProvider>
-          <Web3Modal>
+          <StarknetProvider>
             <NextIntlClientProvider messages={messages}>
               <Toaster richColors />
               <Header />
               {children}
             </NextIntlClientProvider>
-          </Web3Modal>
+          </StarknetProvider>
         </UserProvider>
       </body>
     </html>
