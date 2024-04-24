@@ -5,7 +5,11 @@ import Image from "next/image";
 import { UseUser } from "@/context/UserContext";
 import { getTrackOwnerData } from "@/services/helpers";
 import { useEffect } from "react";
-import { useConnect, Connector, useAccount } from "@starknet-react/core";
+import {
+  useConnect,
+  Connector,
+  useAccount,
+} from "@starknet-react/core";
 
 export function LoginMethodsModal() {
   let userContext = UseUser();
@@ -18,6 +22,17 @@ export function LoginMethodsModal() {
       userContext.login(address, getTrackOwnerData(address), "Starknet");
     }
   }, [address, userContext]);
+
+  function WalletIcon() {
+    return (
+      <Image
+        src={"/icons/wallet.svg"}
+        alt={"wallet icon"}
+        width={20}
+        height={20}
+      />
+    );
+  }
 
   return (
     <div className={s.wrapper}>
@@ -32,12 +47,7 @@ export function LoginMethodsModal() {
               className={s.loginBlock_row}
             >
               <p>{name}</p>
-              <Image
-                  src={"/logos/Braavos.svg"}
-                  alt={"Braavos logo"}
-                  width={22}
-                  height={22}
-              />
+              <WalletIcon />
             </div>
           ) : (
             <a
@@ -47,12 +57,7 @@ export function LoginMethodsModal() {
               className={s.loginBlock_row}
             >
               <p>{name}</p>
-              <Image
-                  src={"/logos/Argent-X.png"}
-                  alt={"Argent-X logo"}
-                  width={25}
-                  height={25}
-              />
+              <WalletIcon />
             </a>
           );
         })}
