@@ -15,6 +15,7 @@ import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
 import { toast } from "sonner";
 import { Checkbox } from "@mui/material";
+import { strkSignAgreement } from "@/services/blockchain/server";
 
 export function AgreementModal(props: {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,10 +33,18 @@ export function AgreementModal(props: {
 
   async function handleSignAgreement() {
     setLoading(true);
-    userContext.setHasAgreement("true");
-    toast.success(t("toaster.sign_success"));
-    setLoading(false);
-    props.setModal(false);
+    strkSignAgreement(userContext.currentUser)
+      .then(() => {
+        userContext.setHasAgreement("true");
+        toast.success(t("toaster.sign_success"));
+        setLoading(false);
+        props.setModal(false);
+      })
+      .catch((e) => {
+        toast.error(t("toaster.sign_error"));
+        console.log(e);
+        props.setModal(false);
+      });
   }
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {

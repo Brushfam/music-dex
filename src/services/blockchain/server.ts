@@ -1,6 +1,6 @@
 "use server";
 
-import { Account, Contract, RpcProvider } from "starknet";
+import {Account, Contract, RpcProvider, stark} from "starknet";
 
 // setup
 const providerBlast = new RpcProvider({
@@ -66,8 +66,16 @@ export async function strkSignAgreement(user: string) {
         providerBlast,
     );
     baseContract.connect(account);
+
+    const { suggestedMaxFee: estimatedFee1 } = await account.estimateInvokeFee({
+      contractAddress: baseContractAddress,
+      entrypoint: 'sign_agreement',
+      calldata: [user],
+    });
+
     const myCall = baseContract.populate("sign_agreement", [user]);
-    const writeRes = await baseContract.sign_agreement(myCall.calldata);
+    const fee = (estimatedFee1 * BigInt(12)) / BigInt(10)
+    const writeRes = await baseContract.sign_agreement(myCall.calldata, { maxFee: fee  });
     const res = await providerBlast.waitForTransaction(
       writeRes.transaction_hash,
     );
