@@ -6,7 +6,6 @@ import { UseUser } from "@/context/UserContext";
 import { getTrackOwnerData } from "@/services/helpers";
 import { useEffect } from "react";
 import { useConnect, Connector, useAccount } from "@starknet-react/core";
-import { strkHasAgreement } from "@/services/blockchain/server";
 
 export function LoginMethodsModal() {
   let userContext = UseUser();
@@ -17,15 +16,7 @@ export function LoginMethodsModal() {
 
   useEffect(() => {
     if (address) {
-      let agreementPromise = strkHasAgreement(address);
-      agreementPromise
-        .then((value) => {
-          userContext.setHasAgreement(value);
-          userContext.login(address, getTrackOwnerData(address), "Starknet");
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+      userContext.login(address, getTrackOwnerData(address), "Starknet");
     }
   }, [address, userContext]);
 
