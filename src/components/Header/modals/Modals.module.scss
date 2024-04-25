@@ -36,6 +36,10 @@
       cursor: pointer;
       background: linear-gradient(90.00deg, rgba(246, 96, 31, 0.3),rgba(246, 96, 31, 0) 100%);
     }
+
+    p {
+      white-space: nowrap;
+    }
   }
 }
 
