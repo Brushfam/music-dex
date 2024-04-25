@@ -34,7 +34,7 @@ export async function hasEnoughBalance(user: string, amount: number) {
       providerBlast,
   );
   let balance = await ethContract.balance_of(user);
-  let daiAmount = BigInt(amount) * BigInt("1_000_000_000_000_000_000")
+  let daiAmount = BigInt(amount * 1_000_000_000) * BigInt("1000000000")
   return balance > daiAmount;
 }
 
