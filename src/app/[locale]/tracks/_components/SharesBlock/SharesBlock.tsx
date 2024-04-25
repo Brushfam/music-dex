@@ -12,6 +12,7 @@ import { useTranslations } from "next-intl";
 import { roundToTwo } from "@/services/helpers";
 import { Tooltip } from "@mui/material";
 import { getUsdRate } from "@/services/services";
+import { strkGetFreeBalance } from "@/services/blockchain/server";
 
 const theme = createTheme({
   palette: {
@@ -37,13 +38,17 @@ export function SharesBlock(props: {
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);
 
   useEffect(() => {
-    getUsdRate().then((rate) => {
-      usdRate.current = rate;
-    }).catch((e) => {
-        console.log(e)
+    getUsdRate()
+      .then((rate) => {
+        usdRate.current = rate;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+      strkGetFreeBalance(props.tokenAddress).then((fullBalance) => {
+      const balance = fullBalance > 1000 ? 1000 : fullBalance;
+      setTotalAmount(balance);
     });
-
-    setTotalAmount(1000)
   }, [
     props.tokenAddress,
     userContext.hasAgreement,
@@ -129,7 +134,7 @@ export function SharesBlock(props: {
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <ByCrypto
           user={userContext.currentUser}
-          tokensToPay={currentAmount.toString()}
+          tokensToPay={currentAmount}
           tokensToBuy={currentAmount / price}
           address={props.tokenAddress}
           setLowBalanceModal={props.setLowBalanceModal}

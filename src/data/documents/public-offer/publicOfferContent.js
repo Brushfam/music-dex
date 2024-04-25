@@ -220,7 +220,7 @@ export const pointsEN = [
         text: (
           <p>
             All transactions between the Platform and Users are carried out
-            exclusively on the Polygon blockchain network.{" "}
+            exclusively on the Starknet blockchain network.{" "}
           </p>
         ),
       },
@@ -801,7 +801,7 @@ export const pointsUA = [
         text: (
           <p>
             Усі транзакції між Продавцем та Покупцем здійснюються виключно у
-            мережі блокчейну Polygon.
+            мережі блокчейну Starknet.
           </p>
         ),
       },

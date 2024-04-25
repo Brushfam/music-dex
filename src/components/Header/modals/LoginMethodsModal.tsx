@@ -6,17 +6,18 @@ import { UseUser } from "@/context/UserContext";
 import { getTrackOwnerData } from "@/services/helpers";
 import { useEffect } from "react";
 import { useConnect, Connector, useAccount } from "@starknet-react/core";
-import { starknetHasAgreement } from "@/services/blockchain/starknet";
+import { strkHasAgreement } from "@/services/blockchain/server";
 
 export function LoginMethodsModal() {
   let userContext = UseUser();
   const { address } = useAccount();
   const { connect, connectors } = useConnect();
   const walletLinkList = ["https://www.argent.xyz/", "https://braavos.app/"];
+  const walletLogosList = ["/logos/Argent-X.png", "/logos/Braavos.svg"];
 
   useEffect(() => {
     if (address) {
-      let agreementPromise = starknetHasAgreement(address);
+      let agreementPromise = strkHasAgreement(address);
       agreementPromise
         .then((value) => {
           userContext.setHasAgreement(value);
@@ -28,14 +29,9 @@ export function LoginMethodsModal() {
     }
   }, [address, userContext]);
 
-  function WalletIcon() {
+  function WalletIcon(props: { path: string }) {
     return (
-      <Image
-        src={"/icons/wallet.svg"}
-        alt={"wallet icon"}
-        width={20}
-        height={20}
-      />
+      <Image src={props.path} alt={"Wallet logo"} width={22} height={22} />
     );
   }
 
@@ -52,7 +48,7 @@ export function LoginMethodsModal() {
               className={s.loginBlock_row}
             >
               <p>{name}</p>
-              <WalletIcon />
+              <WalletIcon path={walletLogosList[index]} />
             </div>
           ) : (
             <a
@@ -62,7 +58,7 @@ export function LoginMethodsModal() {
               className={s.loginBlock_row}
             >
               <p>{name}</p>
-              <WalletIcon />
+              <WalletIcon path={walletLogosList[index]} />
             </a>
           );
         })}

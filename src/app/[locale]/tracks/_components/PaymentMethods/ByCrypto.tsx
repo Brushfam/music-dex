@@ -5,11 +5,14 @@ import { Button } from "@/components/ui/Button/Button";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { UseUser } from "@/context/UserContext";
-import { starknetAddTokenholderBalance } from "@/services/blockchain/starknet";
+import { hasEnoughBalance } from "@/services/blockchain/server";
+import { useAccount } from "@starknet-react/core";
+import { buyTokensStarknet } from "@/services/blockchain/client";
+import { trackAddresses } from "@/data/tracksData";
 
 export function ByCrypto(props: {
   user: string;
-  tokensToPay: string;
+  tokensToPay: number;
   tokensToBuy: number;
   address: string;
   setLowBalanceModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -17,10 +20,27 @@ export function ByCrypto(props: {
   const userContext = UseUser();
   const t = useTranslations("SharesBlock.ByCrypto");
   const [loading, setLoading] = useState(false);
+  const { account } = useAccount();
 
   async function handlePurchase() {
+    if (!(await hasEnoughBalance(userContext.currentUser, props.tokensToPay))) {
+      props.setLowBalanceModal(true);
+      setLoading(false);
+      return;
+    }
+
+    if (!account) {
+      setLoading(false);
+      return;
+    }
+
     toast.promise(
-      starknetAddTokenholderBalance(userContext.currentUser, Math.round(props.tokensToBuy)),
+      buyTokensStarknet(
+        account,
+        trackAddresses.dealer,
+        props.tokensToPay,
+        props.tokensToBuy,
+      ),
       {
         loading: t("info"),
         success: () => {

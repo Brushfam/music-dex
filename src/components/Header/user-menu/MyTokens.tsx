@@ -7,7 +7,8 @@ import { UserTokensModal } from "@/components/Header/modals/UserTokensModal";
 import { UseUser } from "@/context/UserContext";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { starknetGetUserData } from "@/services/blockchain/starknet";
+import { strkGetUserData } from "@/services/blockchain/server";
+import { trackAddresses } from "@/data/tracksData";
 
 export function MyTokens() {
   const t = useTranslations("Header");
@@ -18,12 +19,15 @@ export function MyTokens() {
   const [userEarning, setUserEarning] = useState<string[]>([]);
 
   useEffect(() => {
-    let tokensDataPromise = starknetGetUserData(userContext.currentUser);
+    let tokensDataPromise = strkGetUserData(
+      userContext.currentUser,
+      trackAddresses.dealer,
+    );
     tokensDataPromise.then((rawData) => {
       let values = [];
       let k: keyof typeof rawData;
       for (k in rawData) {
-        values.push(rawData[k])
+        values.push(rawData[k]);
       }
       setUserBalances([values[0].toString()]);
       setUserEarning([values[1].toString()]);
