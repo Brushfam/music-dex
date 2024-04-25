@@ -5,15 +5,35 @@ import s from "@/components/Header/Header.module.scss";
 import { useEffect, useState } from "react";
 import { UserTokensModal } from "@/components/Header/modals/UserTokensModal";
 import { UseUser } from "@/context/UserContext";
-import { getUsersData } from "@/services/blockchain/serverMethods";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { dealerAddress } from "@/data/contractsData";
-import { roundToTwo } from "@/services/helpers";
+import { strkGetUserData } from "@/services/blockchain/server";
+import { trackAddresses } from "@/data/tracksData";
 
 export function MyTokens() {
   const t = useTranslations("Header");
+  const userContext = UseUser();
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [userBalances, setUserBalances] = useState<string[]>([]);
+  const [userEarning, setUserEarning] = useState<string[]>([]);
+
+  useEffect(() => {
+    let tokensDataPromise = strkGetUserData(
+      userContext.currentUser,
+      trackAddresses.dealer,
+    );
+    tokensDataPromise.then((rawData) => {
+      let values = [];
+      let k: keyof typeof rawData;
+      for (k in rawData) {
+        values.push(rawData[k]);
+      }
+      setUserBalances([values[0].toString()]);
+      setUserEarning([values[1].toString()]);
+      setLoading(false);
+    });
+  }, [userContext.currentUser, userContext.latestPurchase]);
 
   return (
     <div style={{ position: "relative" }}>
@@ -48,9 +68,9 @@ export function MyTokens() {
       </button>
       {open ? (
         <UserTokensModal
-          loading={false}
-          userBalances={[]}
-          userEarning={[]}
+          loading={loading}
+          userBalances={userBalances}
+          userEarning={userEarning}
         />
       ) : null}
     </div>

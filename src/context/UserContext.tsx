@@ -47,7 +47,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   const logout = () => {
     setCurrentUser("");
     setWallet("");
-    setHasAgreement("");
+    // setHasAgreement("");
     setTrackOwner("");
     setLatestPurchase("")
   };

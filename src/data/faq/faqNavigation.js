@@ -3,6 +3,12 @@ export const faqNavigationEN = [
     title: "Investments",
   },
   {
+    title: "Registration",
+  },
+  {
+    title: "Token Purchase",
+  },
+  {
     title: "Token",
   },
   {
@@ -16,6 +22,12 @@ export const faqNavigationEN = [
 export const faqNavigationUA = [
   {
     title: "Інвестиції",
+  },
+  {
+    title: "Реєстрація",
+  },
+  {
+    title: "Покупка токену",
   },
   {
     title: "Токен",

@@ -34,10 +34,10 @@ export function LoginButton(props: {
         <div className={s.mediaWrapper}>
           <p>{t("login")}</p>
           <Image
-            src={"/icons/wallet.svg"}
+            src={"/icons/header/log-in.svg"}
             alt={"log in"}
-            width={20}
-            height={20}
+            width={16}
+            height={18}
           />
         </div>
       )}

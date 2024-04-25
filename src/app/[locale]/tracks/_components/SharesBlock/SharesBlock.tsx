@@ -4,7 +4,6 @@ import s from "./SharesBlock.module.scss";
 import React, { useEffect, useRef, useState } from "react";
 import Slider from "@mui/material/Slider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { getFreeTokenBalance } from "@/services/blockchain/serverMethods";
 import { UseUser } from "@/context/UserContext";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { ByCrypto } from "@/app/[locale]/tracks/_components/PaymentMethods/ByCrypto";
@@ -13,6 +12,7 @@ import { useTranslations } from "next-intl";
 import { roundToTwo } from "@/services/helpers";
 import { Tooltip } from "@mui/material";
 import { getUsdRate } from "@/services/services";
+import { strkGetFreeBalance } from "@/services/blockchain/server";
 
 const theme = createTheme({
   palette: {
@@ -45,16 +45,10 @@ export function SharesBlock(props: {
       .catch((e) => {
         console.log(e);
       });
-
-    if (!props.tokenAddress.length) {
-      setTotalAmount(0);
-    } else {
-      let total = getFreeTokenBalance(props.tokenAddress);
-      total.then((res) => {
-        let partOfSupply = res < 1000 ? res : 1000;
-        setTotalAmount(partOfSupply);
-      });
-    }
+      strkGetFreeBalance(props.tokenAddress).then((fullBalance) => {
+      const balance = fullBalance > 1000 ? 1000 : fullBalance;
+      setTotalAmount(balance);
+    });
   }, [
     props.tokenAddress,
     userContext.hasAgreement,
@@ -140,7 +134,7 @@ export function SharesBlock(props: {
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <ByCrypto
           user={userContext.currentUser}
-          tokensToPay={currentAmount.toString()}
+          tokensToPay={currentAmount}
           tokensToBuy={currentAmount / price}
           address={props.tokenAddress}
           setLowBalanceModal={props.setLowBalanceModal}
@@ -205,10 +199,11 @@ export function SharesBlock(props: {
           </div>
         </div>
       </div>
-      <div className={s.comingSoon}>
-        <Button title={t("coming_soon_button")} color={"loading"} arrow={false} />
-        <p className={s.comingSoonText}>{t("coming_soon")}</p>
-      </div>
+      {userContext.currentUser ? (
+        <PaymentButtons />
+      ) : (
+        <p style={{ color: "white", fontWeight: 600 }}>{t("please_login")}</p>
+      )}
     </div>
   ) : totalAmount === undefined ? (
     <div className={s.sharesBlock}>

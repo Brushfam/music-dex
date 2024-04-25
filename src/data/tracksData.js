@@ -79,3 +79,11 @@ export const dealerUK = {
     "Трек «Leleka» артист записав спільно з дітьми-переселенцями. Цією піснею розпочався благодійний збір на допомогу дітям війни та на потреби ЗСУ.",
   ],
 };
+
+const trackAddressesDev = {
+  dealer: "0x07544fb3d0060d9280c497d7cb0c22df8804988468bb6b4a7129f2fca05a3dfd",
+};
+
+export const trackAddresses = {
+  dealer: "0x057b98cb68c9137e2473aaeef9d64de60d92386aed9dad6e323b19ee6006e8c3"
+}

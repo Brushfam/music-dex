@@ -4,7 +4,6 @@ import ms from "../Modals.module.scss";
 import s from "./AgreementModal.module.scss";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
-import { signAgreement } from "@/services/blockchain/serverMethods";
 import { UseUser } from "@/context/UserContext";
 import {
   introductionEN,
@@ -33,18 +32,10 @@ export function AgreementModal(props: {
 
   async function handleSignAgreement() {
     setLoading(true);
-    signAgreement(userContext.currentUser)
-      .then(() => {
-        userContext.setHasAgreement("true");
-        toast.success(t("toaster.sign_success"));
-        setLoading(false);
-        props.setModal(false);
-      })
-      .catch((e) => {
-        toast.error(t("toaster.sign_error"));
-        console.log(e);
-        props.setModal(false);
-      });
+    userContext.setHasAgreement("true");
+    toast.success(t("toaster.sign_success"));
+    setLoading(false);
+    props.setModal(false);
   }
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,7 +44,7 @@ export function AgreementModal(props: {
 
   function AgreementCheckbox() {
     return (
-      <div style={{display: "flex"}}>
+      <div style={{ display: "flex" }}>
         <div className={s.checkboxBlock}>
           <Checkbox
             checked={!disabled}

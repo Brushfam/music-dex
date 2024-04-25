@@ -27,6 +27,7 @@
     "react-dom": "^18",
     "react-youtube": "^10.1.0",
     "sonner": "^1.4.3",
+    "starknet": "^6.7.0",
     "web3": "^4.6.0"
   },
   "devDependencies": {

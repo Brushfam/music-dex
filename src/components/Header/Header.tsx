@@ -11,7 +11,7 @@ import { LogoutButton } from "@/components/Header/user-menu/Logout";
 import { Login } from "@/components/Header/login/Login";
 import { useLocale } from "use-intl";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
-import { TrackOwner } from "@/components/Header/user-menu/TrackOwner";
+import {TrackOwner} from "@/components/Header/user-menu/TrackOwner";
 
 function LangSwitcher() {
   const pathname = usePathname();
@@ -25,7 +25,7 @@ function LangSwitcher() {
       href={pathname.substring(3) || "/"}
       locale={currentLocale == "en" ? "uk" : "en"}
       className={cs.headerButton}
-      style={{ minWidth: 0 }}
+      style={{minWidth: 0}}
     >
       <p>{currentLocale.toUpperCase()}</p>
     </LocalLink>
@@ -33,7 +33,7 @@ function LangSwitcher() {
 }
 
 export function Header() {
-  const userContext = UseUser();
+  let userContext = UseUser();
   return (
     <div className={s.header}>
       <div className={s.header_content}>
