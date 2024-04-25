@@ -12,7 +12,7 @@ export const contactsDataEN = [
         text: "IBAN: UA963052990000026006030137627 for JSC CB \"PRIVATBANK\" (EDRPOU code 14360570, bank code 305299)",
     },
     {
-        text: "Director Serhii Volodymyrovych Vozny, acts on the basis of the statute",
+        text: "Director Serhii Volodymyrovych Vozniy, acts on the basis of the statute",
     }
 ]
 
