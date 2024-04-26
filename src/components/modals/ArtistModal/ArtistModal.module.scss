@@ -1,0 +1,140 @@
+@import '../../../constants/constants';
+@import '../Modals.module';
+
+.artistModal {
+  @extend .modal;
+
+  width: 580px;
+  height: auto;
+  padding: 32px;
+  border-radius: 12px;
+
+  label {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: $tablet-size) {
+    width: 80%;
+  }
+
+  @media (max-width: 500px) {
+    width: 96%;
+  }
+}
+
+.title {
+  color: white;
+  font-size: 24px;
+  line-height: 100%;
+  padding-bottom: 20px;
+
+  @media (max-width: 500px) {
+    font-size: 20px;
+    padding-bottom: 14px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  label, input {
+    color: white;
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  a {
+    text-decoration-line: underline;
+  }
+}
+
+.formDescription {
+  color: white;
+  font-size: 15px;
+  line-height: 140%;
+
+  @media (max-width: 500px) {
+    color: white;
+    font-size: 14px;
+    line-height: 140%;
+  }
+}
+
+.mobileDescription {
+  @media (max-width: 500px) {
+    font-size: 12px;
+  }
+}
+
+.artistForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.artistFormContent {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 0 0;
+  padding: 10px 10px;
+
+  border-radius: 12px;
+  box-shadow: 0 13.04px 26.08px 0 rgba(0, 0, 0, 0.15);
+  background: rgb(34, 34, 34);
+}
+
+.formInput {
+  width: 100%;
+  background: transparent;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #FFFFFF;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  outline-style: none;
+  margin-bottom: 20px;
+}
+
+.formInput::placeholder {
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.lastInput {
+  background: transparent;
+  resize: none;
+  height: 60px;
+  padding: 4px 4px 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  color: #ffffff;
+
+  outline-style: none;
+  overflow: hidden;
+
+  @media (max-width: 500px) {
+    height: 80px;
+  }
+}
+
+.buttonRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 28px;
+
+  @media (max-width: 500px) {
+    margin-top: 22px;
+    gap: 12px;
+    flex-direction: column-reverse;
+  }
+}
