@@ -3,6 +3,7 @@
     "banner_header": "Welcome to MusicDex",
     "banner_description": "Invest in Music Royalties and Shape the Future of Music",
     "learn_more_button": "Learn more",
+    "recommend_button": "Recommend an artist",
     "how_it_works_header": "MusicDex revolutionizes music investment",
     "how_it_works": "Here's how it work:",
     "terms_header": "Invest with confidence",
@@ -21,7 +22,25 @@
     },
     "built_on": "Built on:",
     "starknet_description": "Validity-Rollup Layer 2 network that operates on top of Ethereum, enabling dApps to massively scale without compromising on security."
-},
+  },
+
+  "ArtistModal": {
+    "title": "Are you a music lover? We have an offer for you!",
+    "description": "Tell us about your favorite artist by filling out a simple form and sending it to us. Later, our team will contact the artist and invite him to submit his track to MusicDex platform!",
+    "form_title": "Please, fill out the artist's data",
+    "form_description": "If you have any questions or need assistance, feel free to reach out to our team at ",
+    "FormFields": {
+      "name": "Name:",
+      "social": "Social media link:",
+      "email": "Email (optional):",
+      "page": "Artist page (optional):",
+      "tracks": "Your favorite tracks:"
+    },
+    "close": "Close",
+    "open": "Open the form",
+    "send": "Submit",
+    "success": "Thank you for your recommendation!"
+  },
 
   "Catalog": {
     "header": "Choose your track",

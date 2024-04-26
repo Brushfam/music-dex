@@ -16,12 +16,15 @@ import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import { useTranslations } from "next-intl";
 import { flowListDataEN, flowListDataUK } from "@/data/homepage/flowListData";
 import { StarknetSection } from "@/app/[locale]/_components/Starknet/StarknetSection";
+import { ArtistModal } from "@/components/modals/ArtistModal/ArtistModal";
+import { RecommendButton } from "@/app/[locale]/_components/RecommedButton/RecommendButton";
 
 export default function Home() {
   const t = useTranslations("Home");
 
   return (
     <main className={cs.main}>
+      <ArtistModal />
       {/*  Banner */}
       <Section banner={true} id={"home-banner"}>
         <div className={s.bannerContainer}>
@@ -29,12 +32,15 @@ export default function Home() {
           <ColumnContainer>
             <h2>{t("banner_header")}</h2>
             <p className={s.bannerContainer_p}>{t("banner_description")}</p>
-            <Button
-              title={t("learn_more_button")}
-              color={"main"}
-              arrow={true}
-              path={"#home-how-it-works"}
-            />
+            <div className={s.bannerButtonsBlock}>
+                <RecommendButton />
+                <Button
+                    title={t("learn_more_button")}
+                    color={"transparent"}
+                    arrow={true}
+                    path={"#home-how-it-works"}
+                />
+            </div>
           </ColumnContainer>
           <BannerTracks />
           <div className={s.shadowBottom} />
@@ -84,8 +90,8 @@ export default function Home() {
           <Terms />
         </Section>
       </div>
-        {/* Starknet */}
-        <StarknetSection />
+      {/* Starknet */}
+      <StarknetSection />
       {/* Roadmap */}
       <Section id={"home-roadmap"}>
         <ColumnContainer centered={true}>

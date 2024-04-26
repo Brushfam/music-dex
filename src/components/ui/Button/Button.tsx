@@ -6,10 +6,13 @@ interface ColorsType {
   [key: string]: string;
 }
 
+type ButtonType = "button" | "submit" | "reset" | undefined;
+
 export function Button(props: {
   title: string;
   color: string;
   arrow: boolean;
+  type?: ButtonType;
   path?: string;
   action?: () => void;
 }) {
@@ -46,7 +49,7 @@ export function Button(props: {
     </LocalLink>
   ) : (
     <button
-      type={"button"}
+      type={props.type ?? "button"}
       className={colors[props.color]}
       onClick={props.action}
     >

@@ -23,6 +23,17 @@
   }
 }
 
+.bannerButtonsBlock {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+
+  @media (max-width: $tablet-size) {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
 .flowContainer {
   display: flex;
   flex-direction: row;
