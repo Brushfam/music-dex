@@ -5,7 +5,6 @@ const providerBlast = new RpcProvider({
 });
 
 const buyerAddress = "0x0371f9fc1df80e68f910866482b7af5ae85216247012fe005e58bad899a25c74"
-const ownerAddress = "0x02589682c89a2b01b171f61bd0e6b8c946fbd283ab4e66f220780283fd74b3ef"
 
 export async function buyTokensStarknet(
   account:  AccountInterface,
@@ -30,7 +29,7 @@ export async function buyTokensStarknet(
       contractAddress: buyerAddress,
       entrypoint: "buy",
       calldata: CallData.compile({
-        amount: cairo.uint256(Math.round(tokensToBuy)),
+        amount: cairo.uint256(tokensToBuy),
         song: songAddress,
       }),
     },

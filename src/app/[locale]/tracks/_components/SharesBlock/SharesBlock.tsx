@@ -135,7 +135,7 @@ export function SharesBlock(props: {
         <ByCrypto
           user={userContext.currentUser}
           tokensToPay={currentAmount}
-          tokensToBuy={currentAmount / price}
+          tokensToBuy={getTokenAmount()}
           address={props.tokenAddress}
           setLowBalanceModal={props.setLowBalanceModal}
         />

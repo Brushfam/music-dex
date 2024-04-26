@@ -1,8 +1,6 @@
-const isProduction = process.env.NEXT_PUBLIC_ADDRESSES_ENV === "prod";
-
 export const dealerEN = {
   rights_holder: "Tony Tonite",
-  price: isProduction ? 2.2 : 0.1,
+  price: 0.1,
   details: [
     {
       type: "Song Release:",
@@ -43,7 +41,7 @@ export const dealerEN = {
 
 export const dealerUK = {
   rights_holder: "Tony Tonite",
-  price: isProduction ? 2.2 : 0.1,
+  price: 0.1,
   details: [
     {
       type: "Реліз пісні:",
@@ -78,10 +76,6 @@ export const dealerUK = {
       "Займається волонтерством, зокрема бере участь в благодійних концертах на підтримку військових та переселенців, а також спрямовує свою діяльність на відродження та становлення музичної культури в Україні.",
     "Трек «Leleka» артист записав спільно з дітьми-переселенцями. Цією піснею розпочався благодійний збір на допомогу дітям війни та на потреби ЗСУ.",
   ],
-};
-
-const trackAddressesDev = {
-  dealer: "0x07544fb3d0060d9280c497d7cb0c22df8804988468bb6b4a7129f2fca05a3dfd",
 };
 
 export const trackAddresses = {
