@@ -14,7 +14,6 @@ export function ArtistModal() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       let formStep = window.localStorage.getItem("user-artist-modal");
-      console.log(formStep)
       if (!formStep) {
         userContext.setArtistFormStep("1");
       }
