@@ -17,7 +17,12 @@ export function FormStep() {
       toast.success(t("success"));
       userContext.setArtistFormStep("0");
     }
-  }, [state.succeeded, t, userContext]);
+
+    if (state.errors?.kind) {
+      toast.error(t("error"));
+      userContext.setArtistFormStep("0");
+    }
+  }, [state.succeeded, state.errors, t, userContext]);
 
   return (
     <div className={s.artistModal}>
@@ -103,7 +108,7 @@ export function FormStep() {
             />
             <Button
               title={t("send")}
-              color={"main"}
+              color={state.submitting ? "loading" : "main"}
               arrow={false}
               type={"submit"}
             />
