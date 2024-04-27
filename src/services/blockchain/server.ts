@@ -1,6 +1,6 @@
 "use server";
 
-import {Account, Contract, RpcProvider, stark} from "starknet";
+import {Account, Contract, RpcProvider} from "starknet";
 
 // setup
 const providerBlast = new RpcProvider({
