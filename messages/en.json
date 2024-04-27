@@ -39,6 +39,7 @@
     "close": "Close",
     "open": "Open the form",
     "send": "Submit",
+    "error": "Something went wrong",
     "success": "Thank you for your recommendation!"
   },
 
