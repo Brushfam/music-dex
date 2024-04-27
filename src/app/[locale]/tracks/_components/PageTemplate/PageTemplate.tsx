@@ -14,7 +14,6 @@ import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
 import { VideoSection } from "@/app/[locale]/tracks/_components/VideoSection/VideoSection";
 import { LowBalanceModal } from "@/components/modals/LowBalanceModal/LowBalanceModal";
-import { UseUser } from "@/context/UserContext";
 
 type PageTemplateProps = {
   children?: React.ReactNode;
@@ -27,7 +26,6 @@ type PageTemplateProps = {
 
 export function PageTemplate(props: PageTemplateProps) {
   const t = useTranslations("Catalog");
-  const userContext = UseUser();
   const currentLocale = useLocale();
   const trackData =
     currentLocale === "uk" ? props.trackDataUK : props.trackDataEN;
@@ -64,10 +62,7 @@ export function PageTemplate(props: PageTemplateProps) {
   return (
     <div className={cs.main}>
       {lowBalanceModal ? (
-        <LowBalanceModal
-          setModal={setLowBalanceModal}
-          wallet={userContext.wallet}
-        />
+        <LowBalanceModal setModal={setLowBalanceModal} />
       ) : null}
       {agreementModal ? <AgreementModal setModal={setAgreementModal} /> : null}
       <div className={s.sectionWrapper}>

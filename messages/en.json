@@ -64,7 +64,7 @@
   },
 
   "Header": {
-    "login": "Connect wallet",
+    "login": "Log in",
     "logout": "Log out",
     "my_tokens": "My tokens",
     "earned": "Earned",
@@ -140,8 +140,7 @@
     },
     "LowBalanceModal": {
       "title": "Low balance",
-      "unipass": "There are not enough funds in your wallet. Please top up your account. Wallet link:",
-      "wallet_connect": "There are not enough funds in your wallet. Please, check your DAI balance.",
+      "content": "There are not enough funds in your wallet. Please, check your DAI balance.",
       "ok": "OK"
     }
   }

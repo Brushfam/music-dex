@@ -12,8 +12,17 @@ export function LoginMethodsModal() {
   let userContext = UseUser();
   const { address } = useAccount();
   const { connect, connectors } = useConnect();
-  const walletLinkList = ["https://www.argent.xyz/", "https://braavos.app/"];
-  const walletLogosList = ["/logos/Argent-X.png", "/logos/Braavos.svg"];
+  const walletLinkNames = ["Braavos", "Argent X", "Argent mobile"];
+  const walletLinkList = [
+    "https://braavos.app/",
+    "https://www.argent.xyz/",
+    "https://www.argent.xyz/",
+  ];
+  const walletLogosList = [
+    "/logos/Braavos.svg",
+    "/logos/Argent-X.svg",
+    "/logos/Argent.png",
+  ];
 
   useEffect(() => {
     if (address) {
@@ -21,7 +30,7 @@ export function LoginMethodsModal() {
       agreementPromise
         .then((value) => {
           userContext.setHasAgreement(value);
-          userContext.login(address, getTrackOwnerData(address), "Starknet");
+          userContext.login(address, getTrackOwnerData(address));
         })
         .catch((e) => {
           console.log(e);
@@ -40,7 +49,7 @@ export function LoginMethodsModal() {
       <div className={s.loginBlock}>
         {connectors.map((connector: Connector, index) => {
           const available = connector.available();
-          const name = connector.name;
+          const name = walletLinkNames[index];
           return available ? (
             <div
               key={index.toString()}
