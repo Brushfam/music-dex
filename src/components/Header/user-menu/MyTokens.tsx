@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { strkGetUserData } from "@/services/blockchain/server";
 import { trackAddresses } from "@/data/tracksData";
+import { roundToTwo } from "@/services/helpers";
 
 export function MyTokens() {
   const t = useTranslations("Header");
@@ -27,7 +28,13 @@ export function MyTokens() {
       let values = [];
       let k: keyof typeof rawData;
       for (k in rawData) {
-        values.push(rawData[k]);
+        try {
+          let balance = Number(rawData[k]) / 10;
+          values.push(roundToTwo(balance).toString());
+        } catch (e) {
+          console.log(e);
+          values.push("");
+        }
       }
       setUserBalances([values[0].toString()]);
       setUserEarning([values[1].toString()]);

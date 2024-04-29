@@ -31,7 +31,7 @@ export function SharesBlock(props: {
 }) {
   const userContext = UseUser();
   const t = useTranslations("SharesBlock");
-  const price = props.price;
+  const price = roundToTwo(props.price);
   let usdRate = useRef(38.8);
   const [prevAmount, setPrevAmount] = useState(price);
   const [currentAmount, setCurrentAmount] = useState(price);
@@ -45,8 +45,11 @@ export function SharesBlock(props: {
       .catch((e) => {
         console.log(e);
       });
-      strkGetFreeBalance(props.tokenAddress).then((fullBalance) => {
-      const balance = fullBalance > 1000 ? 1000 : fullBalance;
+
+    strkGetFreeBalance(props.tokenAddress).then((fullBalance) => {
+      const balanceWithoutDecimals = Number(fullBalance) / 10;
+      const balance =
+        balanceWithoutDecimals > 1000 ? 1000 : balanceWithoutDecimals;
       setTotalAmount(balance);
     });
   }, [
@@ -61,7 +64,8 @@ export function SharesBlock(props: {
   }
 
   function getTokenAmount() {
-    return Math.round(currentAmount / price);
+    const tokenAmount = currentAmount / price;
+    return roundToTwo(tokenAmount / 10);
   }
 
   function changeAmountButton(down?: boolean) {
@@ -90,8 +94,8 @@ export function SharesBlock(props: {
     if (Array.isArray(value) || value > getMaxPrice()) {
       return;
     } else {
-      setPrevAmount(value);
-      setCurrentAmount(value);
+      setPrevAmount(roundToTwo(value));
+      setCurrentAmount(roundToTwo(value));
     }
   };
 
