@@ -22,20 +22,20 @@ function getAccountKey() {
   return new Account(providerBlast, accountAddress, starknetKey, "1");
 }
 
-// DAI contract
+// USDT contract
 export async function hasEnoughBalance(user: string, amount: number) {
-  const daiStarknetAddress =
-    "0x05574eb6b8789a91466f902c380d978e472db68170ff82a5b650b95a58ddf4ad";
+  const usdtStarknetAddress =
+    "0x068f5c6a61780768455de69077e07e89787839bf8166decfbf92b645209c0fb8";
   const { abi: contractAbi } =
-    await providerBlast.getClassAt(daiStarknetAddress);
+    await providerBlast.getClassAt(usdtStarknetAddress);
   let ethContract = new Contract(
     contractAbi,
-      daiStarknetAddress,
+      usdtStarknetAddress,
       providerBlast,
   );
   let balance = await ethContract.balance_of(user);
-  let daiAmount = BigInt(amount * 1_000_000_000) * BigInt("1000000000")
-  return balance > daiAmount;
+  let usdtAmount = BigInt(amount * 1_000_000)
+  return balance > usdtAmount;
 }
 
 // BaseContract

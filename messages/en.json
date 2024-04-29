@@ -140,7 +140,7 @@
     },
     "LowBalanceModal": {
       "title": "Low balance",
-      "content": "There are not enough funds in your wallet. Please, check your DAI balance.",
+      "content": "There are not enough funds in your wallet. Please, check your USDT balance.",
       "ok": "OK"
     }
   }

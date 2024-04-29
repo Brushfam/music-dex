@@ -4,7 +4,7 @@ const providerBlast = new RpcProvider({
   nodeUrl: "https://starknet-mainnet.public.blastapi.io/rpc/v0_7",
 });
 
-const buyerAddress = "0x0371f9fc1df80e68f910866482b7af5ae85216247012fe005e58bad899a25c74"
+const buyerAddress = "0x0459efcbcbbf116e5cebd35a99843a377789f5d2069155b03f486fa61232afb0"
 
 export async function buyTokensStarknet(
   account:  AccountInterface,
@@ -12,13 +12,16 @@ export async function buyTokensStarknet(
   tokensToPay: number,
   tokensToBuy: number,
 ) {
-  const daiAddress =
-    "0x05574eb6b8789a91466f902c380d978e472db68170ff82a5b650b95a58ddf4ad";
-  const daiDecimals = 1_000_000_000_000_000_000
-  const toPay = daiDecimals * tokensToPay
+  const usdtAddress =
+    "0x068f5c6a61780768455de69077e07e89787839bf8166decfbf92b645209c0fb8";
+  const usdtDecimals = 1_000_000
+  const toPay = usdtDecimals * tokensToPay
+  const songDecimals = 10
+  const toBuy = songDecimals * tokensToBuy
+
   const multiCall = await account.execute([
     {
-      contractAddress: daiAddress,
+      contractAddress: usdtAddress,
       entrypoint: "approve",
       calldata: CallData.compile({
         spender: buyerAddress,
@@ -29,7 +32,7 @@ export async function buyTokensStarknet(
       contractAddress: buyerAddress,
       entrypoint: "buy",
       calldata: CallData.compile({
-        amount: cairo.uint256(tokensToBuy),
+        amount: cairo.uint256(toBuy),
         song: songAddress,
       }),
     },

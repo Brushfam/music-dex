@@ -3,15 +3,18 @@
 import s from "./TrackDetails.module.scss";
 import { trackDataType } from "@/types/types";
 import { useLocale } from "use-intl";
-import {useTranslations} from "next-intl";
+import { useTranslations } from "next-intl";
+import { roundToTwo } from "@/services/helpers";
 
 export function TrackDetails(props: {
   dataEN: trackDataType;
   dataUK: trackDataType;
 }) {
-    const t = useTranslations("Catalog");
+  const t = useTranslations("Catalog");
   const currentLocale = useLocale();
   const trackData = currentLocale === "uk" ? props.dataUK : props.dataEN;
+  const songDecimals = 10;
+  const price = roundToTwo(songDecimals * trackData.price);
 
   return (
     <div className={s.trackDetails}>
@@ -29,7 +32,7 @@ export function TrackDetails(props: {
       })}
       <div className={s.trackDetails_standartRow}>
         <p style={{ fontWeight: 700 }}>{t("price_text")}</p>
-        <p style={{ fontWeight: 700 }}>${trackData.price}</p>
+        <p style={{ fontWeight: 700 }}>${price}</p>
       </div>
     </div>
   );

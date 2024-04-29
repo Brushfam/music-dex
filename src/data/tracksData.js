@@ -1,6 +1,6 @@
 export const dealerEN = {
   rights_holder: "Tony Tonite",
-  price: 0.1,
+  price: 0.22,
   details: [
     {
       type: "Song Release:",
@@ -41,7 +41,7 @@ export const dealerEN = {
 
 export const dealerUK = {
   rights_holder: "Tony Tonite",
-  price: 0.1,
+  price: 0.22,
   details: [
     {
       type: "Реліз пісні:",
@@ -79,5 +79,5 @@ export const dealerUK = {
 };
 
 export const trackAddresses = {
-  dealer: "0x057b98cb68c9137e2473aaeef9d64de60d92386aed9dad6e323b19ee6006e8c3"
+  dealer: "0x00630cbc324308dad0f847e9e2294611b67f012be5fb7418f38e25e6ab6ab26d"
 }
