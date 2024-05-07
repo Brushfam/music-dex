@@ -4,51 +4,26 @@ export const introductionEN = [
   {
     text: (
       <p>
-        This Public Offer Agreement (hereinafter - the &#34;Offer&#34;,
-        &#34;Agreement&#34;) defines the terms of access to the
-        &#34;MusicDex&#34; project (hereinafter - the &#34;Platform&#34;),
-        located on the website musicdex.co (hereinafter - the
-        &#34;Website&#34;).
+        This agreement is an official and public offer of the Seller to enter
+        into a contract for the sale of the Goods presented on musicdex.co
+        website. This agreement is public, i.e. in accordance with Article 633
+        of the Civil Code of Ukraine, its terms and conditions are the same for
+        all customers regardless of their status (individual, legal entity,
+        individual entrepreneur) without giving preference to one customer over
+        another.
       </p>
     ),
   },
   {
     text: (
       <p>
-        This contract is public, i.e. in accordance with Article 633 of the
-        Civil Code of Ukraine, its terms are the same for all users regardless
-        of status (individual, legal entity, individual entrepreneur) without
-        favoring one user over another.
-      </p>
-    ),
-  },
-  {
-    text: (
-      <p>
-        Full and unconditional acceptance of the terms of the Agreement, i.e.
-        the Platform&#39;s public offer, is the fact of payment for Services on
-        the Site. The User&#39;s registration on the Site is also considered
-        full and unconditional acceptance of the terms of the Agreement.
-      </p>
-    ),
-  },
-  {
-    text: (
-      <p>
-        By accepting the terms of the Agreement, the User confirms that he is
-        fully and completely familiar with and agrees with its terms and
-        conditions of use of the Platform, and, if the User is an individual,
-        gives permission to process his personal data in order to be able to
-        fulfill the terms of this Agreement, the possibility of mutual
-        settlements, delivery, as well as to receive invoices, acts and other
-        documents. Permission to process personal data is valid for the entire
-        term of the Agreement. In addition, by entering into this Agreement, the
-        User confirms that he has been notified (without additional notice) of
-        the rights established by the Law of Ukraine &#34;On Personal Data
-        Protection&#34;, of the purposes of data collection. The scope of the
-        User&#39;s rights as a subject of personal data in accordance with the
-        Law of Ukraine &#34;On Personal Data Protection&#34; is known and
-        understood by him.
+        By concluding this Agreement, the Customer fully accepts the terms and
+        conditions and the procedure for placing an order, paying for the goods,
+        delivering the goods, returning the goods, liability for an unfair
+        order, and all other terms of the agreement. The Agreement is considered
+        concluded from the moment the Customer clicks the &#34;Confirm
+        Order&#34; button on the checkout page in the &#34;Cart&#34; section and
+        receives an order confirmation from the Seller in electronic form.
       </p>
     ),
   },
@@ -82,67 +57,51 @@ export const pointsEN = [
       {
         text: (
           <p>
-            This clause defines the interpretation of the following terms and
-            definitions used in this Offer.
+            Public Offer (hereinafter referred to as the &#34;Offer&#34;) is a public
+            offer of the Seller, addressed to an indefinite number of persons,
+            to conclude a contract for the sale of goods with the Seller
+            remotely (hereinafter referred to as the &#34;Agreement&#34;) on the terms
+            and conditions contained in this Offer.
           </p>
         ),
       },
       {
         text: (
           <p>
-            «Website» – A web page located on a domain name: musicdex.co,
-            including the totality of all information, texts, graphic elements,
-            design elements, images, photos and videos and other results of
-            intellectual activity, as well as information and technical means
-            posted on the web page. The term &#34;Website&#34; includes links to
-            other open or closed web resources used to ensure the operation of
-            the web page;{" "}
+            Goods or Services – the object of the agreement between the parties,
+            which was selected by the Customer on the website of the Online
+            Store and placed in the basket, or has already been purchased by the
+            Customer from the Seller remotely.
           </p>
         ),
       },
       {
         text: (
           <p>
-            «User» – any individual who has access to the Website via the
-            Internet;
+            Online store - the Seller&#39;s website at www.musicdex.co is designed
+            to conclude retail and wholesale purchase and sale agreements on the
+            basis of the Customer&#39;s familiarization with the description of the
+            Goods offered by the Seller via the Internet.
           </p>
         ),
       },
       {
         text: (
           <p>
-            «NFT» – ( non-fungible token) - a unique digital asset in the form
-            of a non-fungible token;
+            The Customer is a legally capable individual who has reached the age
+            of 18, receives information from the Seller, places an order for the
+            purchase of goods presented on the website of the online store for
+            purposes not related to business activities, or a legal entity or
+            individual entrepreneur.
           </p>
         ),
       },
       {
         text: (
           <p>
-            «Token» – A virtual asset that embodies ownership rights to a share
-            of the profits from a piece of music.
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            «Services» – an opportunity for music fans (&#34;Investors&#34;) to
-            contribute to the financing of the production of video and audio
-            recordings, as well as record promotion and marketing activities,
-            providing an opportunity for fans to purchase a share of the rights
-            to participate in the net revenues (eligibility) of songs and/or
-            recordings in the form of a Token.
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            All terms and definitions not defined in this section shall be
-            interpreted in the meaning established by the current legislation of
-            Ukraine, and in the absence of such a definition – in their usual
-            sense.{" "}
+            Seller – Limited liability company &#34;MUSICDEX&#34;, registered in Ukraine
+            at the address: Legal address: 01104, Ukraine, Kyiv city,
+            Bolsunovska street, building 13-15, register code: 45327185.
           </p>
         ),
       },
@@ -150,294 +109,459 @@ export const pointsEN = [
   },
 
   {
-    title: <p>2. INTRODUCTION</p>,
+    title: <p>2. SUBJECT OF THE AGREEMENT</p>,
     point: [
       {
         text: (
           <p>
-            This Offer, together with the Privacy and Personal Data Protection
-            Policy and other information posted on the Website, determine the
-            terms of Users&#39; access to the Website, as well as the terms of
-            use of the Platform posted on the Website.
+            The Seller shall transfer the Goods to the Customer, and the
+            Customer shall pay for and accept the Goods on the terms of this
+            Agreement.
           </p>
         ),
       },
       {
         text: (
           <p>
-            To obtain information on the procedure for receiving, processing and
-            storing personal data, the User can familiarize himself with the
-            Privacy and Personal Data Protection Policy posted on the Website.
+            The date of conclusion of the Offer Agreement (acceptance of the
+            offer) and the moment of full and unconditional acceptance by the
+            Customer of the terms of the Agreement shall be the date of filling
+            out the order form by the Customer located on the website of the
+            online store, provided that the Customer receives an order
+            confirmation from the Seller in electronic form. If necessary, at
+            the request of the Customer, the Agreement may be executed in
+            writing.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            The Goods and the Service in accordance with the terms of this
+            Agreement include a virtual asset presented in the online store,
+            which embodies the ownership rights to the share of profits from the
+            musical work. By purchasing the Goods, the Customer contributes to
+            the financing of the production of video and audio recordings, as
+            well as promotion and marketing activities, and gets the opportunity
+            to purchase a share of the rights to participate in the net income
+            (participation rights) from songs and/or recordings for 5 years in
+            the form of a Token.
           </p>
         ),
       },
     ],
   },
   {
-    title: <p>3. TERMS OF ACCEPTANCE OF THE OFFER</p>,
+    title: <p>3. ORDER PLACEMENT</p>,
     point: [
       {
         text: (
           <p>
-            The User&#39;s use of this Website means the User&#39;s automatic
-            and full acceptance of the terms of this Offer.
+            The Seller provides the Customer with the opportunity to acquire
+            ownership rights to a part of the royalties from a musical
+            composition for 5 years, expressed in Tokens issued under the
+            MusicDex project and transferred to the Customer by connecting it to
+            the Online Store using a cryptocurrency wallet. The Customer shall
+            place an order in the Online Store by filling out the form in the
+            appropriate section of the Website.
           </p>
         ),
       },
       {
         text: (
           <p>
-            If the User does not agree with the terms of this Offer, the latter
-            is obliged to stop using the Website and immediately leave it.{" "}
+            The Seller shall have the right to refuse to transfer the order to
+            the Customer if the information provided by the Customer when
+            placing the order is incomplete or raises suspicion about its
+            validity.
           </p>
         ),
       },
       {
         text: (
           <p>
-            By accepting the terms of this Offer, the User confirms that he is
-            at least 18 years old.
-          </p>
-        ),
-      },
-    ],
-  },
-  {
-    title: <p>4. INTERACTIONS WITH THE PLATFORM</p>,
-    point: [
-      {
-        text: (
-          <p>
-            The Platform provides Users with the opportunity to acquire
-            ownership rights to part of the royalties from a musical work
-            expressed in Tokens produced within the framework of the MusicDex
-            project and transferred to Users by connecting it to the Platform
-            using a cryptocurrency wallet.
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            All transactions between the Platform and Users are carried out
-            exclusively on the Starknet blockchain network.{" "}
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            In the case of purchasing a Token, the User pays a transaction fee
-            (gas) charged in the blockchain network.
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            The User shall bear all costs associated with the acquisition of the
-            Token and the receipt of royalty profits, in particular, for all
-            taxes arising and applicable to the User associated with such
-            acquisition.
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            The User uses the Platform solely at his own risk. The Platform does
-            not provide the User with any guarantees regarding its use and
-            purchase of the Token.
-          </p>
-        ),
-      },
-    ],
-  },
-  {
-    title: <p>5. SUBJECT OF THE AGREEMENT</p>,
-    point: [
-      {
-        text: (
-          <p>
-            The Platform undertakes to transfer the Service to the User&#39;s
-            ownership, and the User undertakes to pay for and accept the
-            Services under the terms of this Agreement.
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            This Agreement regulates the purchase and sale of services on the
-            Website, including:
+            When placing an order on the website of the online store, the
+            Customer undertakes to provide the following mandatory information
+            required by the Seller to fulfill the order:
           </p>
         ),
       },
       {
         text: DocsTextList([
-          "voluntary choice by the User of the type of goods (Tokens) on the website;",
-          "independent placement of an order by the User on the website;",
-          "payment by the User for the order placed on the website;",
-          "processing and provision of services to the User under the terms of this Agreement.",
+          "surname, name of the Customer;",
+          "wallet address to which the Goods should be delivered;",
+          "contact number.",
         ]),
       },
-    ],
-  },
-  {
-    title: <p>6. ORDER PAYMENT PROCEDURE</p>,
-    point: [
       {
         text: (
           <p>
-            Any transactions on the website related to the purchase of ownership
-            of musical works are conducted through state-of-the-art digital
-            payment services (such as Way for Pay, Apple Pay, Google Pay,
-            cryptocurrencies, etc.). By using the payment service, you accept
-            the terms of use of the respective payment service.
+            If either Party to the Agreement requires additional information, it
+            has the right to request it from the other Party. In case of failure
+            to provide the necessary information by the Customer, the Seller
+            shall not be responsible for providing quality services to the
+            Customer when purchasing goods in the online store.
           </p>
         ),
       },
       {
         text: (
           <p>
-            If funds are not received, the Platform reserves the right to cancel
-            the order.
-          </p>
-        ),
-      },
-    ],
-  },
-  {
-    title: <p>7. INTELLECTUAL PROPERTY</p>,
-    point: [
-      {
-        text: (
-          <p>
-            The Platform owns the intellectual property rights or has the
-            appropriate permission of third parties in the content of the
-            Website, all other trademarks, names, products and logos used on the
-            Website. Such intellectual property rights may not be copied,
-            imitated or used, in whole or in part, without the permission of the
-            respective owner.
+            The Customer&#39;s acceptance of the terms of this Offer is carried out
+            by entering the relevant data by the Customer in the registration
+            form on the website of the online store. After placing the Order
+            through the Operator, the Customer&#39;s data is entered into the
+            Seller&#39;s database.
           </p>
         ),
       },
       {
         text: (
           <p>
-            The Platform, as the owner of intellectual property rights to the
-            Token posted on the Website, has, in particular, such rights as:
+            The Customer is responsible for the accuracy of the information
+            provided when placing the Order.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            By concluding the Agreement, i.e. by accepting the terms of this
+            offer (the proposed terms of purchase of the Goods), by placing an
+            Order, the Customer confirms the following:
           </p>
         ),
       },
       {
         text: DocsTextList([
-          "the right to use;",
-          "the exclusive right to permit use;",
-          "the exclusive right to prevent misuse, including prohibiting such use;",
-          "any other intellectual property rights under applicable law.",
+          "The Customer is fully and completely familiarized with and agrees to the terms of this offer;",
+          "he/she authorizes the collection, processing, and transfer of personal data, the permission to process" +
+            " personal data is valid for the entire term of the Agreement, as well as for an unlimited period after " +
+            "its expiration. In addition, by entering into the Agreement, the Customer confirms that he/she has been notified " +
+            '(without additional notice) of the rights established by the Law of Ukraine "On Personal Data Protection", ' +
+            "of the purposes of data collection, and that his/her personal data is transferred to the Seller in order to fulfill " +
+            "the terms of this Agreement, to make mutual settlements, and to receive invoices, acts, and other documents. " +
+            "The Customer also agrees that the Seller has the right to provide access to and transfer his personal data to " +
+            "third parties without any additional notifications to the Customer in order to fulfill the Customer's order. " +
+            "The scope of the Customer's rights as a subject of personal data in accordance with the Law of Ukraine " +
+            '"On Personal Data Protection" is known and understood by him. ',
         ]),
       },
     ],
   },
   {
-    title: <p>8. OWNERSHIP AND COPYRIGHT</p>,
+    title: <p>4.PRICE AND DELIVERY OF GOODS</p>,
     point: [
       {
         text: (
           <p>
-            The User, having purchased the Token in the manner prescribed by
-            this Offer, receives a single exclusive perpetual license to use the
-            Token, which embodies the rights to receive a share of the Royalties
-            for listening, without the right to license, commercially use,
-            reproduce or distribute the Tokens contained therein.
+            Prices for Goods and Services (Token) are determined by the Seller
+            independently and are indicated on the website of the Online Store.
           </p>
         ),
       },
       {
         text: (
           <p>
-            The User has the right to alienate the Tokens belonging to him in
-            the future on the same rights as provided for by the terms of this
-            Offer and the Agreement on the Terms and Conditions of Use.
+            Prices for Goods and services may be changed by the Seller
+            unilaterally depending on market conditions. At the same time, the
+            price of a separate unit of the Goods, the cost of which has been
+            paid by the Customer in full, cannot be changed by the Seller
+            unilaterally.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            The Customer agrees that the period of selling the Token and
+            increasing its price (hereinafter referred to as the &#34;Sale Period&#34;)
+            will last for 9 months from the date of the start of the Token sale
+            on the platform. After the end of the said Sale Period, the price of
+            the Token will be fixed and will remain unchanged from the last day
+            of the Sale Period.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            The cost of the Goods indicated on the website of the Online Store
+            does not include the cost of delivery of the Goods to the Customer.
+            The Customer pays the cost of delivery of the Goods in accordance
+            with the current tariffs of delivery services (carriers) directly to
+            the delivery service (carrier) chosen by him.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            All transactions between the Seller and the Customer are carried out
+            exclusively on the Polygon blockchain network.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            In case of purchase of the Goods (Token), the Customer shall pay the
+            transaction fee (gas) charged in the blockchain network.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            The Customer shall bear all costs associated with the acquisition of
+            the Token and the receipt of royalty income, including all taxes
+            arising and applicable to the Customer in connection with such
+            acquisition
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            The Customer&#39;s obligations to pay for the Goods shall be deemed
+            fulfilled from the moment the Seller receives funds to its account.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            Any transactions on the website related to the purchase of the Goods
+            are carried out through the most modern digital payment services
+            (such as Way for Pay, Apple Pay, Google Pay, cryptocurrencies,
+            etc.). By using a payment service, you accept the terms and
+            conditions of use of the respective payment service.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            The Customer uses the Online Store solely at his/her own risk. The
+            Online Store does not provide the Customer with any guarantees
+            regarding its use and purchase of the Goods (Token).
           </p>
         ),
       },
     ],
   },
   {
-    title: <p>9. RIGHTS AND OBLIGATIONS OF THE PARTIES</p>,
+    title: <p>5. RIGHTS AND OBLIGATIONS OF THE PARTIES</p>,
     point: [
       {
-        text: <p>The User is obliged to:</p>,
+        text: <p>The seller is obligated to:</p>,
       },
       {
         text: DocsTextList([
-          "get acquainted with the information about the Services, which is posted on the website of the Platform;",
-          "timely pay and receive Tokens and other services under the terms of this Agreement;",
-          "The User has the right to demand that the Platform comply with the terms of this Agreement.",
+          "Transfer the goods to the Customer in accordance with the terms of this Agreement and the Customer's order. ",
+          "Not to disclose any private information about the Customer and not to provide access to this information to third parties, except as provided by law and in the course of fulfillment of the Customer's Order.",
         ]),
       },
       {
-        text: <p>The Platform is obliged to:</p>,
+        text: <p>The seller has the right to:</p>,
       },
       {
         text: DocsTextList([
-          "comply with the terms of this Agreement;",
-          "transfer the Services to the User in accordance with the choice posted on the website and the terms of this Agreement;",
-          "The Platform is not responsible, cannot act as a defendant in court and does not compensate for losses incurred by the User due to the action or inaction of third parties",
+          "Change the terms of this Agreement, as well as the prices for Goods and Services, unilaterally by posting them on the website of the Online Store. All changes shall take effect from the moment of their publication.",
         ]),
+      },
+      {
+        text: <p>The Customer shall undertake:</p>,
+      },
+      {
+        text: DocsTextList([
+          "Before concluding the Agreement, familiarize yourself with the content of the Agreement, the terms of the Agreement, and the prices offered by the Seller on the website of the online store.",
+          "In order to fulfill the Seller's obligations to the Customer, the latter shall provide all the necessary data that uniquely identify him as the Customer and are sufficient to deliver the ordered Goods to the Customer.",
+        ]),
+      },
+    ],
+  },
+  {
+    title: <p>6. RETURN OF GOODS</p>,
+    point: [
+      {
+        text: (
+          <p>
+            By purchasing the Goods, the Customer understands and accepts the
+            terms of use of the Goods, as well as agrees to the specifics of the
+            Goods presented on the website. The Customer shall have the right to
+            further alienate the Goods owned by him/her on the same rights as
+            provided for in the terms of this Offer and the Agreement on Terms
+            and Conditions of Use to other users on the website and third-party
+            platforms.
+          </p>
+        ),
       },
       {
         text: (
           <p>
-            The Platform has the right to unilaterally suspend the provision of
-            services under this Agreement in case of violation of the terms of
-            this Agreement by the User.{" "}
+            In case of detection of defects in the Goods during the established
+            warranty period, the Customer personally, in the manner and within
+            the time limits established by the legislation of Ukraine, has the
+            right to make claims to the Seller provided for by the Law of
+            Ukraine &#34;On Protection of Consumer Rights&#34;. In case of claims for
+            free elimination of defects, the period for their elimination shall
+            be calculated from the date of receipt of the Goods by the Seller at
+            its disposal and physical access to such Goods.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            The Seller shall consider the requirements provided for by the Law
+            of Ukraine &#34;On Consumer Protection&#34;, provided that the Customer
+            provides the documents provided for by the current legislation of
+            Ukraine. The Seller shall not be liable for defects in the Goods
+            that arose after their transfer to the Customer as a result of the
+            Customer&#39;s violation of the rules for the use or storage of the
+            Goods, actions of third parties, or force majeure.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            The Customer shall not be entitled to refuse goods of good quality
+            that have individually determined properties if the said goods can
+            be used exclusively by the Customer who purchased them (including,
+            at the Customer&#39;s request, non-standard sizes, characteristics,
+            appearance, equipment, etc.) Confirmation that the goods have
+            individually defined properties is the difference in the size of the
+            goods and other characteristics specified in the online store.
           </p>
         ),
       },
     ],
   },
   {
-    title: <p>10. LIABILITY OF THE PARTIES</p>,
+    title: <p>7. RESPONSIBILITY</p>,
     point: [
       {
         text: (
           <p>
-            The Parties shall be liable for non-fulfillment or improper
-            fulfillment of the terms of this Agreement in the manner prescribed
-            by this Agreement and the current legislation of Ukraine.
+            The Seller shall not be liable for any damage caused to the Customer
+            or third parties as a result of improper use, or storage of the
+            Goods purchased from the Seller.
           </p>
         ),
       },
       {
         text: (
           <p>
-            In case of force majeure, the parties are exempt from the terms of
-            this Agreement. For the purposes of this Agreement, force majeure
-            circumstances shall mean events of an extraordinary, unavoidable,
-            unpredictable nature that exclude or objectively impede the
-            execution of this Agreement, the occurrence of which the Parties
-            could not foresee and prevent by reasonable measures.
+            The Seller shall not be liable for improper, untimely provision of
+            the Services and its obligations in case the Customer provides false
+            or misleading information.
           </p>
         ),
       },
       {
         text: (
           <p>
-            A party invoking force majeure circumstances must notify the other
-            party in writing by e-mail of the occurrence of such circumstances
-            within five calendar days.
+            In case of expiration of the contract, which is 5 years, the Seller
+            shall be released from any liability for any improper functioning of
+            the Goods and failure to provide services after this period.
           </p>
         ),
       },
       {
         text: (
           <p>
-            The parties shall make every effort to resolve any disputes through
-            negotiations. If it is impossible to reach an agreement, disputes
-            shall be resolved in accordance with the current legislation of
+            The Seller and the Customer shall be responsible for fulfilling
+            their obligations in accordance with the current legislation of
+            Ukraine and the provisions of this Agreement.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            The Seller or the Customer shall be released from liability for full
+            or partial failure to fulfill their obligations if the failure is
+            the result of force majeure such as war or hostilities, earthquake,
+            flood, fire, and other natural disasters that occurred independently
+            of the will of the Seller and/or the Customer after the conclusion
+            of this agreement. The Party that is unable to fulfill its
+            obligations shall immediately notify the other Party.
+          </p>
+        ),
+      },
+    ],
+  },
+  {
+    title: <p>8. CONFIDENTIALITY AND PROTECTION OF PERSONAL DATA</p>,
+    point: [
+      {
+        text: (
+          <p>
+            By providing his personal data on the website of the online store
+            when registering or placing an Order, the Customer gives the Seller
+            his voluntary consent to the processing, and use (including
+            transfer) of his personal data, as well as to perform other actions
+            provided for by the Law of Ukraine &#34;On Personal Data Protection&#34;,
+            without limiting the validity of such consent.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            The Seller undertakes not to disclose the information received from
+            the Customer. It shall not be considered a violation if the Seller
+            provides information to counterparties and third parties acting on
+            the basis of an agreement with the Seller, including for the
+            fulfillment of obligations to the Customer, as well as in cases
+            where the disclosure of such information is required by the
+            requirements of the current legislation of Ukraine.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            The Customer is responsible for keeping his personal data up to
+            date. The Seller shall not be liable for poor performance or
+            non-performance of its obligations due to the irrelevance of
+            information about the Customer or its inconsistency with reality.
+          </p>
+        ),
+      },
+    ],
+  },
+  {
+    title: <p>9. MISCELLANEOUS</p>,
+    point: [
+      {
+        text: (
+          <p>
+            This agreement is concluded on the territory of Ukraine and is valid
+            in accordance with the current legislation of Ukraine.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            The Customer acknowledges that the Agreement is valid for 5 years
+            from the date of conclusion. After this period, the ownership rights
+            to the share of profits from the musical work are automatically
+            canceled.
+          </p>
+        ),
+      },
+      {
+        text: (
+          <p>
+            All disputes arising between the Customer and the Seller shall be
+            resolved through negotiations. In case of failure to resolve the
+            dispute through negotiations, the Customer and/or the Seller shall
+            have the right to apply to the judicial authorities for resolution
+            of the dispute in accordance with the current legislation of
             Ukraine.
           </p>
         ),
@@ -445,118 +569,13 @@ export const pointsEN = [
       {
         text: (
           <p>
-            Any claims (complaints), proposals, statements of the User are
-            accepted at the e-mail address specified in the &#34;Contact
-            Details&#34; paragraph.
+            The Seller shall have the right to amend this Agreement unilaterally
+            as provided for in clause 5.2.1. of the Agreement. In addition,
+            amendments to the Agreement may also be made by mutual agreement of
+            the Parties in the manner prescribed by the current legislation of
+            Ukraine.
           </p>
         ),
-      },
-    ],
-  },
-  {
-    title: <p>11. LIMITATION OF LIABILITY</p>,
-    point: [
-      {
-        text: (
-          <p>
-            The Platform shall not be liable to the User or any third party for
-            any complaints or losses that may arise from any transactions
-            related to the purchase of the Token.{" "}
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            The Platform and its partners shall not be liable to the User for
-            any damages, such as: loss of data, profits, income, reputational
-            losses or for any other damage that cannot be foreseen.
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            The User, by accepting the terms of this Offer, is liable to the
-            Platform and/or third parties for any complaints, lawsuits, damages,
-            losses (actual and indirect), legal costs and other expenses arising
-            from them, for:
-          </p>
-        ),
-      },
-      {
-        text: DocsTextList([
-          "violation of the terms of this Offer;",
-          "abusing the functionality of the Website, carrying out software manipulations with the Website with or without unlawful violation of the integrity of the Website data;",
-          "violation of the current legislation of any country in the world and/or the rights of third parties established by such legislation;",
-          "slandering (spreading false information) about the Platform or third parties directly or indirectly related to it.",
-        ]),
-      },
-    ],
-  },
-  {
-    title: <p>12. DISPUTE RESOLUTION</p>,
-    point: [
-      {
-        text: (
-          <p>
-            The Platform and the User resolve disagreements arising from the
-            relations covered by this Offer through negotiations.
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            In case of failure to reach an agreement through negotiations, the
-            dispute shall be settled in court, in accordance with the current
-            legislation of Ukraine.
-          </p>
-        ),
-      },
-    ],
-  },
-  {
-    title: <p>13. FINAL PROVISIONS</p>,
-    point: [
-      {
-        text: (
-          <p>
-            MusicDex reserves the right to unilaterally amend this Agreement
-            with its prior publication on the musicdex.co website.
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            The user is responsible for the accuracy of the information
-            specified when placing an order. The use of the website to view the
-            Services, as well as to purchase, is free of charge for the User.
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            The information provided by the User is confidential. The Platform
-            uses information about the User solely for the purposes of the
-            functioning of MusicDex (sending a message to the User about the
-            execution of the order, sending advertising messages, etc.).
-          </p>
-        ),
-      },
-      {
-        text: (
-          <p>
-            This Agreement shall enter into force on the date of payment for the
-            order or registration on the musicdex.co website and shall be valid
-            until all the terms of the Agreement are fulfilled.
-          </p>
-        ),
-      },
-      {
-        text: <p>The text of this Offer is in English.</p>,
       },
     ],
   },

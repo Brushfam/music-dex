@@ -3,13 +3,13 @@ export const contactsDataEN = [
         text: "MUSICDEX LLC",
     },
     {
-        text: "Ukraine, Kyiv, 01104, Bolsunovska str., building 13-15",
+        text: "Ukraine, Kyiv city, Bolsunovska street, building 13-15",
     },
     {
-        text: "EDRPOU code 45327185"
+        text: "register code: 45327185"
     },
     {
-        text: "IBAN: UA963052990000026006030137627 for JSC CB \"PRIVATBANK\" (EDRPOU code 14360570, bank code 305299)",
+        text: "ІBAN: UA963052990000026006030137627, The JSC CB PrivatBank (USREOU code is 14360570, bank code 305299)",
     },
     {
         text: "Director Serhii Volodymyrovych Vozniy, acts on the basis of the statute",
