@@ -53,7 +53,7 @@ export function Footer() {
           </a>
         </div>
         <div className={s.linksColumn}>
-          <p style={{ marginBottom: 6 }}>{t("other")}</p>
+          <p style={{ marginBottom: 6 }}>{t("legal")}</p>
           <LocalLink href={"/documents/privacy-policy"}>
             {t("privacy_policy")}
           </LocalLink>

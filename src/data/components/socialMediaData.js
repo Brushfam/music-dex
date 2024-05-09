@@ -2,22 +2,22 @@ import Image from "next/image";
 
 export const socialMediaData = [
   {
-    name: "YouTube",
-    link: "https://www.youtube.com/channel/UC3V8OECeFM2Fizg28mGsNHQ",
+    name: "Telegram",
+    link: "https://t.me/musicdexplatform",
     desktopImage: (
       <Image
-        src={"/icons/social-media/youtube-desktop.svg"}
-        alt={"youtube"}
+        src={"/icons/social-media/telegram-desktop.svg"}
+        alt={"telegram"}
         width={12}
-        height={9}
+        height={13}
       />
     ),
     mobileImage: (
       <Image
-        src={"/icons/social-media/youtube-mobile.svg"}
-        alt={"youtube"}
-        width={40}
-        height={29}
+        src={"/icons/social-media/telegram-mobile.svg"}
+        alt={"telegram"}
+        width={38}
+        height={32}
       />
     ),
   },
@@ -78,6 +78,26 @@ export const socialMediaData = [
         alt={"twitter"}
         width={34}
         height={31}
+      />
+    ),
+  },
+  {
+    name: "YouTube",
+    link: "https://www.youtube.com/channel/UC3V8OECeFM2Fizg28mGsNHQ",
+    desktopImage: (
+      <Image
+        src={"/icons/social-media/youtube-desktop.svg"}
+        alt={"youtube"}
+        width={12}
+        height={9}
+      />
+    ),
+    mobileImage: (
+      <Image
+        src={"/icons/social-media/youtube-mobile.svg"}
+        alt={"youtube"}
+        width={40}
+        height={29}
       />
     ),
   },

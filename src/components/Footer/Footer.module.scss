@@ -103,9 +103,24 @@
   gap: 4px;
 
   @media (max-width: $tablet-size) {
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
+    display: grid;
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+    grid-template-columns: repeat(6, 1fr);
+
+    & a:nth-child(n) {
+      grid-column: span 2
+    }
+
+    & a:nth-last-child(2) {
+      grid-column-start: 2;
+      grid-column-end: 4;
+    }
+
+    & a:nth-last-child(1) {
+      grid-column-start: 4;
+      grid-column-end: 6;
+    }
   }
 }
 
