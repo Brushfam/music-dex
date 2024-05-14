@@ -13,18 +13,42 @@ export function FormStep() {
   const [state, handleSubmit] = useForm("mleqayvd");
 
   useEffect(() => {
-    if (state.succeeded) {
-      toast.success(t("success"));
-      userContext.setArtistFormStep("0");
-    }
-
     if (state.errors?.kind) {
       toast.error(t("error"));
       userContext.setArtistFormStep("0");
     }
-  }, [state.succeeded, state.errors, t, userContext]);
+  }, [state.errors, t, userContext]);
 
-  return (
+  function CloseButton() {
+    return (
+      <Button
+        title={t("close")}
+        color={"grey"}
+        arrow={false}
+        action={() => {
+          userContext.setArtistFormStep("0");
+        }}
+      />
+    );
+  }
+
+  return state.succeeded ? (
+    <div className={s.artistModal}>
+      <p className={s.title}>{t("success")}</p>
+      <p className={s.formDescription}>{t("telegram_description")}</p>
+      <div className={s.buttonRow}>
+        <CloseButton />
+        <a href={"https://t.me/musicdexplatform"} target={"_blank"}>
+          <Button
+            title={t("join")}
+            color={"main"}
+            action={() => {}}
+            arrow={true}
+          />
+        </a>
+      </div>
+    </div>
+  ) : (
     <div className={s.artistModal}>
       <p className={s.title}>{t("form_title")}</p>
       <div className={s.content}>
@@ -98,14 +122,7 @@ export function FormStep() {
             />
           </div>
           <div className={s.buttonRow}>
-            <Button
-              title={t("close")}
-              color={"grey"}
-              arrow={false}
-              action={() => {
-                userContext.setArtistFormStep("0");
-              }}
-            />
+            <CloseButton />
             <Button
               title={t("send")}
               color={state.submitting ? "loading" : "main"}

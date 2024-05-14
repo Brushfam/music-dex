@@ -40,7 +40,9 @@
     "open": "Open the form",
     "send": "Submit",
     "error": "Something went wrong",
-    "success": "Thank you for your recommendation!"
+    "success": "Thank you for your recommendation!",
+    "telegram_description": "Join our Telegram channel for the latest updates on news and music trends straight to your fingertips!",
+    "join": "Join"
   },
 
   "Catalog": {
