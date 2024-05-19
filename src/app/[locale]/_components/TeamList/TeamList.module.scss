@@ -45,7 +45,8 @@
     height: 216px;
   }
 
-  img {
+  &_img {
+    position: relative;
     width: 255px;
     height: 240px;
     margin-bottom: 24px;

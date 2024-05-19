@@ -1,4 +1,5 @@
 import s from "./TrackCard.module.scss";
+import Image from "next/image";
 
 function TrackCardComponent(props: {
   image: string;
@@ -8,9 +9,16 @@ function TrackCardComponent(props: {
   return (
     <div className={s.trackCardWrapper}>
       <div className={s.trackCard}>
-        <img src={props.image} alt={props.title} style={{ borderRadius: 4 }} />
+        <div className={s.trackCard_img}>
+          <Image
+            src={props.image}
+            alt={props.title}
+            fill={true}
+            style={{ borderRadius: 4 }}
+          />
+        </div>
         <p className={s.title}>{props.title}</p>
-        <p className={s.author} style={{height: 8}}>{props.author}</p>
+        <p className={s.author}>{props.author}</p>
       </div>
     </div>
   );
