@@ -1,27 +1,15 @@
 {
-  "Home": {
-    "banner_header": "Welcome to MusicDex",
-    "banner_description": "Invest in Music Royalties and Shape the Future of Music",
-    "learn_more_button": "Learn more",
-    "recommend_button": "Recommend an artist",
-    "how_it_works_header": "MusicDex revolutionizes music investment",
-    "how_it_works": "Here's how it work:",
-    "terms_header": "Invest with confidence",
-    "terms_description": "Our terms include:",
-    "tracks_header": "Tracks Available for Investment",
-    "tracks_description": "Explore our curated selection of tracks ready for investment. Each track represents a unique investment opportunity with potential for passive income.",
-    "tracks_button": "Explore all tracks",
-    "roadmap_header": "Roadmap",
-    "roadmap_description": "Join us on our journey:",
-    "team_header": "Meet the faces behind MusicDex",
-    "Terms": {
-      "first": "Minimum investment amounts",
-      "second": "Royalty distribution frequency",
-      "thirds": "Token redemption options",
-      "fourth": "Investor protection measures"
+  "AgreementModal": {
+    "close": "Close",
+    "accept": "Accept",
+    "loading_button": "Saving...",
+    "agreement_title": "PUBLIC OFFER AGREEMENT",
+    "toaster": {
+      "verifying_error": "Error during verification.",
+      "sign_error": "Something went wrong.",
+      "sign_success": "Agreement accepted!"
     },
-    "built_on": "Built on:",
-    "starknet_description": "Validity-Rollup Layer 2 network that operates on top of Ethereum, enabling dApps to massively scale without compromising on security."
+    "checkbox": "I have read and agree"
   },
 
   "ArtistModal": {
@@ -65,6 +53,16 @@
     "details": "DETAILS"
   },
 
+  "Footer": {
+    "description": "Invest in Music Royalties and Shape the Future of Music",
+    "email": "Write to us",
+    "social_media": "Social Media",
+    "legal": "Legal",
+    "privacy_policy": "Privacy Policy",
+    "terms": "Terms and Conditions",
+    "public_offer": "Public Offer"
+  },
+
   "Header": {
     "login": "Log in",
     "logout": "Log out",
@@ -84,40 +82,44 @@
     }
   },
 
-  "Footer": {
-    "description": "Invest in Music Royalties and Shape the Future of Music",
-    "email": "Write to us",
-    "social_media": "Social Media",
-    "legal": "Legal",
-    "privacy_policy": "Privacy Policy",
-    "terms": "Terms and Conditions",
-    "public_offer": "Public Offer"
-  },
-
-  "PrivacyPolicy": {
-    "header": "MusicDex Privacy Policy",
-    "last_updated": "Last updated: Mar 14, 2024"
-  },
-  "Terms": {
-    "header": "Terms of use",
-    "description": "Agreement on the Terms and Conditions of Use"
-  },
-  "PublicOffer": {
-    "header": "PUBLIC OFFER AGREEMENT",
-    "second_header": "to order, purchase and sale and delivery of goods"
-  },
-
-  "AgreementModal": {
-    "close": "Close",
-    "accept": "Accept",
-    "loading_button": "Saving...",
-    "agreement_title": "PUBLIC OFFER AGREEMENT",
-    "toaster": {
-      "verifying_error": "Error during verification.",
-      "sign_error": "Something went wrong.",
-      "sign_success": "Agreement accepted!"
+  "Home": {
+    "banner_header": "Welcome to MusicDex",
+    "banner_description": "Invest in Music Royalties and Shape the Future of Music",
+    "learn_more_button": "Learn more",
+    "recommend_button": "Recommend an artist",
+    "how_it_works_header": "MusicDex revolutionizes music investment",
+    "how_it_works": "Here's how it work:",
+    "terms_header": "Invest with confidence",
+    "terms_description": "Our terms include:",
+    "tracks_header": "Tracks Available for Investment",
+    "tracks_description": "Explore our curated selection of tracks ready for investment. Each track represents a unique investment opportunity with potential for passive income.",
+    "tracks_button": "Explore all tracks",
+    "roadmap_header": "Roadmap",
+    "roadmap_description": "Join us on our journey:",
+    "team_header": "Meet the faces behind MusicDex",
+    "Terms": {
+      "first": "Minimum investment amounts",
+      "second": "Royalty distribution frequency",
+      "thirds": "Token redemption options",
+      "fourth": "Investor protection measures"
     },
-    "checkbox": "I have read and agree"
+    "built_on": "Built on:",
+    "starknet_description": "Validity-Rollup Layer 2 network that operates on top of Ethereum, enabling dApps to massively scale without compromising on security."
+  },
+
+  "Legal": {
+    "PrivacyPolicy": {
+      "header": "MusicDex Privacy Policy",
+      "last_updated": "Last updated: Mar 14, 2024"
+    },
+    "Terms": {
+      "header": "Terms of use",
+      "description": "Agreement on the Terms and Conditions of Use"
+    },
+    "PublicOffer": {
+      "header": "PUBLIC OFFER AGREEMENT",
+      "second_header": "to order, purchase and sale and delivery of goods"
+    }
   },
 
   "SharesBlock": {

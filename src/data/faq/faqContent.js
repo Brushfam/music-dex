@@ -30,7 +30,7 @@ export const faqContentEN = [
     {
       question: "How to register on the platform?",
       answer:
-        'press the Log in button and select your Starknet crypto wallet. It will soon be possible to register by email.',
+        'Press the "Log in" button and select your Starknet crypto wallet. It will soon be possible to register by email.',
     },
     {
       question: "What is a crypto wallet?",

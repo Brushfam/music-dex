@@ -18,7 +18,7 @@ import {
 import { useTranslations } from "next-intl";
 
 export default function Terms() {
-  const t = useTranslations("Terms");
+  const t = useTranslations("Legal.Terms");
 
   return (
     <div className={cs.main}>

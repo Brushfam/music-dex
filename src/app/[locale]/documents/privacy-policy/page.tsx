@@ -18,7 +18,7 @@ import {
 import Content from "@/app/[locale]/documents/_components/Content/Content";
 
 export default function PrivacyPolicy() {
-  const t = useTranslations("PrivacyPolicy");
+  const t = useTranslations("Legal.PrivacyPolicy");
 
   return (
     <div className={cs.main}>
