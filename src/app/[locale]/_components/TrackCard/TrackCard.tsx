@@ -1,5 +1,6 @@
 import s from "./TrackCard.module.scss";
 import Image from "next/image";
+import {GreyBlock} from "@/components/ui/GreyBlock/GreyBlock";
 
 function TrackCardComponent(props: {
   image: string;
@@ -7,7 +8,7 @@ function TrackCardComponent(props: {
   author: string;
 }) {
   return (
-    <div className={s.trackCardWrapper}>
+    <GreyBlock >
       <div className={s.trackCard}>
         <div className={s.trackCard_img}>
           <Image
@@ -20,7 +21,7 @@ function TrackCardComponent(props: {
         <p className={s.title}>{props.title}</p>
         <p className={s.author}>{props.author}</p>
       </div>
-    </div>
+    </GreyBlock>
   );
 }
 

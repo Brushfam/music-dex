@@ -188,5 +188,6 @@
   @include shadowElement;
   top: 0;
   transform: rotate(-180.00deg);
+  z-index: 1;
 }
 

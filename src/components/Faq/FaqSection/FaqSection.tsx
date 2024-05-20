@@ -25,7 +25,7 @@ export default function FaqSection() {
   }
 
   return (
-    <Section id={"home-faq"}>
+    <Section>
       <div className={s.faqContainer}>
         <ColumnContainer>
           <h3>FAQ</h3>

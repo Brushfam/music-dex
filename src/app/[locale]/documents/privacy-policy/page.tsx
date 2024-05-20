@@ -1,9 +1,7 @@
 import s from "../documents.module.css";
 import cs from "../../../commonStyles.module.scss";
-import { Header } from "@/components/Header/Header";
 import { Section } from "@/components/ui/Section/Section";
 import FaqSection from "@/components/Faq/FaqSection/FaqSection";
-import { Footer } from "@/components/Footer/Footer";
 import { Contacts } from "@/app/[locale]/documents/_components/Contacts/Contacts";
 import { useTranslations } from "next-intl";
 import Navigation from "@/app/[locale]/documents/_components/Navigation/Navigation";
@@ -25,7 +23,7 @@ export default function PrivacyPolicy() {
   return (
     <div className={cs.main}>
       <div className={s.pageWrapper}>
-        <Section id={"privacy-policy"}>
+        <Section>
           <div className={s.titleBlock}>
             <p className={s.headerText}>{t("header")}</p>
             <p className={s.lastUpdatedText}>{t("last_updated")}</p>
@@ -44,7 +42,6 @@ export default function PrivacyPolicy() {
         </Section>
       </div>
       <FaqSection />
-      <Footer />
     </div>
   );
 }

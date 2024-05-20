@@ -44,8 +44,15 @@ export function UserTokensModal(props: {
   return (
     <div className={s.wrapper}>
       {props.loading ? (
-        <div className={s.tokensBlock} style={{height: 100, alignItems: "center", justifyContent: "center"}}>
-          <Spinner size={30}/>
+        <div
+          className={s.tokensBlock}
+          style={{
+            height: 100,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Spinner size={30} />
         </div>
       ) : (
         <TokensList />

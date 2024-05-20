@@ -3,7 +3,6 @@ import cs from "../commonStyles.module.scss";
 import { Section } from "@/components/ui/Section/Section";
 import { ColumnContainer } from "@/components/ui/Containers/Containers";
 import { Button } from "@/components/ui/Button/Button";
-import { Footer } from "@/components/Footer/Footer";
 import { FlowList } from "@/app/[locale]/_components/FlowList/FlowList";
 import { Terms } from "@/app/[locale]/_components/Terms/Terms";
 import { Roadmap } from "@/app/[locale]/_components/Roadmap/Roadmap";
@@ -17,7 +16,7 @@ import { useTranslations } from "next-intl";
 import { flowListDataEN, flowListDataUK } from "@/data/homepage/flowListData";
 import { StarknetSection } from "@/app/[locale]/_components/Starknet/StarknetSection";
 import { ArtistModal } from "@/components/modals/ArtistModal/ArtistModal";
-import { RecommendButton } from "@/app/[locale]/_components/RecommedButton/RecommendButton";
+import { RecommendButton } from "@/app/[locale]/_components/RecommendButton/RecommendButton";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -26,7 +25,7 @@ export default function Home() {
     <main className={cs.main}>
       <ArtistModal />
       {/*  Banner */}
-      <Section banner={true} id={"home-banner"}>
+      <Section banner={true}>
         <div className={s.bannerContainer}>
           <div className={s.shadowTop} />
           <ColumnContainer>
@@ -47,8 +46,8 @@ export default function Home() {
         </div>
       </Section>
       {/*  How it works */}
-      <div className={s.lightThemeWrapper}>
-        <Section id={"home-how-it-works"}>
+      <div className={s.lightThemeWrapper} id={"home-how-it-works"}>
+        <Section>
           <div className={s.flowContainer}>
             <ColumnContainer>
               <h3>{t("how_it_works_header")}</h3>
@@ -63,7 +62,7 @@ export default function Home() {
         </Section>
       </div>
       {/*  Tracks */}
-      <Section id={"home-tracks"}>
+      <Section>
         <div className={s.tracksContainer}>
           <div className={s.tracksContainer_title}>
             <h3>{t("tracks_header")}</h3>
@@ -82,7 +81,7 @@ export default function Home() {
       </Section>
       {/*  Our terms */}
       <div className={s.gradientWrapper}>
-        <Section id={"home-terms"}>
+        <Section>
           <ColumnContainer centered={true}>
             <h3>{t("terms_header")}</h3>
             <h5>{t("terms_description")}</h5>
@@ -93,7 +92,7 @@ export default function Home() {
       {/* Starknet */}
       <StarknetSection />
       {/* Roadmap */}
-      <Section id={"home-roadmap"}>
+      <Section>
         <ColumnContainer centered={true}>
           <h3>{t("roadmap_header")}</h3>
           <h5>{t("roadmap_description")}</h5>
@@ -101,14 +100,13 @@ export default function Home() {
         </ColumnContainer>
       </Section>
       {/* Team */}
-      <Section id={"home-team"}>
+      <Section>
         <div className={s.teamContainer}>
           <h3 style={{ maxWidth: 510 }}>{t("team_header")}</h3>
           <TeamList />
         </div>
       </Section>
       <FaqSection />
-      <Footer />
     </main>
   );
 }

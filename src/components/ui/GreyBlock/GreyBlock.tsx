@@ -1,5 +1,4 @@
-import s from "./GreyBlock.module.scss";
-import React, { FC } from "react";
+import React from "react";
 
 type GreyBlockProps = {
   children: React.ReactNode;
@@ -12,8 +11,13 @@ export function GreyBlock(props: GreyBlockProps) {
 
   return (
     <div
-      className={s.greyBlock}
-      style={{ padding: padding, borderRadius: borderRadius }}
+      style={{
+        padding: padding,
+        borderRadius: borderRadius,
+        width: "100%",
+        border: "1px solid rgba(255, 255, 255, 0.07)",
+        background: "rgba(52, 52, 52, 0.5)",
+      }}
     >
       {props.children}
     </div>

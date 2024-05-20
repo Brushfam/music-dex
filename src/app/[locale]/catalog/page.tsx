@@ -1,6 +1,5 @@
 import cs from "../../commonStyles.module.scss";
 import s from "./page.module.scss";
-import { Footer } from "@/components/Footer/Footer";
 import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import { Section } from "@/components/ui/Section/Section";
 import { Catalog } from "@/app/[locale]/catalog/_components/Catalog/Catalog";
@@ -12,7 +11,7 @@ export default function CatalogPage() {
   return (
     <div className={cs.main}>
       <div className={s.catalogPageWrapper}>
-        <Section id={"catalog"}>
+        <Section>
           <div className={s.titleBlock}>
             <h2>{t("header")}</h2>
             <p>{t("description")}</p>
@@ -21,7 +20,6 @@ export default function CatalogPage() {
         </Section>
       </div>
       <FaqSection />
-      <Footer />
     </div>
   );
 }

@@ -6,7 +6,6 @@ import { Labels } from "@/components/Labels/Labels";
 import { TrackDetails } from "@/components/TrackDetails/TrackDetails";
 import { SharesBlock } from "@/app/[locale]/tracks/_components/SharesBlock/SharesBlock";
 import FaqSection from "@/components/Faq/FaqSection/FaqSection";
-import { Footer } from "@/components/Footer/Footer";
 import React, { useState } from "react";
 import { trackDataType } from "@/types/types";
 import { AgreementModal } from "@/components/modals/AgreementModal/AgreementModal";
@@ -93,7 +92,6 @@ export function PageTemplate(props: PageTemplateProps) {
       <VideoSection />
       {props.children}
       <FaqSection />
-      <Footer />
     </div>
   );
 }

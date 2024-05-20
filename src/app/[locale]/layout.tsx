@@ -7,6 +7,7 @@ import { Header } from "@/components/Header/Header";
 import { Toaster } from "sonner";
 import { StarknetProvider } from "@/context/starknetContext";
 import Script from "next/script";
+import { Footer } from "@/components/Footer/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,6 +26,26 @@ interface RootLayoutProps {
   };
 }
 
+function RootHeader() {
+  return (
+    <head>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-E7NY2W59JZ"
+      />
+
+      <Script id="google-analytics">
+        {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DRRFYE53MC');
+          `}
+      </Script>
+    </head>
+  );
+}
+
 export default function RootLayout({
   children,
   params: { locale },
@@ -32,21 +53,7 @@ export default function RootLayout({
   const messages = useMessages();
   return (
     <html lang={locale}>
-      <head>
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-E7NY2W59JZ"
-        />
-
-        <Script id="google-analytics">
-          {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-DRRFYE53MC');
-          `}
-        </Script>
-      </head>
+      <RootHeader />
       <body className={inter.className} suppressHydrationWarning={true}>
         <UserProvider>
           <StarknetProvider>
@@ -54,6 +61,7 @@ export default function RootLayout({
               <Toaster richColors />
               <Header />
               {children}
+              <Footer />
             </NextIntlClientProvider>
           </StarknetProvider>
         </UserProvider>

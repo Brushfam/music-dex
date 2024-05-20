@@ -12,59 +12,61 @@ export function Footer() {
   const t = useTranslations("Footer");
 
   return (
-    <div className={s.footerSection} id={"footer"}>
-      <div className={s.columnContainer}>
-        <Link href={"/"} style={{ display: "block" }}>
-          <Image
-            alt={"logo"}
-            src={"/logos/MusicDex-logo.svg"}
-            width={200}
-            height={43}
-          />
-        </Link>
-        <p className={s.footerMainText}>{t("description")}</p>
-      </div>
-      <div className={s.linksBlock}>
-        <SocialMedia />
-        <div className={s.linksColumn}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              marginBottom: 6,
-              alignItems: "center",
-            }}
-          >
+    <div className={s.footerWrapper}>
+      <footer className={s.footerSection} id={"footer"}>
+        <div className={s.columnContainer}>
+          <Link href={"/"} style={{ display: "block" }}>
             <Image
-              src={"/icons/email-footer.svg"}
-              alt={"email"}
-              width={18}
-              height={18}
-              style={{ marginRight: 6 }}
+              alt={"logo"}
+              src={"/logos/MusicDex-logo.svg"}
+              width={200}
+              height={43}
             />
-            <p>{t("email")}</p>
+          </Link>
+          <p className={s.footerMainText}>{t("description")}</p>
+        </div>
+        <div className={s.linksBlock}>
+          <SocialMedia />
+          <div className={s.linksColumn}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                marginBottom: 6,
+                alignItems: "center",
+              }}
+            >
+              <Image
+                src={"/icons/email-footer.svg"}
+                alt={"email"}
+                width={18}
+                height={18}
+                style={{ marginRight: 6 }}
+              />
+              <p>{t("email")}</p>
+            </div>
+            <a
+              href={"mailto:musicdex.inc@gmail.com"}
+              target="_blank"
+              style={{ textDecoration: "underline" }}
+            >
+              musicdex.inc@gmail.com
+            </a>
           </div>
-          <a
-            href={"mailto:musicdex.inc@gmail.com"}
-            target="_blank"
-            style={{ textDecoration: "underline" }}
-          >
-            musicdex.inc@gmail.com
-          </a>
+          <div className={s.linksColumn}>
+            <p style={{ marginBottom: 6 }}>{t("legal")}</p>
+            <LocalLink href={"/documents/privacy-policy"}>
+              {t("privacy_policy")}
+            </LocalLink>
+            <LocalLink href={"/documents/terms-and-conditions"}>
+              {t("terms")}
+            </LocalLink>
+            <LocalLink href={"/documents/public-offer"}>
+              {t("public_offer")}
+            </LocalLink>
+          </div>
         </div>
-        <div className={s.linksColumn}>
-          <p style={{ marginBottom: 6 }}>{t("legal")}</p>
-          <LocalLink href={"/documents/privacy-policy"}>
-            {t("privacy_policy")}
-          </LocalLink>
-          <LocalLink href={"/documents/terms-and-conditions"}>
-            {t("terms")}
-          </LocalLink>
-          <LocalLink href={"/documents/public-offer"}>
-            {t("public_offer")}
-          </LocalLink>
-        </div>
-      </div>
+      </footer>
     </div>
   );
 }

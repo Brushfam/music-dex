@@ -1,5 +1,11 @@
 @import './../../constants/constants.scss';
 
+.footerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .footerSection {
   display: flex;
   flex-direction: row;

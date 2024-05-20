@@ -89,6 +89,18 @@
   overflow: auto;
 }
 
+.tab {
+  display: flex;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 8px;
+  background-color: $light-grey;
+
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+}
+
 .aboutArtist {
   position: relative;
   display: flex;

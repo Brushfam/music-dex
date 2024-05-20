@@ -3,6 +3,7 @@ import { ColumnContainer } from "@/components/ui/Containers/Containers";
 import Image from "next/image";
 import React from "react";
 import {useTranslations} from "next-intl";
+import {GreyBlock} from "@/components/ui/GreyBlock/GreyBlock";
 
 export function Terms() {
   const t = useTranslations("Home.Terms");
@@ -23,27 +24,31 @@ export function Terms() {
             className={s.arrows}
           />
           <ColumnContainer>
-            <div className={s.terms_block}>
-              <Image
-                src={"/icons/portfolio.svg"}
-                alt={"portfolio"}
-                width={52}
-                height={52}
-              />
-            </div>
+            <GreyBlock borderRadius={16} padding={0}>
+              <div className={s.terms_block}>
+                <Image
+                  src={"/icons/portfolio.svg"}
+                  alt={"portfolio"}
+                  width={52}
+                  height={52}
+                />
+              </div>
+            </GreyBlock>
             <p>{t("first")}</p>
           </ColumnContainer>
         </TermsRowContainer>
         <TermsRowContainer>
           <ColumnContainer>
-            <div className={s.terms_block}>
-              <Image
-                src={"/icons/calendar.svg"}
-                alt={"calendar"}
-                width={52}
-                height={52}
-              />
-            </div>
+            <GreyBlock borderRadius={16} padding={0}>
+              <div className={s.terms_block}>
+                <Image
+                  src={"/icons/calendar.svg"}
+                  alt={"calendar"}
+                  width={52}
+                  height={52}
+                />
+              </div>
+            </GreyBlock>
             <p>{t("second")}</p>
           </ColumnContainer>
           <Image
@@ -63,30 +68,34 @@ export function Terms() {
             width={180}
             height={80}
             className={s.terms_mirrory_img}
-            style={{ marginTop: 69 }}
+            style={{ marginTop: 70 }}
           />
           <ColumnContainer>
-            <div className={s.terms_block}>
-              <Image
-                src={"/icons/tokens.svg"}
-                alt={"tokens"}
-                width={52}
-                height={52}
-              />
-            </div>
+            <GreyBlock borderRadius={16} padding={0}>
+              <div className={s.terms_block}>
+                <Image
+                  src={"/icons/tokens.svg"}
+                  alt={"tokens"}
+                  width={52}
+                  height={52}
+                />
+              </div>
+            </GreyBlock>
             <p>{t("thirds")}</p>
           </ColumnContainer>
         </TermsRowContainer>
         <TermsRowContainer>
           <ColumnContainer>
-            <div className={s.terms_block}>
-              <Image
-                src={"/icons/shield.svg"}
-                alt={"shield"}
-                width={52}
-                height={54}
-              />
-            </div>
+            <GreyBlock borderRadius={16} padding={0}>
+              <div className={s.terms_block}>
+                <Image
+                  src={"/icons/shield.svg"}
+                  alt={"shield"}
+                  width={52}
+                  height={54}
+                />
+              </div>
+            </GreyBlock>
             <p>{t("fourth")}</p>
           </ColumnContainer>
           <Image
@@ -94,7 +103,7 @@ export function Terms() {
             alt={"curved arrow"}
             width={180}
             height={80}
-            style={{ rotate: "180deg", marginTop: 69 }}
+            style={{ rotate: "180deg", marginTop: 70 }}
             className={s.arrows}
           />
         </TermsRowContainer>
