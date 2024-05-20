@@ -30,7 +30,7 @@ export const faqContentEN = [
     {
       question: "How to register on the platform?",
       answer:
-        'You need to click on the "Login to wallet" button and register. To do this, use your Google or Apple account, or register using your email and password. After successful registration, connect the wallet by clicking the “Connect” button.',
+        'press the Log in button and select your Starknet crypto wallet. It will soon be possible to register by email.',
     },
     {
       question: "What is a crypto wallet?",
@@ -48,16 +48,6 @@ export const faqContentEN = [
       question: "What are the ways to purchase a token?",
       answer:
         "Currently, tokens can be purchased using crypto wallets that are available when logging into the platform. Soon it will be possible to pay with fiat (UAH).",
-    },
-    {
-      question: "How to buy a token with a Unipass wallet?",
-      answer:
-        "You can buy a token on the track page. To do this, you need to have the required amount of USDT in the wallet to pay for tokens and a small commission. If you have enough funds, a Unipass wallet window will open, where you can select a fee and confirm the purchase. After that, you need to wait for the transfer of funds and for the transfer of tokens. If the purchase is successful, you will receive a notification at the bottom of the screen.",
-    },
-    {
-      question: "How to top up my Unipass wallet?",
-      answer:
-        "Copy your wallet address from the wallet page (https://wallet.unipass.id/). Open a crypto wallet or an account on the exchange where you store cryptocurrency. To transfer funds, you will need to pay a small fee in MATIC currency. You can exchange your tokens for MATIC if your balance is insufficient. After that, you can successfully transfer USDT to your Unipass address.",
     },
   ],
   [
@@ -135,7 +125,7 @@ export const faqContentUA = [
     {
       question: "Як зареєструватись на платформі?",
       answer:
-        "Вам потрібно натиснути на кнопку “Вхід в гаманець”, і пройти реєстрацію. Для цього, використайте Ваш Google чи Apple акаунт, або зареєструватись за допомогою пошти і паролю. Після успішної реєстрації, під’єднайте гаманець, натиснувши кнопку “Connect”.",
+        "Для цього натисніть Log in кнопку і оберіть Ваш криптогаманець Starknet. Невдовзі з'явиться можливість реєстрації з email.",
     },
     {
       question: "Що таке криптогаманець?",
@@ -153,16 +143,6 @@ export const faqContentUA = [
       question: "Які є способи придбати токен?",
       answer:
         "Наразі токени можна придбати за допомогою криптогаманців, які доступні при вході на платформу. Незабаром з’явиться можливість оплати фіатом (UAH).",
-    },
-    {
-      question: "Як придбати токен з гаманцем Unipass?",
-      answer:
-        "Придбати токен можна на сторінці треку. Для цього, потрібно щоб на гаманці була потрібна сума USDT для оплати токенів та невеликої комісії. Якщо коштів достатньо, відкриється вікно гаманця Unipass, де ви можете обрати комісію, і підтвердити покупку. Після цього, Вам потрібно зачекати на переказ коштів, і на зарахування токенів. При успішній покупці Ви отримаєте повідомлення внизу екрану.",
-    },
-    {
-      question: "Як поповнити гаманець Unipass?",
-      answer:
-        "Скопіюйте свою адресу гаманця за посиланням(https://wallet.unipass.id/).Відкрийте криптогаманець чи акаунт на біржі, де у Вас зберігається криптовалюта. Для переказу коштів Вам буде необхідно сплатити невелику комісію у валюті MATIC. Ви можете обміняти свої токени на MATIC, якщо Ваш баланс недостатній. Після цього, ви можете успішно перевести USDT на Вашу Unipass адресу.",
     },
   ],
   [
