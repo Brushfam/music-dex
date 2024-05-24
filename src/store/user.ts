@@ -20,7 +20,7 @@ const INITIAL_STATE: State = {
   latestPurchase: "",
 };
 
-// Use only fon client components
+// Use only for client components
 export const useUserStore = create<State & Actions>()(
   persist(
     (set) => ({

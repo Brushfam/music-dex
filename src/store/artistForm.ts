@@ -22,6 +22,7 @@ interface FormStore {
   setArtistFormStep: (value: string) => void;
 }
 
+// Use only for client components
 export const useArtistFormStore = create<FormStore>()(
   persist(
     (set) => ({
