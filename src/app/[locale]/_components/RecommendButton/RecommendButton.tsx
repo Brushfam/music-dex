@@ -1,11 +1,11 @@
 "use client";
-import { UseUser } from "@/context/UserContext";
 import { Button } from "@/components/ui/Button/Button";
 import { useTranslations } from "next-intl";
+import { useArtistFormStore } from "@/store/artistForm";
 
 export function RecommendButton() {
   const t = useTranslations("Home");
-  const userContext = UseUser();
+  const changeStep = useArtistFormStore((state) => state.setArtistFormStep);
 
   return (
     <Button
@@ -13,7 +13,7 @@ export function RecommendButton() {
       color={"main"}
       arrow={false}
       action={() => {
-        userContext.setArtistFormStep("1");
+        changeStep("1");
       }}
     />
   );

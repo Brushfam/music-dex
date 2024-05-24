@@ -4,7 +4,6 @@ import s from "./SharesBlock.module.scss";
 import React, { useEffect, useRef, useState } from "react";
 import Slider from "@mui/material/Slider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { UseUser } from "@/context/UserContext";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { ByCrypto } from "@/app/[locale]/tracks/_components/PaymentMethods/ByCrypto";
 import { Button } from "@/components/ui/Button/Button";
@@ -13,6 +12,7 @@ import { roundToTwo } from "@/services/helpers";
 import { Tooltip } from "@mui/material";
 import { getUsdRate } from "@/services/services";
 import { strkGetFreeBalance } from "@/services/blockchain/server";
+import { useUserStore } from "@/store/user";
 
 const theme = createTheme({
   palette: {
@@ -29,10 +29,13 @@ export function SharesBlock(props: {
   setAgreementModal: React.Dispatch<React.SetStateAction<boolean>>;
   setLowBalanceModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const userContext = UseUser();
   const t = useTranslations("SharesBlock");
   const price = roundToTwo(props.price);
   let usdRate = useRef(38.8);
+
+  const currentUser = useUserStore((state) => state.currentUser);
+  const hasAgreement = useUserStore((state) => state.hasAgreement);
+  const latestPurchase = useUserStore((state) => state.latestPurchase);
   const [prevAmount, setPrevAmount] = useState(price);
   const [currentAmount, setCurrentAmount] = useState(price);
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);
@@ -54,8 +57,8 @@ export function SharesBlock(props: {
     });
   }, [
     props.tokenAddress,
-    userContext.hasAgreement,
-    userContext.latestPurchase,
+    hasAgreement,
+    latestPurchase,
   ]);
 
   function getMaxPrice() {
@@ -134,10 +137,10 @@ export function SharesBlock(props: {
   }
 
   function PaymentButtons() {
-    return userContext.hasAgreement.toString() == "true" ? (
+    return hasAgreement.toString() == "true" ? (
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <ByCrypto
-          user={userContext.currentUser}
+          user={currentUser}
           tokensToPay={currentAmount}
           tokensToBuy={getTokenAmount()}
           address={props.tokenAddress}
@@ -203,7 +206,7 @@ export function SharesBlock(props: {
           </div>
         </div>
       </div>
-      {userContext.currentUser ? (
+      {currentUser ? (
         <PaymentButtons />
       ) : (
         <p style={{ color: "white", fontWeight: 600 }}>{t("please_login")}</p>

@@ -5,20 +5,31 @@ import { Button } from "@/components/ui/Button/Button";
 import React, { useEffect } from "react";
 import { FormStep } from "@/components/modals/ArtistModal/FormStep";
 import { useTranslations } from "next-intl";
-import { UseUser } from "@/context/UserContext";
+import { useArtistFormStore } from "@/store/artistForm";
 
 export function ArtistModal() {
-  const userContext = UseUser();
+  const currentStep = useArtistFormStore((state) => state.artistFormStep);
+  const changeStep = useArtistFormStore((state) => state.setArtistFormStep);
   const t = useTranslations("ArtistModal");
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      let formStep = window.localStorage.getItem("user-artist-modal");
-      if (!formStep) {
-        userContext.setArtistFormStep("1");
+    function checkAndSetStep(formStepObject: string|null) {
+      if (!formStepObject) {
+        changeStep("1");
+        return;
+      }
+      let formStep = JSON.parse(formStepObject);
+      if (!formStep.state.artistFormStep) {
+        changeStep("1");
       }
     }
-  }, [userContext]);
+
+    if (typeof window !== "undefined") {
+      let formStepObject =
+        window.localStorage.getItem("artist-form-step");
+      checkAndSetStep(formStepObject)
+    }
+  }, [changeStep]);
 
   function FirstStep() {
     return (
@@ -33,7 +44,7 @@ export function ArtistModal() {
             color={"grey"}
             arrow={false}
             action={() => {
-              userContext.setArtistFormStep("0");
+              changeStep("0");
             }}
           />
           <Button
@@ -41,7 +52,7 @@ export function ArtistModal() {
             color={"main"}
             arrow={true}
             action={() => {
-              userContext.setArtistFormStep("2");
+              changeStep("2");
             }}
           />
         </div>
@@ -50,18 +61,18 @@ export function ArtistModal() {
   }
 
   function CurrentStep() {
-    if (userContext.artistFormStep == "1") {
+    if (currentStep == "1") {
       return <FirstStep />;
-    } else if (userContext.artistFormStep == "2") {
+    } else if (currentStep == "2") {
       return <FormStep />;
+    } else {
+      changeStep("0");
+      return null;
     }
-    return null;
   }
 
   function isClosed() {
-    return (
-      userContext.artistFormStep === "0" || userContext.artistFormStep === ""
-    );
+    return currentStep === "0" || currentStep === "";
   }
 
   return isClosed() ? null : (

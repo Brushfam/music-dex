@@ -4,20 +4,20 @@ import React, { useEffect } from "react";
 import { Button } from "@/components/ui/Button/Button";
 import { useForm } from "@formspree/react";
 import { useTranslations } from "next-intl";
-import { UseUser } from "@/context/UserContext";
 import { toast } from "sonner";
+import {useArtistFormStore} from "@/store/artistForm";
 
 export function FormStep() {
-  const userContext = UseUser();
+  const changeStep = useArtistFormStore((state) => state.setArtistFormStep)
   const t = useTranslations("ArtistModal");
   const [state, handleSubmit] = useForm("mleqayvd");
 
   useEffect(() => {
     if (state.errors?.kind) {
       toast.error(t("error"));
-      userContext.setArtistFormStep("0");
+      changeStep("0");
     }
-  }, [state.errors, t, userContext]);
+  }, [changeStep, state.errors, t]);
 
   function CloseButton() {
     return (
@@ -26,7 +26,7 @@ export function FormStep() {
         color={"grey"}
         arrow={false}
         action={() => {
-          userContext.setArtistFormStep("0");
+          changeStep("0");
         }}
       />
     );
