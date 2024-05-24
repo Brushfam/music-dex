@@ -2,14 +2,14 @@
 
 import s from "./Modals.module.scss";
 import Image from "next/image";
-import { UseUser } from "@/context/UserContext";
-import { getTrackOwnerData } from "@/services/helpers";
 import { useEffect } from "react";
 import { useConnect, Connector, useAccount } from "@starknet-react/core";
 import { strkHasAgreement } from "@/services/blockchain/server";
+import {useUserStore} from "@/store/user";
 
 export function LoginMethodsModal() {
-  let userContext = UseUser();
+  const login = useUserStore((state) => state.login)
+  const setAgreement = useUserStore((state) => state.setAgreement)
   const { address } = useAccount();
   const { connect, connectors } = useConnect();
   const walletLinkNames = ["Braavos", "Argent X", "Argent mobile"];
@@ -29,14 +29,14 @@ export function LoginMethodsModal() {
       let agreementPromise = strkHasAgreement(address);
       agreementPromise
         .then((value) => {
-          userContext.setHasAgreement(value);
-          userContext.login(address, getTrackOwnerData(address));
+          setAgreement(value);
+          login(address);
         })
         .catch((e) => {
           console.log(e);
         });
     }
-  }, [address, userContext]);
+  }, [address, login, setAgreement]);
 
   function WalletIcon(props: { path: string }) {
     return (

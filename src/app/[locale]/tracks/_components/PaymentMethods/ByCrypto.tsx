@@ -4,11 +4,11 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
-import { UseUser } from "@/context/UserContext";
 import { hasEnoughBalance } from "@/services/blockchain/server";
 import { useAccount } from "@starknet-react/core";
 import { buyTokensStarknet } from "@/services/blockchain/client";
 import { trackAddresses } from "@/data/tracksData";
+import { useUserStore } from "@/store/user";
 
 export function ByCrypto(props: {
   user: string;
@@ -17,13 +17,14 @@ export function ByCrypto(props: {
   address: string;
   setLowBalanceModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const userContext = UseUser();
   const t = useTranslations("SharesBlock.ByCrypto");
+  const currentUser = useUserStore((state) => state.currentUser);
+  const setLatestPurchase = useUserStore((state) => state.setLatestPurchase);
   const [loading, setLoading] = useState(false);
   const { account } = useAccount();
 
   async function handlePurchase() {
-    if (!(await hasEnoughBalance(userContext.currentUser, props.tokensToPay))) {
+    if (!(await hasEnoughBalance(currentUser, props.tokensToPay))) {
       props.setLowBalanceModal(true);
       setLoading(false);
       return;
@@ -44,7 +45,7 @@ export function ByCrypto(props: {
       {
         loading: t("info"),
         success: () => {
-          userContext.setLatestPurchase(Date.now().toString());
+          setLatestPurchase(Date.now().toString());
           setLoading(false);
           return t("success");
         },

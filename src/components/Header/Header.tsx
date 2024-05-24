@@ -5,13 +5,12 @@ import cs from "../../app/commonStyles.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { UseUser } from "@/context/UserContext";
 import { MyTokens } from "@/components/Header/user-menu/MyTokens";
 import { LogoutButton } from "@/components/Header/user-menu/Logout";
 import { Login } from "@/components/Header/login/Login";
 import { useLocale } from "use-intl";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
-import {TrackOwner} from "@/components/Header/user-menu/TrackOwner";
+import {useUserStore} from "@/store/user";
 
 function LangSwitcher() {
   const pathname = usePathname();
@@ -33,16 +32,15 @@ function LangSwitcher() {
 }
 
 export function Header() {
-  let userContext = UseUser();
+  const currentUser = useUserStore((state) => state.currentUser)
   return (
     <div className={s.header}>
       <div className={s.header_content}>
         <Link href={"/"} className={s.header_logo}>
           <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
         </Link>
-        {userContext.currentUser ? (
+        {currentUser ? (
           <div className={s.header_row}>
-            <TrackOwner />
             <MyTokens />
             <LogoutButton />
             <LangSwitcher />

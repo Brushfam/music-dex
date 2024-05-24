@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.scss";
 import { NextIntlClientProvider, useMessages } from "next-intl";
-import { UserProvider } from "@/context/UserContext";
 import { Header } from "@/components/Header/Header";
 import { Toaster } from "sonner";
-import { StarknetProvider } from "@/context/starknetContext";
+import { StarknetProvider } from "@/providers/StarknetProvider";
 import Script from "next/script";
 import { Footer } from "@/components/Footer/Footer";
 
@@ -55,16 +54,14 @@ export default function RootLayout({
     <html lang={locale}>
       <RootHeader />
       <body className={inter.className} suppressHydrationWarning={true}>
-        <UserProvider>
-          <StarknetProvider>
-            <NextIntlClientProvider messages={messages}>
-              <Toaster richColors />
-              <Header />
-              {children}
-              <Footer />
-            </NextIntlClientProvider>
-          </StarknetProvider>
-        </UserProvider>
+        <StarknetProvider>
+          <NextIntlClientProvider messages={messages}>
+            <Toaster richColors />
+            <Header />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
+        </StarknetProvider>
       </body>
     </html>
   );

@@ -28,12 +28,12 @@ export async function hasEnoughBalance(user: string, amount: number) {
     "0x068f5c6a61780768455de69077e07e89787839bf8166decfbf92b645209c0fb8";
   const { abi: contractAbi } =
     await providerBlast.getClassAt(usdtStarknetAddress);
-  let ethContract = new Contract(
+  let usdtContract = new Contract(
     contractAbi,
       usdtStarknetAddress,
       providerBlast,
   );
-  let balance = await ethContract.balance_of(user);
+  let balance = await usdtContract.balance_of(user);
   let usdtAmount = BigInt(amount * 1_000_000)
   return balance > usdtAmount;
 }
@@ -91,62 +91,6 @@ async function getSongContract(address: string) {
   return new Contract(contractAbi, address, providerBlast);
 }
 
-export async function strkIncreaseBalance(
-  user: string,
-  amount: number,
-  songAddress: string,
-) {
-  const account = getAccountKey();
-  const songContract = await getSongContract(songAddress);
-  songContract.connect(account);
-  const myCall = songContract.populate("increase_balance", [user, amount]);
-  const writeRes = await songContract.add_tokenholder_balance(myCall.calldata);
-  const res = await providerBlast.waitForTransaction(
-    writeRes.transaction_hash,
-  );
-  console.log(res);
-}
-
-export async function strkBuy(
-  amount: number,
-  eth_to_pay: number,
-  songAddress: string,
-) {
-  const account = getAccountKey();
-  const songContract = await getSongContract(songAddress);
-  songContract.connect(account);
-  const myCall = songContract.populate("buy", [amount, eth_to_pay]);
-  const writeRes = await songContract.add_tokenholder_balance(myCall.calldata);
-  const res = await providerBlast.waitForTransaction(
-    writeRes.transaction_hash,
-  );
-  console.log(res);
-}
-
-export async function strkUpdateIncome(amount: number, songAddress: string) {
-  const account = getAccountKey();
-  const songContract = await getSongContract(songAddress);
-  songContract.connect(account);
-  const myCall = songContract.populate("update_income", [amount]);
-  const writeRes = await songContract.update_income(myCall.calldata);
-  const res = await providerBlast.waitForTransaction(
-    writeRes.transaction_hash,
-  );
-  console.log(res);
-}
-
-export async function strkClaim(user: string, songAddress: string) {
-  const account = getAccountKey();
-  const songContract = await getSongContract(songAddress);
-  songContract.connect(account);
-  const myCall = songContract.populate("claim", [user]);
-  const writeRes = await songContract.claim(myCall.calldata);
-  const res = await providerBlast.waitForTransaction(
-    writeRes.transaction_hash,
-  );
-  console.log(res);
-}
-
 export async function strkGetUserData(user: string, songAddress: string) {
   try {
     const songContract = await getSongContract(songAddress);
@@ -164,9 +108,4 @@ export async function strkGetFreeBalance(songAddress: string) {
     console.log(e);
     return 0;
   }
-}
-
-export async function strkGetTokenholdersNumber(songAddress: string) {
-  const songContract = await getSongContract(songAddress);
-  return await songContract.get_tokenholders_number();
 }

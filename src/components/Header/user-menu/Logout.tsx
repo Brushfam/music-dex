@@ -2,19 +2,19 @@
 
 import cs from "@/app/commonStyles.module.scss";
 import s from "@/components/Header/Header.module.scss";
-import { UseUser } from "@/context/UserContext";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import {useDisconnect} from "@starknet-react/core";
+import { useDisconnect } from "@starknet-react/core";
+import { useUserStore } from "@/store/user";
 
 export function LogoutButton() {
-  let userContext = UseUser();
+  const logout = useUserStore((state) => state.logout);
   const { disconnect } = useDisconnect();
   const t = useTranslations("Header");
 
   function handleOnClick() {
-    disconnect()
-    userContext.logout();
+    disconnect();
+    logout();
   }
 
   return (

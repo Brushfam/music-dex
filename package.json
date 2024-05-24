@@ -23,7 +23,8 @@
     "react-youtube": "^10.1.0",
     "sonner": "^1.4.3",
     "starknet": "^6.7.0",
-    "starknetkit": "^1.1.9"
+    "starknetkit": "^1.1.9",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/node": "^20",

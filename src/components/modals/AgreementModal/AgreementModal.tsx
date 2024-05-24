@@ -4,7 +4,6 @@ import ms from "../Modals.module.scss";
 import s from "./AgreementModal.module.scss";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
-import { UseUser } from "@/context/UserContext";
 import {
   introductionEN,
   introductionUA,
@@ -16,26 +15,28 @@ import { useLocale } from "use-intl";
 import { toast } from "sonner";
 import { Checkbox } from "@mui/material";
 import { strkSignAgreement } from "@/services/blockchain/server";
+import { useUserStore } from "@/store/user";
 
 export function AgreementModal(props: {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const userContext = UseUser();
+  const t = useTranslations("AgreementModal");
   const currentLocale = useLocale();
-
   const [introduction, points] =
     currentLocale === "uk"
       ? [introductionUA, pointsUA]
       : [introductionEN, pointsEN];
-  const t = useTranslations("AgreementModal");
+
+  const currentUser = useUserStore((state) => state.currentUser);
+  const setAgreement = useUserStore((state) => state.setAgreement);
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(true);
 
   async function handleSignAgreement() {
     setLoading(true);
-    strkSignAgreement(userContext.currentUser)
+    strkSignAgreement(currentUser)
       .then(() => {
-        userContext.setHasAgreement("true");
+        setAgreement("true");
         toast.success(t("toaster.sign_success"));
         setLoading(false);
         props.setModal(false);
