@@ -43,15 +43,28 @@ export function Footer() {
                 height={18}
                 style={{ marginRight: 6 }}
               />
-              <p>{t("email")}</p>
+              <p>{t("email_title")}</p>
             </div>
-            <a
-              href={"mailto:musicdex.inc@gmail.com"}
-              target="_blank"
-              style={{ textDecoration: "underline" }}
-            >
-              musicdex.inc@gmail.com
-            </a>
+            <div className={s.emailBlock}>
+              <p>{t("main_email")}</p>
+              <a
+                href={"mailto:musicdex.inc@gmail.com"}
+                target="_blank"
+                style={{ textDecoration: "underline" }}
+              >
+                musicdex.inc@gmail.com
+              </a>
+            </div>
+            <div className={s.emailBlock}>
+              <p>{t("support_email")}</p>
+              <a
+                href={"mailto:support@musicdex.co"}
+                target="_blank"
+                style={{ textDecoration: "underline" }}
+              >
+                support@musicdex.co
+              </a>
+            </div>
           </div>
           <div className={s.linksColumn}>
             <p style={{ marginBottom: 6 }}>{t("legal")}</p>
