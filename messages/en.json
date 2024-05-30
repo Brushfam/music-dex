@@ -55,7 +55,9 @@
 
   "Footer": {
     "description": "Invest in Music Royalties and Shape the Future of Music",
-    "email": "Write to us",
+    "email_title": "Write to us",
+    "main_email": "Any question:",
+    "support_email": "Tech support:",
     "social_media": "Social Media",
     "legal": "Legal",
     "privacy_policy": "Privacy Policy",

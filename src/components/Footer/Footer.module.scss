@@ -103,6 +103,15 @@
   }
 }
 
+.emailBlock {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $tablet-size) {
+    align-items: center;
+  }
+}
+
 .mediaWrapper {
   display: flex;
   flex-direction: column;
