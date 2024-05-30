@@ -3,7 +3,7 @@ export const teamListData = [
         path: "/team/Artem.png",
         name: "Artem",
         nameUK: "Артем",
-        role: "Co-Founder"
+        role: "Co-Founder & CEO"
     },
     {
         path: "/team/Markian.png",
