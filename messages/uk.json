@@ -33,6 +33,35 @@
     "join": "Приєднатися"
   },
 
+  "Auth": {
+    "existing_email_error": "Email адреса вже зареєстрована.",
+    "invalid_email": "Неправильна email адреса.",
+    "weak_password": "Пароль недостатньо надійний.",
+    "wrong_password": "Email адреса або пароль невірні.",
+    "other_errors": "Виникла помилка.",
+    "sign_up": "Sign Up",
+    "sign_in": "Sign In",
+    "signup_title": "Create an account",
+    "signup_artist_title": "Create an account as an artist",
+    "login_title": "Welcome back!",
+    "or_continue_with": "or continue with",
+    "email": "Email",
+    "password": "Password",
+    "forgot_password": "Forgot your password?",
+    "link_to_signup": "Don’t have an account?",
+    "link_to_artist_signup": "Sign up as an artist, producer or composer",
+    "agreement_text": "By clicking on “Sign Up” or signing-up with Google or Twitter you expressly agree to our Terms of Use and Privacy Policy.",
+    "reset_password": "Reset password",
+    "reset_password_content": "A letter with instructions for resetting the password has been sent to your email.",
+    "continue": "Continue",
+    "verify_the_email": "Verify the email",
+    "verify_message1": "If you previously registered with this email address, please check your inbox for a verification to confirm your identity.",
+    "verify_message2": "If this was not you, for security, please set a new password through the email. Click the button below to send this email.",
+    "send_the_email": "Send the email",
+    "email_sent": "Email was sent!",
+    "done": "Done"
+  },
+
   "Catalog": {
     "header": "Оберіть ваш трек",
     "description": "Інвестуйте в Музичні Роялті та Формуйте Майбутнє Музики",

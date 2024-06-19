@@ -6,7 +6,7 @@ import { Header } from "@/components/Header/Header";
 import { Toaster } from "sonner";
 import { StarknetProvider } from "@/providers/StarknetProvider";
 import Script from "next/script";
-import { Footer } from "@/components/Footer/Footer";
+import {FooterController} from "@/components/Footer/FooterController";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -59,7 +59,7 @@ export default function RootLayout({
             <Toaster richColors />
             <Header />
             {children}
-            <Footer />
+            <FooterController />
           </NextIntlClientProvider>
         </StarknetProvider>
       </body>

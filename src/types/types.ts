@@ -19,3 +19,15 @@ export type faqContentType = {
   question: string;
   answer: string;
 }[];
+
+export enum SignUpSteps {
+  SignUp,
+  EmailSent,
+  EmailIsNotVerified,
+}
+
+export enum LoginSteps {
+  Login,
+  ResetPassword,
+  EmailSent,
+}

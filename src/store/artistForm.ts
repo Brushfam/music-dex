@@ -7,7 +7,6 @@ const CURRENT_VERSION = "0.1.0";
 function checkStorageVersion() {
   if (typeof window !== "undefined") {
     const storedVersion = localStorage.getItem(LOCAL_STORAGE_VERSION_KEY);
-    console.log("+")
 
     if (storedVersion !== CURRENT_VERSION) {
       localStorage.clear();

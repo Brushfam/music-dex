@@ -23,6 +23,7 @@ export function Button(props: {
   type?: ButtonType;
   path?: string;
   action?: () => void;
+  fullLength?: boolean;
 }) {
   const { Link: LocalLink } = createSharedPathnamesNavigation({
     locales: ["en", "uk"],
@@ -48,6 +49,7 @@ export function Button(props: {
     <LocalLink
       href={props.path}
       className={colors[props.color]}
+      style={props.fullLength ? { width: "100%" } : {}}
       onClick={props.action}
     >
       <Content />
@@ -56,6 +58,7 @@ export function Button(props: {
     <button
       type={props.type ?? "button"}
       className={colors[props.color]}
+      style={props.fullLength ? { width: "100%" } : {}}
       onClick={props.action}
     >
       <Content />

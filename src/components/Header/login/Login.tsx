@@ -1,15 +1,23 @@
 "use client";
-import { LoginButton } from "@/components/Header/login/LoginButton";
-import { useState } from "react";
-import { LoginMethodsModal } from "@/components/Header/modals/LoginMethodsModal";
+
+import cs from "@/app/commonStyles.module.scss";
+import { useTranslations } from "next-intl";
+import { useLocale } from "use-intl";
+import Link from "next/link";
 
 export function Login() {
-  const [openLogin, setOpenLogin] = useState(false);
+  const t = useTranslations("Header");
+  const currentLocale = useLocale();
 
   return (
     <div style={{ position: "relative" }}>
-      <LoginButton open={openLogin} setOpen={setOpenLogin} />
-      {openLogin ? <LoginMethodsModal /> : <></>}
+      <Link
+        type={"button"}
+        className={cs.headerButton}
+        href={"/" + currentLocale + "/auth/login"}
+      >
+        <p>{t("login")}</p>
+      </Link>
     </div>
   );
 }
