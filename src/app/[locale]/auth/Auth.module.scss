@@ -22,7 +22,8 @@
 
   @media (max-width: 500px) {
     margin-top: 40px;
-    width: 88%;
+    padding: 21px 20px 24px 20px;
+    width: 90%;
   }
 }
 
@@ -39,6 +40,12 @@
   font-size: 28px;
   font-weight: 600;
   line-height: 150%;
+  text-align: center;
+
+  @media (max-width: 500px) {
+    font-size: 24px;
+    line-height: 140%;
+  }
 }
 
 .secondaryText {
@@ -85,14 +92,23 @@
   border-top: 1px solid;
   border-image: linear-gradient(90deg, rgba(35,35,32,1) 0%, rgba(175,175,175,0.9) 50%, rgba(35,35,35,1) 100%) 30;
 
+  @media (max-width: 500px) {
+    padding-top: 18px;
+  }
+
+  a, p {
+    font-size: 18px;
+    @media (max-width: 500px) {
+      font-size: 16px;
+    }
+  }
+
   p {
     color: white;
-    font-size: 18px;
   }
 
   a {
     color: $main-orange;
-    font-size: 18px;
     font-weight: 600;
   }
 }
