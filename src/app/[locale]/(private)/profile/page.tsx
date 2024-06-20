@@ -1,6 +1,7 @@
 "use client";
 import {useRouter} from "next/navigation";
 import { useEffect } from "react";
+import {Button} from "@/components/ui/Button/Button";
 
 export default function Profile() {
   const router = useRouter();
@@ -13,5 +14,5 @@ export default function Profile() {
   //   }
   // }, [router]);
 
-  return <div></div>;
+  return <Button title={""} color={"main"} arrow={false} />;
 }

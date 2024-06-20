@@ -1,0 +1,82 @@
+@import '../../../../../constants/constants';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+
+  @media (max-width: $desktop-size) {
+    gap: 18px;
+  }
+
+  @media (max-width: $tablet-size) {
+    width: 100%;
+  }
+
+  p {
+    color: white;
+    text-align: left;
+  }
+
+  &_description {
+    font-size: 14px;
+    max-width: 450px;
+
+    @media (max-width: $tablet-size) {
+      max-width: 68%;
+    }
+
+    @media (max-width: $mobile-size) {
+      max-width: 72%;
+      font-size: 12px;
+      line-height: 120%;
+    }
+  }
+
+  &_item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 580px;
+    gap: 24px;
+
+    @media (max-width: $desktop-size) {
+      gap: 16px;
+      width: 540px;
+    }
+
+    @media (max-width: $tablet-size) {
+      gap: 16px;
+      width: 100%;
+    }
+  }
+
+  &_numberBlock {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $main-orange;
+    border-radius: 4px;
+    box-shadow: 0px 0px 16px 0px rgba(254, 60, 6, 0.5);
+
+    p {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 150%;
+    }
+
+    @media (max-width: $tablet-size) {
+      width: 48px;
+      height: 48px;
+
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+}

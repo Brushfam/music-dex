@@ -1,0 +1,70 @@
+@import '../../../../../constants/constants';
+
+.terms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 32px;
+  gap: 36px;
+
+  @media (max-width: $tablet-size) {
+    gap: 30px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 150%;
+    max-width: 160px;
+    margin-top: 16px;
+    text-align: center;
+    color: white;
+  }
+
+  &_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 158px;
+    height: 158px;
+  }
+
+  &_mirrorx_img {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    @media (max-width: $desktop-md-size) {
+      display: none;
+    }
+  }
+
+  &_mirrory_img {
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    @media (max-width: $desktop-md-size) {
+      display: none;
+    }
+  }
+}
+
+.arrows {
+  @media (max-width: $desktop-md-size) {
+    display: none;
+  }
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 100px;
+
+  @media (max-width: $tablet-size) {
+    gap: 40px;
+  }
+
+  @media (max-width: $mobile-size) {
+    width: 100%;
+    gap: 6%;
+  }
+}
