@@ -18,8 +18,8 @@ export function ByCrypto(props: {
   setLowBalanceModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const t = useTranslations("SharesBlock.ByCrypto");
-  const currentUser = useUserStore((state) => state.currentUser);
-  const setLatestPurchase = useUserStore((state) => state.setLatestPurchase);
+  const currentUser = useUserStore((state) => state.currentUserName);
+  const setLatestPurchase = useUserStore((state) => state.currentUserEmail);
   const [loading, setLoading] = useState(false);
   const { account } = useAccount();
 
@@ -45,7 +45,6 @@ export function ByCrypto(props: {
       {
         loading: t("info"),
         success: () => {
-          setLatestPurchase(Date.now().toString());
           setLoading(false);
           return t("success");
         },

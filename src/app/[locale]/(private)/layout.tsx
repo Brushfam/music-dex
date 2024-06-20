@@ -29,10 +29,10 @@ export default function PrivateRootLayout({
   return (
     <html lang={locale}>
       <body className={inter.className} suppressHydrationWarning={true}>
-          <NextIntlClientProvider messages={messages}>
-            <Toaster richColors />
-            {children}
-          </NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
+          <Toaster richColors />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

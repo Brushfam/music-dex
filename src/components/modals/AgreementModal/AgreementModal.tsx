@@ -27,8 +27,8 @@ export function AgreementModal(props: {
       ? [introductionUA, pointsUA]
       : [introductionEN, pointsEN];
 
-  const currentUser = useUserStore((state) => state.currentUser);
-  const setAgreement = useUserStore((state) => state.setAgreement);
+  const currentUser = useUserStore((state) => state.currentUserName);
+  const setAgreement = useUserStore((state) => state.currentUserRole);
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(true);
 
@@ -36,7 +36,7 @@ export function AgreementModal(props: {
     setLoading(true);
     strkSignAgreement(currentUser)
       .then(() => {
-        setAgreement("true");
+        // setAgreement("true");
         toast.success(t("toaster.sign_success"));
         setLoading(false);
         props.setModal(false);

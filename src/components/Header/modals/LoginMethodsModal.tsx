@@ -9,7 +9,7 @@ import {useUserStore} from "@/store/user";
 
 export function LoginMethodsModal() {
   const login = useUserStore((state) => state.login)
-  const setAgreement = useUserStore((state) => state.setAgreement)
+  const setAgreement = useUserStore((state) => state.currentUserRole)
   const { address } = useAccount();
   const { connect, connectors } = useConnect();
   const walletLinkNames = ["Braavos", "Argent X", "Argent mobile"];
@@ -29,8 +29,7 @@ export function LoginMethodsModal() {
       let agreementPromise = strkHasAgreement(address);
       agreementPromise
         .then((value) => {
-          setAgreement(value);
-          login(address);
+          // login(address);
         })
         .catch((e) => {
           console.log(e);

@@ -13,8 +13,8 @@ import { useUserStore } from "@/store/user";
 
 export function MyTokens() {
   const t = useTranslations("Header");
-  const currentUser = useUserStore((state) => state.currentUser);
-  const latestPurchase = useUserStore((state) => state.latestPurchase);
+  const currentUser = useUserStore((state) => state.currentUserName);
+  const latestPurchase = useUserStore((state) => state.currentUserEmail);
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [userBalances, setUserBalances] = useState<string[]>([]);

@@ -32,7 +32,7 @@ function LangSwitcher() {
 }
 
 export function Header() {
-  const currentUser = useUserStore((state) => state.currentUser)
+  const currentUser = useUserStore((state) => state.currentUserEmail)
   return (
     <div className={s.header}>
       <div className={s.header_content}>

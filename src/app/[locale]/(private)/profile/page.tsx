@@ -1,18 +1,28 @@
 "use client";
-import {useRouter} from "next/navigation";
-import { useEffect } from "react";
-import {Button} from "@/components/ui/Button/Button";
+import { useState } from "react";
+import { ProfilePages } from "@/types/types";
+import s from "./Profile.module.scss";
+import { Sidebar } from "@/app/[locale]/(private)/profile/_components/Sidebar/Sidebar";
+import Settings from "@/app/[locale]/(private)/profile/_subpages/settings/page";
 
 export default function Profile() {
-  const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(ProfilePages.Settings);
 
-  // useEffect(() => {
-  //   if (!localStorage.getItem("fb-jwt-token")) {
-  //     router.replace("/en/auth/login");
-  //   } else {
-  //     router.replace("/profile/overview")
-  //   }
-  // }, [router]);
+  function CurrentProfilePage() {
+    switch (currentPage) {
+      case ProfilePages.Songs:
+        return <></>;
+      case ProfilePages.Settings:
+        return <Settings />;
+      default:
+        return <Settings />;
+    }
+  }
 
-  return <Button title={""} color={"main"} arrow={false} />;
+  return (
+    <div className={s.profileLayout}>
+      <Sidebar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <CurrentProfilePage />
+    </div>
+  );
 }

@@ -157,6 +157,15 @@
     }
   },
 
+  "ProfileInvestor": {
+    "Settings": {
+      "title": "Profile"
+    },
+    "Songs": {
+      "title": "Songs"
+    }
+  },
+
   "SharesBlock": {
     "header": "Select token amount",
     "sold_out": "Sold out",

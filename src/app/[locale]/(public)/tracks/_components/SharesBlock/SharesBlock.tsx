@@ -33,9 +33,9 @@ export function SharesBlock(props: {
   const price = roundToTwo(props.price);
   let usdRate = useRef(38.8);
 
-  const currentUser = useUserStore((state) => state.currentUser);
-  const hasAgreement = useUserStore((state) => state.hasAgreement);
-  const latestPurchase = useUserStore((state) => state.latestPurchase);
+  const currentUser = useUserStore((state) => state.currentUserName);
+  const hasAgreement = useUserStore((state) => state.currentUserEmail);
+  const latestPurchase = useUserStore((state) => state.currentUserRole);
   const [prevAmount, setPrevAmount] = useState(price);
   const [currentAmount, setCurrentAmount] = useState(price);
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);

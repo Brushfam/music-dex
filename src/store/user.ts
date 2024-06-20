@@ -2,35 +2,46 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 interface State {
-  currentUser: string;
-  hasAgreement: string;
-  latestPurchase: string;
+  currentUserName: string;
+  currentUserEmail: string;
+  currentUserRole: string;
+  profilePage: string;
 }
 
 interface Actions {
-  login: (user: string) => void;
+  login: (name: string, email: string, role: string) => void;
   logout: () => void;
-  setAgreement: (value: string) => void;
-  setLatestPurchase: (value: string) => void;
+  changeProfilePage: (page: string) => void;
 }
 
 const INITIAL_STATE: State = {
-  currentUser: "",
-  hasAgreement: "",
-  latestPurchase: "",
+  currentUserName: "",
+  currentUserEmail: "",
+  currentUserRole: "",
+  profilePage: "",
 };
 
 // Use only for client components
 export const useUserStore = create<State & Actions>()(
   persist(
     (set) => ({
-      currentUser: INITIAL_STATE.currentUser,
-      hasAgreement: INITIAL_STATE.hasAgreement,
-      latestPurchase: INITIAL_STATE.latestPurchase,
-      login: (user) => set(() => ({ currentUser: user })),
-      logout: () => set(() => ({ currentUser: "", latestPurchase: "" })),
-      setAgreement: (value) => set(() => ({ hasAgreement: value })),
-      setLatestPurchase: (value) => set(() => ({ latestPurchase: value })),
+      currentUserName: INITIAL_STATE.currentUserName,
+      currentUserEmail: INITIAL_STATE.currentUserEmail,
+      currentUserRole: INITIAL_STATE.currentUserRole,
+      profilePage: INITIAL_STATE.profilePage,
+      login: (name, email, role) =>
+        set(() => ({
+          currentUserName: name,
+          currentUserEmail: email,
+          currentUserRole: role,
+        })),
+      logout: () =>
+        set(() => ({
+          currentUserName: "",
+          currentUserEmail: "",
+          currentUserRole: "",
+        })),
+      changeProfilePage: (page) => set(() => ({ profilePage: page })),
     }),
     {
       name: "user-data",

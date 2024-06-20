@@ -153,6 +153,15 @@
     }
   },
 
+  "ProfileInvestor": {
+    "Settings": {
+      "title": "Profile"
+    },
+    "Songs": {
+      "title": "Songs"
+    }
+  },
+
   "SharesBlock": {
     "header": "Оберіть кількість токенів",
     "sold_out": "Продано",

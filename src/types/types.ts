@@ -31,3 +31,11 @@ export enum LoginSteps {
   ResetPassword,
   EmailSent,
 }
+
+export enum ProfilePages {
+  Overview,
+  Songs,
+  Royalties,
+  Activities,
+  Settings
+}
