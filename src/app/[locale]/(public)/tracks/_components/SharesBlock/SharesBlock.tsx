@@ -6,13 +6,11 @@ import Slider from "@mui/material/Slider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { ByCrypto } from "@/app/[locale]/(public)/tracks/_components/PaymentMethods/ByCrypto";
-import { Button } from "@/components/ui/Button/Button";
 import { useTranslations } from "next-intl";
 import { roundToTwo } from "@/services/helpers";
 import { Tooltip } from "@mui/material";
-import { getUsdRate } from "@/services/services";
 import { strkGetFreeBalance } from "@/services/blockchain/server";
-import { useUserStore } from "@/store/user";
+import {useUserStore} from "@/store/user";
 
 const theme = createTheme({
   palette: {
@@ -31,35 +29,20 @@ export function SharesBlock(props: {
 }) {
   const t = useTranslations("SharesBlock");
   const price = roundToTwo(props.price);
-  let usdRate = useRef(38.8);
 
-  const currentUser = useUserStore((state) => state.currentUserName);
-  const hasAgreement = useUserStore((state) => state.currentUserEmail);
-  const latestPurchase = useUserStore((state) => state.currentUserRole);
+    const currentUser = useUserStore((state) => state.currentUserEmail)
   const [prevAmount, setPrevAmount] = useState(price);
   const [currentAmount, setCurrentAmount] = useState(price);
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);
 
   useEffect(() => {
-    getUsdRate()
-      .then((rate) => {
-        usdRate.current = rate;
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-
     strkGetFreeBalance(props.tokenAddress).then((fullBalance) => {
       const balanceWithoutDecimals = Number(fullBalance) / 10;
       const balance =
         balanceWithoutDecimals > 1000 ? 1000 : balanceWithoutDecimals;
       setTotalAmount(balance);
     });
-  }, [
-    props.tokenAddress,
-    hasAgreement,
-    latestPurchase,
-  ]);
+  }, [props.tokenAddress]);
 
   function getMaxPrice() {
     if (!totalAmount) return 0;
@@ -137,7 +120,7 @@ export function SharesBlock(props: {
   }
 
   function PaymentButtons() {
-    return hasAgreement.toString() == "true" ? (
+    return (
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <ByCrypto
           user={currentUser}
@@ -152,20 +135,6 @@ export function SharesBlock(props: {
           </div>
         </Tooltip>
       </div>
-    ) : (
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        <Button
-          title={t("sign_agreement")}
-          color={"main"}
-          arrow={true}
-          action={() => {
-            props.setAgreementModal(true);
-          }}
-        />
-        <p style={{ textAlign: "center", fontSize: 13, lineHeight: "120%" }}>
-          {t("agreement_description")}
-        </p>
-      </div>
     );
   }
 
@@ -174,10 +143,6 @@ export function SharesBlock(props: {
       <p className={s.title}>{t("header")}</p>
       <div className={s.priceBlockWrapper}>
         <PriceBlock />
-        <p className={s.nbuText}>
-          *UAH {roundToTwo(currentAmount * usdRate.current)}
-          {t("nbu_text", { rate: usdRate.current.toString() })}
-        </p>
         <ThemeProvider theme={theme}>
           <Slider
             value={currentAmount}

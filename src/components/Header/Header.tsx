@@ -5,12 +5,20 @@ import cs from "../../app/commonStyles.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { MyTokens } from "@/components/Header/user-menu/MyTokens";
-import { LogoutButton } from "@/components/Header/user-menu/Logout";
 import { Login } from "@/components/Header/login/Login";
 import { useLocale } from "use-intl";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
-import {useUserStore} from "@/store/user";
+import { useUserStore } from "@/store/user";
+
+function ProfileButton() {
+  const currentLocale = useLocale();
+
+  return (
+    <Link href={"/" + currentLocale + "/profile"} className={cs.headerButton}>
+      <p>Profile</p>
+    </Link>
+  );
+}
 
 function LangSwitcher() {
   const pathname = usePathname();
@@ -24,7 +32,7 @@ function LangSwitcher() {
       href={pathname.substring(3) || "/"}
       locale={currentLocale == "en" ? "uk" : "en"}
       className={cs.headerButton}
-      style={{minWidth: 0}}
+      style={{ minWidth: 0 }}
     >
       <p>{currentLocale.toUpperCase()}</p>
     </LocalLink>
@@ -33,6 +41,7 @@ function LangSwitcher() {
 
 export function Header() {
   const currentUser = useUserStore((state) => state.currentUserEmail)
+
   return (
     <div className={s.header}>
       <div className={s.header_content}>
@@ -41,8 +50,7 @@ export function Header() {
         </Link>
         {currentUser ? (
           <div className={s.header_row}>
-            <MyTokens />
-            <LogoutButton />
+            <ProfileButton />
             <LangSwitcher />
           </div>
         ) : (

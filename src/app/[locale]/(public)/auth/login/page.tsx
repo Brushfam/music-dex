@@ -1,10 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  signInWithEmailAndPassword,
-  UserCredential,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, UserCredential } from "firebase/auth";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
@@ -18,7 +15,8 @@ import Link from "next/link";
 import { useLocale } from "use-intl";
 import { useRouter } from "next/navigation";
 import { isVerified } from "@/services/auth/auth";
-import {LoginSteps} from "@/types/types";
+import { LoginSteps } from "@/types/types";
+import { useUserStore } from "@/store/user";
 
 function Login(props: {
   setStep: React.Dispatch<React.SetStateAction<LoginSteps>>;
@@ -26,6 +24,9 @@ function Login(props: {
 }) {
   const t = useTranslations("Auth");
   const router = useRouter();
+  const setCurrentUserEmail = useUserStore(
+    (state) => state.setCurrentUserEmail,
+  );
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,6 +54,7 @@ function Login(props: {
         const user = userCredential.user;
         const idToken = await user.getIdToken();
         localStorage.setItem("fb-jwt-token", idToken);
+        setCurrentUserEmail(user.email || "");
         router.replace("/" + props.currentLocale + "/profile");
       })
       .catch((e) => {

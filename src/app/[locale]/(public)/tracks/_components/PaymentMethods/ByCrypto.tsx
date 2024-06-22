@@ -19,7 +19,6 @@ export function ByCrypto(props: {
 }) {
   const t = useTranslations("SharesBlock.ByCrypto");
   const currentUser = useUserStore((state) => state.currentUserName);
-  const setLatestPurchase = useUserStore((state) => state.currentUserEmail);
   const [loading, setLoading] = useState(false);
   const { account } = useAccount();
 

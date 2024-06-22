@@ -19,3 +19,10 @@ export function parseWalletListResponse(walletList: string[]) {
     return { address: address.trim(), name: name.trim() };
   });
 }
+
+export function formatEmail(email: string) {
+  if (email.length <= 10) {
+    return email;
+  }
+  return `${email.slice(0, 6)}...${email.slice(-4)}`;
+}

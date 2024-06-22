@@ -9,6 +9,7 @@ interface State {
 }
 
 interface Actions {
+  setCurrentUserEmail: (email: string) => void;
   login: (name: string, email: string, role: string) => void;
   logout: () => void;
   changeProfilePage: (page: string) => void;
@@ -29,6 +30,7 @@ export const useUserStore = create<State & Actions>()(
       currentUserEmail: INITIAL_STATE.currentUserEmail,
       currentUserRole: INITIAL_STATE.currentUserRole,
       profilePage: INITIAL_STATE.profilePage,
+      setCurrentUserEmail: (email) => set(() => ({ currentUserEmail: email })),
       login: (name, email, role) =>
         set(() => ({
           currentUserName: name,
