@@ -1,0 +1,63 @@
+@import "../../../../../../../constants/constants";
+
+.title {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.walletList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+}
+
+@mixin walletRow {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  height: 60px;
+  align-items: center;
+  padding: 8px 24px 8px 24px;
+  border-radius: 10px;
+  background: rgb(29, 29, 29);
+}
+
+.baseWalletRow {
+  @include walletRow;
+  cursor: pointer;
+
+  &:hover {
+    background: linear-gradient(
+        90deg,
+        rgb(246, 96, 31) -25.902%,
+        rgba(17, 17, 17, 0) 91.406%
+      ),
+      rgb(29, 29, 29);
+  }
+}
+
+.primaryWalletRow {
+  @include walletRow;
+  background: linear-gradient(
+      90deg,
+      rgb(246, 96, 31) -25.902%,
+      rgba(17, 17, 17, 0) 91.406%
+    ),
+    rgb(29, 29, 29);
+}
+
+.walletName {
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.walletAddress {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 400;
+}

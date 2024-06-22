@@ -70,6 +70,13 @@
   outline-style: none;
 }
 
+.formInput:-webkit-autofill,
+.formInput:-webkit-autofill:hover,
+.formInput:-webkit-autofill:focus,
+.formInput:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px darkgrey inset !important;
+}
+
 .formInput::placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-size: 16px;

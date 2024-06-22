@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "../../globals.scss";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Toaster } from "sonner";
+import { StarknetProvider } from "@/providers/StarknetProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,8 +31,10 @@ export default function PrivateRootLayout({
     <html lang={locale}>
       <body className={inter.className} suppressHydrationWarning={true}>
         <NextIntlClientProvider messages={messages}>
-          <Toaster richColors />
-          {children}
+          <StarknetProvider>
+            <Toaster richColors />
+            {children}
+          </StarknetProvider>
         </NextIntlClientProvider>
       </body>
     </html>

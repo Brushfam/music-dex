@@ -39,3 +39,8 @@ export enum ProfilePages {
   Activities,
   Settings
 }
+
+export interface Wallet {
+  address: string;
+  name: string;
+}

@@ -1,6 +1,6 @@
 
 export const ProfileIcon = (props: {color: string}) => (
-    <svg width="14.200195" height="18.101562" viewBox="0 0 14.2002 18.1016" fill="none"
+    <svg width="14.200195" height="18.101562" viewBox="0 0 14.2002 18.1016" fill={props.color}
          xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
         <defs/>
         <path id="Vector"

@@ -34,23 +34,18 @@ export function validateToken(token: string) {
 }
 
 export function authWithGoogle(role: string) {
-    console.log(1)
   const provider = new GoogleAuthProvider();
   signInWithRedirect(firebaseAuth, provider)
     .then(async (userCredential: UserCredential) => {
       const user = userCredential.user;
       const idToken = await user.getIdToken();
       const additionalInfo = getAdditionalUserInfo(userCredential);
-        console.log(2)
       if (additionalInfo && additionalInfo.isNewUser && user.email) {
-          console.log("+")
         addNewUser(idToken, user.email, role);
       }
       localStorage.setItem("fb-jwt-token", idToken);
     })
     .catch((error) => {
       console.log(error.message);
-        console.log(3)
     });
-    console.log(4)
 }

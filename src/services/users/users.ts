@@ -5,7 +5,6 @@ export function addNewUser(jwt: string, email: string, role: string) {
     .post(
       process.env.NEXT_PUBLIC_SERVER_URL + "/users",
       {
-        idToken: jwt,
         email: email,
         role: role,
       },

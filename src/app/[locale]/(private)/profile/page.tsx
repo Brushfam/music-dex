@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ProfilePages } from "@/types/types";
 import s from "./Profile.module.scss";
 import { Sidebar } from "@/app/[locale]/(private)/profile/_components/Sidebar/Sidebar";
-import Settings from "@/app/[locale]/(private)/profile/_subpages/settings/page";
+import Settings from "@/app/[locale]/(private)/profile/Settings";
 
 export default function Profile() {
   const [currentPage, setCurrentPage] = useState(ProfilePages.Settings);
