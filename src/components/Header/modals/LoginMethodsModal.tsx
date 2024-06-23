@@ -8,7 +8,6 @@ import { strkHasAgreement } from "@/services/blockchain/server";
 import {useUserStore} from "@/store/user";
 
 export function LoginMethodsModal() {
-  const login = useUserStore((state) => state.login)
   const setAgreement = useUserStore((state) => state.currentUserRole)
   const { address } = useAccount();
   const { connect, connectors } = useConnect();
@@ -35,7 +34,7 @@ export function LoginMethodsModal() {
           console.log(e);
         });
     }
-  }, [address, login, setAgreement]);
+  }, [address, setAgreement]);
 
   function WalletIcon(props: { path: string }) {
     return (
