@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { signInWithEmailAndPassword, UserCredential } from "firebase/auth";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useTranslations } from "next-intl";
@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/Button/Button";
 import { ResetPassword } from "@/app/[locale]/(public)/auth/login/ResetPassword";
 import Link from "next/link";
 import { useLocale } from "use-intl";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { isVerified } from "@/services/auth/auth";
 import { LoginSteps } from "@/types/types";
 import { useUserStore } from "@/store/user";
@@ -24,6 +24,7 @@ function Login(props: {
 }) {
   const t = useTranslations("Auth");
   const router = useRouter();
+  const searchParams = useSearchParams();
   const setCurrentUserEmail = useUserStore(
     (state) => state.setCurrentUserEmail,
   );
@@ -31,6 +32,13 @@ function Login(props: {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isHidden, setHidden] = useState(true);
+
+  useEffect(() => {
+    const expiredSession = searchParams.get("expired-session");
+    if (expiredSession) {
+      toast.info("Ypu session have expired. Please re-login");
+    }
+  }, [searchParams]);
 
   const handleLogin = async () => {
     signInWithEmailAndPassword(firebaseAuth, email, password)
