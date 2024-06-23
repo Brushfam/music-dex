@@ -65,3 +65,12 @@ export function createInvoice(jwt: string, token_amount: number) {
     },
   );
 }
+
+export function getUserSongs(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/songs", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+  });
+}
