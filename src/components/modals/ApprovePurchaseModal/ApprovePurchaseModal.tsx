@@ -14,25 +14,34 @@ export function ApprovePurchaseModal(props: {
     <div className={ms.overlay}>
       <div className={s.approvePurchaseModal}>
         <p className={s.title}>{t("title")}</p>
-        <p className={s.content}>{t("content")}</p>
+        <p className={s.content}>{t("content1")}</p>
+        <p className={s.content}>{t("content2")}</p>
         <div
           style={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
             width: "100%",
+            marginTop: 15,
           }}
         >
           <Button
-            title={"Close"}
-            color={"main"}
+            title={t("close")}
+            color={"grey"}
             arrow={false}
             action={() => {
               props.setModal("");
             }}
           />
-          <a href={props.orderUrl} className={s.linkButton}>
-            <p>Open link</p>
+          <a
+            href={props.orderUrl}
+            target={"_blank"}
+            className={s.linkButton}
+            onClick={() => {
+              props.setModal("");
+            }}
+          >
+            <p>{t("ok")}</p>
           </a>
         </div>
       </div>

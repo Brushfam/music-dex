@@ -4,7 +4,7 @@
 .approvePurchaseModal {
   @extend .modal;
 
-  width: 420px;
+  width: 460px;
   height: auto;
   padding: 24px;
   gap: 10px;
@@ -20,6 +20,7 @@
   color: white;
   font-size: 24px;
   line-height: 100%;
+  margin-bottom: 10px;
 }
 
 .content {
