@@ -31,6 +31,9 @@ export function ConnectedWallets(props: {
   }
 
   function isPrimary(wallet: Wallet): boolean {
+    if (props.primaryWallet === wallet.name) {
+      return true
+    }
     return wallet.address === props.primaryWallet;
   }
 

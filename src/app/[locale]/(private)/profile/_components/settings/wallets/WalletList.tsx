@@ -102,6 +102,7 @@ export function WalletList() {
               address: "internal",
             });
             setConnectedWallets(newArray);
+            setPrimaryWallet("internal")
             toast.success(t("Toast.internal_created"))
           })
           .catch((error) => {
