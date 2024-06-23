@@ -5,11 +5,11 @@ import cs from "../../app/commonStyles.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Login } from "@/components/Header/login/Login";
+import { Login } from "@/components/Header/Login";
 import { useLocale } from "use-intl";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import { useUserStore } from "@/store/user";
-import {LogoutButton} from "@/components/Header/user-menu/Logout";
+import {LogoutButton} from "@/components/Header/Logout";
 import {useTranslations} from "next-intl";
 
 function ProfileButton() {
