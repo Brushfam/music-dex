@@ -2,12 +2,14 @@ import s from "./Wallets.module.scss";
 import { Wallet } from "@/types/types";
 import { formatBlockchainAddress } from "@/services/helpers";
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 
 export function ConnectedWallets(props: {
   wallets: Wallet[];
   primaryWallet: string;
   updatePrimaryWallet: (newPrimaryWallet: Wallet) => Promise<void>;
 }) {
+  const t = useTranslations("ProfileInvestor.Settings");
   if (props.wallets.length === 0) {
     return null;
   }
@@ -38,7 +40,7 @@ export function ConnectedWallets(props: {
 
   return (
     <div className={s.walletList}>
-      <p className={s.title}>Connected Wallets</p>
+      <p className={s.title}>{t("connected_wallets")}</p>
       {props.wallets.map((wallet, index) => (
         <div
           key={index.toString()}

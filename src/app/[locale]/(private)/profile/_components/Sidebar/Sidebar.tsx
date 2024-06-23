@@ -15,7 +15,7 @@ export function Sidebar(props: {
   currentPage: ProfilePages;
   setCurrentPage: Dispatch<SetStateAction<ProfilePages>>;
 }) {
-  const t = useTranslations("ProfileInvestor");
+  const t = useTranslations("ProfileInvestor.Sidebar");
   function Logo() {
     return (
       <div className={s.logoWrapper}>
@@ -38,7 +38,7 @@ export function Sidebar(props: {
         <div className={s.pagesRow}>
           <div className={s.hoverBlock}></div>
           <OverviewIcon color={"rgb(68, 68, 68)"} />
-          <p style={{ color: "rgb(68, 68, 68)" }}>Overview</p>
+          <p style={{ color: "rgb(68, 68, 68)" }}>{t("overview")}</p>
         </div>
         <div
           className={s.pagesRow}
@@ -48,12 +48,12 @@ export function Sidebar(props: {
         >
           <div className={s.hoverBlock}></div>
           <SongsIcon color={getCurrentColor(ProfilePages.Songs)} />
-          <p style={{ color: getCurrentColor(ProfilePages.Songs) }}>Songs</p>
+          <p style={{ color: getCurrentColor(ProfilePages.Songs) }}>{t("songs")}</p>
         </div>
         <div className={s.pagesRow}>
           <div className={s.hoverBlock}></div>
           <RoyaltiesIcon color={"rgb(68, 68, 68)"} />
-          <p style={{ color: "rgb(68, 68, 68)" }}>Royalties</p>
+          <p style={{ color: "rgb(68, 68, 68)" }}>{t("royalties")}</p>
         </div>
         <div
           className={s.pagesRow}
@@ -64,7 +64,7 @@ export function Sidebar(props: {
           <div className={s.hoverBlock}></div>
           <ProfileIcon color={getCurrentColor(ProfilePages.Settings)} />
           <p style={{ color: getCurrentColor(ProfilePages.Settings) }}>
-            My profile
+              {t("profile")}
           </p>
         </div>
       </div>

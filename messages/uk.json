@@ -35,6 +35,7 @@
 
   "Auth": {
     "existing_email_error": "Email адреса вже зайнята.",
+    "expired_session": "Ваша сесія закінчилась, будь ласка увійдіть знову.",
     "invalid_email": "Невірний email.",
     "weak_password": "Пароль недостатньо надійний.",
     "wrong_password": "Email адреса та пароль не збігаються.",
@@ -160,11 +161,39 @@
   },
 
   "ProfileInvestor": {
+    "Sidebar": {
+      "overview": "Огляд",
+      "songs": "Треки",
+      "royalties": "Роялті",
+      "profile": "Мій профіль"
+    },
     "Settings": {
-      "title": "Profile"
+      "title": "Профіль",
+      "tab1": "Мої дані",
+      "tab2": "Гаманці",
+      "connected_wallets": "Прив'язані гаманці",
+      "connect_wallet": "Прив'язати гаманець",
+      "create_internal_wallet": "Або автоматично створити гаманець",
+      "loading": "Завантаження...",
+      "Toast": {
+        "wallet_connected": "Гаманець прив'язано!",
+        "error_adding_wallet": "Помилка додавання гаманця",
+        "error_updating_wallets": "Помилка оновлення гаманців",
+        "internal_created": "Гаманець було успішно створено!",
+        "internal_error": "Помилка під час створення гаманця"
+      }
     },
     "Songs": {
-      "title": "Songs"
+      "title": "Інвестовані треки",
+      "no_songs": "Поки що немає інвестицій",
+      "choose_song": "Оберіть трек щоб інвестувати",
+      "invest": "Інвестувати",
+      "list_of_songs": "Список треків",
+      "last_purchase": "Остання покупка",
+      "song": "Трек",
+      "tokens": "Токени",
+      "invested": "Інвестиції",
+      "loading": "Завантаження..."
     }
   },
 

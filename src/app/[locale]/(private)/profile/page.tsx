@@ -16,7 +16,7 @@ export default function Profile() {
       case ProfilePages.Settings:
         return <Settings />;
       default:
-        return <Settings />;
+        return <Songs />;
     }
   }
 

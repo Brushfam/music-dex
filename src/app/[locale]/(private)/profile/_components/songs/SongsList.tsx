@@ -9,8 +9,10 @@ import { Button } from "@/components/ui/Button/Button";
 import { SongHeader } from "@/app/[locale]/(private)/profile/_components/songs/SongHeader";
 import { SongRow } from "@/app/[locale]/(private)/profile/_components/songs/SongRow";
 import { useLocale } from "use-intl";
+import { useTranslations } from "next-intl";
 
 export function SongsListBlock() {
+  const t = useTranslations("ProfileInvestor.Songs");
   const router = useRouter();
   const currentLocale = useLocale();
 
@@ -39,10 +41,10 @@ export function SongsListBlock() {
   function NoSongBlock() {
     return (
       <div className={s.noSongBlock}>
-        <p className={s.noSongBlock_title}>No invested songs here yet</p>
-        <p className={s.noSongBlock_description}>Choose a song to invest</p>
+        <p className={s.noSongBlock_title}>{t("no_songs")}</p>
+        <p className={s.noSongBlock_description}>{t("choose_song")}</p>
         <Button
-          title={"Invest"}
+          title={t("invest")}
           color={"main"}
           arrow={false}
           path={"/catalog"}
@@ -60,9 +62,9 @@ export function SongsListBlock() {
     return dealerAmount ? (
       <div className={s.songListSubPage}>
         <div className={s.titleBlock}>
-          <p className={s.titleBlock_text}>List of songs</p>
+          <p className={s.titleBlock_text}>{t("list_of_songs")}</p>
           <Button
-            title={"Invest"}
+            title={t("invest")}
             color={"main"}
             arrow={false}
             path={"/catalog"}
@@ -97,7 +99,7 @@ export function SongsListBlock() {
         fontSize: 18,
       }}
     >
-      Loading...
+        {t("loading")}
     </div>
   ) : (
     <SongList />

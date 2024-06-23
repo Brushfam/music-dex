@@ -1,6 +1,6 @@
 "use client";
 
-import s from "./Wallets.module.scss"
+import s from "./Wallets.module.scss";
 import {
   Connector,
   useAccount,
@@ -14,11 +14,13 @@ import { toast } from "sonner";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useRouter } from "next/navigation";
 import { Wallet } from "@/types/types";
+import { useTranslations } from "next-intl";
 
 export function ConnectWallet(props: {
   connectedWallets: Wallet[];
   setConnectedWallets: Dispatch<SetStateAction<Wallet[]>>;
 }) {
+  const t = useTranslations("ProfileInvestor.Settings");
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const { disconnect } = useDisconnect();
@@ -51,11 +53,11 @@ export function ConnectWallet(props: {
               let newArray = [...props.connectedWallets];
               newArray.unshift({ name: walletName, address: address });
               props.setConnectedWallets(newArray);
-              toast.success("Wallet was connected!")
+              toast.success(t("Toast.wallet_connected"));
             })
             .catch((error) => {
               console.log(error);
-              toast.error("Error while add wallet");
+              toast.error(t("Toast.error_adding_wallet"));
             })
             .finally(() => {
               disconnect();
@@ -66,7 +68,16 @@ export function ConnectWallet(props: {
         }
       });
     }
-  }, [address, props, router, walletName, connectors, disconnect, prevAddress]);
+  }, [
+    address,
+    props,
+    router,
+    walletName,
+    connectors,
+    disconnect,
+    prevAddress,
+    t,
+  ]);
 
   function WalletIcon(props: { path: string }) {
     return (
@@ -76,35 +87,35 @@ export function ConnectWallet(props: {
 
   return (
     <div className={s.walletList}>
-      <p className={s.title}>Connect a wallet</p>
+      <p className={s.title}>{t("connect_wallet")}</p>
       {mounted &&
-          connectors.map((connector: Connector, index) => {
-            const available = connector.available();
-            const name = walletLinkNames[index];
-            return available ? (
-                <div
-                    key={index.toString()}
-                    onClick={() => {
-                      setWalletName(name);
-                      connect({ connector });
-                    }}
-                    className={s.baseWalletRow}
-                >
-                  <WalletIcon path={walletLogosList[index]} />
-                  <p className={s.walletName}>{name}</p>
-                </div>
-            ) : (
-                <a
-                    key={index.toString()}
-                    href={walletLinkList[index]}
-                    target={"_blank"}
-                    className={s.baseWalletRow}
-                >
-                  <WalletIcon path={walletLogosList[index]} />
-                  <p className={s.walletName}>{name}</p>
-                </a>
-            );
-          })}
+        connectors.map((connector: Connector, index) => {
+          const available = connector.available();
+          const name = walletLinkNames[index];
+          return available ? (
+            <div
+              key={index.toString()}
+              onClick={() => {
+                setWalletName(name);
+                connect({ connector });
+              }}
+              className={s.baseWalletRow}
+            >
+              <WalletIcon path={walletLogosList[index]} />
+              <p className={s.walletName}>{name}</p>
+            </div>
+          ) : (
+            <a
+              key={index.toString()}
+              href={walletLinkList[index]}
+              target={"_blank"}
+              className={s.baseWalletRow}
+            >
+              <WalletIcon path={walletLogosList[index]} />
+              <p className={s.walletName}>{name}</p>
+            </a>
+          );
+        })}
     </div>
   );
 }

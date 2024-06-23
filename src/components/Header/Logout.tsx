@@ -4,7 +4,6 @@ import cs from "@/app/commonStyles.module.scss";
 import s from "@/components/Header/Header.module.scss";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useDisconnect } from "@starknet-react/core";
 import { useUserStore } from "@/store/user";
 import {firebaseAuth} from "@/services/auth/firebaseConfig";
 import {signOut} from "@firebase/auth";
@@ -21,7 +20,7 @@ export function LogoutButton() {
       setCurrentUserEmail("");
     }).catch((error) => {
       console.log(error)
-      toast.error("error_logout")
+      toast.error(t("error_logout"))
     });
   }
 

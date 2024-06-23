@@ -36,9 +36,9 @@ function Login(props: {
   useEffect(() => {
     const expiredSession = searchParams.get("expired-session");
     if (expiredSession) {
-      toast.info("Ypu session have expired. Please re-login");
+      toast.info(t("expired_session"));
     }
-  }, [searchParams]);
+  }, [searchParams, t]);
 
   const handleLogin = async () => {
     signInWithEmailAndPassword(firebaseAuth, email, password)

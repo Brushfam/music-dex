@@ -35,6 +35,7 @@
 
   "Auth": {
     "existing_email_error": "Email address already in use.",
+    "expired_session": "You session have expired. Please re-login",
     "invalid_email": "Invalid email.",
     "weak_password": "Password is not strong enough.",
     "wrong_password": "Email address and password do not match.",
@@ -160,11 +161,39 @@
   },
 
   "ProfileInvestor": {
+    "Sidebar": {
+      "overview": "Overview",
+      "songs": "Songs",
+      "royalties": "Royalties",
+      "profile": "My profile"
+    },
     "Settings": {
-      "title": "Profile"
+      "title": "Profile",
+      "tab1": "Personal info",
+      "tab2": "Wallets",
+      "connected_wallets": "Connected Wallets",
+      "connect_wallet": "Connect a wallet",
+      "create_internal_wallet": "Or automatically create a wallet",
+      "loading": "Loading...",
+      "Toast": {
+        "wallet_connected": "Wallet was connected!",
+        "error_adding_wallet": "Error adding wallet",
+        "error_updating_wallets": "Error updating wallets",
+        "internal_created": "Internal wallet was created!",
+        "internal_error": "Error creating internal wallet"
+      }
     },
     "Songs": {
-      "title": "Songs"
+      "title": "Invested songs",
+      "no_songs": "No invested songs here yet",
+      "choose_song": "Choose a song to invest",
+      "invest": "Invest",
+      "list_of_songs": "List of songs",
+      "last_purchase": "Last purchase",
+      "song": "Song",
+      "tokens": "Tokens",
+      "invested": "Invested",
+      "loading": "Loading..."
     }
   },
 

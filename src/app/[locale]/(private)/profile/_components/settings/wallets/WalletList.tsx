@@ -16,8 +16,10 @@ import { ConnectedWallets } from "@/app/[locale]/(private)/profile/_components/s
 import { CreateInternalWallet } from "@/app/[locale]/(private)/profile/_components/settings/wallets/CreateInternalWallet";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { parseWalletListResponse } from "@/services/helpers";
+import {useTranslations} from "next-intl";
 
 export function WalletList() {
+  const t = useTranslations("ProfileInvestor.Settings");
   const router = useRouter();
   const [connectedWallets, setConnectedWallets] = useState<Wallet[]>([]);
   const [hasInternalWallet, setHasInternalWallet] = useState(false);
@@ -62,13 +64,13 @@ export function WalletList() {
           router.replace("/en/auth/login?expired-session=true");
         } else {
           console.error("Error fetching wallets:", error);
-          toast.error("Error fetching wallets");
+          toast.error(t("Toast.error_updating_wallets"));
         }
       }
     }
 
     fetchWallets();
-  }, [router]);
+  }, [router, t]);
 
   const handleUpdatePrimaryWallet = async (newPrimaryWallet: Wallet) => {
     firebaseAuth.onAuthStateChanged(async (user) => {
@@ -100,11 +102,11 @@ export function WalletList() {
               address: "internal",
             });
             setConnectedWallets(newArray);
-            toast.success("Internal wallet was created!")
+            toast.success(t("Toast.internal_created"))
           })
           .catch((error) => {
             console.log(error);
-            toast.error("Error creating internal wallet");
+            toast.error(t("Toast.internal_created"));
           });
       } else {
         router.replace("/en/auth/login?expired-session=true");
@@ -129,7 +131,7 @@ export function WalletList() {
         fontSize: 18,
       }}
     >
-      Loading...
+      {t("loading")}
     </div>
   ) : (
     <div className={s.walletsWrapper}>

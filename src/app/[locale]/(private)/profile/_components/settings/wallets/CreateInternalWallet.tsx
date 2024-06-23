@@ -1,14 +1,16 @@
 import s from "@/app/[locale]/(private)/profile/_components/settings/wallets/Wallets.module.scss";
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 
 export function CreateInternalWallet(props: { createWallet: () => void }) {
+    const t = useTranslations("ProfileInvestor.Settings");
   const handleCreate = async () => {
     props.createWallet();
   };
 
   return (
     <div className={s.walletList}>
-      <p className={s.title}>Or automatically create a wallet</p>
+      <p className={s.title}>{t("create_internal_wallet")}</p>
       <div className={s.baseWalletRow} onClick={handleCreate}>
         <Image
           src={"/profile/icons/internal-wallet.png"}
