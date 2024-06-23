@@ -102,6 +102,7 @@
     "login": "Log in",
     "logout": "Log out",
     "my_tokens": "My tokens",
+    "profile": "Profile",
     "earned": "Earned",
     "claim": "Claim",
     "no_tokes": "You do not have any tokens yet.",
@@ -110,6 +111,7 @@
     "amount": "amount",
     "invalid_amount": "Invalid amount.",
     "close": "Close",
+    "error_logout": "Something went wrong.",
     "toaster": {
       "income_info": "Sending income...",
       "income_success": "Income was sent successfully.",
@@ -186,7 +188,7 @@
       "success": "Success! Your tokens will be transferred within several minutes.",
       "error": "Something went wrong."
     },
-    "LowBalanceModal": {
+    "ApprovePurchaseModal": {
       "title": "Low balance",
       "content": "There are not enough funds in your wallet. Please, check your USDT balance.",
       "ok": "OK"

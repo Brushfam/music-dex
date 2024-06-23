@@ -1,10 +1,10 @@
 @import '../../../constants/constants';
 @import '../Modals.module';
 
-.lowBalanceModal {
+.approvePurchaseModal {
   @extend .modal;
 
-  width: 400px;
+  width: 420px;
   height: auto;
   padding: 24px;
   gap: 10px;
@@ -29,5 +29,27 @@
 
   a {
     text-decoration-line: underline;
+  }
+}
+
+.linkButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px 8px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: $main-orange;
+
+  p {
+    color: white;
+    font-weight: 600;
+  }
+
+  &:hover {
+    filter: brightness(80%);
+    cursor: pointer;
   }
 }

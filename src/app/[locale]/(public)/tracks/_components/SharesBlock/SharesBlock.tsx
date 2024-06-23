@@ -24,15 +24,14 @@ export function SharesBlock(props: {
   price: number;
   tokenAddress: string;
   tokenName: string;
-  setAgreementModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setLowBalanceModal: React.Dispatch<React.SetStateAction<boolean>>;
+    setApprovePurchaseModal: React.Dispatch<React.SetStateAction<string>>;
 }) {
   const t = useTranslations("SharesBlock");
   const price = roundToTwo(props.price);
 
     const currentUser = useUserStore((state) => state.currentUserEmail)
-  const [prevAmount, setPrevAmount] = useState(price);
-  const [currentAmount, setCurrentAmount] = useState(price);
+  const [prevAmount, setPrevAmount] = useState(price*24);
+  const [currentAmount, setCurrentAmount] = useState(price*24);
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);
 
   useEffect(() => {
@@ -56,7 +55,7 @@ export function SharesBlock(props: {
 
   function changeAmountButton(down?: boolean) {
     if (
-      (down && currentAmount == price) ||
+      (down && currentAmount == price*24) ||
       (!down && currentAmount >= getMaxPrice())
     ) {
       return;
@@ -98,7 +97,7 @@ export function SharesBlock(props: {
           <p style={{ fontSize: 16, userSelect: "none" }}>-</p>
         </div>
         <div className={s.priceTextBlock} style={{ width: 59 }}>
-          <p style={{ fontSize: 9, fontWeight: 500 }}>{t("price")}*</p>
+          <p style={{ fontSize: 9, fontWeight: 500 }}>{t("price")}</p>
           <p style={{ fontSize: 16, fontWeight: 700 }}>${currentAmount}</p>
         </div>
         <div className={s.priceTextBlock_divider} />
@@ -127,7 +126,7 @@ export function SharesBlock(props: {
           tokensToPay={currentAmount}
           tokensToBuy={getTokenAmount()}
           address={props.tokenAddress}
-          setLowBalanceModal={props.setLowBalanceModal}
+          setApprovePurchaseModal={props.setApprovePurchaseModal}
         />
         <Tooltip title={t("fiat_description")} enterTouchDelay={0}>
           <div className={s.disabledFiat}>
@@ -146,17 +145,17 @@ export function SharesBlock(props: {
         <ThemeProvider theme={theme}>
           <Slider
             value={currentAmount}
-            defaultValue={price}
+            defaultValue={price*24}
             onChange={handleSliderChange}
             step={price}
-            min={price}
+            min={price*24}
             max={getMaxPrice()}
             style={{ margin: "0 0 0 4px" }}
           />
         </ThemeProvider>
         <div className={s.rowContainer}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <p className={s.boldSmallText}>{price}</p>
+            <p className={s.boldSmallText}>{price*24}</p>
             <p className={s.smallText}>{t("min")}</p>
           </div>
           <div

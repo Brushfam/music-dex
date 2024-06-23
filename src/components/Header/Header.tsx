@@ -9,13 +9,24 @@ import { Login } from "@/components/Header/login/Login";
 import { useLocale } from "use-intl";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import { useUserStore } from "@/store/user";
+import {LogoutButton} from "@/components/Header/user-menu/Logout";
+import {useTranslations} from "next-intl";
 
 function ProfileButton() {
   const currentLocale = useLocale();
+  const t = useTranslations("Header");
 
   return (
     <Link href={"/" + currentLocale + "/profile"} className={cs.headerButton}>
-      <p>Profile</p>
+      <div className={s.mediaWrapper}>
+        <p>{t("profile")}</p>
+        <Image
+            src={"/profile/icons/profile.svg"}
+            alt={"logout"}
+            width={14}
+            height={18}
+        />
+      </div>
     </Link>
   );
 }
@@ -51,6 +62,7 @@ export function Header() {
         {currentUser ? (
           <div className={s.header_row}>
             <ProfileButton />
+            <LogoutButton/>
             <LangSwitcher />
           </div>
         ) : (

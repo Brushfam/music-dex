@@ -8,11 +8,10 @@ import { SharesBlock } from "@/app/[locale]/(public)/tracks/_components/SharesBl
 import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import React, { useState } from "react";
 import { trackDataType } from "@/types/types";
-import { AgreementModal } from "@/components/modals/AgreementModal/AgreementModal";
 import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
 import { VideoSection } from "@/app/[locale]/(public)/tracks/_components/VideoSection/VideoSection";
-import { LowBalanceModal } from "@/components/modals/LowBalanceModal/LowBalanceModal";
+import { ApprovePurchaseModal } from "@/components/modals/ApprovePurchaseModal/ApprovePurchaseModal";
 
 type PageTemplateProps = {
   children?: React.ReactNode;
@@ -28,8 +27,7 @@ export function PageTemplate(props: PageTemplateProps) {
   const currentLocale = useLocale();
   const trackData =
     currentLocale === "uk" ? props.trackDataUK : props.trackDataEN;
-  const [agreementModal, setAgreementModal] = useState(false);
-  const [lowBalanceModal, setLowBalanceModal] = useState(false);
+  const [approvePurchaseModal, setApprovePurchaseModal] = useState("");
 
   function TrackDescription() {
     return (
@@ -60,10 +58,12 @@ export function PageTemplate(props: PageTemplateProps) {
 
   return (
     <div className={cs.main}>
-      {lowBalanceModal ? (
-        <LowBalanceModal setModal={setLowBalanceModal} />
+      {approvePurchaseModal.length ? (
+        <ApprovePurchaseModal
+          orderUrl={approvePurchaseModal}
+          setModal={setApprovePurchaseModal}
+        />
       ) : null}
-      {agreementModal ? <AgreementModal setModal={setAgreementModal} /> : null}
       <div className={s.sectionWrapper}>
         <div className={s.bg}></div>
         <div className={s.trackPageSection}>
@@ -83,8 +83,7 @@ export function PageTemplate(props: PageTemplateProps) {
               price={trackData.price}
               tokenAddress={props.tokenAddress}
               tokenName={props.songName}
-              setAgreementModal={setAgreementModal}
-              setLowBalanceModal={setLowBalanceModal}
+              setApprovePurchaseModal={setApprovePurchaseModal}
             />
           </div>
         </div>

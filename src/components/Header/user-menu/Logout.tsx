@@ -6,15 +6,23 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useDisconnect } from "@starknet-react/core";
 import { useUserStore } from "@/store/user";
+import {firebaseAuth} from "@/services/auth/firebaseConfig";
+import {signOut} from "@firebase/auth";
+import {toast} from "sonner";
 
 export function LogoutButton() {
-  const logout = useUserStore((state) => state.logout);
-  const { disconnect } = useDisconnect();
   const t = useTranslations("Header");
+  const setCurrentUserEmail = useUserStore(
+    (state) => state.setCurrentUserEmail,
+  );
 
   function handleOnClick() {
-    disconnect();
-    logout();
+    signOut(firebaseAuth).then(() => {
+      setCurrentUserEmail("");
+    }).catch((error) => {
+      console.log(error)
+      toast.error("error_logout")
+    });
   }
 
   return (

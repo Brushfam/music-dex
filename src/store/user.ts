@@ -5,21 +5,19 @@ interface State {
   currentUserName: string;
   currentUserEmail: string;
   currentUserRole: string;
-  profilePage: string;
+  orderLink: string;
 }
 
 interface Actions {
   setCurrentUserEmail: (email: string) => void;
-  login: (name: string, email: string, role: string) => void;
-  logout: () => void;
-  changeProfilePage: (page: string) => void;
+  setOrderLink: (orderUrl: string) => void;
 }
 
 const INITIAL_STATE: State = {
   currentUserName: "",
   currentUserEmail: "",
   currentUserRole: "",
-  profilePage: "",
+  orderLink: "",
 };
 
 // Use only for client components
@@ -29,21 +27,9 @@ export const useUserStore = create<State & Actions>()(
       currentUserName: INITIAL_STATE.currentUserName,
       currentUserEmail: INITIAL_STATE.currentUserEmail,
       currentUserRole: INITIAL_STATE.currentUserRole,
-      profilePage: INITIAL_STATE.profilePage,
+      orderLink: INITIAL_STATE.orderLink,
       setCurrentUserEmail: (email) => set(() => ({ currentUserEmail: email })),
-      login: (name, email, role) =>
-        set(() => ({
-          currentUserName: name,
-          currentUserEmail: email,
-          currentUserRole: role,
-        })),
-      logout: () =>
-        set(() => ({
-          currentUserName: "",
-          currentUserEmail: "",
-          currentUserRole: "",
-        })),
-      changeProfilePage: (page) => set(() => ({ profilePage: page })),
+      setOrderLink: (orderUrl) => set(() => ({ orderLink: orderUrl })),
     }),
     {
       name: "user-data",
