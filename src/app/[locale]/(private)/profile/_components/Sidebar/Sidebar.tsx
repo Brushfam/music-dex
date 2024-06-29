@@ -8,12 +8,14 @@ import { SongsIcon } from "@/app/[locale]/(private)/profile/_components/Icons/So
 import { RoyaltiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/RoyaltiesIcon";
 import { ProfileIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ProfileIcon";
 import { ProfilePages } from "@/types/types";
-import { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { useTranslations } from "next-intl";
+import { ActivitiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ActivitiesIcon";
 
 export function Sidebar(props: {
   currentPage: ProfilePages;
   setCurrentPage: Dispatch<SetStateAction<ProfilePages>>;
+  role: string
 }) {
   const t = useTranslations("ProfileInvestor.Sidebar");
   function Logo() {
@@ -32,41 +34,46 @@ export function Sidebar(props: {
     return props.currentPage === page ? "rgb(246, 96, 31)" : "white";
   }
 
+  // children property is using for icon component
+  function PageRow(rowProps: {
+    page: ProfilePages;
+    children: React.ReactNode;
+    title: string;
+  }) {
+    return (
+      <div
+        className={s.pagesRow}
+        onClick={() => {
+          props.setCurrentPage(rowProps.page);
+        }}
+      >
+        <div className={s.hoverBlock}></div>
+        {rowProps.children}
+        <p style={{ color: getCurrentColor(rowProps.page) }}>
+          {rowProps.title}
+        </p>
+      </div>
+    );
+  }
+
   function PagesList() {
     return (
       <div className={s.pagesList}>
-        <div className={s.pagesRow}>
-          <div className={s.hoverBlock}></div>
-          <OverviewIcon color={"rgb(68, 68, 68)"} />
-          <p style={{ color: "rgb(68, 68, 68)" }}>{t("overview")}</p>
-        </div>
-        <div
-          className={s.pagesRow}
-          onClick={() => {
-            props.setCurrentPage(ProfilePages.Songs);
-          }}
-        >
-          <div className={s.hoverBlock}></div>
+        <PageRow page={ProfilePages.Overview} title={t("overview")}>
+          <OverviewIcon color={getCurrentColor(ProfilePages.Overview)} />
+        </PageRow>
+        <PageRow page={ProfilePages.Songs} title={t("songs")}>
           <SongsIcon color={getCurrentColor(ProfilePages.Songs)} />
-          <p style={{ color: getCurrentColor(ProfilePages.Songs) }}>{t("songs")}</p>
-        </div>
-        <div className={s.pagesRow}>
-          <div className={s.hoverBlock}></div>
-          <RoyaltiesIcon color={"rgb(68, 68, 68)"} />
-          <p style={{ color: "rgb(68, 68, 68)" }}>{t("royalties")}</p>
-        </div>
-        <div
-          className={s.pagesRow}
-          onClick={() => {
-            props.setCurrentPage(ProfilePages.Settings);
-          }}
-        >
-          <div className={s.hoverBlock}></div>
+        </PageRow>
+        <PageRow page={ProfilePages.Royalties} title={t("royalties")}>
+          <RoyaltiesIcon color={getCurrentColor(ProfilePages.Royalties)} />
+        </PageRow>
+        <PageRow page={ProfilePages.Activities} title={t("activities")}>
+          <ActivitiesIcon color={getCurrentColor(ProfilePages.Activities)} />
+        </PageRow>
+        <PageRow page={ProfilePages.Settings} title={t("profile")}>
           <ProfileIcon color={getCurrentColor(ProfilePages.Settings)} />
-          <p style={{ color: getCurrentColor(ProfilePages.Settings) }}>
-              {t("profile")}
-          </p>
-        </div>
+        </PageRow>
       </div>
     );
   }
@@ -74,7 +81,7 @@ export function Sidebar(props: {
   return (
     <div className={s.sidebar}>
       <Logo />
-      <PagesList />
+        {props.role.length ? <PagesList /> : null}
     </div>
   );
 }

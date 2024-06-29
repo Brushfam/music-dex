@@ -113,21 +113,21 @@ function SignUp(props: {
           ? t("signup_title")
           : t("signup_artist_title")}
       </p>
-      {/*{role === UserRoles.Investor ? (*/}
-      {/*  <p*/}
-      {/*    className={s.secondaryText}*/}
-      {/*    style={{*/}
-      {/*      textDecoration: "underline",*/}
-      {/*      cursor: "pointer",*/}
-      {/*      marginBottom: 24,*/}
-      {/*    }}*/}
-      {/*    onClick={() => {*/}
-      {/*      setRole(UserRoles.Artist);*/}
-      {/*    }}*/}
-      {/*  >*/}
-      {/*    {t("link_to_artist_signup")}*/}
-      {/*  </p>*/}
-      {/*) : null}*/}
+      {role === UserRoles.Investor ? (
+        <p
+          className={s.secondaryText}
+          style={{
+            textDecoration: "underline",
+            cursor: "pointer",
+            marginBottom: 24,
+          }}
+          onClick={() => {
+            setRole(UserRoles.Artist);
+          }}
+        >
+          {t("link_to_artist_signup")}
+        </p>
+      ) : null}
       <div style={{ marginBottom: 24, width: "100%" }}>
         <EmailInput setEmail={setEmail} email={email} />
         <PasswordInput

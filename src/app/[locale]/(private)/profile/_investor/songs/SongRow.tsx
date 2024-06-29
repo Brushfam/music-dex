@@ -1,4 +1,4 @@
-import s from "./SongsList.module.scss";
+import s from "./Songs.module.scss";
 import Image from "next/image";
 
 export function SongRow(props: {

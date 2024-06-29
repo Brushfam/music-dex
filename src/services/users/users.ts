@@ -1,5 +1,14 @@
 import axios from "axios";
 
+export function getUserRole(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/role", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+  });
+}
+
 export function addNewUser(jwt: string, email: string, role: string) {
   axios
     .post(
@@ -11,7 +20,7 @@ export function addNewUser(jwt: string, email: string, role: string) {
       {
         headers: {
           "Access-Control-Allow-Origin": "*",
-          "Authorization": "Bearer: " + jwt,
+          Authorization: "Bearer: " + jwt,
         },
       },
     )

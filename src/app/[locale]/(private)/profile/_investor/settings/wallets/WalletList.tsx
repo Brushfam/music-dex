@@ -10,13 +10,14 @@ import {
 import { toast } from "sonner";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
-import { ConnectWallet } from "@/app/[locale]/(private)/profile/_components/settings/wallets/ConnectWallet";
+import { ConnectWallet } from "@/app/[locale]/(private)/profile/_investor/settings/wallets/ConnectWallet";
 import { Wallet } from "@/types/types";
-import { ConnectedWallets } from "@/app/[locale]/(private)/profile/_components/settings/wallets/ConnectedWallets";
-import { CreateInternalWallet } from "@/app/[locale]/(private)/profile/_components/settings/wallets/CreateInternalWallet";
+import { ConnectedWallets } from "@/app/[locale]/(private)/profile/_investor/settings/wallets/ConnectedWallets";
+import { CreateInternalWallet } from "@/app/[locale]/(private)/profile/_investor/settings/wallets/CreateInternalWallet";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { parseWalletListResponse } from "@/services/helpers";
 import {useTranslations} from "next-intl";
+import {LoadingSpinner} from "@/app/[locale]/(private)/profile/_components/LoadingSpinner";
 
 export function WalletList() {
   const t = useTranslations("ProfileInvestor.Settings");
@@ -120,20 +121,7 @@ export function WalletList() {
   }
 
   return loading ? (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "white",
-        fontSize: 18,
-      }}
-    >
-      {t("loading")}
-    </div>
+    <LoadingSpinner/>
   ) : (
     <div className={s.walletsWrapper}>
       <ConnectedWallets

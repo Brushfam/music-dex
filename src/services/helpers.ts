@@ -21,8 +21,8 @@ export function parseWalletListResponse(walletList: string[]) {
 }
 
 export function formatEmail(email: string) {
-  if (email.length <= 10) {
+  if (email.length <= 14) {
     return email;
   }
-  return `${email.slice(0, 6)}...${email.slice(-4)}`;
+  return `${email.slice(0, 6)}...${email.slice(-6)}`;
 }

@@ -1,17 +1,18 @@
 "use client";
 
-import s from "./SongsList.module.scss";
+import { useTranslations } from "next-intl";
+import { PageWrapper } from "@/app/[locale]/(private)/profile/PageWrapper";
 import { useRouter } from "next/navigation";
+import { useLocale } from "use-intl";
 import { useEffect, useState } from "react";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { getUserSongs } from "@/services/users/investors";
+import s from "@/app/[locale]/(private)/profile/_investor/songs/Songs.module.scss";
 import { Button } from "@/components/ui/Button/Button";
-import { SongHeader } from "@/app/[locale]/(private)/profile/_components/songs/SongHeader";
-import { SongRow } from "@/app/[locale]/(private)/profile/_components/songs/SongRow";
-import { useLocale } from "use-intl";
-import { useTranslations } from "next-intl";
+import { SongHeader } from "@/app/[locale]/(private)/profile/_investor/songs/SongHeader";
+import { SongRow } from "@/app/[locale]/(private)/profile/_investor/songs/SongRow";
 
-export function SongsListBlock() {
+export default function Songs() {
   const t = useTranslations("ProfileInvestor.Songs");
   const router = useRouter();
   const currentLocale = useLocale();
@@ -60,7 +61,7 @@ export function SongsListBlock() {
 
   function SongList() {
     return dealerAmount ? (
-      <div className={s.songListSubPage}>
+      <div style={{display: "flex", flexDirection: "column"}}>
         <div className={s.titleBlock}>
           <p className={s.titleBlock_text}>{t("list_of_songs")}</p>
           <Button
@@ -86,22 +87,9 @@ export function SongsListBlock() {
     );
   }
 
-  return loading ? (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "white",
-        fontSize: 18,
-      }}
-    >
-        {t("loading")}
-    </div>
-  ) : (
-    <SongList />
+  return (
+    <PageWrapper title={t("title")} height={"auto"} loading={loading}>
+      <SongList />
+    </PageWrapper>
   );
 }

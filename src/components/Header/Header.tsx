@@ -9,8 +9,8 @@ import { Login } from "@/components/Header/Login";
 import { useLocale } from "use-intl";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import { useUserStore } from "@/store/user";
-import {LogoutButton} from "@/components/Header/Logout";
-import {useTranslations} from "next-intl";
+import { LogoutButton } from "@/components/Header/Logout";
+import { useTranslations } from "next-intl";
 
 function ProfileButton() {
   const currentLocale = useLocale();
@@ -21,10 +21,10 @@ function ProfileButton() {
       <div className={s.mediaWrapper}>
         <p>{t("profile")}</p>
         <Image
-            src={"/profile/icons/profile.svg"}
-            alt={"logout"}
-            width={14}
-            height={18}
+          src={"/profile/icons/profile.svg"}
+          alt={"logout"}
+          width={14}
+          height={18}
         />
       </div>
     </Link>
@@ -51,7 +51,7 @@ function LangSwitcher() {
 }
 
 export function Header() {
-  const currentUser = useUserStore((state) => state.currentUserEmail)
+  const currentUser = useUserStore((state) => state.currentUserEmail);
 
   return (
     <div className={s.header}>
@@ -62,7 +62,7 @@ export function Header() {
         {currentUser ? (
           <div className={s.header_row}>
             <ProfileButton />
-            <LogoutButton/>
+            <LogoutButton />
             <LangSwitcher />
           </div>
         ) : (

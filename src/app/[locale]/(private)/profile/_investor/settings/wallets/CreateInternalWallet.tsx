@@ -1,4 +1,4 @@
-import s from "@/app/[locale]/(private)/profile/_components/settings/wallets/Wallets.module.scss";
+import s from "@/app/[locale]/(private)/profile/_investor/settings/wallets/Wallets.module.scss";
 import Image from "next/image";
 import {useTranslations} from "next-intl";
 

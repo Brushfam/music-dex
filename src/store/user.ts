@@ -10,6 +10,7 @@ interface State {
 
 interface Actions {
   setCurrentUserEmail: (email: string) => void;
+  setCurrentUserName: (name: string) => void;
   setOrderLink: (orderUrl: string) => void;
 }
 
@@ -29,6 +30,7 @@ export const useUserStore = create<State & Actions>()(
       currentUserRole: INITIAL_STATE.currentUserRole,
       orderLink: INITIAL_STATE.orderLink,
       setCurrentUserEmail: (email) => set(() => ({ currentUserEmail: email })),
+      setCurrentUserName: (name) => set(() => ({ currentUserName: name })),
       setOrderLink: (orderUrl) => set(() => ({ orderLink: orderUrl })),
     }),
     {

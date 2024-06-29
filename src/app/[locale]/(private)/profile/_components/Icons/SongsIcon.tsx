@@ -1,12 +1,21 @@
-
-export const SongsIcon = (props: {color: string}) => (
-    <svg width="15.200195" height="18.681641" viewBox="0 0 15.2002 18.6816" fill="none"
-         xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-        <defs/>
-        <path id="Vector"
-              d="M5.26 12.42C5.26 13.31 4.67 14.1 3.81 14.34L1.76 14.93C1.07 15.13 0.59 15.76 0.59 16.47C0.59 17.54 1.61 18.31 2.64 18.01L3.81 17.68C4.67 17.43 5.26 16.65 5.26 15.75L5.26 12.42L5.26 3.26L14.59 0.6L14.59 9.75L14.59 13.09C14.59 13.98 14 14.77 13.14 15.01L11.97 15.35C10.95 15.64 9.93 14.87 9.93 13.81C9.93 13.09 10.4 12.46 11.09 12.26L13.14 11.68C14 11.43 14.59 10.65 14.59 9.75M5.26 6.6L14.59 3.93"
-              stroke={props.color} strokeOpacity="1.000000" strokeWidth="1.200000" strokeLinejoin="round"
-              strokeLinecap="round"/>
-    </svg>
-
-)
+export const SongsIcon = (props: { color: string }) => (
+  <svg
+    width="15.200195"
+    height="18.681641"
+    viewBox="0 0 15.2002 18.6816"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+  >
+    <defs />
+    <path
+      id="Vector"
+      d="M5.26 12.42C5.26 13.31 4.67 14.1 3.81 14.34L1.76 14.93C1.07 15.13 0.59 15.76 0.59 16.47C0.59 17.54 1.61 18.31 2.64 18.01L3.81 17.68C4.67 17.43 5.26 16.65 5.26 15.75L5.26 12.42L5.26 3.26L14.59 0.6L14.59 9.75L14.59 13.09C14.59 13.98 14 14.77 13.14 15.01L11.97 15.35C10.95 15.64 9.93 14.87 9.93 13.81C9.93 13.09 10.4 12.46 11.09 12.26L13.14 11.68C14 11.43 14.59 10.65 14.59 9.75M5.26 6.6L14.59 3.93"
+      stroke={props.color}
+      strokeOpacity="1.000000"
+      strokeWidth="1.200000"
+      strokeLinejoin="round"
+      strokeLinecap="round"
+    />
+  </svg>
+);

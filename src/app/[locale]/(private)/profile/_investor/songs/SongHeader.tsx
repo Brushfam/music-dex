@@ -1,4 +1,4 @@
-import s from "./SongsList.module.scss";
+import s from "./Songs.module.scss";
 import { useTranslations } from "next-intl";
 
 export function SongHeader() {
