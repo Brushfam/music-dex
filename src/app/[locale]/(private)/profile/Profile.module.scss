@@ -55,6 +55,11 @@
   @media (max-width: 1200px) {
     margin: 24px 0 36px 0;
   }
+
+  @media (max-width: 500px) {
+    margin: 24px 0 0 0;
+    padding: 24px;
+  }
 }
 
 .pageTitle {
