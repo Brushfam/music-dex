@@ -26,7 +26,7 @@ export function PageWrapper(props: {
         <ProfileHeader />
       </div>
       <div className={s.subpage} style={getSubpageHeight()}>
-        {props.loading ? <LoadingSpinner /> : props.children}
+        {props.loading ? <LoadingSpinner fullHeight={false} /> : props.children}
       </div>
     </div>
   );

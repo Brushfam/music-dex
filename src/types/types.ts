@@ -40,6 +40,14 @@ export enum ProfilePages {
   Settings
 }
 
+export interface InvestorInfo {
+  firstName: string;
+  lastName: string;
+  favGenre: string;
+  country: string;
+  profiles: string[]; // tiktok, instagram, twitter
+}
+
 export interface Wallet {
   address: string;
   name: string;

@@ -1,19 +1,19 @@
 "use client";
 
-import s from "../Settings.module.scss"
+import s from "../wallets/Wallets.module.scss"
 import { useEffect, useState } from "react";
 import {
   createInternalWallet,
   getUserWallets,
   updatePrimaryWallet,
-} from "@/services/users/investors";
+} from "@/services/users/investors/wallets";
 import { toast } from "sonner";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
-import { ConnectWallet } from "@/app/[locale]/(private)/profile/_investor/settings/wallets/ConnectWallet";
+import { ConnectWallet } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/ConnectWallet";
 import { Wallet } from "@/types/types";
-import { ConnectedWallets } from "@/app/[locale]/(private)/profile/_investor/settings/wallets/ConnectedWallets";
-import { CreateInternalWallet } from "@/app/[locale]/(private)/profile/_investor/settings/wallets/CreateInternalWallet";
+import { ConnectedWallets } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/ConnectedWallets";
+import { CreateInternalWallet } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/CreateInternalWallet";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { parseWalletListResponse } from "@/services/helpers";
 import {useTranslations} from "next-intl";
@@ -121,7 +121,7 @@ export function WalletList() {
   }
 
   return loading ? (
-    <LoadingSpinner/>
+    <LoadingSpinner fullHeight={true}/>
   ) : (
     <div className={s.walletsWrapper}>
       <ConnectedWallets

@@ -1,5 +1,12 @@
 @import "../../../../../../../constants/constants";
 
+.walletsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 500px;
+}
+
 .title {
   color: rgb(255, 255, 255);
   font-size: 18px;

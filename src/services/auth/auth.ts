@@ -14,25 +14,6 @@ export async function isVerified(email: string) {
   });
 }
 
-export function validateToken(token: string) {
-  axios
-    .post(
-      process.env.NEXT_PUBLIC_SERVER_URL + "/validate-token",
-      {
-        idToken: token,
-      },
-      { headers: { "Access-Control-Allow-Origin": "*" } },
-    )
-    .then(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      },
-    );
-}
-
 export function authWithGoogle(role: string) {
   const provider = new GoogleAuthProvider();
   signInWithRedirect(firebaseAuth, provider)

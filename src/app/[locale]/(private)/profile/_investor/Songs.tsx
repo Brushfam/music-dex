@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useLocale } from "use-intl";
 import { useEffect, useState } from "react";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { getUserSongs } from "@/services/users/investors";
+import { getUserSongs } from "@/services/users/investors/investors";
 import s from "@/app/[locale]/(private)/profile/_investor/songs/Songs.module.scss";
 import { Button } from "@/components/ui/Button/Button";
 import { SongHeader } from "@/app/[locale]/(private)/profile/_investor/songs/SongHeader";

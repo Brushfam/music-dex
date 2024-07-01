@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { ProfilePages } from "@/types/types";
 import s from "./Profile.module.scss";
 import { Sidebar } from "@/app/[locale]/(private)/profile/_components/Sidebar/Sidebar";
-import { Spinner } from "@/components/Spinner/Spinner";
 import { getUserRole } from "@/services/users/users";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useRouter } from "next/navigation";
@@ -23,7 +22,6 @@ export default function Profile() {
         const token = await user.getIdToken();
         getUserRole(token)
           .then((res) => {
-            console.log(res.data.role);
             setRole(res.data.role);
           })
           .catch((error) => {
@@ -41,7 +39,7 @@ export default function Profile() {
     } else if (role === "artist") {
       return <CurrentArtistPage currentPage={currentPage} />;
     } else {
-      return <LoadingSpinner />;
+      return <LoadingSpinner fullHeight={false} />;
     }
   }
 

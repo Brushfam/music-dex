@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useRouter } from "next/navigation";
-import { createInvoice } from "@/services/users/investors";
+import { createInvoice } from "@/services/users/investors/investors";
 
 export function ByCrypto(props: {
   user: string;

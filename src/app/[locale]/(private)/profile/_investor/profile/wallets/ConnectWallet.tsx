@@ -9,7 +9,7 @@ import {
 } from "@starknet-react/core";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Image from "next/image";
-import { addUserWallet } from "@/services/users/investors";
+import { addUserWallet } from "@/services/users/investors/wallets";
 import { toast } from "sonner";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useRouter } from "next/navigation";

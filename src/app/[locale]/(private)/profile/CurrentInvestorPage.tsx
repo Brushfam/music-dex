@@ -1,6 +1,6 @@
 import { ProfilePages } from "@/types/types";
 import Songs from "@/app/[locale]/(private)/profile/_investor/Songs";
-import Settings from "@/app/[locale]/(private)/profile/_investor/Settings";
+import Settings from "@/app/[locale]/(private)/profile/_investor/Profile";
 
 export function CurrentInvestorPage(props: { currentPage: ProfilePages }) {
   switch (props.currentPage) {
