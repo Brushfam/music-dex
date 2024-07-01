@@ -201,6 +201,18 @@
     }
   },
 
+  "ProfileArtist": {
+    "Profile": {
+      "title": "Profile"
+    },
+    "Overview": {
+      "title": "Overview"
+    },
+    "Songs": {
+      "title": "Uploaded songs"
+    }
+  },
+
   "SharesBlock": {
     "header": "Select token amount",
     "sold_out": "Sold out",

@@ -99,7 +99,7 @@ export function InfoForm(props: {
         </div>
       </div>
       <div
-          style={{display: "flex", flexDirection: "column", marginBottom: 32}}
+          style={{display: "flex", flexDirection: "column", marginBottom: 16}}
       >
         <p className={s.inputRowTitle}>Additional Info</p>
         <div className={s.inputRow}>
