@@ -1,8 +1,14 @@
 
-.overviewRow {
+.overviewRow, .overviewSubRow {
   display: flex;
   flex-direction: row;
-  gap: 20px
+  gap: 20px;
+}
+
+.overviewSubRow {
+  @media (max-width: 1440px) {
+    flex-direction: column;
+  }
 }
 
 .secondOverviewRow {
@@ -10,6 +16,10 @@
   flex-direction: row;
   gap: 16px;
   margin-top: 24px;
+
+  @media (max-width: 1440px) {
+    flex-direction: column;
+  }
 }
 
 .overviewItem {
@@ -75,6 +85,10 @@
     font-size: 14px;
     font-weight: 400;
   }
+
+  @media (max-width: 1440px) {
+    width: 100%;
+  }
 }
 
 .suggestedSongs {
@@ -111,5 +125,10 @@
     color: rgba(255, 255, 255, 0.5);
     font-size: 14px;
     font-weight: 400;
+  }
+
+  @media (max-width: 1440px) {
+    width: 100%;
+    height: 300px;
   }
 }

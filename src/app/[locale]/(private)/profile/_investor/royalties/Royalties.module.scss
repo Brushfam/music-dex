@@ -1,0 +1,62 @@
+
+.income {
+  width: 1109px;
+  height: 285px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 16px 24px 16px 24px;
+  margin-bottom: 16px;
+
+  border-radius: 14px;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.16);
+  background: rgb(17, 17, 17);
+
+  @media (max-width: 1440px) {
+    width: 100%
+  }
+}
+
+.title {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.text1 {
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.text2 {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.secondBlockRow {
+  display: flex;
+  flex-direction: row;
+  gap: 16px
+}
+
+.secondBlock {
+  width: 550px;
+  height: 452px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 24px 20px 24px 20px;
+  border-radius: 14px;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.16);
+  background: rgb(17, 17, 17);
+
+  @media (max-width: 1440px) {
+    width: 100%
+  }
+}

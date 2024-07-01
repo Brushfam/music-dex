@@ -56,7 +56,7 @@ export function Overview() {
       {loading ? (
         <LoadingSpinner fullHeight={true} />
       ) : (
-        <div className={s.overviewWrapper}>
+        <div className={s.contentWrapper}>
           <OverviewRow
             totalInvestedAmount={Number(totalInvestedAmount)}
             totalTokensAmount={Number(totalTokensAmount)}

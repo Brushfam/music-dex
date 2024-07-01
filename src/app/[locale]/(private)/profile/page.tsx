@@ -12,7 +12,7 @@ import { CurrentArtistPage } from "@/app/[locale]/(private)/profile/CurrentArtis
 import {LoadingSpinner} from "@/app/[locale]/(private)/profile/_components/LoadingSpinner";
 
 export default function Profile() {
-  const [currentPage, setCurrentPage] = useState(ProfilePages.Settings);
+  const [currentPage, setCurrentPage] = useState(ProfilePages.Overview);
   const [role, setRole] = useState("");
   const router = useRouter();
 
