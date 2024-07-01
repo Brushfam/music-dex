@@ -3,7 +3,7 @@ import Image from "next/image";
 import {useTranslations} from "next-intl";
 
 export function CreateInternalWallet(props: { createWallet: () => void }) {
-    const t = useTranslations("ProfileInvestor.Settings");
+    const t = useTranslations("ProfileInvestor.Profile");
   const handleCreate = async () => {
     props.createWallet();
   };

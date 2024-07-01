@@ -9,6 +9,15 @@ export function getUserRole(jwt: string) {
   });
 }
 
+export function getUserName(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/name", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+  });
+}
+
 export function addNewUser(jwt: string, email: string, role: string) {
   axios
     .post(
@@ -32,4 +41,13 @@ export function addNewUser(jwt: string, email: string, role: string) {
         console.log(error);
       },
     );
+}
+
+export function getUserOverview(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/overview", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+  });
 }

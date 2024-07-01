@@ -17,6 +17,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { isVerified } from "@/services/auth/auth";
 import { LoginSteps } from "@/types/types";
 import { useUserStore } from "@/store/user";
+import { getUserName } from "@/services/users/users";
 
 function Login(props: {
   setStep: React.Dispatch<React.SetStateAction<LoginSteps>>;
@@ -28,6 +29,7 @@ function Login(props: {
   const setCurrentUserEmail = useUserStore(
     (state) => state.setCurrentUserEmail,
   );
+  const setCurrentUserName = useUserStore((state) => state.setCurrentUserName);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -62,6 +64,13 @@ function Login(props: {
         const user = userCredential.user;
         const idToken = await user.getIdToken();
         localStorage.setItem("fb-jwt-token", idToken);
+        getUserName(idToken)
+          .then((res) => {
+            setCurrentUserName(res.data.firstName);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         setCurrentUserEmail(user.email || "");
         router.replace("/" + props.currentLocale + "/profile");
       })

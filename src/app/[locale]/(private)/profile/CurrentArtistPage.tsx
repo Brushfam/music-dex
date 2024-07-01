@@ -1,20 +1,15 @@
 import { ProfilePages } from "@/types/types";
-import Songs from "@/app/[locale]/(private)/profile/_investor/Songs";
-import Settings from "@/app/[locale]/(private)/profile/_investor/Profile";
+import Profile from "@/app/[locale]/(private)/profile/_artist/Profile";
 
 export function CurrentArtistPage(props: { currentPage: ProfilePages }) {
   switch (props.currentPage) {
     case ProfilePages.Overview:
-      return <Songs />;
+      return <Profile />;
     case ProfilePages.Songs:
-      return <Songs />;
-    case ProfilePages.Royalties:
-      return <Songs />;
-    case ProfilePages.Activities:
-      return <Songs />;
+      return <Profile />;
     case ProfilePages.Settings:
-      return <Settings />;
+      return <Profile />;
     default:
-      return <Songs />;
+      return <Profile />;
   }
 }

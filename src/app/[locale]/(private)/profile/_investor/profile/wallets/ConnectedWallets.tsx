@@ -9,7 +9,7 @@ export function ConnectedWallets(props: {
   primaryWallet: string;
   updatePrimaryWallet: (newPrimaryWallet: Wallet) => Promise<void>;
 }) {
-  const t = useTranslations("ProfileInvestor.Settings");
+  const t = useTranslations("ProfileInvestor.Profile");
   if (props.wallets.length === 0) {
     return null;
   }

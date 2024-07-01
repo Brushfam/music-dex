@@ -2,7 +2,7 @@
 
 import s from "./ProfileHeader.module.scss";
 import { useUserStore } from "@/store/user";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocale } from "use-intl";
 import Image from "next/image";
 import { signOut } from "@firebase/auth";
@@ -18,17 +18,17 @@ export function ProfileHeader() {
   const setCurrentUserEmail = useUserStore(
     (state) => state.setCurrentUserEmail,
   );
-  const setCurrentUserName = useUserStore((state) => state.setCurrentUserName);
   const [modalOpen, setModalOpen] = useState(false);
   const currentLocale = useLocale();
   const router = useRouter();
 
+  useEffect(() => {}, [userName]);
+
   function handleLogout() {
     signOut(firebaseAuth)
       .then(() => {
-        setCurrentUserEmail("");
-        setCurrentUserName("");
         router.replace("/");
+        // setCurrentUserEmail("");
       })
       .catch((error) => {
         console.log(error);

@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@formspree/react": "^2.5.1",
     "@mui/material": "^5.15.10",
+    "@mui/styles": "^5.15.21",
     "@starknet-react/chains": "^0.1.7",
     "@starknet-react/core": "^2.6.0",
     "axios": "^1.7.2",

@@ -12,6 +12,9 @@ export function InfoForm(props: {
   investor: InvestorInfo;
   setTriggerFormRefresh: Dispatch<SetStateAction<number>>;
 }) {
+  const setCurrentUserName = useUserStore(
+      (state) => state.setCurrentUserName,
+  );
   const userEmail = useUserStore((state) => state.currentUserEmail);
   const [formData, setFormData] = useState({
     firstName: props.investor.firstName || "",
@@ -48,6 +51,7 @@ export function InfoForm(props: {
         };
         updateInvestorInfo(token, updatedData)
           .then(() => {
+            setCurrentUserName(formData.firstName)
             toast.success("updated");
           })
           .catch((error) => {

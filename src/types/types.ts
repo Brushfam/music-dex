@@ -48,6 +48,13 @@ export interface InvestorInfo {
   profiles: string[]; // tiktok, instagram, twitter
 }
 
+export interface ArtistInfo {
+  firstName: string;
+  lastName: string;
+  artistName: string;
+  country: string;
+}
+
 export interface Wallet {
   address: string;
   name: string;

@@ -184,6 +184,9 @@
         "internal_error": "Error creating internal wallet"
       }
     },
+    "Overview": {
+      "title": "Overview"
+    },
     "Songs": {
       "title": "Invested songs",
       "no_songs": "No invested songs here yet",

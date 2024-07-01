@@ -20,7 +20,7 @@ export function ConnectWallet(props: {
   connectedWallets: Wallet[];
   setConnectedWallets: Dispatch<SetStateAction<Wallet[]>>;
 }) {
-  const t = useTranslations("ProfileInvestor.Settings");
+  const t = useTranslations("ProfileInvestor.Profile");
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const { disconnect } = useDisconnect();

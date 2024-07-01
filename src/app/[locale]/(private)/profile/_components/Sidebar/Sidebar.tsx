@@ -15,7 +15,7 @@ import { ActivitiesIcon } from "@/app/[locale]/(private)/profile/_components/Ico
 export function Sidebar(props: {
   currentPage: ProfilePages;
   setCurrentPage: Dispatch<SetStateAction<ProfilePages>>;
-  role: string
+  role: string;
 }) {
   const t = useTranslations("ProfileInvestor.Sidebar");
   function Logo() {
@@ -56,7 +56,7 @@ export function Sidebar(props: {
     );
   }
 
-  function PagesList() {
+  function InvestorPagesList() {
     return (
       <div className={s.pagesList}>
         <PageRow page={ProfilePages.Overview} title={t("overview")}>
@@ -78,10 +78,26 @@ export function Sidebar(props: {
     );
   }
 
+  function ArtistPagesList() {
+    return (
+      <div className={s.pagesList}>
+        <PageRow page={ProfilePages.Overview} title={t("overview")}>
+          <OverviewIcon color={getCurrentColor(ProfilePages.Overview)} />
+        </PageRow>
+        <PageRow page={ProfilePages.Songs} title={t("songs")}>
+          <SongsIcon color={getCurrentColor(ProfilePages.Songs)} />
+        </PageRow>
+        <PageRow page={ProfilePages.Settings} title={t("profile")}>
+          <ProfileIcon color={getCurrentColor(ProfilePages.Settings)} />
+        </PageRow>
+      </div>
+    );
+  }
+
   return (
     <div className={s.sidebar}>
       <Logo />
-        {props.role.length ? <PagesList /> : null}
+      {props.role === "investor" ? <InvestorPagesList /> : <ArtistPagesList />}
     </div>
   );
 }

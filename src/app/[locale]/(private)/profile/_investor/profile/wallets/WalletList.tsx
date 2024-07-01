@@ -20,7 +20,7 @@ import {useTranslations} from "next-intl";
 import {LoadingSpinner} from "@/app/[locale]/(private)/profile/_components/LoadingSpinner";
 
 export function WalletList() {
-  const t = useTranslations("ProfileInvestor.Settings");
+  const t = useTranslations("ProfileInvestor.Profile");
   const router = useRouter();
   const [connectedWallets, setConnectedWallets] = useState<Wallet[]>([]);
   const [hasInternalWallet, setHasInternalWallet] = useState(false);
