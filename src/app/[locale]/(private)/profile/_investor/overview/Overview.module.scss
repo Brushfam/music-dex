@@ -12,6 +12,7 @@
 }
 
 .secondOverviewRow {
+  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 16px;
@@ -62,7 +63,6 @@
 }
 
 .statisticsBlock {
-  width: 688px;
   height: 282px;
   display: flex;
   flex-direction: column;
@@ -92,7 +92,7 @@
 }
 
 .suggestedSongs {
-  width: 412px;
+  width: 420px;
   height: 580px;
   display: flex;
   flex-direction: column;

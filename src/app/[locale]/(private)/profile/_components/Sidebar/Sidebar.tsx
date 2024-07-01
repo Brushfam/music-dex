@@ -68,9 +68,9 @@ export function Sidebar(props: {
         <PageRow page={ProfilePages.Royalties} title={t("royalties")}>
           <RoyaltiesIcon color={getCurrentColor(ProfilePages.Royalties)} />
         </PageRow>
-        <PageRow page={ProfilePages.Activities} title={t("activities")}>
-          <ActivitiesIcon color={getCurrentColor(ProfilePages.Activities)} />
-        </PageRow>
+        {/*<PageRow page={ProfilePages.Activities} title={t("activities")}>*/}
+        {/*  <ActivitiesIcon color={getCurrentColor(ProfilePages.Activities)} />*/}
+        {/*</PageRow>*/}
         <PageRow page={ProfilePages.Settings} title={t("profile")}>
           <ProfileIcon color={getCurrentColor(ProfilePages.Settings)} />
         </PageRow>

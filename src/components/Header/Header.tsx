@@ -11,6 +11,7 @@ import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import { useUserStore } from "@/store/user";
 import { LogoutButton } from "@/components/Header/Logout";
 import { useTranslations } from "next-intl";
+import {useEffect} from "react";
 
 function ProfileButton() {
   const currentLocale = useLocale();
@@ -53,13 +54,16 @@ function LangSwitcher() {
 export function Header() {
   const currentUser = useUserStore((state) => state.currentUserEmail);
 
+  useEffect(() => {
+  }, [currentUser]);
+
   return (
     <div className={s.header}>
       <div className={s.header_content}>
         <Link href={"/"} className={s.header_logo}>
           <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
         </Link>
-        {currentUser ? (
+        {currentUser === "" ? (
           <div className={s.header_row}>
             <ProfileButton />
             <LogoutButton />

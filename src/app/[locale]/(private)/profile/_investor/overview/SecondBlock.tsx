@@ -5,7 +5,7 @@ import {SuggestedSongs} from "@/app/[locale]/(private)/profile/_investor/overvie
 
 export function SecondBlock() {
     return(<div className={s.secondOverviewRow}>
-        <div style={{display: "flex", flexDirection: "column", gap: 16}}>
+        <div style={{display: "flex", flexDirection: "column", gap: 16, width: "100%"}}>
             <Statistics/>
             <PaymentHistory/>
         </div>

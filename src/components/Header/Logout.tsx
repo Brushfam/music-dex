@@ -14,14 +14,10 @@ export function LogoutButton() {
   const setCurrentUserEmail = useUserStore(
     (state) => state.setCurrentUserEmail,
   );
-  const setCurrentUserName = useUserStore(
-      (state) => state.setCurrentUserName,
-  );
 
   function handleOnClick() {
     signOut(firebaseAuth).then(() => {
       setCurrentUserEmail("");
-      setCurrentUserName("")
     }).catch((error) => {
       console.log(error)
       toast.error(t("error_logout"))
