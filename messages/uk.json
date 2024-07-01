@@ -204,6 +204,21 @@
     }
   },
 
+  "ProfileArtist": {
+    "Profile": {
+      "title": "Профіль"
+    },
+    "Overview": {
+      "title": "Огляд"
+    },
+    "Songs": {
+      "title": "Завантажені пісні"
+    },
+    "FAQ": {
+      "title": "FAQ"
+    }
+  },
+
   "SharesBlock": {
     "header": "Оберіть кількість токенів",
     "sold_out": "Продано",

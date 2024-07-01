@@ -34,7 +34,7 @@ export default function PrivateRootLayout({
         <NextIntlClientProvider messages={messages}>
           <StarknetProvider>
             <Toaster richColors />
-            <MobileHeader/>
+
             {children}
           </StarknetProvider>
         </NextIntlClientProvider>

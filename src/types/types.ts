@@ -37,7 +37,8 @@ export enum ProfilePages {
   Songs,
   Royalties,
   Activities,
-  Settings
+  Settings,
+  FAQ
 }
 
 export interface InvestorInfo {

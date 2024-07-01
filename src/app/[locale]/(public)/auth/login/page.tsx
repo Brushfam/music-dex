@@ -63,7 +63,6 @@ function Login(props: {
         }
         const user = userCredential.user;
         const idToken = await user.getIdToken();
-        localStorage.setItem("fb-jwt-token", idToken);
         getUserName(idToken)
           .then((res) => {
             setCurrentUserName(res.data.firstName);
