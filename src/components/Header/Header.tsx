@@ -55,6 +55,7 @@ export function Header() {
   const currentUser = useUserStore((state) => state.currentUserEmail);
 
   useEffect(() => {
+    console.log(currentUser)
   }, [currentUser]);
 
   return (
@@ -63,7 +64,7 @@ export function Header() {
         <Link href={"/"} className={s.header_logo}>
           <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
         </Link>
-        {currentUser === "" ? (
+        {currentUser ? (
           <div className={s.header_row}>
             <ProfileButton />
             <LogoutButton />

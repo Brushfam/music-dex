@@ -4,6 +4,7 @@ import "../../globals.scss";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Toaster } from "sonner";
 import { StarknetProvider } from "@/providers/StarknetProvider";
+import {MobileHeader} from "@/app/[locale]/(private)/_components/MobileHeader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function PrivateRootLayout({
         <NextIntlClientProvider messages={messages}>
           <StarknetProvider>
             <Toaster richColors />
+            <MobileHeader/>
             {children}
           </StarknetProvider>
         </NextIntlClientProvider>

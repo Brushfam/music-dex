@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { CurrentInvestorPage } from "@/app/[locale]/(private)/profile/CurrentInvestorPage";
 import { CurrentArtistPage } from "@/app/[locale]/(private)/profile/CurrentArtistPage";
 import {LoadingSpinner} from "@/app/[locale]/(private)/profile/_components/LoadingSpinner";
+import {MobileHeader} from "@/app/[locale]/(private)/_components/MobileHeader";
 
 export default function Profile() {
   const [currentPage, setCurrentPage] = useState(ProfilePages.Overview);

@@ -6,7 +6,7 @@ import { Header } from "@/components/Header/Header";
 import { Toaster } from "sonner";
 import { StarknetProvider } from "@/providers/StarknetProvider";
 import Script from "next/script";
-import {FooterController} from "@/components/Footer/FooterController";
+import { FooterController } from "@/components/Footer/FooterController";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,7 +32,6 @@ function RootHeader() {
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-E7NY2W59JZ"
       />
-
       <Script id="google-analytics">
         {`
               window.dataLayer = window.dataLayer || [];

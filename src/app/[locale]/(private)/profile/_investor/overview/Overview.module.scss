@@ -1,8 +1,18 @@
+.overviewRow {
+  @media (max-width: 1200px) {
+    margin-top: 24px;
+  }
+}
 
 .overviewRow, .overviewSubRow {
   display: flex;
   flex-direction: row;
   gap: 20px;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .overviewSubRow {
@@ -35,7 +45,7 @@
   border-radius: 14px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.16);
   background: rgb(17, 17, 17);
-  border: 1px solid rgba(246, 96, 31, 0.5);
+  border: 1px solid rgba(246, 96, 31, 0.6);
 
   &_column {
     display: flex;
@@ -53,6 +63,10 @@
     color: rgb(255, 255, 255);
     font-size: 32px;
     font-weight: 600;
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
   }
 }
 

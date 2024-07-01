@@ -1,0 +1,49 @@
+@import './../../../../constants/constants.scss';
+
+.header {
+  position: fixed;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+  background-color: $primary-grey;
+  height: 56px;
+  padding: 12px 0;
+
+  @media (max-width: 1200px) {
+    display: flex;
+  }
+
+  &_logo {
+    position: relative;
+    display: block;
+    width: 141px;
+    height: 32px;
+
+    @media (max-width: $mobile-size) {
+      width: 127px;
+      height: 29px;
+    }
+  }
+
+  &_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 94%;
+  }
+
+  @media (max-width: $mobile-size) {
+    height: 68px;
+  }
+
+  &_row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+}

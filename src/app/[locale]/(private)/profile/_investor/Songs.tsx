@@ -61,7 +61,7 @@ export default function Songs() {
 
   function SongList() {
     return dealerAmount ? (
-      <div style={{display: "flex", flexDirection: "column"}}>
+      <div style={{ display: "flex", flexDirection: "column", minWidth: 530 }}>
         <div className={s.titleBlock}>
           <p className={s.titleBlock_text}>{t("list_of_songs")}</p>
           <Button
@@ -81,9 +81,7 @@ export default function Songs() {
         />
       </div>
     ) : (
-      <div className={s.songListSubPageEmpty}>
-        <NoSongBlock />
-      </div>
+      <NoSongBlock />
     );
   }
 

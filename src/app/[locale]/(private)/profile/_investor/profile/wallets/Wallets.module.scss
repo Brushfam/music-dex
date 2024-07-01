@@ -5,6 +5,10 @@
   flex-direction: column;
   gap: 32px;
   width: 500px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .title {
@@ -30,6 +34,10 @@
   padding: 8px 24px 8px 24px;
   border-radius: 10px;
   background: rgb(29, 29, 29);
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .baseWalletRow {

@@ -7,7 +7,7 @@ export function OverviewRow() {
       <div className={s.overviewItem}>
         <div className={s.overviewItem_column}>
           <p className={s.overviewItem_text1}>Tokens purchased by listeners’</p>
-          <p className={s.overviewItem_text2}>$0.00</p>
+          <p className={s.overviewItem_text2}>0.00</p>
         </div>
         <Image
           src={"/profile/overview/total-tokens.svg"}
@@ -16,29 +16,31 @@ export function OverviewRow() {
           width={25}
         />
       </div>
-      <div className={s.overviewItem}>
-        <div className={s.overviewItem_column}>
-          <p className={s.overviewItem_text1}>Listeners’ invested</p>
-          <p className={s.overviewItem_text2}>$0.00</p>
+      <div className={s.overviewSubRow}>
+        <div className={s.overviewItem}>
+          <div className={s.overviewItem_column}>
+            <p className={s.overviewItem_text1}>Listeners’ invested</p>
+            <p className={s.overviewItem_text2}>$0.00</p>
+          </div>
+          <Image
+            src={"/profile/overview/total-invested.svg"}
+            alt={"earned"}
+            height={25}
+            width={25}
+          />
         </div>
-        <Image
-          src={"/profile/overview/total-invested.svg"}
-          alt={"earned"}
-          height={25}
-          width={25}
-        />
-      </div>
-      <div className={s.overviewItem}>
-        <div className={s.overviewItem_column}>
-          <p className={s.overviewItem_text1}>Royalties paid</p>
-          <p className={s.overviewItem_text2}>$0.00</p>
+        <div className={s.overviewItem}>
+          <div className={s.overviewItem_column}>
+            <p className={s.overviewItem_text1}>Royalties paid</p>
+            <p className={s.overviewItem_text2}>$0.00</p>
+          </div>
+          <Image
+            src={"/profile/overview/earned.svg"}
+            alt={"earned"}
+            height={25}
+            width={25}
+          />
         </div>
-        <Image
-          src={"/profile/overview/earned.svg"}
-          alt={"earned"}
-          height={25}
-          width={25}
-        />
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ export function OverviewRow(props: {
         <div className={s.overviewItem}>
           <div className={s.overviewItem_column}>
             <p className={s.overviewItem_text1}>Invested amount</p>
-            <p className={s.overviewItem_text2}>{props.totalInvestedAmount}</p>
+            <p className={s.overviewItem_text2}>${props.totalInvestedAmount}</p>
           </div>
           <Image
             src={"/profile/overview/total-invested.svg"}

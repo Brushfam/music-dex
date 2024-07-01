@@ -22,13 +22,11 @@ export function ProfileHeader() {
   const currentLocale = useLocale();
   const router = useRouter();
 
-  useEffect(() => {}, [userName]);
-
   function handleLogout() {
     signOut(firebaseAuth)
       .then(() => {
         router.replace("/");
-        // setCurrentUserEmail("");
+        setCurrentUserEmail("");
       })
       .catch((error) => {
         console.log(error);

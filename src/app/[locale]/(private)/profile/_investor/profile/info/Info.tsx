@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import { getInvestorInfo } from "@/services/users/investors/investors";
 import { InvestorInfo } from "@/types/types";
 import { toast } from "sonner";
-import { useUserStore } from "@/store/user";
 
 export function Info() {
   const router = useRouter();

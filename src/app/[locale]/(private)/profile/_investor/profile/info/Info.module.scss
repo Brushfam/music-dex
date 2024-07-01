@@ -5,6 +5,12 @@
   flex-direction: row;
   margin-bottom: 16px;
   gap: 32px;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
 }
 
 .inputSocialRow {
@@ -12,6 +18,11 @@
   flex-direction: row;
   margin-bottom: 16px;
   gap: 16px;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .inputRowTitle {
@@ -55,9 +66,17 @@
     font-size: 16px;
     font-weight: 400;
   }
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 }
 
 .formSocialInput {
   @extend .formInput;
   width: 265px;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 }
