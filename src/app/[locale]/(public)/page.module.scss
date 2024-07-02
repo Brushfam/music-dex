@@ -5,6 +5,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  z-index: 2;
 
   &_p {
     margin-bottom: 40px;
@@ -186,7 +187,7 @@
 
 .shadowTop {
   @include shadowElement;
-  top: 0;
+  top: 30px;
   transform: rotate(-180.00deg);
   z-index: 1;
 }

@@ -25,26 +25,30 @@ export default function Home() {
     <main className={cs.main}>
       <ArtistModal />
       {/*  Banner */}
-      <Section banner={true}>
-        <div className={s.bannerContainer}>
-          <div className={s.shadowTop} />
-          <ColumnContainer>
-            <h2>{t("banner_header")}</h2>
-            <p className={s.bannerContainer_p}>{t("banner_description")}</p>
-            <div className={s.bannerButtonsBlock}>
-              <RecommendButton />
-              <Button
-                title={t("learn_more_button")}
-                color={"transparent"}
-                arrow={true}
-                path={"#home-how-it-works"}
-              />
-            </div>
-          </ColumnContainer>
-          <BannerTracks />
-          <div className={s.shadowBottom} />
-        </div>
-      </Section>
+      <div
+        className={cs.bannerWrapper}
+      >
+        <div className={s.shadowTop} />
+        <Section banner={true}>
+          <div className={s.bannerContainer}>
+            <ColumnContainer>
+              <h2>{t("banner_header")}</h2>
+              <p className={s.bannerContainer_p}>{t("banner_description")}</p>
+              <div className={s.bannerButtonsBlock}>
+                <RecommendButton />
+                <Button
+                  title={t("learn_more_button")}
+                  color={"transparent"}
+                  arrow={true}
+                  path={"#home-how-it-works"}
+                />
+              </div>
+            </ColumnContainer>
+            <BannerTracks />
+          </div>
+        </Section>
+        <div className={s.shadowBottom} />
+      </div>
       {/*  How it works */}
       <div className={s.lightThemeWrapper} id={"home-how-it-works"}>
         <Section>
