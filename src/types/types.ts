@@ -60,3 +60,9 @@ export interface Wallet {
   address: string;
   name: string;
 }
+
+export enum ActivitiesStatus {
+  WAITING= "Waiting",
+  COMPLETE= "Complete",
+  "DECLINED"= "Declined"
+}

@@ -201,6 +201,18 @@
     },
     "Royalties": {
       "title": "Royalties"
+    },
+    "Activities": {
+      "title": "Активність",
+      "no_activities": "Поки що немає активностей",
+      "list_of_activities": "Список активностей",
+      "date": "Дата",
+      "song": "Пісня",
+      "Activity": "Активність",
+      "tokens": "Токени",
+      "invested": "Інвестиції",
+      "status": "Статус",
+      "loading": "Завантаження..."
     }
   },
 

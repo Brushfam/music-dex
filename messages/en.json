@@ -201,6 +201,18 @@
     },
     "Royalties": {
       "title": "Royalties"
+    },
+    "Activities": {
+      "title": "Activities",
+      "no_activities": "No activities songs here yet",
+      "list_of_activities": "List of activities",
+      "date": "Date",
+      "song": "Song",
+      "activity": "Activity",
+      "tokens": "Tokens",
+      "invested": "Invested",
+      "status": "Status",
+      "loading": "Loading..."
     }
   },
 
