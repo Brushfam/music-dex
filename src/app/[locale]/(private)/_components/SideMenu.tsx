@@ -4,93 +4,42 @@ import * as React from "react";
 import Drawer from "@mui/material/Drawer";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ProfilePages } from "@/types/types";
 import s from "./MobileHeader.module.scss";
-import { OverviewIcon } from "@/app/[locale]/(private)/profile/_components/Icons/OverviewIcon";
-import { SongsIcon } from "@/app/[locale]/(private)/profile/_components/Icons/SongsIcon";
-import { RoyaltiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/RoyaltiesIcon";
-import { ProfileIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ProfileIcon";
-import { Dispatch, SetStateAction } from "react";
-import { ActivitiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ActivitiesIcon";
 import Link from "next/link";
 import { useUserStore } from "@/store/user";
 import { signOut } from "@firebase/auth";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { toast } from "sonner";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useLocale } from "use-intl";
 
-export default function SideMenu(props: {
-  currentPage: ProfilePages;
-  setCurrentPage: Dispatch<SetStateAction<ProfilePages>>;
-  role: string;
-}) {
-    const router = useRouter();
+export default function SideMenu(props: { currentUser: string }) {
+  const currentLocale = useLocale();
+  const router = useRouter();
   const [open, setOpen] = React.useState(false);
-  const t = useTranslations("ProfileInvestor.Sidebar");
+  const t = useTranslations("Header");
 
-  function getCurrentColor(page: ProfilePages) {
-    return props.currentPage === page ? "rgb(246, 96, 31)" : "white";
-  }
-
-  // children property is using for icon component
-  function PageRow(rowProps: {
-    page: ProfilePages;
-    children: React.ReactNode;
-    title: string;
-  }) {
+  function PageRow(rowProps: { title: string; link: string }) {
     return (
-      <div
-        className={s.pagesRow}
-        onClick={() => {
-          props.setCurrentPage(rowProps.page);
-        }}
-      >
+      <Link href={rowProps.link} className={s.pagesRow}>
         <div className={s.hoverBlock}></div>
-        {rowProps.children}
-        <p style={{ color: getCurrentColor(rowProps.page) }}>
-          {rowProps.title}
-        </p>
-      </div>
+        <p>{rowProps.title}</p>
+      </Link>
     );
   }
 
-  function InvestorPagesList() {
+  function PagesList() {
     return (
       <div className={s.pagesList}>
-        <PageRow page={ProfilePages.Overview} title={t("overview")}>
-          <OverviewIcon color={getCurrentColor(ProfilePages.Overview)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Songs} title={t("songs")}>
-          <SongsIcon color={getCurrentColor(ProfilePages.Songs)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Royalties} title={t("royalties")}>
-          <RoyaltiesIcon color={getCurrentColor(ProfilePages.Royalties)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Activities} title={t("activities")}>
-          <ActivitiesIcon color={getCurrentColor(ProfilePages.Activities)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Settings} title={t("profile")}>
-          <ProfileIcon color={getCurrentColor(ProfilePages.Settings)} />
-        </PageRow>
-      </div>
-    );
-  }
-
-  function ArtistPagesList() {
-    return (
-      <div className={s.pagesList}>
-        <PageRow page={ProfilePages.Overview} title={t("overview")}>
-          <OverviewIcon color={getCurrentColor(ProfilePages.Overview)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Songs} title={t("songs")}>
-          <SongsIcon color={getCurrentColor(ProfilePages.Songs)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Settings} title={t("profile")}>
-          <ProfileIcon color={getCurrentColor(ProfilePages.Settings)} />
-        </PageRow>
-        <PageRow page={ProfilePages.FAQ} title={"FAQ"}>
-          <ActivitiesIcon color={getCurrentColor(ProfilePages.FAQ)} />
-        </PageRow>
+        <PageRow
+          title={t("catalog")}
+          link={"/" + currentLocale + "/catalog"}
+        ></PageRow>
+        <PageRow
+          title={t("for_artist")}
+          link={"/" + currentLocale + "/for-artist"}
+        ></PageRow>
+        <PageRow title={t("faq")} link={"/" + currentLocale + "/faq"}></PageRow>
       </div>
     );
   }
@@ -108,7 +57,7 @@ export default function SideMenu(props: {
       signOut(firebaseAuth)
         .then(() => {
           setCurrentUserEmail("");
-            router.replace("/en/auth/login");
+          router.replace("/en");
         })
         .catch((error) => {
           console.log(error);
@@ -123,12 +72,12 @@ export default function SideMenu(props: {
         }}
         className={s.logout}
       >
-          <Image
-              src={"/icons/header/log-out.svg"}
-              alt={"logout"}
-              width={18}
-              height={19}
-          />
+        <Image
+          src={"/icons/header/log-out.svg"}
+          alt={"logout"}
+          width={18}
+          height={19}
+        />
         <p>{t("logout")}</p>
       </div>
     );
@@ -139,8 +88,8 @@ export default function SideMenu(props: {
       <Link href={"/"} className={s.header_sideLogo}>
         <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
       </Link>
-      {props.role === "investor" ? <InvestorPagesList /> : <ArtistPagesList />}
-      <LogoutButton />
+      <PagesList />
+      {props.currentUser ? <LogoutButton /> : null}
     </div>
   );
 
@@ -149,8 +98,8 @@ export default function SideMenu(props: {
       <Image
         src={"/profile/icons/side-menu.svg"}
         alt={"menu"}
-        width={20}
-        height={13}
+        width={22}
+        height={14}
         onClick={toggleDrawer(true)}
         style={{ cursor: "pointer" }}
       />

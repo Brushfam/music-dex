@@ -102,7 +102,9 @@
   "Header": {
     "login": "Log in",
     "logout": "Log out",
-    "my_tokens": "My tokens",
+    "catalog": "Catalog",
+    "for_artist": "For artist",
+    "faq": "FAQ",
     "profile": "Profile",
     "earned": "Earned",
     "claim": "Claim",

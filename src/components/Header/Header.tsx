@@ -11,7 +11,8 @@ import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import { useUserStore } from "@/store/user";
 import { LogoutButton } from "@/components/Header/Logout";
 import { useTranslations } from "next-intl";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
+import SideMenu from "@/app/[locale]/(private)/_components/SideMenu";
 
 function ProfileButton() {
   const currentLocale = useLocale();
@@ -62,24 +63,34 @@ export function Header() {
   return (
     <div className={s.header}>
       <div className={s.header_content}>
-        <div className={s.menu}>
+        <div className={s.menuWrapper}>
           <Link href={"/"} className={s.header_logo}>
             <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
           </Link>
-          <Link href={"/" + currentLocale + "/catalog"}>Catalog</Link>
-          <Link href={"/" + currentLocale + "/for-artist"}>For artist</Link>
-          <Link href={"/" + currentLocale + "/faq"}>FAQ</Link>
+          <div className={s.menu}>
+            <Link href={"/" + currentLocale + "/catalog"}>Catalog</Link>
+            <Link href={"/" + currentLocale + "/for-artist"}>For artist</Link>
+            <Link href={"/" + currentLocale + "/faq"}>FAQ</Link>
+          </div>
         </div>
         {currentUser ? (
           <div className={s.header_row}>
-            <ProfileButton />
-            <LogoutButton />
             <LangSwitcher />
+            <ProfileButton />
+            <div className={s.desktop}>
+              <LogoutButton />
+            </div>
+            <div className={s.mobile}>
+              <SideMenu currentUser={currentUser}/>
+            </div>
           </div>
         ) : (
           <div className={s.header_row}>
-            <Login />
             <LangSwitcher />
+            <Login />
+            <div className={s.mobile}>
+              <SideMenu currentUser={currentUser}/>
+            </div>
           </div>
         )}
       </div>

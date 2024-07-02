@@ -102,7 +102,9 @@
   "Header": {
     "login": "Вхід",
     "logout": "Вихід",
-    "my_tokens": "Мої токени",
+    "catalog": "Catalog",
+    "for_artist": "For artist",
+    "faq": "FAQ",
     "profile": "Профіль",
     "earned": "Заробіток",
     "claim": "Забрати",
