@@ -53,6 +53,7 @@ function LangSwitcher() {
 
 export function Header() {
   const currentUser = useUserStore((state) => state.currentUserEmail);
+  const currentLocale = useLocale();
 
   useEffect(() => {
     console.log(currentUser)
@@ -61,9 +62,14 @@ export function Header() {
   return (
     <div className={s.header}>
       <div className={s.header_content}>
-        <Link href={"/"} className={s.header_logo}>
-          <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
-        </Link>
+        <div className={s.menu}>
+          <Link href={"/"} className={s.header_logo}>
+            <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
+          </Link>
+          <Link href={"/" + currentLocale + "/catalog"}>Catalog</Link>
+          <Link href={"/" + currentLocale + "/for-artist"}>For artist</Link>
+          <Link href={"/" + currentLocale + "/faq"}>FAQ</Link>
+        </div>
         {currentUser ? (
           <div className={s.header_row}>
             <ProfileButton />

@@ -157,7 +157,7 @@
   }
 
   &_invested {
-    left: 620px;
+    left: 610px;
   }
 
   @media (max-width: 1380px) {
@@ -181,8 +181,8 @@
 
 @mixin status {
   position: absolute;
-  left: 815px;
-  width: 86px;
+  left: 782px;
+  width: 90px;
   height: 29px;
   display: flex;
   flex-direction: row;
