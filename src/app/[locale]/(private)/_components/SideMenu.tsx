@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -12,13 +11,20 @@ import { SongsIcon } from "@/app/[locale]/(private)/profile/_components/Icons/So
 import { RoyaltiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/RoyaltiesIcon";
 import { ProfileIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ProfileIcon";
 import { Dispatch, SetStateAction } from "react";
-import {ActivitiesIcon} from "@/app/[locale]/(private)/profile/_components/Icons/ActivitiesIcon";
+import { ActivitiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ActivitiesIcon";
+import Link from "next/link";
+import { useUserStore } from "@/store/user";
+import { signOut } from "@firebase/auth";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { toast } from "sonner";
+import {useRouter} from "next/navigation";
 
 export default function SideMenu(props: {
   currentPage: ProfilePages;
   setCurrentPage: Dispatch<SetStateAction<ProfilePages>>;
   role: string;
 }) {
+    const router = useRouter();
   const [open, setOpen] = React.useState(false);
   const t = useTranslations("ProfileInvestor.Sidebar");
 
@@ -82,9 +88,9 @@ export default function SideMenu(props: {
         <PageRow page={ProfilePages.Settings} title={t("profile")}>
           <ProfileIcon color={getCurrentColor(ProfilePages.Settings)} />
         </PageRow>
-          <PageRow page={ProfilePages.FAQ} title={"FAQ"}>
-              <ActivitiesIcon color={getCurrentColor(ProfilePages.FAQ)} />
-          </PageRow>
+        <PageRow page={ProfilePages.FAQ} title={"FAQ"}>
+          <ActivitiesIcon color={getCurrentColor(ProfilePages.FAQ)} />
+        </PageRow>
       </div>
     );
   }
@@ -93,9 +99,48 @@ export default function SideMenu(props: {
     setOpen(newOpen);
   };
 
+  function LogoutButton() {
+    const setCurrentUserEmail = useUserStore(
+      (state) => state.setCurrentUserEmail,
+    );
+
+    function handleOnClick() {
+      signOut(firebaseAuth)
+        .then(() => {
+          setCurrentUserEmail("");
+            router.replace("/en/auth/login");
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error(t("error_logout"));
+        });
+    }
+
+    return (
+      <div
+        onClick={() => {
+          handleOnClick();
+        }}
+        className={s.logout}
+      >
+          <Image
+              src={"/icons/header/log-out.svg"}
+              alt={"logout"}
+              width={18}
+              height={19}
+          />
+        <p>{t("logout")}</p>
+      </div>
+    );
+  }
+
   const DrawerList = (
     <div className={s.sidebar} onClick={toggleDrawer(false)}>
+      <Link href={"/"} className={s.header_sideLogo}>
+        <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
+      </Link>
       {props.role === "investor" ? <InvestorPagesList /> : <ArtistPagesList />}
+      <LogoutButton />
     </div>
   );
 

@@ -111,8 +111,8 @@ export default function Activities() {
     <PageWrapper title={t("title")} height={"auto"} loading={loading}>
       <div className={s.activitiesWrapper}>
         <p className={s.titleBlock_text}>{t("list_of_activities")}</p>
-        { activitiesList.length ? <ActivitiesHeader/> : null}
-        <ActivitiesList/>
+        {activitiesList.length ? <ActivitiesHeader /> : null}
+        <ActivitiesList />
       </div>
     </PageWrapper>
   );

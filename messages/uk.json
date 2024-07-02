@@ -166,7 +166,8 @@
       "songs": "Треки",
       "royalties": "Роялті",
       "activities": "Активність",
-      "profile": "Мій профіль"
+      "profile": "Мій профіль",
+      "logout": "Вихід"
     },
     "Profile": {
       "title": "Профіль",
