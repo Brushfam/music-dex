@@ -16,16 +16,22 @@ export function InfoForm(props: {
       (state) => state.setCurrentUserName,
   );
   const userEmail = useUserStore((state) => state.currentUserEmail);
+  const [loading, setLoading] = useState(false);
+
+  console.log(props.investor.profiles)
+  let profiles = ["", "", ""];
+  for (let i = 0; i < props.investor.profiles?.length; ++i) {
+    profiles[i] = props.investor.profiles[i]
+  }
   const [formData, setFormData] = useState({
     firstName: props.investor.firstName || "",
     lastName: props.investor.lastName || "",
     favGenre: props.investor.favGenre || "",
     country: props.investor.country || "",
-    tiktok: props.investor.profiles[0] || "",
-    instagram: props.investor.profiles[1] || "",
-    twitter: props.investor.profiles[2] || "",
+    tiktok: profiles[0],
+    instagram: profiles[1],
+    twitter: profiles[2],
   });
-  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
