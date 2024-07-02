@@ -12,7 +12,7 @@ import { useUserStore } from "@/store/user";
 import { LogoutButton } from "@/components/Header/Logout";
 import { useTranslations } from "next-intl";
 import React, {useEffect} from "react";
-import SideMenu from "@/app/[locale]/(private)/_components/SideMenu";
+import SideMenu from "@/components/MobileHeader/SideMenu";
 
 function ProfileButton() {
   const currentLocale = useLocale();
