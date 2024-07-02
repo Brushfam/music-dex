@@ -1,6 +1,6 @@
 import s from "./VideoSection.module.scss"
 import { YoutubeVideo } from "@/app/[locale]/(public)/tracks/_components/VideoSection/YoutubeVideo";
-import { AboutArtist } from "@/app/[locale]/(public)/tracks/_components/VideoSection/AboutArtist";
+import { AboutArtist } from "@/app/[locale]/(public)/tracks/_components/AboutArtist/AboutArtist";
 import React from "react";
 import { useTranslations } from "next-intl";
 

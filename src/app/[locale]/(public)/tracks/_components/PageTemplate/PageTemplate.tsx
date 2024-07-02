@@ -12,9 +12,12 @@ import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
 import { VideoSection } from "@/app/[locale]/(public)/tracks/_components/VideoSection/VideoSection";
 import { ApprovePurchaseModal } from "@/components/modals/ApprovePurchaseModal/ApprovePurchaseModal";
+import {Overview} from "@/app/[locale]/(public)/tracks/_components/Overview/Overview";
+import {Royalties} from "@/app/[locale]/(public)/tracks/_components/Royalties/Royalties";
+import {Statistics} from "@/app/[locale]/(public)/tracks/_components/Statistics/Statistics";
+import {AboutArtist} from "@/app/[locale]/(public)/tracks/_components/AboutArtist/AboutArtist";
 
 type PageTemplateProps = {
-  children?: React.ReactNode;
   artist: string;
   songName: string;
   tokenAddress: string;
@@ -22,12 +25,20 @@ type PageTemplateProps = {
   trackDataUK: trackDataType;
 };
 
+enum TrackSubpages {
+  Overview = "Overview",
+  Royalties = "Royalties",
+  Statistics = "Statistics",
+  AboutArtist = "AboutArtist",
+}
+
 export function PageTemplate(props: PageTemplateProps) {
   const t = useTranslations("Catalog");
   const currentLocale = useLocale();
   const trackData =
     currentLocale === "uk" ? props.trackDataUK : props.trackDataEN;
   const [approvePurchaseModal, setApprovePurchaseModal] = useState("");
+  const [currentPage, setCurrentPage] = useState(TrackSubpages.Overview);
 
   function TrackDescription() {
     return (
@@ -54,6 +65,65 @@ export function PageTemplate(props: PageTemplateProps) {
         <TrackDetails dataEN={props.trackDataEN} dataUK={props.trackDataUK} />
       </div>
     );
+  }
+
+  function getColor(title: string) {
+    return currentPage === title
+      ? { color: "rgb(246, 96, 31)" }
+      : { color: "white", cursor: "pointer" };
+  }
+
+  function TabsRow() {
+    return (
+      <div className={s.tabsRow}>
+        <div className={s.tabsSubRow}>
+          <p
+            style={getColor("Overview")}
+            onClick={() => {
+              setCurrentPage(TrackSubpages.Overview);
+            }}
+          >
+            Overview
+          </p>
+          <p
+            style={getColor("Royalties")}
+            onClick={() => {
+              setCurrentPage(TrackSubpages.Royalties);
+            }}
+          >
+            Royalties
+          </p>
+        </div>
+        <div className={s.tabsSubRow}>
+          <p
+            style={getColor("Statistics")}
+            onClick={() => {
+              setCurrentPage(TrackSubpages.Statistics);
+            }}
+          >
+            Statistics
+          </p>
+          <p
+            style={getColor("AboutArtist")}
+            onClick={() => {
+              setCurrentPage(TrackSubpages.AboutArtist);
+            }}
+          >
+            About artist
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  function CurrentSubPage() {
+    if (currentPage === "Overview") {
+      return <Overview videoId={"Jb5qdg30jSU"} />;
+    } else if (currentPage === "Royalties") {
+      return <Royalties />;
+    } else if (currentPage === "Statistics") {
+      return <Statistics />;
+    } else return <AboutArtist />;
   }
 
   return (
@@ -88,8 +158,10 @@ export function PageTemplate(props: PageTemplateProps) {
           </div>
         </div>
       </div>
-      <VideoSection />
-      {props.children}
+      <div className={s.additionalInfoWrapper}>
+        <TabsRow />
+        <CurrentSubPage />
+      </div>
       <FaqSection />
     </div>
   );
