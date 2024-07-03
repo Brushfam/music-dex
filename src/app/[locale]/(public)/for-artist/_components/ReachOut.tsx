@@ -1,13 +1,16 @@
 import s from "./ReachOut.module.scss";
 import {ReachOutForm} from "@/app/[locale]/(public)/for-artist/_components/ReachOutForm";
+import {useTranslations} from "next-intl";
 
 export function ReachOut() {
+    const t = useTranslations("ForArtist");
+
   return (
     <div className={s.reachOutSection}>
       <div className={s.textWrapper}>
-        <p className={s.title}>Interested in working with us? </p>
+        <p className={s.title}>{t("form_title")}</p>
         <p className={s.description}>
-          Reach out to us and we will send you a value proposition
+            {t("form_description")}
         </p>
       </div>
         <ReachOutForm/>

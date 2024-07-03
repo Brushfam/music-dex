@@ -1,6 +1,7 @@
 import s from "./Overview.module.scss";
 import YouTube from "react-youtube";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Overview(props: { videoId: string }) {
   const opts = {

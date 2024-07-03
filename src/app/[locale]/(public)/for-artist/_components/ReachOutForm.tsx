@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 
 export function ReachOutForm() {
-  const t = useTranslations("ArtistModal");
+  const t = useTranslations("ForArtist.Form");
   const [state, handleSubmit] = useForm("xdknoeqk");
 
   useEffect(() => {
@@ -15,53 +15,54 @@ export function ReachOutForm() {
       toast.error(t("error"));
     }
     if (state.succeeded) {
-      toast.success("Submitted!");
+      toast.success(t("submitted"));
     }
   }, [state.errors, state.succeeded, t]);
 
   return (
     <form className={s.artistForm} onSubmit={handleSubmit}>
       <div className={s.artistFormContent}>
-        <label htmlFor={"topic"}>{t("FormFields.name")}</label>
+        <label htmlFor={"topic"}>{t("topic")}</label>
         <input
           id={"topic"}
           type={"text"}
           name={"topic"}
-          placeholder={"Write a topic for your inquiry"}
+          placeholder={t("topic_placeholder")}
           autoComplete="off"
           autoCorrect={"off"}
           spellCheck={"false"}
           className={s.formInput}
           required
         />
-        <label htmlFor={"name"}>{t("FormFields.social")}</label>
+        <label htmlFor={"name"}>{t("name")}</label>
         <input
           id={"name"}
           type={"text"}
           name={"name"}
-          placeholder={"Enter your name"}
+          placeholder={t("name_placeholder")}
           autoComplete="off"
           autoCorrect={"off"}
           spellCheck={"false"}
           className={s.formInput}
           required
         />
-        <label htmlFor={"email"}>{t("FormFields.email")}</label>
+        <label htmlFor={"email"}>{t("email")}</label>
         <input
           type={"email"}
           name={"email"}
           id={"email"}
-          placeholder={"Enter your email"}
+          placeholder={t("email_placeholder")}
           autoComplete="off"
           autoCorrect={"off"}
           spellCheck={"false"}
           className={s.formInput}
           required
         />
-        <label htmlFor={"message"}>{t("FormFields.tracks")}</label>
+        <label htmlFor={"message"}>{t("message")}</label>
         <textarea
           name={"message"}
           id={"message"}
+          placeholder={t("message_placeholder")}
           autoComplete="off"
           autoCorrect={"off"}
           spellCheck={"false"}
@@ -71,7 +72,7 @@ export function ReachOutForm() {
       </div>
       <div className={s.buttonRow}>
         <Button
-          title={state.succeeded ? "Submitted" : t("send")}
+          title={state.succeeded ? t("sent") : t("send")}
           color={state.submitting || state.succeeded ? "loading" : "main"}
           arrow={false}
           type={"submit"}

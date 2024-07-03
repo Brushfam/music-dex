@@ -1,8 +1,10 @@
 import s from "@/app/[locale]/(public)/for-artist/ForArtist.module.scss";
-import { Section } from "@/components/ui/Section/Section";
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 
 export function Cards() {
+  const t = useTranslations("ForArtist");
+
   return (
     <div style={{
       display: "flex",
@@ -19,11 +21,9 @@ export function Cards() {
             width={55}
             height={50}
           />
-          <p className={s.card_title}>Submit your best song</p>
+          <p className={s.card_title}>{t("card1_title")}</p>
           <p className={s.card_description}>
-            Interested in joining MusicDex community and starting your exciting
-            journey with us? Fill out the form and our team of experts will
-            review it.
+            {t("card1_description")}
           </p>
         </div>
         <div className={s.card}>
@@ -33,11 +33,9 @@ export function Cards() {
             width={55}
             height={50}
           />
-          <p className={s.card_title}>Submit your best song</p>
+          <p className={s.card_title}>{t("card2_title")}</p>
           <p className={s.card_description}>
-            Interested in joining MusicDex community and starting your exciting
-            journey with us? Fill out the form and our team of experts will
-            review it.
+            {t("card2_description")}
           </p>
         </div>
         <div className={s.card}>
@@ -47,11 +45,9 @@ export function Cards() {
             width={55}
             height={50}
           />
-          <p className={s.card_title}>Submit your best song</p>
+          <p className={s.card_title}>{t("card3_title")}</p>
           <p className={s.card_description}>
-            Interested in joining MusicDex community and starting your exciting
-            journey with us? Fill out the form and our team of experts will
-            review it.
+            {t("card3_description")}
           </p>
         </div>
       </div>
