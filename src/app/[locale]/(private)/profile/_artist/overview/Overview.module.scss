@@ -81,15 +81,14 @@
   font-weight: 500;
 }
 
-.statisticsBlock {
-  height: 282px;
+.transactionsBlock {
+  height: 290px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 24px 25px 24px 25px;
-  overflow: auto;
-  min-width: 530px;
+  min-width: 620px;
 
   border-radius: 14px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.16);
@@ -122,7 +121,6 @@
   border-radius: 14px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.16);
   background: rgb(17, 17, 17);
-  overflow: auto;
   min-width: 530px;
 
   &_song {
@@ -155,19 +153,25 @@
   }
 }
 
-.suggestedSongs::-webkit-scrollbar,
-.statisticsBlock::-webkit-scrollbar {
+.suggestedSongsList, .transactionsBlockList {
+  width: 100%;
+  overflow: auto;
+}
+
+
+.suggestedSongsList::-webkit-scrollbar,
+.transactionsBlockList::-webkit-scrollbar {
   width: auto;
 }
 
-.suggestedSongs::-webkit-scrollbar,
-.statisticsBlock::-webkit-scrollbar-track {
+.suggestedSongsList::-webkit-scrollbar,
+.transactionsBlockList::-webkit-scrollbar-track {
   width: 2px;
   background: transparent;
 }
 
-.suggestedSongs::-webkit-scrollbar,
-.statisticsBlock::-webkit-scrollbar-thumb {
+.suggestedSongsList::-webkit-scrollbar,
+.transactionsBlockList::-webkit-scrollbar-thumb {
   background-color: white;
   height: 125px;
   width: 3px;
@@ -176,15 +180,15 @@
   background-clip: content-box;
 }
 
-.suggestedSongs::-webkit-scrollbar,
-.statisticsBlock::-webkit-scrollbar-corner {
+.suggestedSongsList::-webkit-scrollbar,
+.transactionsBlockList::-webkit-scrollbar-corner {
   width: 0;
   background: transparent;
 }
 
 .songHeader {
   position: relative;
-  height: 34px;
+  min-height: 34px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -226,7 +230,7 @@
     }
 
     &_song {
-      left: 200px;
+      left: 220px;
     }
 
     &_tokens {
@@ -238,26 +242,26 @@
     }
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 860px) {
     &_date {
       left: 32px;
     }
 
     &_song {
-      left: 160px;
+      left: 200px;
     }
 
     &_tokens {
-      left: 300px;
+      left: 350px;
     }
 
     &_invested {
-      left: 400px;
+      left: 456px;
     }
   }
 }
 
-.songRow {
+.transactionsRow {
   position: relative;
   height: 60px;
   display: flex;
@@ -266,9 +270,6 @@
   align-items: center;
   padding: 8px 32px 8px 32px;
   border-radius: 10px;
-  background: rgb(29, 29, 29);
-  cursor: pointer;
-  margin: 5px 0;
 
   p {
     position: absolute;
@@ -287,14 +288,32 @@
   }
 
   &_tokens {
-    left: 542px;
+    left: 546px;
   }
 
   &_invested {
-    left: 780px;
+    left: 764px;
   }
 
   @media (max-width: 1300px) {
+    &_date {
+      left: 32px;
+    }
+
+    &_song {
+      left: 220px;
+    }
+
+    &_tokens {
+      left: 428px;
+    }
+
+    &_invested {
+      left: 640px;
+    }
+  }
+
+  @media (max-width: 860px) {
     &_date {
       left: 32px;
     }
@@ -304,29 +323,11 @@
     }
 
     &_tokens {
-      left: 422px;
+      left: 370px;
     }
 
     &_invested {
-      left: 660px;
-    }
-  }
-
-  @media (max-width: 1200px) {
-    &_date {
-      left: 32px;
-    }
-
-    &_song {
-      left: 160px;
-    }
-
-    &_tokens {
-      left: 310px;
-    }
-
-    &_invested {
-      left: 435px;
+      left: 470px;
     }
   }
 }

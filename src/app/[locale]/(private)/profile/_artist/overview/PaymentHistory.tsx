@@ -1,5 +1,4 @@
 import s from "./Overview.module.scss";
-import Image from "next/image";
 
 export function PaymentHistory() {
   return (
