@@ -15,22 +15,22 @@ export const songChartDataEN = [
         {name: 'Mar', uv: 4048},
         {name: 'Apr', uv: 3291},
         {name: 'May', uv: 2999},
-        {name: 'Jun', uv: 5201},
+        {name: 'Jun', uv: 3201},
         {name: 'Jul', uv: 2910},
         {name: 'Aug', uv: 2090},
-        {name: 'Sep', uv: 4832},
-        {name: 'Oct', uv: 4999}
+        {name: 'Sep', uv: 3832},
+        {name: 'Oct', uv: 3999}
     ],
     [
         {name: 'Feb', uv: 1991},
         {name: 'Mar', uv: 1649},
         {name: 'Apr', uv: 1665},
-        {name: 'May', uv: 1492},
+        {name: 'May', uv: 2492},
         {name: 'Jun', uv: 2020},
         {name: 'Jul', uv: 2012},
         {name: 'Aug', uv: 1391},
-        {name: 'Sep', uv: 1491},
-        {name: 'Oct', uv: 1791}
+        {name: 'Sep', uv: 2491},
+        {name: 'Oct', uv: 2791}
     ]
 ]
 

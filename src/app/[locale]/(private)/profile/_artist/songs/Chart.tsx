@@ -53,7 +53,7 @@ export function RenderLineChart(props: {chartNumber: number}) {
             fontSize: 14,
             fontWeight: 400,
           }}
-          domain={[0, 3000]}
+          domain={[0, 4000]}
           axisLine={false}
         />
         <Tooltip
