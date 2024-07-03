@@ -3,89 +3,7 @@
 import s from "./Songs.module.scss";
 import Image from "next/image";
 import { useState } from "react";
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-import { songChartDataUK } from "@/data/kalush/songChartData";
-import { ValueType } from "recharts/types/component/DefaultTooltipContent";
-
-function RenderLineChart() {
-  return (
-    <ResponsiveContainer width="100%" height={320}>
-      <AreaChart
-        data={songChartDataUK}
-        margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
-      >
-        <defs>
-          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-            <stop
-              offset="-31.788%"
-              stopColor="rgb(246, 96, 31)"
-              stopOpacity={0.8}
-            />
-            <stop
-              offset="118.152%"
-              stopColor="rgba(21, 22, 23, 0)"
-              stopOpacity={0}
-            />
-          </linearGradient>
-        </defs>
-        <CartesianGrid
-          vertical={false}
-          horizontal
-          strokeDasharray="20 10"
-          stroke="rgba(255, 255, 255, 0.2)"
-        />
-        <XAxis
-          dataKey="name"
-          tick={{
-            fill: "rgba(255, 255, 255, 0.5)",
-            fontSize: 14,
-            fontWeight: 400,
-          }}
-          padding={{ left: 10 }}
-          axisLine={false}
-        />
-        <YAxis
-          tick={{
-            fill: "rgba(255, 255, 255, 0.5)",
-            fontSize: 14,
-            fontWeight: 400,
-          }}
-          domain={[0, 3000]}
-          axisLine={false}
-        />
-        <Tooltip
-          contentStyle={{
-            backgroundColor: "black",
-            color: "white",
-            padding: "5px",
-            border: "none",
-            borderRadius: 8,
-          }}
-          formatter={(value: ValueType, name: "") => {
-            return [`${value}`];
-          }}
-          label={""}
-        />
-        <Area
-          type="monotone"
-          dataKey="uv"
-          stroke="rgb(246, 96, 3)"
-          strokeWidth={3}
-          fillOpacity={1}
-          fill="url(#colorUv)"
-        />
-      </AreaChart>
-    </ResponsiveContainer>
-  );
-}
+import {RenderLineChart} from "@/app/[locale]/(private)/profile/_artist/songs/Chart";
 
 export function SongRow1(props: {
   lastDate: string;
@@ -93,6 +11,7 @@ export function SongRow1(props: {
   tokens: number;
   invested: number;
   songLink: string;
+  chartNumber: number
 }) {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -114,7 +33,7 @@ export function SongRow1(props: {
           }
         />
       </div>
-      <RenderLineChart />
+      <RenderLineChart chartNumber={props.chartNumber} />
     </div>
   ) : (
     <div

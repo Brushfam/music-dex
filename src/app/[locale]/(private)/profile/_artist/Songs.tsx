@@ -14,11 +14,28 @@ export function Songs() {
         </div>
         <SongHeader />
         <SongRow1
-          lastDate={"Dec 21, 2024"}
+          lastDate={"May 19, 2023"}
           song={"Стіни"}
-          tokens={12}
-          invested={24}
+          tokens={4091}
+          invested={23991.3}
           songLink={"/en"}
+          chartNumber={0}
+        />
+        <SongRow1
+            lastDate={"Nov 27, 2020"}
+            song={"Зорі"}
+            tokens={5392}
+            invested={19499.9}
+            songLink={"/en"}
+            chartNumber={1}
+        />
+        <SongRow1
+            lastDate={"May 21, 2024"}
+            song={"Додому"}
+            tokens={7702}
+            invested={24084.1}
+            songLink={"/en"}
+            chartNumber={2}
         />
       </div>
     </PageWrapper>
