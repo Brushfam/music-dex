@@ -23,7 +23,6 @@ export default function Home() {
 
   return (
     <main className={cs.main}>
-      <ArtistModal />
       {/*  Banner */}
       <div
         className={cs.bannerWrapper}
