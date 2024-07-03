@@ -73,26 +73,16 @@ export function Header() {
             <Link href={"/" + currentLocale + "/faq"}>FAQ</Link>
           </div>
         </div>
-        {currentUser ? (
-          <div className={s.header_row}>
-            <LangSwitcher />
-            <ProfileButton />
-            <div className={s.desktop}>
-              <LogoutButton />
-            </div>
-            <div className={s.mobile}>
-              <SideMenu currentUser={currentUser}/>
-            </div>
+        <div className={s.header_row}>
+          <LangSwitcher />
+          <ProfileButton />
+          <div className={s.desktop}>
+            <LogoutButton />
           </div>
-        ) : (
-          <div className={s.header_row}>
-            <LangSwitcher />
-            <Login />
-            <div className={s.mobile}>
-              <SideMenu currentUser={currentUser}/>
-            </div>
+          <div className={s.mobile}>
+            <SideMenu currentUser={currentUser}/>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

@@ -9,17 +9,14 @@ import { toast } from "sonner";
 import {updateArtistInfo} from "@/services/users/artist/artist";
 
 export function InfoForm(props: {
-  artist: ArtistInfo;
-  setTriggerFormRefresh: Dispatch<SetStateAction<number>>;
 }) {
-  const userEmail = useUserStore((state) => state.currentUserEmail);
+  const userEmail = "kalush@music.com"
   const [formData, setFormData] = useState({
-    firstName: props.artist.firstName || "",
-    lastName: props.artist.lastName || "",
-    artistName: props.artist.artistName || "",
-    country: props.artist.country || "",
+    firstName: "Oleg",
+    lastName: "Psyuk",
+    artistName: "Kalush",
+    country: "Ukraine",
   });
-  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
@@ -29,36 +26,6 @@ export function InfoForm(props: {
       ...formData,
       [name]: value,
     });
-  };
-
-  const handleSubmit = async () => {
-    setLoading(true);
-    firebaseAuth.onAuthStateChanged(async (user) => {
-      if (user) {
-        const token = await user.getIdToken();
-        const updatedData = {
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          artistName: formData.artistName,
-          country: formData.country,
-        };
-        updateArtistInfo(token, updatedData)
-          .then(() => {
-            toast.success("updated");
-          })
-          .catch((error) => {
-            console.log(error);
-            toast.error("error");
-          })
-          .finally(() => {
-            setLoading(false);
-          });
-      }
-    });
-  };
-
-  const handleCancel = () => {
-    props.setTriggerFormRefresh((count) => count + 1);
   };
 
   return (
@@ -138,14 +105,11 @@ export function InfoForm(props: {
             title={"Cancel"}
             color={"transparent"}
             arrow={false}
-            action={handleCancel}
         />
         <Button
-            title={loading ? "Saving..." : "Save Changes"}
-            color={loading ? "loading" : "main"}
+            title={"Save Changes"}
+            color={"main"}
             arrow={false}
-            action={loading ? () => {
-            } : handleSubmit}
         />
       </div>
     </div>

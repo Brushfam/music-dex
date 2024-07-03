@@ -13,26 +13,8 @@ import { useRouter } from "next/navigation";
 
 export function ProfileHeader() {
   const t = useTranslations("Header");
-  const userName = useUserStore((state) => state.currentUserName);
-  const userEmail = useUserStore((state) => state.currentUserEmail);
-  const setCurrentUserEmail = useUserStore(
-    (state) => state.setCurrentUserEmail,
-  );
   const [modalOpen, setModalOpen] = useState(false);
   const currentLocale = useLocale();
-  const router = useRouter();
-
-  function handleLogout() {
-    signOut(firebaseAuth)
-      .then(() => {
-        router.replace("/");
-        setCurrentUserEmail("");
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error(t("error_logout"));
-      });
-  }
 
   function ModalMenu() {
     return modalOpen ? (
@@ -43,9 +25,6 @@ export function ProfileHeader() {
         <div className={s.line}></div>
         <div
           className={s.modalButton}
-          onClick={() => {
-            handleLogout();
-          }}
         >
           {currentLocale === "en" ? "Log out" : "Вихід"}
         </div>
@@ -73,8 +52,8 @@ export function ProfileHeader() {
         }}
       >
         <div className={s.content}>
-          <p className={s.name}>{userName ? userName : "User"}</p>
-          <p className={s.email}>{userEmail}</p>
+          <p className={s.name}>Oleg</p>
+          <p className={s.email}>kalush@music.com</p>
         </div>
         <Image
           src={"/profile/icons/header-arrow.svg"}

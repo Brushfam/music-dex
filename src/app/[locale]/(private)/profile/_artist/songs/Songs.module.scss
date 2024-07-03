@@ -8,13 +8,6 @@
   padding: 32px 36px 36px 36px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.16);
   background: rgb(17, 17, 17);
-  overflow-x: auto;
-}
-
-.activitiesWrapper {
-  @media (max-width: 1200px) {
-    min-width: 724px;
-  }
 }
 
 .songListSubPageEmpty {
@@ -47,6 +40,7 @@
 }
 
 .titleBlock {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -71,7 +65,7 @@
   padding: 0px 32px 0px 32px;
   border-radius: 8px;
   background: rgb(23, 23, 23);
-  margin-top: 24px;
+  margin-bottom: 10px;
 
   p {
     position: absolute;
@@ -90,18 +84,14 @@
   }
 
   &_tokens {
-    left: 428px;
+    left: 528px;
   }
 
   &_invested {
-    left: 590px;
+    left: 744px;
   }
 
-  &_status {
-    left: 800px;
-  }
-
-  @media (max-width: 1380px) {
+  @media (max-width: 1300px) {
     &_date {
       left: 32px;
     }
@@ -111,15 +101,29 @@
     }
 
     &_tokens {
-      left: 340px;
+      left: 408px;
     }
 
     &_invested {
-      left: 420px;
+      left: 624px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    &_date {
+      left: 32px;
     }
 
-    &_status {
-      left: 600px;
+    &_song {
+      left: 160px;
+    }
+
+    &_tokens {
+      left: 300px;
+    }
+
+    &_invested {
+      left: 400px;
     }
   }
 }
@@ -132,9 +136,9 @@
   justify-content: flex-start;
   align-items: center;
   padding: 8px 32px 8px 32px;
-  margin-top: 10px;
   border-radius: 10px;
   background: rgb(29, 29, 29);
+  cursor: pointer;
 
   p {
     position: absolute;
@@ -153,14 +157,14 @@
   }
 
   &_tokens {
-    left: 450px;
+    left: 542px;
   }
 
   &_invested {
-    left: 610px;
+    left: 780px;
   }
 
-  @media (max-width: 1380px) {
+  @media (max-width: 1300px) {
     &_date {
       left: 32px;
     }
@@ -170,7 +174,25 @@
     }
 
     &_tokens {
-      left: 355px;
+      left: 422px;
+    }
+
+    &_invested {
+      left: 660px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    &_date {
+      left: 32px;
+    }
+
+    &_song {
+      left: 160px;
+    }
+
+    &_tokens {
+      left: 310px;
     }
 
     &_invested {
@@ -179,45 +201,17 @@
   }
 }
 
-@mixin status {
-  position: absolute;
-  left: 782px;
-  width: 90px;
-  height: 29px;
+.chartState {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 6px 8px 6px 8px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 400;
+  flex-direction: column;
+  padding: 24px 32px 24px 32px;
+  gap: 26px;
+  border-radius: 12px;
+  background: rgb(29, 29, 29);
 
-  @media (max-width: 1380px) {
-    left: 580px;
-  }
-}
-
-.waiting {
-  @include status;
-  background: rgba(246, 160, 31, 0.1);
-  p {
-    color: rgb(246, 160, 31);
-  }
-}
-
-.complete {
-  @include status;
-  background: rgba(54, 192, 78, 0.1);
-  p {
-    color: rgb(54, 192, 78);
-  }
-}
-
-.declined {
-  @include status;
-  background: rgb(23, 23, 23);
-  p {
-    color: rgba(255, 255, 255, 0.4);
+  &_title {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 500;
   }
 }
