@@ -11,8 +11,8 @@ export const songChartDataEN = [
         {name: 'Oct', uv: 2742}
     ],
     [
-        {name: 'Feb', uv: 4201},
-        {name: 'Mar', uv: 4048},
+        {name: 'Feb', uv: 3201},
+        {name: 'Mar', uv: 3048},
         {name: 'Apr', uv: 3291},
         {name: 'May', uv: 2999},
         {name: 'Jun', uv: 3201},
