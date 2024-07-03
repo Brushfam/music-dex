@@ -5,25 +5,11 @@ export function PaymentHistory() {
   return (
     <div className={s.statisticsBlock}>
       <p className={s.title}>Royalty payments</p>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        <Image
-          src={"/profile/empty-list/payment-history.svg"}
-          alt={"icon"}
-          width={38}
-          height={48}
-        />
-        <p className={s.statisticsBlock_text1}>
-          Royalty payment history will be listed here
-        </p>
+      <div className={s.songHeader}>
+        <p className={s.songHeader_date}>Date / Time</p>
+        <p className={s.songHeader_song}>Period covered</p>
+        <p className={s.songHeader_tokens}>Song</p>
+        <p className={s.songHeader_invested}>Amount</p>
       </div>
     </div>
   );
