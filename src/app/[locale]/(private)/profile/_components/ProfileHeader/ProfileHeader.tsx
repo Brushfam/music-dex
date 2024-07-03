@@ -1,15 +1,10 @@
 "use client";
 
 import s from "./ProfileHeader.module.scss";
-import { useUserStore } from "@/store/user";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocale } from "use-intl";
 import Image from "next/image";
-import { signOut } from "@firebase/auth";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { toast } from "sonner";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
 
 export function ProfileHeader() {
   const t = useTranslations("Header");
@@ -23,9 +18,7 @@ export function ProfileHeader() {
           MusicDex
         </a>
         <div className={s.line}></div>
-        <div
-          className={s.modalButton}
-        >
+        <div className={s.modalButton}>
           {currentLocale === "en" ? "Log out" : "Вихід"}
         </div>
       </div>
@@ -34,12 +27,17 @@ export function ProfileHeader() {
 
   return (
     <div className={s.profileHeader}>
-      <Image
-        src={"/profile/avatar.svg"}
-        alt={"avatar"}
-        width={40}
-        height={40}
-      />
+      <div
+        style={{
+          borderRadius: 50,
+          overflow: "hidden",
+          position: "relative",
+          width: 40,
+          height: 40,
+        }}
+      >
+        <Image src={"/kalush.jpeg"} alt={"avatar"} fill={true} />
+      </div>
       <div
         style={{
           display: "flex",
