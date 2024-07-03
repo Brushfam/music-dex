@@ -83,7 +83,7 @@ export function PageTemplate(props: PageTemplateProps) {
               setCurrentPage(TrackSubpages.Overview);
             }}
           >
-            Overview
+              {t("TabRow.overview")}
           </p>
           <p
             style={getColor("Royalties")}
@@ -91,25 +91,25 @@ export function PageTemplate(props: PageTemplateProps) {
               setCurrentPage(TrackSubpages.Royalties);
             }}
           >
-            Royalties
+              {t("TabRow.royalties")}
           </p>
         </div>
         <div className={s.tabsSubRow}>
-          <p
-            style={getColor("Statistics")}
-            onClick={() => {
-              setCurrentPage(TrackSubpages.Statistics);
-            }}
-          >
-            Statistics
-          </p>
+          {/*<p*/}
+          {/*  style={getColor("Statistics")}*/}
+          {/*  onClick={() => {*/}
+          {/*    setCurrentPage(TrackSubpages.Statistics);*/}
+          {/*  }}*/}
+          {/*>*/}
+          {/*  {t("TabRow.statistics")}*/}
+          {/*</p>*/}
           <p
             style={getColor("AboutArtist")}
             onClick={() => {
               setCurrentPage(TrackSubpages.AboutArtist);
             }}
           >
-            About artist
+              {t("TabRow.about")}
           </p>
         </div>
       </div>

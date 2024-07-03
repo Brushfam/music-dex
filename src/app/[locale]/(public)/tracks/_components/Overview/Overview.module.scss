@@ -1,5 +1,13 @@
 .overview {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 120px;
+  width: 100%;
+}
+
+.firstBlockWrapper {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 40px;
@@ -10,15 +18,37 @@
   }
 }
 
+.secondBlockWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  overflow: hidden;
+
+  &_title {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 800px) {
+    gap: 24px;
+  }
+}
+
 .videoWrapper {
   width: 520px;
+  border-radius: 16px;
+
+  box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.15);
+  background: linear-gradient(180.00deg, rgba(17, 17, 17, 0.2) 50%,rgba(17, 17, 17, 0.8) 85.4%);
 
   @media (max-width: 1100px) {
     width: 100%;
   }
 }
 
-.secondBlockWrapper {
+.streamsBlock {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -55,6 +85,7 @@
 .listenOn {
   display: flex;
   flex-direction: row;
+  gap: 24px;
 
   img {
     cursor: pointer;
@@ -65,5 +96,64 @@
     //flex-direction: column;
     //width: 100%;
     //align-items: center;
+  }
+}
+
+.revenueSources {
+  position: relative;
+  display:grid;
+  grid-template-columns: 510px 510px;
+  grid-row: auto;
+  grid-column-gap: 40px;
+  grid-row-gap: 20px;
+  padding: 42px 40px 42px 40px;
+
+  border-radius: 32px;
+  backdrop-filter: blur(10px);
+  background: rgba(30, 30, 30, 0.3);
+
+  @media (max-width: 1280px) {
+    grid-template-columns: 310px 310px;
+  }
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.line {
+  position: absolute;
+  right: -17%;
+  top: 17%;
+
+  @media (max-width: 1280px) {
+    display: none;
+  }
+}
+
+.revenue {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  &_title {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  &_titleBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &_description {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    font-weight: 400;
   }
 }
