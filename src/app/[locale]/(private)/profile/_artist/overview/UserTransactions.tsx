@@ -1,5 +1,4 @@
 import s from "./Overview.module.scss";
-import Image from "next/image";
 
 export function UserTransactions() {
   function TransactionRow(props: {
@@ -21,11 +20,11 @@ export function UserTransactions() {
   return (
     <div className={s.transactionsBlock}>
       <p className={s.title}>Latest users’ transactions </p>
-      <div className={s.songHeader}>
-        <p className={s.songHeader_date}>Date / Time</p>
-        <p className={s.songHeader_song}>Song</p>
-        <p className={s.songHeader_tokens}>Tokens</p>
-        <p className={s.songHeader_invested}>Amount</p>
+      <div className={s.transactionsHeader}>
+        <p className={s.transactionsHeader_date}>Date / Time</p>
+        <p className={s.transactionsHeader_song}>Song</p>
+        <p className={s.transactionsHeader_tokens}>Tokens</p>
+        <p className={s.transactionsHeader_invested}>Amount</p>
       </div>
       <div className={s.transactionsBlockList}>
         <TransactionRow

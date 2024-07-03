@@ -111,12 +111,11 @@
   }
 }
 
-.suggestedSongs {
+.royaltiesHistory {
   width: 420px;
   height: 580px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 24px;
   border-radius: 14px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.16);
@@ -153,24 +152,24 @@
   }
 }
 
-.suggestedSongsList, .transactionsBlockList {
+.royaltiesHistoryList, .transactionsBlockList {
   width: 100%;
   overflow: auto;
 }
 
 
-.suggestedSongsList::-webkit-scrollbar,
+.royaltiesHistoryList::-webkit-scrollbar,
 .transactionsBlockList::-webkit-scrollbar {
   width: auto;
 }
 
-.suggestedSongsList::-webkit-scrollbar,
+.royaltiesHistoryList::-webkit-scrollbar-track,
 .transactionsBlockList::-webkit-scrollbar-track {
   width: 2px;
   background: transparent;
 }
 
-.suggestedSongsList::-webkit-scrollbar,
+.royaltiesHistoryList::-webkit-scrollbar-thumb,
 .transactionsBlockList::-webkit-scrollbar-thumb {
   background-color: white;
   height: 125px;
@@ -180,13 +179,13 @@
   background-clip: content-box;
 }
 
-.suggestedSongsList::-webkit-scrollbar,
+.royaltiesHistoryList::-webkit-scrollbar-corner,
 .transactionsBlockList::-webkit-scrollbar-corner {
   width: 0;
   background: transparent;
 }
 
-.songHeader {
+.transactionsHeader {
   position: relative;
   min-height: 34px;
   width: 100%;
@@ -262,6 +261,152 @@
 }
 
 .transactionsRow {
+  position: relative;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 32px 8px 32px;
+  border-radius: 10px;
+
+  p {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+  }
+
+  &_date {
+    left: 32px;
+  }
+
+  &_song {
+    left: 238px;
+  }
+
+  &_tokens {
+    left: 546px;
+  }
+
+  &_invested {
+    left: 764px;
+  }
+
+  @media (max-width: 1300px) {
+    &_date {
+      left: 32px;
+    }
+
+    &_song {
+      left: 220px;
+    }
+
+    &_tokens {
+      left: 428px;
+    }
+
+    &_invested {
+      left: 640px;
+    }
+  }
+
+  @media (max-width: 860px) {
+    &_date {
+      left: 32px;
+    }
+
+    &_song {
+      left: 200px;
+    }
+
+    &_tokens {
+      left: 370px;
+    }
+
+    &_invested {
+      left: 470px;
+    }
+  }
+}
+
+.royaltiesHistoryHeader {
+  position: relative;
+  min-height: 34px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 32px 0px 32px;
+  border-radius: 8px;
+  background: rgb(23, 23, 23);
+  margin-bottom: 5px;
+  margin-top: 16px;
+
+  p {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+  }
+
+  &_date {
+    left: 32px;
+  }
+
+  &_song {
+    left: 238px;
+  }
+
+  &_tokens {
+    left: 528px;
+  }
+
+  &_invested {
+    left: 744px;
+  }
+
+  @media (max-width: 1300px) {
+    &_date {
+      left: 32px;
+    }
+
+    &_song {
+      left: 220px;
+    }
+
+    &_tokens {
+      left: 408px;
+    }
+
+    &_invested {
+      left: 624px;
+    }
+  }
+
+  @media (max-width: 860px) {
+    &_date {
+      left: 32px;
+    }
+
+    &_song {
+      left: 200px;
+    }
+
+    &_tokens {
+      left: 350px;
+    }
+
+    &_invested {
+      left: 456px;
+    }
+  }
+}
+
+.royaltiesHistoryRow {
   position: relative;
   height: 60px;
   display: flex;
