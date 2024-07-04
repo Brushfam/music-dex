@@ -253,16 +253,46 @@
 
   "ProfileArtist": {
     "Profile": {
-      "title": "Профіль"
+      "title": "Профіль",
+      "form_title": "Персональна інформація",
+      "name": "Ім'я",
+      "email": "Email",
+      "last_name": "Фамілія",
+      "additional_info": "Додаткова інформація",
+      "artist_name": "Ім'я артиста",
+      "country": "Країна",
+      "select_country": "Обрати країну",
+      "cancel": "Відміна",
+      "save": "Зберегти"
     },
     "Overview": {
-      "title": "Огляд"
+      "title": "Огляд",
+      "overview_block1": "Токени, придбані інвесторами",
+      "overview_block2": "Інвестиції слухачів",
+      "overview_block3": "Виплачено роялті",
+      "transactions_title": "Останні транзакції користувачів",
+      "date_time": "Дата / Час",
+      "song": "Пісня",
+      "tokens": "Токени",
+      "amount": "Кількість",
+      "royalty_title": "Виплати роялті",
+      "date": "Дата",
+      "period": "Період",
+      "february": "Лютий",
+      "january": "Січень"
     },
     "Songs": {
-      "title": "Завантажені пісні"
+      "title": "Завантажені пісні",
+      "list_title": "Список пісень",
+      "listing_date": "Дата лістингу",
+      "song": "Пісня",
+      "tokens": "Токени",
+      "total": "Отримано",
+      "sales_activity": "Активність продажів"
     },
     "FAQ": {
-      "title": "FAQ"
+      "title": "FAQ",
+      "list_title": "Відповіді на популярні питання"
     }
   },
 

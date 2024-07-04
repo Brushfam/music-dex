@@ -6,11 +6,12 @@ import { SongHeader } from "@/app/[locale]/(private)/profile/_artist/songs/SongH
 
 export function Songs() {
   const t = useTranslations("ProfileArtist.Songs");
+
   return (
-    <PageWrapper title={"Uploaded songs"} height={"auto"} loading={false}>
+    <PageWrapper title={t("title")} height={"auto"} loading={false}>
       <div style={{ display: "flex", flexDirection: "column", minWidth: 530 }}>
         <div className={s.titleBlock}>
-          <p className={s.titleBlock_text}>{"List of songs"}</p>
+          <p className={s.titleBlock_text}>{t("list_title")}</p>
         </div>
         <SongHeader />
         <SongRow1

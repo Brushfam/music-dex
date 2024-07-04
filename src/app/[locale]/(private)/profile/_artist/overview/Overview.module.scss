@@ -112,8 +112,7 @@
 }
 
 .royaltiesHistory {
-  width: 420px;
-  height: 580px;
+  height: 280px;
   display: flex;
   flex-direction: column;
   padding: 24px;
@@ -144,11 +143,6 @@
     color: rgba(255, 255, 255, 0.5);
     font-size: 14px;
     font-weight: 400;
-  }
-
-  @media (max-width: 1440px) {
-    width: 100%;
-    height: 300px;
   }
 }
 
@@ -362,7 +356,7 @@
   }
 
   &_tokens {
-    left: 528px;
+    left: 500px;
   }
 
   &_invested {
@@ -401,7 +395,7 @@
     }
 
     &_invested {
-      left: 456px;
+      left: 476px;
     }
   }
 }
@@ -433,11 +427,11 @@
   }
 
   &_tokens {
-    left: 546px;
+    left: 500px;
   }
 
   &_invested {
-    left: 764px;
+    left: 758px;
   }
 
   @media (max-width: 1300px) {
@@ -450,7 +444,7 @@
     }
 
     &_tokens {
-      left: 428px;
+      left: 408px;
     }
 
     &_invested {
@@ -468,11 +462,11 @@
     }
 
     &_tokens {
-      left: 370px;
+      left: 350px;
     }
 
     &_invested {
-      left: 470px;
+      left: 490px;
     }
   }
 }

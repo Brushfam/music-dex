@@ -65,7 +65,7 @@ export function RenderLineChart(props: {chartNumber: number}) {
             borderRadius: 8,
           }}
           formatter={(value: ValueType, name: "") => {
-            return [`${value}`];
+            return [`$${value}`];
           }}
           label={""}
         />

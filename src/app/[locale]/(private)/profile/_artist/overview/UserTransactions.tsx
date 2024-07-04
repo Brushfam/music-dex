@@ -1,6 +1,8 @@
 import s from "./Overview.module.scss";
+import {useTranslations} from "next-intl";
 
 export function UserTransactions() {
+    const t = useTranslations("ProfileArtist.Overview");
   function TransactionRow(props: {
     date: string;
     song: string;
@@ -19,12 +21,12 @@ export function UserTransactions() {
 
   return (
     <div className={s.transactionsBlock}>
-      <p className={s.title}>Latest users’ transactions </p>
+      <p className={s.title}>{t("transactions_title")}</p>
       <div className={s.transactionsHeader}>
-        <p className={s.transactionsHeader_date}>Date / Time</p>
-        <p className={s.transactionsHeader_song}>Song</p>
-        <p className={s.transactionsHeader_tokens}>Tokens</p>
-        <p className={s.transactionsHeader_invested}>Amount</p>
+        <p className={s.transactionsHeader_date}>{t("date_time")}</p>
+        <p className={s.transactionsHeader_song}>{t("song")}</p>
+        <p className={s.transactionsHeader_tokens}>{t("tokens")}</p>
+        <p className={s.transactionsHeader_invested}>{t("amount")}</p>
       </div>
       <div className={s.transactionsBlockList}>
         <TransactionRow

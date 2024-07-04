@@ -253,16 +253,46 @@
 
   "ProfileArtist": {
     "Profile": {
-      "title": "Profile"
+      "title": "Profile",
+      "form_title": "Personal info & Settings",
+      "name": "Name",
+      "email": "Email",
+      "last_name": "Last Name",
+      "additional_info": "Additional Info",
+      "artist_name": "Artist Name",
+      "country": "Country",
+      "select_country": "Select Country",
+      "cancel": "Cancel",
+      "save": "Save Changes"
     },
     "Overview": {
-      "title": "Overview"
+      "title": "Overview",
+      "overview_block1": "Tokens purchased by listeners’",
+      "overview_block2": "Listeners invested",
+      "overview_block3": "Royalties paid",
+      "transactions_title": "Latest users’ transactions",
+      "date_time": "Date / Time",
+      "song": "Song",
+      "tokens": "Tokens",
+      "amount": "Amount",
+      "royalty_title": "Royalty payments",
+      "date": "Date",
+      "period": "Period covered",
+      "february": "February",
+      "january": "January"
     },
     "Songs": {
-      "title": "Uploaded songs"
+      "title": "Uploaded songs",
+      "list_title": "List of songs",
+      "listing_date": "Listing date",
+      "song": "Song",
+      "tokens": "Tokens",
+      "total": "Total received",
+      "sales_activity": "Sales activity"
     },
     "FAQ": {
-      "title": "FAQ"
+      "title": "FAQ",
+      "list_title": "Answers to Frequently Asked Questions"
     }
   },
 

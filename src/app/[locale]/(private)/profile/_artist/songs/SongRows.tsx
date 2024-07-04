@@ -4,6 +4,7 @@ import s from "./Songs.module.scss";
 import Image from "next/image";
 import { useState } from "react";
 import {RenderLineChart} from "@/app/[locale]/(private)/profile/_artist/songs/Chart";
+import {useTranslations} from "next-intl";
 
 export function SongRow1(props: {
   lastDate: string;
@@ -13,6 +14,7 @@ export function SongRow1(props: {
   songLink: string;
   chartNumber: number
 }) {
+  const t = useTranslations("ProfileArtist.Songs");
   const [modalOpen, setModalOpen] = useState(false);
 
   return modalOpen ? (
@@ -20,7 +22,7 @@ export function SongRow1(props: {
         setModalOpen(!modalOpen);
     }} style={{cursor: "pointer"}}>
       <div className={s.titleBlock}>
-        <p className={s.chartState_title}>Sales activity</p>
+        <p className={s.chartState_title}>{t("sales_activity")}</p>
         <Image
           src={"/profile/icons/header-arrow.svg"}
           alt={"arrow"}

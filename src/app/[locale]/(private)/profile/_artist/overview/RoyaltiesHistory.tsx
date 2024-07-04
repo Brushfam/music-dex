@@ -1,6 +1,8 @@
 import s from "./Overview.module.scss";
+import {useTranslations} from "next-intl";
 
 export function RoyaltiesHistory() {
+    const t = useTranslations("ProfileArtist.Overview");
   function RoyaltiesRow(props: {
     date: string;
     period: string;
@@ -19,41 +21,41 @@ export function RoyaltiesHistory() {
 
   return (
     <div className={s.royaltiesHistory}>
-      <p className={s.title}>Royalty payments</p>
+      <p className={s.title}>{t("royalty_title")}</p>
       <div className={s.royaltiesHistoryHeader}>
-        <p className={s.royaltiesHistoryHeader_date}>Date</p>
-        <p className={s.royaltiesHistoryHeader_song}>Period covered</p>
-        <p className={s.royaltiesHistoryHeader_tokens}>Song</p>
-        <p className={s.royaltiesHistoryHeader_invested}>Amount</p>
+        <p className={s.royaltiesHistoryHeader_date}>{t("date")}</p>
+        <p className={s.royaltiesHistoryHeader_song}>{t("period")}</p>
+        <p className={s.royaltiesHistoryHeader_tokens}>{t("song")}</p>
+        <p className={s.royaltiesHistoryHeader_invested}>{t("amount")}</p>
       </div>
       <div className={s.royaltiesHistoryList}>
         <RoyaltiesRow
           date={"01/03/2024"}
-          period={"February"}
+          period={t("february")}
           song={"Стіни"}
           amount={211}
         />
         <RoyaltiesRow
           date={"01/03/2024 11:45"}
-          period={"February"}
+          period={t("february")}
           song={"Зорі"}
           amount={211}
         />
         <RoyaltiesRow
           date={"01/03/2024 11:45"}
-          period={"February"}
+          period={t("february")}
           song={"Додому"}
           amount={211}
         />
         <RoyaltiesRow
           date={"01/02/2024 11:45"}
-          period={"January"}
+          period={t("january")}
           song={"Стіни"}
           amount={211}
         />
         <RoyaltiesRow
           date={"01/02/2024 11:45"}
-          period={"January"}
+          period={t("january")}
           song={"Зорі"}
           amount={211}
         />

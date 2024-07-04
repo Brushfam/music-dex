@@ -1,12 +1,14 @@
 import s from "./Overview.module.scss";
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 
 export function OverviewRow() {
+  const t = useTranslations("ProfileArtist.Overview");
   return (
     <div className={s.overviewRow}>
       <div className={s.overviewItem}>
         <div className={s.overviewItem_column}>
-          <p className={s.overviewItem_text1}>Tokens purchased by listeners’</p>
+          <p className={s.overviewItem_text1}>{t("overview_block1")}</p>
           <p className={s.overviewItem_text2}>15,612.05</p>
         </div>
         <Image
@@ -19,7 +21,7 @@ export function OverviewRow() {
       <div className={s.overviewSubRow}>
         <div className={s.overviewItem}>
           <div className={s.overviewItem_column}>
-            <p className={s.overviewItem_text1}>Listeners’ invested</p>
+            <p className={s.overviewItem_text1}>{t("overview_block2")}</p>
             <p className={s.overviewItem_text2}>$28,281.44</p>
           </div>
           <Image
@@ -31,7 +33,7 @@ export function OverviewRow() {
         </div>
         <div className={s.overviewItem}>
           <div className={s.overviewItem_column}>
-            <p className={s.overviewItem_text1}>Royalties paid</p>
+            <p className={s.overviewItem_text1}>{t("overview_block3")}</p>
             <p className={s.overviewItem_text2}>$2519.00</p>
           </div>
           <Image
