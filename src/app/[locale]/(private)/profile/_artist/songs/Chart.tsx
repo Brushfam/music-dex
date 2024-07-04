@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Area,
   AreaChart,
@@ -7,14 +9,17 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { songChartDataEN } from "@/data/kalush/songChartData";
+import { songChartDataEN, songChartDataUK } from "@/data/kalush/songChartData";
 import { ValueType } from "recharts/types/component/DefaultTooltipContent";
+import { useLocale } from "use-intl";
 
-export function RenderLineChart(props: {chartNumber: number}) {
+export function RenderLineChart(props: { chartNumber: number }) {
+  const currentLocale = useLocale();
+  const songData = currentLocale === "en" ? songChartDataEN : songChartDataUK;
   return (
     <ResponsiveContainer width="100%" height={320}>
       <AreaChart
-        data={songChartDataEN[props.chartNumber]}
+        data={songData[props.chartNumber]}
         margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
       >
         <defs>
