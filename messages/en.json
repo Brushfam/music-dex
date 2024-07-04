@@ -340,6 +340,12 @@
     "Royalties": {
       "title": "Payouts History",
       "no_history": "No payouts yet"
+    },
+    "Statistics": {
+      "title1": "Total Spotify streams",
+      "title2": "Total YouTube Music streams",
+      "title3": "Total Apple Music streams",
+      "title4": "Radio plays"
     }
   }
 }

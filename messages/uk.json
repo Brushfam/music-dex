@@ -338,6 +338,12 @@
     "Royalties": {
       "title": "Історія виплат",
       "no_history": "Поки що немає виплат"
+    },
+    "Statistics": {
+      "title1": "Прослуховувань на Spotify",
+      "title2": "Прослуховувань на YouTube Music",
+      "title3": "Прослуховувань на Apple Music",
+      "title4": "Радіо"
     }
   }
 }
