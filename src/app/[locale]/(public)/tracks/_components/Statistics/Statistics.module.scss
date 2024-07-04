@@ -1,5 +1,11 @@
 .statisticsWrapper {
   display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.statistics {
+  display: flex;
   flex-direction: row;
   gap: 32px;
   width: 100%;
@@ -60,3 +66,50 @@
     font-weight: 400;
   }
 }
+
+.cardBlockWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.chartBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &_summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 12px 18px 12px 18px;
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    background: rgb(30, 30, 30);
+  }
+
+  &_summary_text1 {
+    color: rgb(246, 96, 31);
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &_summary_text2 {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.chartWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 30px;
+  padding: 24px;
+  border-radius: 24px;
+  background: rgba(30, 30, 30, 0.3);
+}
+
+
