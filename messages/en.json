@@ -278,8 +278,8 @@
       "royalty_title": "Royalty payments",
       "date": "Date",
       "period": "Period covered",
-      "february": "February",
-      "january": "January"
+      "empty_royalties_history": "Royalty payment history will be listed here",
+      "empty_transactions_list": "The history of user's purchases will be shown here"
     },
     "Songs": {
       "title": "Uploaded songs",
@@ -288,7 +288,8 @@
       "song": "Song",
       "tokens": "Tokens",
       "total": "Total received",
-      "sales_activity": "Sales activity"
+      "sales_activity": "Sales activity",
+      "empty_song_list": " List of your songs will be shown here"
     },
     "FAQ": {
       "title": "FAQ",
@@ -339,6 +340,12 @@
     "Royalties": {
       "title": "Payouts History",
       "no_history": "No payouts yet"
+    },
+    "Statistics": {
+      "title1": "Total Spotify streams",
+      "title2": "Total YouTube Music streams",
+      "title3": "Total Apple Music streams",
+      "title4": "Radio plays"
     }
   }
 }

@@ -7,7 +7,7 @@ export function Songs() {
   const t = useTranslations("ProfileArtist.Songs");
   return (
     <PageWrapper title={t("title")} height={"auto"} loading={false}>
-      <p className={s.title}>List of songs </p>
+      <p className={s.title}>{t("list_title")}</p>
       <div style={{ width: "100%", height: 300 }}>
         <div
           style={{
@@ -26,7 +26,7 @@ export function Songs() {
             height={50}
           />
           <p className={s.statisticsBlock_text1}>
-            List of your songs will be shown here
+              {t("empty_song_list")}
           </p>
         </div>
       </div>

@@ -11,7 +11,7 @@ export function FAQ() {
 
     return (
         <PageWrapper title={t("title")} height={"auto"} loading={false}>
-            <p className={s.subpageTitle}>Answers to Frequently Asked Questions</p>
+            <p className={s.subpageTitle}>{t("list_title")}</p>
             <FaqList/>
         </PageWrapper>
     );

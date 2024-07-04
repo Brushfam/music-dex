@@ -7,11 +7,13 @@ import { useUserStore } from "@/store/user";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { toast } from "sonner";
 import {updateArtistInfo} from "@/services/users/artist/artist";
+import {useTranslations} from "next-intl";
 
 export function InfoForm(props: {
   artist: ArtistInfo;
   setTriggerFormRefresh: Dispatch<SetStateAction<number>>;
 }) {
+  const t = useTranslations("ProfileArtist.Profile");
   const userEmail = useUserStore((state) => state.currentUserEmail);
   const [formData, setFormData] = useState({
     firstName: props.artist.firstName || "",
@@ -65,7 +67,7 @@ export function InfoForm(props: {
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div className={s.inputRow}>
         <div className={s.inputBlock}>
-          <label>Name</label>
+          <label>{t("name")}</label>
           <input
             type="text"
             name="firstName"
@@ -75,7 +77,7 @@ export function InfoForm(props: {
           />
         </div>
         <div className={s.inputBlock}>
-          <label>Email</label>
+          <label>{t("email")}</label>
           <input
             type="email"
             name="email"
@@ -88,7 +90,7 @@ export function InfoForm(props: {
       </div>
       <div className={s.inputRow}>
         <div className={s.inputBlock}>
-          <label>Last Name</label>
+          <label>{t("last_name")}</label>
           <input
             type="text"
             name="lastName"
@@ -101,10 +103,10 @@ export function InfoForm(props: {
       <div
           style={{display: "flex", flexDirection: "column", marginBottom: 16}}
       >
-        <p className={s.inputRowTitle}>Additional Info</p>
+        <p className={s.inputRowTitle}>{t("additional_info")}</p>
         <div className={s.inputRow}>
           <div className={s.inputBlock}>
-            <label>Artist Name</label>
+            <label>{t("artist_name")}</label>
             <input
                 type="text"
                 name="artistName"
@@ -114,14 +116,14 @@ export function InfoForm(props: {
             />
           </div>
           <div className={s.inputBlock}>
-            <label>Country</label>
+            <label>{t("country")}</label>
             <select
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
                 className={s.formInput}
             >
-              <option value="">Select Country</option>
+              <option value="">{t("select_country")}</option>
               {countries.map((country, index) => {
                 return (
                     <option key={index.toString()} value={country.name}>
@@ -135,8 +137,8 @@ export function InfoForm(props: {
       </div>
       <div style={{display: "flex", flexDirection: "row", gap: 12}}>
         <Button
-            title={"Cancel"}
-            color={"transparent"}
+            title={t("cancel")}
+            color={t("save")}
             arrow={false}
             action={handleCancel}
         />

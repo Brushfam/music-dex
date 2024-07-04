@@ -278,8 +278,8 @@
       "royalty_title": "Виплати роялті",
       "date": "Дата",
       "period": "Період",
-      "february": "Лютий",
-      "january": "Січень"
+      "empty_royalties_history": "Тут буде показана історія виплат роялті",
+      "empty_transactions_list": "Тут буде показана історія покупок юзерів"
     },
     "Songs": {
       "title": "Завантажені пісні",
@@ -288,7 +288,8 @@
       "song": "Пісня",
       "tokens": "Токени",
       "total": "Отримано",
-      "sales_activity": "Активність продажів"
+      "sales_activity": "Активність продажів",
+      "empty_song_list": "Список Ваших пісень буде відображено тут"
     },
     "FAQ": {
       "title": "FAQ",
@@ -339,6 +340,12 @@
     "Royalties": {
       "title": "Історія виплат",
       "no_history": "Поки що немає виплат"
+    },
+    "Statistics": {
+      "title1": "Прослуховувань на Spotify",
+      "title2": "Прослуховувань на YouTube Music",
+      "title3": "Прослуховувань на Apple Music",
+      "title4": "Радіо"
     }
   }
 }
