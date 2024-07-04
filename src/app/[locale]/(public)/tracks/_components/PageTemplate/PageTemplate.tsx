@@ -118,7 +118,7 @@ export function PageTemplate(props: PageTemplateProps) {
 
   function CurrentSubPage() {
     if (currentPage === "Overview") {
-      return <Overview videoId={"Jb5qdg30jSU"} />;
+      return <Overview videoId={"OF7bh0Y3vyo"} />;
     } else if (currentPage === "Royalties") {
       return <Royalties />;
     } else if (currentPage === "Statistics") {
@@ -140,9 +140,7 @@ export function PageTemplate(props: PageTemplateProps) {
           <div className={s.info}>
             <div
               className={
-                props.songName === "Дилер"
-                  ? s.trackCoverDealer
-                  : s.trackCoverUKSun
+                  s.trackCoverDodomy
               }
             >
               <p className={s.titleText}>{props.artist}</p>

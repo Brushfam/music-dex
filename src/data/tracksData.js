@@ -1,14 +1,14 @@
-export const dealerEN = {
-  rights_holder: "Tony Tonite",
-  price: 0.22,
+export const dodomyEN = {
+  rights_holder: "Kalush",
+  price: 0.5,
   details: [
     {
       type: "Song Release:",
-      value: "March 2024",
+      value: "May 2021",
     },
     {
       type: "Published On Platform",
-      value: "March 2024",
+      value: "Aug 2024",
     },
     {
       type: "Blockchain:",
@@ -20,36 +20,27 @@ export const dealerEN = {
     },
   ],
   description:
-    "Tony Tonite is a Ukrainian singer, sound producer. He is engaged in volunteering, in particular, he participates in charity concerts in support of the military and displaced persons, and also directs his activities to the revival and formation of musical culture in Ukraine.",
+    "Kalush is a Ukrainian rap group formed in 2019. The group consists of founder and rapper Oleh Psiuk, multi-instrumentalist Ihor Didenchuk, and breakdancer MC KylymMen. " +
+    "In early 2021, the group launched the side project Kalush Orchestra. Unlike the original line-up, Kalush Orchestra focuses on hip hop blended with folk motifs and elements from Ukrainian traditional music.",
   about_artist: [
-    "Tony Tonite is a Ukrainian singer, sound producer. ",
-    "In 2009, after graduation, he opened a music production studio in the center of Kyiv. After, he began a solo career as an artist and started releasing tracks under the pseudonym Tony Tonite.",
-    'He recorded his first album "POPSHIT EP" in 2013. Also, in 2013, Tony released the track "Ау-ау-ау", which became a turning point in his career. For a long time, the track was in the rotation ' +
-      "of the world-famous British radio station BBC Radio.",
-    'In 2015, the track "Am in Love" was released, which was noticed in the authoritative music publication Hype Magazine. The next track "My Only" topped the charts of the French national entertainment ' +
-      'TV channel CStar. In June 2016, Tony Tonite released the album "Awake", on which he worked together with the iconic British producer and musician Adrian Tauze, better known by his stage name Tricky. Also ' +
-      'in 2016, the album "Ю" was released. The music video for the main track "Я хотел бы знать" received more than 1 million views in 2 weeks.',
-    "At the end of 2016, he severed all ties with the Gazgolder label and moved to Belarus. From 2017 to 2019, the artist continues work. In 2020, unable to withstand the Belarusian regime, " +
-      "he moved to Turkey with his family.",
-    'In 2021, Tony released his first Ukrainian-language track "Києве мій", which marked the artist\'s return to his native Ukrainian scene. ' +
-      'Another album "1987" was released in June 2021, which includes the joint track "I Wanna Be Foreva Young" with Ivan Dorn.',
-    "After the start of a full-scale war, he returned from Turkey to Kyiv to support his historic Motherland. He is engaged in volunteering, in particular, he participates in charity " +
-      "concerts in support of the military and displaced persons, and also directs his activities to the revival and formation of musical culture in Ukraine.",
-    'The artist recorded the track "Leleka" together with displaced children. This song started a charity collection to help the children of the war and to meet the needs of the Armed Forces of Ukraine.',
+    "Oleh Romanovych Psiuk (Ukrainian: Олег Романович Псюк; born 16 May 1994), also known by his stage name Psiuchyi Syn, is a Ukrainian rapper and songwriter, who is the founder and frontman of the rap group Kalush.",
+    "Psiuk was born on 16 May 1994 in Kalush, Ivano-Frankivsk Oblast as the son of a shop assistant and a mechanical engineer. He attended Kalush Polytechnic College, where he was trained as a maintenance technician. In 2013, he moved to Lviv to study at the Department of Automation and Computer-Integrated Technologies of the Ukrainian National Forestry University.",
+    'On 12 February 2022, Kalush Orchestra competed to represent Ukraine in the Eurovision Song Contest 2022 in Turin, Italy with the song "Stefania". In the final of the national selection Vidbir, they took second place with 14 points (six from the jury and eight from the audience).[13] Despite coming in second place, the group was offered the chance to represent Ukraine in the Eurovision Song Contest after the winner had withdrawn her candidacy. On 22 February, Kalush Orchestra accepted the offer.',
+    'The group won the Eurovision final on 14 May with 631 points, securing Ukraine\'s third Eurovision victory. "Stefania" became the first song with rap lyrics to win the contest, as well as the winning song with the highest number of televote points in the history of the contest.',
   ],
 };
 
-export const dealerUK = {
-  rights_holder: "Tony Tonite",
-  price: 0.22,
+export const dodomyUK = {
+  rights_holder: "Kalush",
+  price: 0.5,
   details: [
     {
       type: "Реліз пісні:",
-      value: "Березень 2024",
+      value: "Травень 2021",
     },
     {
       type: "Опубліковано:",
-      value: "Березень 2024",
+      value: "Серпень 2024",
     },
     {
       type: "Блокчейн:",
@@ -61,23 +52,16 @@ export const dealerUK = {
     },
   ],
   description:
-    "Tony Tonite – український співак, саунд-продюсер. Займається волонтерством, зокрема бере участь в благодійних концертах на підтримку військових та переселенців, а також спрямовує свою діяльність на відродження та становлення музичної культури в Україні.",
+    "«KALUSH» — український реп-гурт, заснований у 2019 році Олегом Псюком який на той момент був репером Псючий син та музичним продюсером Ваньком Клименком. З ініціативи фронтменів гурту «KALUSH» у 2021 був утворений інший гурт — «Kalush Orchestra», який 15 травня 2022 року став переможцем «Євробачення-2022» з піснею «Стефанія»",
   about_artist: [
-    "Tony Tonite – український співак, саунд-продюсер.",
-    "У 2009 році, після закінчення навчання, відкрив музичну студію в центрі Києва. Після цього він почав сольну кар'єру і випускає треки під псевдонімом Tony Tonite.",
-    "Записав свій перший альбом «POPSHIT EP» у 2013 році. Того ж, 2013 року Тоні випуска трек «Ау-ау-ау», який стає переломним у кар’єрі. Довгий час трек знаходився у ротації всесвітньо відомої британської радіостанції BBC Radio",
-    "У 2015 виходить трек «Am in Love», на який звернули увагу в авторитетному музичному виданні Hype Magazine[9]. А наступний трек «My Only» очолив чарти національного розважального телеканалу Франції CStar.",
-    "У червні 2016 року Tony Tonite випустив альбом «Awake», над яким працював разом з культовим британським продюсером та музикантом Адріаном Таузем, більш відомим під сценічним псевдонімом Tricky.",
-    "Також у 2016 році вийшов альбом «Ю». Кліп на головну композицію «Я хотел бы знать» набрав понад 1 мільйон переглядів за 2 тижні.",
-    "У кінці 2016 року розірвав усі зв’язки з лейблом Gazgolder та переїхав до Білорусі. З 2017 по 2019 роки артист продовжує займатися творчістю. У 2020 році, не витримавши білоруського режиму, разом з родиною переїжджає до Туреччини.",
-    "У 2021 році Тунайт випустив свій перший україномовний трек «Києве мій», що ознаменував повернення артиста до рідної української сцени. " +
-      "У червні 2021 вийшов ще один альбом «1987», куди входить спільний трек з Іваном Дорном «I Wanna Be Foreva Young».",
-    "Після початку повномасштабної війни Росії проти України категорично припинив роботу та спілкування з російськими виконавцями. У квітні 2022 повернувся з Туреччини до Києва, щоб підтримати свою історичну Батьківщину. " +
-      "Займається волонтерством, зокрема бере участь в благодійних концертах на підтримку військових та переселенців, а також спрямовує свою діяльність на відродження та становлення музичної культури в Україні.",
-    "Трек «Leleka» артист записав спільно з дітьми-переселенцями. Цією піснею розпочався благодійний збір на допомогу дітям війни та на потреби ЗСУ.",
+    "Олег Романович Псюк, сценічний псевдонім Псючий Син (нар. 16 травня 1994, Калуш, Україна) — український репер, засновник і фронтмен гурту «Kalush» та «Kalush Orchestra». Почесний громадянин міста Калуша (2022).",
+    "Музика в житті Олега з’явилася в 2008 році. В цей період хлопець багато слухає Емінема і вирішує, що також може читати. Купує дешевий мікрофон і починає свої перші експерименти. Пише реп з 2009 року. Першим треком став діс на класну керівницю. Хоча запис був низької якості, він мав популярність в школі.",
+    "Після створення декількох треків Олег знаходить однодумців. Калуш на той час вважався реп столицею західної України. Калуська реп-спільнота проводила різні цікаві, атмосферні заходи.",
+    "З 2015 року Олег займається репом продуктивніше. Починає створювати більше треків. Вони вдаються кращої якості, і в 2018 році виходить перший альбом «Торба». Цей альбом було високо оцінено спільнотою українського реп андеграунду. І завдяки цьому Олег знайомиться з Іваном Клеменком (саундпродюсер і менеджер Kalush та Alyona Alyona). ",
+    "З 2019 року — фронтмен гурту «Kalush». З 2021 року — фронтмен гурту «Kalush Orchestra».",
   ],
 };
 
 export const trackAddresses = {
-  dealer: "0x00630cbc324308dad0f847e9e2294611b67f012be5fb7418f38e25e6ab6ab26d"
-}
+  dodomy: "0x00630cbc324308dad0f847e9e2294611b67f012be5fb7418f38e25e6ab6ab26d",
+};

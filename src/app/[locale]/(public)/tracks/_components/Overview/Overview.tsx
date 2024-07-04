@@ -18,15 +18,15 @@ export function Overview(props: { videoId: string }) {
       <div className={s.detailsBlock}>
         <div className={s.details}>
           <p>{t("price_per_token")}</p>
-          <p>$2.2</p>
+          <p>$5</p>
         </div>
         <div className={s.details}>
           <p>{t("total_purchased_tokens")}</p>
-          <p>6</p>
+          <p>2,920</p>
         </div>
         <div className={s.details}>
           <p>{t("tokens_remaining")}</p>
-          <p>9,994</p>
+          <p>7,080</p>
         </div>
       </div>
     );
@@ -37,7 +37,7 @@ export function Overview(props: { videoId: string }) {
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div className={s.listenOn}>
           <Link
-            href={"https://youtu.be/Jb5qdg30jSU?si=S3Zrl15hXdy97_CP"}
+            href={"https://www.youtube.com/watch?v=OF7bh0Y3vyo"}
             target={"_blank"}
           >
             <Image
@@ -49,7 +49,7 @@ export function Overview(props: { videoId: string }) {
           </Link>
           <Link
             href={
-              "https://music.apple.com/us/album/%D0%B4%D0%B8%D0%BB%D0%B5%D1%80-single/1735502812"
+              "https://music.apple.com/by/album/%D0%B4%D0%BE%D0%B4%D0%BE%D0%BC%D1%83-feat-skofka/1576323793?i=1576324037"
             }
             target={"_blank"}
           >
@@ -64,7 +64,7 @@ export function Overview(props: { videoId: string }) {
         <div className={s.listenOn}>
           <Link
             href={
-              "https://music.youtube.com/playlist?list=OLAK5uy_kk-5lk0jb0o0TAqFgYzDwM2I7JvGuyhlo&si=POEggXulYwj-Hj9J"
+              "https://music.youtube.com/watch?v=Qn4OT_EK7jk&si=n7bJ-sfm24S9XLJd"
             }
             target={"_blank"}
           >
@@ -77,7 +77,7 @@ export function Overview(props: { videoId: string }) {
           </Link>
           <Link
             href={
-              "https://open.spotify.com/album/5zerH7hovdbLXVOn57gs8c?si=jsuowanBTk2wZMlsdBMD5Q"
+              "https://open.spotify.com/track/7kKTYTHULdERuHGCkVyLVD?si=ad61546ad49048af"
             }
             target={"_blank"}
           >
@@ -112,7 +112,13 @@ export function Overview(props: { videoId: string }) {
   function RevenueSources() {
     return (
       <div className={s.revenueSources}>
-          <Image src={"/tracks/revenue-sources-line.svg"} alt={"line"} width={761} height={415} className={s.line} />
+        <Image
+          src={"/tracks/revenue-sources-line.svg"}
+          alt={"line"}
+          width={761}
+          height={415}
+          className={s.line}
+        />
         <Revenue title={"Apple Music"} description={t("revenue1_description")}>
           <Image
             src={"/tracks/revenue-apple.svg"}
@@ -121,7 +127,10 @@ export function Overview(props: { videoId: string }) {
             height={32}
           />
         </Revenue>
-        <Revenue title={"YouTube Music"} description={t("revenue2_description")}>
+        <Revenue
+          title={"YouTube Music"}
+          description={t("revenue2_description")}
+        >
           <Image
             src={"/tracks/revenue-youtube.svg"}
             alt={"youtube"}

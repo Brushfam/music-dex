@@ -70,7 +70,7 @@
   "Catalog": {
     "header": "Choose your track",
     "description": "Invest in Music Royalties and Shape the Future of Music",
-    "song_title": "Tony Tonite - Дилер",
+    "song_title": "Kalush - Додому",
     "rights_holder": "Rights Holder:",
     "song_genre": "Rap",
     "song_location": "Ukraine",
@@ -84,10 +84,12 @@
       "royalties": "Royalties",
       "statistics": "Statistics",
       "about": "About Artist"
-    }
+    },
+    "catalog": "Catalog",
+    "for_artist": "For Artist"
   },
 
-  "Dealer": {
+  "Dodomy": {
     "song_genre": "Rap",
     "song_location": "Ukraine",
     "details": "DETAILS"
@@ -109,7 +111,7 @@
     "login": "Log in",
     "logout": "Log out",
     "catalog": "Catalog",
-    "for_artist": "For artist",
+    "for_artist": "For Artist",
     "faq": "FAQ",
     "profile": "Profile",
     "earned": "Earned",

@@ -1,12 +1,12 @@
 "use client";
 import { useLocale } from "use-intl";
-import { dealerEN, dealerUK } from "@/data/tracksData";
+import { dodomyEN, dodomyUK } from "@/data/tracksData";
 import s from "./AboutArtist.module.scss"
 import { ColumnContainer } from "@/components/ui/Containers/Containers";
 
 export function AboutArtist() {
   const currentLocale = useLocale();
-  const trackData = currentLocale === "uk" ? dealerUK : dealerEN;
+  const trackData = currentLocale === "uk" ? dodomyUK : dodomyEN;
 
   return (
     <ColumnContainer>

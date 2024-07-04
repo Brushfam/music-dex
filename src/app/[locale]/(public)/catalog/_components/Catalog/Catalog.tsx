@@ -3,7 +3,7 @@ import { GreyBlock } from "@/components/ui/GreyBlock/GreyBlock";
 import { Labels } from "@/components/Labels/Labels";
 import { Button } from "@/components/ui/Button/Button";
 import { TrackDetails } from "@/components/TrackDetails/TrackDetails";
-import { dealerEN, dealerUK } from "@/data/tracksData";
+import {dodomyEN, dodomyUK} from "@/data/tracksData";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -37,7 +37,7 @@ export function Catalog() {
         <div className={s.trackCard}>
           <div className={s.trackCard_img}>
             <Image
-              src={"/albums/dealer.jpg"}
+              src={"/albums/dodomy.jpg"}
               alt={"track cover"}
               fill={true}
               style={{ objectFit: "cover" }}
@@ -46,20 +46,20 @@ export function Catalog() {
           <div className={s.trackCard_description}>
             <p className={s.trackCard_title}>{t("song_title")}</p>
             <Labels genre={t("song_genre")} location={t("song_location")} />
-            <TrackDetails dataEN={dealerEN} dataUK={dealerUK} />
+            <TrackDetails dataEN={dodomyEN} dataUK={dodomyUK} />
             <Button
               title={t("song_button")}
               color={"main"}
               arrow={true}
-              path={"/tracks/dealer"}
+              path={"/tracks/dodomy"}
             />
           </div>
         </div>
       </GreyBlock>
-      <LockedSong imgSrc={"/albums/album4.png"} />
-      <LockedSong imgSrc={"/albums/album3.png"} />
-      <LockedSong imgSrc={"/albums/album1.png"} />
-      <LockedSong imgSrc={"/albums/album2.png"} />
+      <LockedSong imgSrc={"/albums/album4.jpg"} />
+      <LockedSong imgSrc={"/albums/album3.jpg"} />
+      <LockedSong imgSrc={"/albums/album1.jpg"} />
+      <LockedSong imgSrc={"/albums/album2.jpg"} />
     </div>
   );
 }
