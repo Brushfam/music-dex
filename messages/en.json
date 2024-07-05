@@ -307,6 +307,7 @@
     "min": "min.",
     "max": "max.",
     "please_login": "Please log in to buy tokens.",
+    "please_login_artist": "Please log in as investor to buy tokens.",
     "sign_agreement": "Agreement",
     "agreement_description": "To buy tokens, you need to accept the terms of the agreement.",
     "fiat_title": "Purchase by Fiat",

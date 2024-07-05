@@ -173,7 +173,7 @@ export function SharesBlock(props: {
       {currentUser ? (
         <PaymentButtons />
       ) : (
-        <p style={{ color: "white", fontWeight: 600 }}>{t("please_login")}</p>
+        <p style={{ color: "white", fontWeight: 600 }}>{t("please_login_artist")}</p>
       )}
     </div>
   ) : totalAmount === undefined ? (
