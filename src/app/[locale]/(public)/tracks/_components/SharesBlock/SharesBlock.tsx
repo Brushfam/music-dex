@@ -145,17 +145,17 @@ export function SharesBlock(props: {
         <ThemeProvider theme={theme}>
           <Slider
             value={currentAmount}
-            defaultValue={price*24}
+            defaultValue={price * 24}
             onChange={handleSliderChange}
             step={price}
-            min={price*24}
+            min={price * 24}
             max={getMaxPrice()}
             style={{ margin: "0 0 0 4px" }}
           />
         </ThemeProvider>
         <div className={s.rowContainer}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <p className={s.boldSmallText}>{price*24}</p>
+            <p className={s.boldSmallText}>{price * 24}</p>
             <p className={s.smallText}>{t("min")}</p>
           </div>
           <div
@@ -173,7 +173,9 @@ export function SharesBlock(props: {
       {currentUser ? (
         <PaymentButtons />
       ) : (
-        <p style={{ color: "white", fontWeight: 600 }}>{t("please_login")}</p>
+        <p style={{ color: "white", fontWeight: 600, textAlign: "center" }}>
+          {t("please_login_artist")}
+        </p>
       )}
     </div>
   ) : totalAmount === undefined ? (
