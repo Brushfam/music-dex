@@ -70,6 +70,7 @@ export function Header() {
           </Link>
           <div className={s.menu}>
             <Link href={"/" + currentLocale + "/catalog"}>{t("catalog")}</Link>
+            <Link href={"/" + currentLocale + "/blog"}>{t("blog")}</Link>
             <Link href={"/" + currentLocale + "/for-artist"}>{t("for_artist")}</Link>
             <Link href={"/" + currentLocale + "/faq"}>FAQ</Link>
           </div>

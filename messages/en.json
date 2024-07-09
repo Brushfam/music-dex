@@ -67,6 +67,12 @@
     "email_sent_reset": "An email with instructions to reset your password has been sent to your registered email address. Please check your inbox and follow the link provided in the email to complete the password reset process. If you don't see the email in your inbox, please check your spam or junk folder."
   },
 
+  "Blog": {
+    "title": "MusicDex Blog",
+    "description": "Discover the latest insights and updates on all things related to MusicDex, including breaking news, community highlights, technical deep dives, and much more.",
+    "empty_blog": "Our blog is under construction. Check back soon!"
+  },
+
   "Catalog": {
     "header": "Choose your track",
     "description": "Invest in Music Royalties and Shape the Future of Music",
@@ -109,6 +115,7 @@
     "login": "Log in",
     "logout": "Log out",
     "catalog": "Catalog",
+    "blog": "Blog",
     "for_artist": "For Artist",
     "faq": "FAQ",
     "profile": "Profile",
