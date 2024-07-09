@@ -100,7 +100,7 @@
     user-select: none;
   }
 
-  @media (max-width: $tablet-size) {
+  @media (max-width: 900px) {
     min-width: 0;
     gap: 8px;
     padding: 0 14px;

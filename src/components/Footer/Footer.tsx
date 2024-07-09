@@ -24,10 +24,6 @@ export function Footer() {
             />
           </Link>
           <p className={s.footerMainText}>{t("description")}</p>
-          <div className={s.weAcceptBlock}>
-            <p>{t("we_accept")}</p>
-            <Image src={"/logos/whitepay.png"} alt={"whitepay"} width={30} height={30} />
-          </div>
         </div>
         <div className={s.linksBlock}>
           <SocialMedia />
@@ -84,6 +80,16 @@ export function Footer() {
           </div>
         </div>
       </footer>
+      <div className={s.weAcceptBlock}>
+        <p>{t("we_accept")}</p>
+        <Link
+          href={"https://whitepay.com/"}
+          target={"_blank"}
+          style={{ position: "relative", width: 30, height: 30 }}
+        >
+          <Image src={"/logos/whitepay.png"} alt={"whitepay"} fill={true} />
+        </Link>
+      </div>
     </div>
   );
 }

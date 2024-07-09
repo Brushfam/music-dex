@@ -70,7 +70,7 @@
   font-size: 14px;
   font-weight: 500;
 
-  @media (max-width: 840px) {
+  @media (max-width: 900px) {
     display: none;
   }
 }
@@ -80,7 +80,7 @@
     display: none;
   }
 
-  @media (max-width: $tablet-size) {
+  @media (max-width: 900px) {
     img {display: block;}
     p {display: none;}
   }
@@ -89,7 +89,7 @@
 .mobile {
   display: none;
 
-  @media (max-width: 840px) {
+  @media (max-width: 900px) {
     display: flex;
 
   }
@@ -98,8 +98,7 @@
 .desktop {
   display: flex;
 
-  @media (max-width: 839px) {
+  @media (max-width: 900px) {
     display: none;
-
   }
 }
