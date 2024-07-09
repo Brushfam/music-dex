@@ -1,16 +1,19 @@
 import s from "./Overview.module.scss";
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 
 export function OverviewRow(props: {
   totalInvestedAmount: number;
   totalTokensAmount: number;
 }) {
+  const t = useTranslations("ProfileInvestor.Overview");
+
   return (
     <div className={s.overviewRow}>
       <div className={s.overviewSubRow}>
         <div className={s.overviewItem}>
           <div className={s.overviewItem_column}>
-            <p className={s.overviewItem_text1}>Earned from royalties</p>
+            <p className={s.overviewItem_text1}>{t("earned")}</p>
             <p className={s.overviewItem_text2}>$0.00</p>
           </div>
           <Image
@@ -22,7 +25,7 @@ export function OverviewRow(props: {
         </div>
         <div className={s.overviewItem}>
           <div className={s.overviewItem_column}>
-            <p className={s.overviewItem_text1}>Total songs invested</p>
+            <p className={s.overviewItem_text1}>{t("total_songs")}</p>
             <p className={s.overviewItem_text2}>
               {props.totalInvestedAmount ? "1" : "0"}
             </p>
@@ -38,7 +41,7 @@ export function OverviewRow(props: {
       <div className={s.overviewSubRow}>
         <div className={s.overviewItem}>
           <div className={s.overviewItem_column}>
-            <p className={s.overviewItem_text1}>Invested amount</p>
+            <p className={s.overviewItem_text1}>{t("invested_amount")}</p>
             <p className={s.overviewItem_text2}>${props.totalInvestedAmount}</p>
           </div>
           <Image
@@ -50,7 +53,7 @@ export function OverviewRow(props: {
         </div>
         <div className={s.overviewItem}>
           <div className={s.overviewItem_column}>
-            <p className={s.overviewItem_text1}>Total token amount</p>
+            <p className={s.overviewItem_text1}>{t("total_tokens")}</p>
             <p className={s.overviewItem_text2}>{props.totalTokensAmount}</p>
           </div>
           <Image

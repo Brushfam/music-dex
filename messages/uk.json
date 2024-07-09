@@ -219,15 +219,39 @@
       "create_internal_wallet": "Або автоматично створити гаманець",
       "loading": "Завантаження...",
       "Toast": {
+        "updated": "Інформацію оновлено!",
+        "another_error": "Виникла помилка",
         "wallet_connected": "Гаманець прив'язано!",
         "error_adding_wallet": "Помилка додавання гаманця",
         "error_updating_wallets": "Помилка оновлення гаманців",
         "internal_created": "Гаманець було успішно створено!",
         "internal_error": "Помилка під час створення гаманця"
-      }
+      },
+      "name": "Ім'я",
+      "email": "Email",
+      "last_name": "Фамілія",
+      "additional_info": "Додаткова інформація",
+      "genre": "Улюблений жанр",
+      "select_genre": "Обрати жанр",
+      "country": "Країна",
+      "select_country": "Обрати країну",
+      "social_media": "Соц мережі",
+      "cancel": "Відміна",
+      "saving": "Збереження...",
+      "save": "Зберегти"
     },
     "Overview": {
-      "title": "Overview"
+      "title": "Overview",
+      "earned": "Отримано роялті",
+      "total_songs": "Кількість пісень",
+      "invested_amount": "Інвестиції",
+      "total_tokens": "Кількість токенів",
+      "statistics": "Статистика",
+      "payment_history": "Історія виплат",
+      "empty_history_title": "Ваша історія виплат буде відображена тут",
+      "empty_history_desc": "Оберіть пісню для інвестицій",
+      "suggestions": "Пропозиції",
+      "invest": "Інвестувати"
     },
     "Songs": {
       "title": "Інвестовані треки",
@@ -242,7 +266,14 @@
       "loading": "Завантаження..."
     },
     "Royalties": {
-      "title": "Royalties"
+      "title": "Royalties",
+      "statistics": "Статистика",
+      "payment_history": "Історія виплат",
+      "empty_history_title": "Ваша історія виплат буде відображена тут",
+      "empty_history_desc": "Оберіть пісню для інвестицій",
+      "future_payouts": "Наступні виплати",
+      "empty_payouts_title": "Ваші наступні виплати будуть відображені тут",
+      "empty_payouts_desc": "Оберіть пісню з каталогу щоб інвестувати та отримувати роялті"
     },
     "Activities": {
       "title": "Активність",

@@ -4,8 +4,10 @@ import s from "./Overview.module.scss";
 import { Button } from "@/components/ui/Button/Button";
 import { useLocale } from "use-intl";
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 
 export function SuggestedSongs() {
+    const t = useTranslations("ProfileInvestor.Overview");
   const currentLocale = useLocale();
   return (
     <div className={s.suggestedSongs}>
@@ -19,9 +21,9 @@ export function SuggestedSongs() {
             marginBottom: 10
         }}
       >
-        <p className={s.title}>Statistics</p>
+        <p className={s.title}>{t("suggestions")}</p>
         <Button
-          title={"Invest"}
+          title={t("invest")}
           color={"main"}
           arrow={false}
           path={"/" + currentLocale + "/catalog"}

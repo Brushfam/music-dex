@@ -1,10 +1,13 @@
 import s from "./Overview.module.scss";
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 
 export function PaymentHistory() {
+    const t = useTranslations("ProfileInvestor.Overview");
+
   return (
     <div className={s.statisticsBlock}>
-      <p className={s.title}>Payment History</p>
+      <p className={s.title}>{t("payment_history")}</p>
       <div
         style={{
           display: "flex",
@@ -22,9 +25,9 @@ export function PaymentHistory() {
           height={48}
         />
         <p className={s.statisticsBlock_text1}>
-          Your payment history will be listed here
+            {t("empty_history_title")}
         </p>
-        <p className={s.statisticsBlock_text2}>Choose a song to invest</p>
+        <p className={s.statisticsBlock_text2}>{t("empty_history_desc")}</p>
       </div>
     </div>
   );

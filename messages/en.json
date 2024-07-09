@@ -219,15 +219,39 @@
       "create_internal_wallet": "Or automatically create a wallet",
       "loading": "Loading...",
       "Toast": {
+        "updated": "Information was updated!",
+        "another_error": "Something went wrong...",
         "wallet_connected": "Wallet was connected!",
         "error_adding_wallet": "Error adding wallet",
         "error_updating_wallets": "Error updating wallets",
         "internal_created": "Internal wallet was created!",
         "internal_error": "Error creating internal wallet"
-      }
+      },
+      "name": "Name",
+      "email": "Email",
+      "last_name": "Last Name",
+      "additional_info": "Additional Info",
+      "genre": "Favorite Music Genre",
+      "select_genre": "Select Genre",
+      "country": "Country",
+      "select_country": "Select Country",
+      "social_media": "Social Media",
+      "cancel": "Cancel",
+      "saving": "Saving...",
+      "save": "Save Changes"
     },
     "Overview": {
-      "title": "Overview"
+      "title": "Overview",
+      "earned": "Earned from royalties",
+      "total_songs": "Total songs invested",
+      "invested_amount": "Invested amount",
+      "total_tokens": "Total token amount",
+      "statistics": "Statistics",
+      "payment_history": "Payment History",
+      "empty_history_title": "Your payment history will be listed here",
+      "empty_history_desc": "Choose a song to invest",
+      "suggestions": "Suggestions",
+      "invest": "Invest"
     },
     "Songs": {
       "title": "Invested songs",
@@ -242,7 +266,14 @@
       "loading": "Loading..."
     },
     "Royalties": {
-      "title": "Royalties"
+      "title": "Royalties",
+      "statistics": "Statistics",
+      "payment_history": "Payment History",
+      "empty_history_title": "Your payment history will be listed here",
+      "empty_history_desc": "Choose a song to invest",
+      "future_payouts": "Future payouts",
+      "empty_payouts_title": "Your future payouts will be listed here",
+      "empty_payouts_desc": "Choose a song from the catalog to invest and receive income"
     },
     "Activities": {
       "title": "Activities",

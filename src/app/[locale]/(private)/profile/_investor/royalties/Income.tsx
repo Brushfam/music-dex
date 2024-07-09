@@ -1,10 +1,12 @@
 import s from "./Royalties.module.scss";
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 
 export function Income() {
+    const t = useTranslations("ProfileInvestor.Royalties")
   return (
     <div className={s.income}>
-      <p className={s.title}>Statistics</p>
+      <p className={s.title}>{t("statistics")}</p>
       <div
         style={{
           display: "flex",

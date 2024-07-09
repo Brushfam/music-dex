@@ -7,11 +7,13 @@ import { useUserStore } from "@/store/user";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { updateInvestorInfo } from "@/services/users/investors/investors";
 import { toast } from "sonner";
+import {useTranslations} from "next-intl";
 
 export function InfoForm(props: {
   investor: InvestorInfo;
   setTriggerFormRefresh: Dispatch<SetStateAction<number>>;
 }) {
+  const t = useTranslations("ProfileInvestor.Profile");
   const setCurrentUserName = useUserStore(
       (state) => state.setCurrentUserName,
   );
@@ -58,11 +60,11 @@ export function InfoForm(props: {
         updateInvestorInfo(token, updatedData)
           .then(() => {
             setCurrentUserName(formData.firstName)
-            toast.success("updated");
+            toast.success(t("Toast.updated"));
           })
           .catch((error) => {
             console.log(error);
-            toast.error("error");
+            toast.error(t("Toast.another_error"));
           })
           .finally(() => {
             setLoading(false);
@@ -78,17 +80,17 @@ export function InfoForm(props: {
   function AdditionalInfo() {
     return (
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <p className={s.inputRowTitle}>Additional Info</p>
+        <p className={s.inputRowTitle}>{t("additional_info")}</p>
         <div className={s.inputRow}>
           <div className={s.inputBlock}>
-            <label>Favorite Music Genre</label>
+            <label>{t("genre")}</label>
             <select
               name="favGenre"
               value={formData.favGenre}
               onChange={handleChange}
               className={s.formInput}
             >
-              <option value="">Select Genre</option>
+              <option value="">{t("select_genre")}</option>
               <option value="pop">Pop</option>
               <option value="rock">Rock</option>
               <option value="hiphop">Hip Hop</option>
@@ -102,14 +104,14 @@ export function InfoForm(props: {
             </select>
           </div>
           <div className={s.inputBlock}>
-            <label>Country</label>
+            <label>{t("country")}</label>
             <select
               name="country"
               value={formData.country}
               onChange={handleChange}
               className={s.formInput}
             >
-              <option value="">Select Country</option>
+              <option value="">{t("select_country")}</option>
               {countries.map((country, index) => {
                 return (
                   <option key={index.toString()} value={country.name}>
@@ -128,7 +130,7 @@ export function InfoForm(props: {
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div className={s.inputRow}>
         <div className={s.inputBlock}>
-          <label>Name</label>
+          <label>{t("name")}</label>
           <input
             type="text"
             name="firstName"
@@ -138,7 +140,7 @@ export function InfoForm(props: {
           />
         </div>
         <div className={s.inputBlock}>
-          <label>Email</label>
+          <label>{t("email")}</label>
           <input
             type="email"
             name="email"
@@ -151,7 +153,7 @@ export function InfoForm(props: {
       </div>
       <div className={s.inputRow}>
         <div className={s.inputBlock}>
-          <label>Last Name</label>
+          <label>{t("last_name")}</label>
           <input
             type="text"
             name="lastName"
@@ -165,7 +167,7 @@ export function InfoForm(props: {
       <div
         style={{ display: "flex", flexDirection: "column", marginBottom: 16 }}
       >
-        <p className={s.inputRowTitle}>Social Media</p>
+        <p className={s.inputRowTitle}>{t("social_media")}</p>
         <div className={s.inputSocialRow}>
           <input
             type="text"
@@ -195,13 +197,13 @@ export function InfoForm(props: {
       </div>
       <div style={{ display: "flex", flexDirection: "row", gap: 12 }}>
         <Button
-          title={"Cancel"}
+          title={t("cancel")}
           color={"transparent"}
           arrow={false}
           action={handleCancel}
         />
         <Button
-          title={loading ? "Saving..." : "Save Changes"}
+          title={loading ? t("saving") : t("save")}
           color={loading ? "loading" : "main"}
           arrow={false}
           action={loading ? () => {} : handleSubmit}
