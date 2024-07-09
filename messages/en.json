@@ -108,7 +108,8 @@
     "legal": "Legal",
     "privacy_policy": "Privacy Policy",
     "terms": "Terms and Conditions",
-    "public_offer": "Public Offer"
+    "public_offer": "Public Offer",
+    "we_accept": "We accept:"
   },
 
   "Header": {
@@ -157,7 +158,8 @@
       "fourth": "Investor protection measures"
     },
     "built_on": "Built on:",
-    "starknet_description": "Validity-Rollup Layer 2 network that operates on top of Ethereum, enabling dApps to massively scale without compromising on security."
+    "starknet_description": "Validity-Rollup Layer 2 network that operates on top of Ethereum, enabling dApps to massively scale without compromising on security.",
+    "partners": "Our Partners:"
   },
 
   "ForArtist": {

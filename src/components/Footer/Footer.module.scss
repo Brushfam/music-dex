@@ -168,3 +168,30 @@
     background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.02),rgba(255, 255, 255, 0.1) 100%);
   }
 }
+
+.weAcceptBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+
+  p {
+    font-size: 16px;
+    color: white;
+  }
+
+  @media (max-width: $desktop-md-size) {
+    margin-top: 20px;
+    p {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: $tablet-size) {
+    p {
+      font-size: 18px;
+    }
+    margin-top: 40px;
+  }
+}

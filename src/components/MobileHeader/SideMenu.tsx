@@ -35,13 +35,13 @@ export default function SideMenu(props: { currentUser: string }) {
           title={t("catalog")}
           link={"/" + currentLocale + "/catalog"}
         ></PageRow>
-          <PageRow
-              title={t("blog")}
-              link={"/" + currentLocale + "/blog"}
-          ></PageRow>
         <PageRow
           title={t("for_artist")}
           link={"/" + currentLocale + "/for-artist"}
+        ></PageRow>
+        <PageRow
+          title={t("blog")}
+          link={"/" + currentLocale + "/blog"}
         ></PageRow>
         <PageRow title={t("faq")} link={"/" + currentLocale + "/faq"}></PageRow>
       </div>

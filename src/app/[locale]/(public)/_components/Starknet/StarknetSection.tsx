@@ -13,7 +13,7 @@ export function StarknetSection() {
         href={"https://www.starknet.io/en/"}
         target={"_blank"}
       >
-        <Image src={"/logos/SN-logo.svg"} alt={"Starknet"} fill={true} />
+        <Image src={"/logos/Starknet.svg"} alt={"Starknet"} fill={true} />
       </a>
       <p className={s.description}>{t("starknet_description")}</p>
     </div>

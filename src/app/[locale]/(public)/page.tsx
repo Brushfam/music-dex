@@ -17,6 +17,7 @@ import { flowListDataEN, flowListDataUK } from "@/data/homepage/flowListData";
 import { StarknetSection } from "@/app/[locale]/(public)/_components/Starknet/StarknetSection";
 import { ArtistModal } from "@/components/modals/ArtistModal/ArtistModal";
 import { RecommendButton } from "@/app/[locale]/(public)/_components/RecommendButton/RecommendButton";
+import { Partners } from "@/app/[locale]/(public)/_components/Partners/Partners";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -25,9 +26,7 @@ export default function Home() {
     <main className={cs.main}>
       <ArtistModal />
       {/*  Banner */}
-      <div
-        className={cs.bannerWrapper}
-      >
+      <div className={cs.bannerWrapper}>
         <div className={s.shadowTop} />
         <Section banner={true}>
           <div className={s.bannerContainer}>
@@ -95,6 +94,10 @@ export default function Home() {
       </div>
       {/* Starknet */}
       <StarknetSection />
+      {/* Partners */}
+      <div className={s.lightThemeWrapper} id={"home-how-it-works"}>
+        <Partners />
+      </div>
       {/* Roadmap */}
       <Section>
         <ColumnContainer centered={true}>

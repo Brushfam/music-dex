@@ -1,0 +1,51 @@
+@import '../../../../../constants/constants';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  gap: 40px;
+
+  p {
+    text-align: center;
+    color: white;
+    line-height: 130%;
+  }
+
+  @media (max-width: $tablet-size) {
+    width: 72%;
+  }
+
+  @media (max-width: $mobile-size) {
+    width: 82%;
+    padding: 40px;
+    gap: 36px;
+  }
+}
+
+.title {
+  font-weight: 600;
+  font-size: 32px;
+
+  @media (max-width: $mobile-size) {
+    font-size: 24px;
+  }
+}
+
+.partners {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+
+  svg:hover path {
+    fill: $main-orange
+  }
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    gap: 24px
+  }
+}

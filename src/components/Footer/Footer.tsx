@@ -24,6 +24,10 @@ export function Footer() {
             />
           </Link>
           <p className={s.footerMainText}>{t("description")}</p>
+          <div className={s.weAcceptBlock}>
+            <p>{t("we_accept")}</p>
+            <Image src={"/logos/whitepay.png"} alt={"whitepay"} width={30} height={30} />
+          </div>
         </div>
         <div className={s.linksBlock}>
           <SocialMedia />
