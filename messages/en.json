@@ -263,6 +263,7 @@
       "country": "Country",
       "select_country": "Select Country",
       "cancel": "Cancel",
+      "saving": "Saving...",
       "save": "Save Changes"
     },
     "Overview": {
