@@ -247,6 +247,7 @@
       "invested_amount": "Інвестиції",
       "total_tokens": "Кількість токенів",
       "statistics": "Статистика",
+      "sample_statistics": "Статистика Вашого прибутку буде відображена тут",
       "payment_history": "Історія виплат",
       "empty_history_title": "Ваша історія виплат буде відображена тут",
       "empty_history_desc": "Оберіть пісню для інвестицій",
@@ -268,6 +269,7 @@
     "Royalties": {
       "title": "Royalties",
       "statistics": "Статистика",
+      "sample_statistics": "Статистика Вашого прибутку буде відображена тут",
       "payment_history": "Історія виплат",
       "empty_history_title": "Ваша історія виплат буде відображена тут",
       "empty_history_desc": "Оберіть пісню для інвестицій",

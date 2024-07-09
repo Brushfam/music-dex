@@ -247,6 +247,7 @@
       "invested_amount": "Invested amount",
       "total_tokens": "Total token amount",
       "statistics": "Statistics",
+      "sample_statistics": "The statistics of your income data will be shown here",
       "payment_history": "Payment History",
       "empty_history_title": "Your payment history will be listed here",
       "empty_history_desc": "Choose a song to invest",
@@ -268,6 +269,7 @@
     "Royalties": {
       "title": "Royalties",
       "statistics": "Statistics",
+      "sample_statistics": "The statistics of your income data will be shown here",
       "payment_history": "Payment History",
       "empty_history_title": "Your payment history will be listed here",
       "empty_history_desc": "Choose a song to invest",
