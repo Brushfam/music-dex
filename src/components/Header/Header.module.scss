@@ -66,9 +66,16 @@
   flex-direction: row;
   gap: 30px;
   align-items: center;
-  color: rgb(255, 255, 255);
-  font-size: 14px;
-  font-weight: 500;
+
+  a {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  a:hover {
+    color: $main-orange;
+  }
 
   @media (max-width: 900px) {
     display: none;
