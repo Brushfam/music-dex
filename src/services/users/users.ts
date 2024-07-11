@@ -9,8 +9,8 @@ export function getUserRole(jwt: string) {
   });
 }
 
-export function getUserName(jwt: string) {
-  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/name", {
+export function getUserLoginInfo(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/login-info", {
     headers: {
       "Access-Control-Allow-Origin": "*",
       Authorization: "Bearer: " + jwt,
@@ -18,8 +18,21 @@ export function getUserName(jwt: string) {
   });
 }
 
+export function setFirstLogin(jwt: string) {
+  return axios.post(
+      process.env.NEXT_PUBLIC_SERVER_URL + "/users/login-info",
+      {},
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          Authorization: "Bearer: " + jwt,
+        },
+      },
+  );
+}
+
 export function addNewUser(jwt: string, email: string, role: string) {
-  axios
+  return axios
     .post(
       process.env.NEXT_PUBLIC_SERVER_URL + "/users",
       {
@@ -33,14 +46,6 @@ export function addNewUser(jwt: string, email: string, role: string) {
         },
       },
     )
-    .then(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      },
-    );
 }
 
 export function getUserOverview(jwt: string) {

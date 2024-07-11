@@ -1,3 +1,5 @@
+"use client"
+
 import s from "./Info.module.scss";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import { InvestorInfo } from "@/types/types";
@@ -20,7 +22,6 @@ export function InfoForm(props: {
   const userEmail = useUserStore((state) => state.currentUserEmail);
   const [loading, setLoading] = useState(false);
 
-  console.log(props.investor.profiles)
   let profiles = ["", "", ""];
   for (let i = 0; i < props.investor.profiles?.length; ++i) {
     profiles[i] = props.investor.profiles[i]

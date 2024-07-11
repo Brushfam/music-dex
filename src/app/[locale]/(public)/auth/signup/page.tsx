@@ -44,7 +44,7 @@ function SignUp(props: {
     createUserWithEmailAndPassword(firebaseAuth, email.trim(), password)
       .then(async (user) => {
         const idToken = await user.user.getIdToken();
-        addNewUser(idToken, email.trim(), role);
+        await addNewUser(idToken, email.trim(), role);
         sendEmailVerification(user.user, actionCodeSettings)
           .then(() => {
             props.setStep(SignUpSteps.EmailSent);

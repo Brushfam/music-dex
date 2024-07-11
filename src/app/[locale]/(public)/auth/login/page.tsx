@@ -17,7 +17,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { isVerified } from "@/services/auth/auth";
 import { LoginSteps } from "@/types/types";
 import { useUserStore } from "@/store/user";
-import { getUserName } from "@/services/users/users";
+import { getUserLoginInfo } from "@/services/users/users";
+import { ProfileForm } from "@/app/[locale]/(public)/auth/login/_forms/ProfileForm";
 
 function Login(props: {
   setStep: React.Dispatch<React.SetStateAction<LoginSteps>>;
@@ -45,6 +46,7 @@ function Login(props: {
   const handleLogin = async () => {
     signInWithEmailAndPassword(firebaseAuth, email, password)
       .then(async (userCredential: UserCredential) => {
+        setCurrentUserEmail(userCredential.user.email || "");
         verifyUser(userCredential);
       })
       .catch((error) => {
@@ -57,21 +59,25 @@ function Login(props: {
     isVerified(email.trim())
       .then(async (response) => {
         if (!response.data.isVerified) {
-          console.log(`Email address is not verified.`);
           toast.error(t("email_is_not_verified"));
           return;
         }
         const user = userCredential.user;
         const idToken = await user.getIdToken();
-        getUserName(idToken)
+        getUserLoginInfo(idToken)
           .then((res) => {
             setCurrentUserName(res.data.firstName);
+            console.log(res.data.isFirstLogin);
+            if (res.data.isFirstLogin) {
+              props.setStep(LoginSteps.ProfileForm);
+            } else {
+              router.replace("/" + props.currentLocale + "/profile");
+            }
           })
           .catch((error) => {
             console.log(error);
+            router.replace("/" + props.currentLocale + "/profile");
           });
-        setCurrentUserEmail(user.email || "");
-        router.replace("/" + props.currentLocale + "/profile");
       })
       .catch((e) => {
         console.log(e);
@@ -140,6 +146,8 @@ export default function LoginPage() {
         );
       case LoginSteps.EmailSent:
         return <EmailSent comment={t("email_sent_reset")} />;
+      case LoginSteps.ProfileForm:
+        return <ProfileForm />;
       default:
         return <Login setStep={setStep} currentLocale={currentLocale} />;
     }

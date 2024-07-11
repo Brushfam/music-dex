@@ -64,7 +64,25 @@
     "email_sent": "Email was sent!",
     "done": "Done",
     "email_sent_signup": "We have sent an email to your registered email address with instructions on how to verify your account. Please check your inbox and follow the link provided to complete the verification process.",
-    "email_sent_reset": "An email with instructions to reset your password has been sent to your registered email address. Please check your inbox and follow the link provided in the email to complete the password reset process. If you don't see the email in your inbox, please check your spam or junk folder."
+    "email_sent_reset": "An email with instructions to reset your password has been sent to your registered email address. Please check your inbox and follow the link provided in the email to complete the password reset process. If you don't see the email in your inbox, please check your spam or junk folder.",
+    "ProfileForm": {
+      "title": "Fill out your profile",
+      "name": "Name",
+      "name_placeholder": "Enter your name",
+      "last_name": "Last Name",
+      "last_name_placeholder": "Enter your last name",
+      "artist_name": "Artist name",
+      "artist_name_placeholder": "Enter your artist name",
+      "genre": "Favorite Music Genre",
+      "select_genre": "Select Genre",
+      "country": "Country",
+      "select_country": "Select Country",
+      "social_media": "Social Media",
+      "skip": "Skip",
+      "saving": "Saving...",
+      "save": "Save",
+      "other_errors": "Something went wrong"
+    }
   },
 
   "Blog": {

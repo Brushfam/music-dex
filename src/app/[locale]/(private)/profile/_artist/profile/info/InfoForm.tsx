@@ -138,7 +138,7 @@ export function InfoForm(props: {
       <div style={{ display: "flex", flexDirection: "row", gap: 12 }}>
         <Button
           title={t("cancel")}
-          color={t("main")}
+          color={"transparent"}
           arrow={false}
           action={handleCancel}
         />

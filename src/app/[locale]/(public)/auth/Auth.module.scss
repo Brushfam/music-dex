@@ -5,10 +5,16 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  padding-top: 80px;
+  padding-bottom: 20px;
   margin: 0;
   background-image: url("/backgrounds/login.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media (max-width: $mobile-size) {
+    padding: 0;
+  }
 }
 
 .blockWrapper {
@@ -35,6 +41,11 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  min-height: 300px;
+
+  label {
+    color: white;
+  }
 }
 
 .title {
@@ -53,7 +64,6 @@
 .secondaryText {
   color: rgba(255, 255, 255, 0.6);
   font-size: 16px;
-  //font-weight: 400;
   line-height: 150%;
   text-align: center;
 }

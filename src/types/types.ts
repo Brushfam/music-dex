@@ -30,6 +30,7 @@ export enum LoginSteps {
   Login,
   ResetPassword,
   EmailSent,
+  ProfileForm // Is used when user is verified and log in for the first time
 }
 
 export enum ProfilePages {

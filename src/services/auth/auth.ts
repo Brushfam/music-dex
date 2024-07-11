@@ -22,9 +22,8 @@ export function authWithGoogle(role: string) {
       const idToken = await user.getIdToken();
       const additionalInfo = getAdditionalUserInfo(userCredential);
       if (additionalInfo && additionalInfo.isNewUser && user.email) {
-        addNewUser(idToken, user.email, role);
+        await addNewUser(idToken, user.email, role);
       }
-      localStorage.setItem("fb-jwt-token", idToken);
     })
     .catch((error) => {
       console.log(error.message);
