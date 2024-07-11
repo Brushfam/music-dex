@@ -38,7 +38,7 @@ export function ConnectedWallets(props: {
   }
 
   function getWalletName(name: string) {
-    return name === "internal" ? "Internal" : name.replace(/"/g, "");
+    return name === "internal" ? "internal" : name.replace(/"/g, "");
   }
 
   return (

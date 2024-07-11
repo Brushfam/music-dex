@@ -245,7 +245,8 @@
         "error_adding_wallet": "Помилка додавання гаманця",
         "error_updating_wallets": "Помилка оновлення гаманців",
         "internal_created": "Гаманець було успішно створено!",
-        "internal_error": "Помилка під час створення гаманця"
+        "internal_error": "Помилка під час створення гаманця",
+        "address_already_exist": "Адреса вже існує"
       },
       "name": "Ім'я",
       "email": "Email",

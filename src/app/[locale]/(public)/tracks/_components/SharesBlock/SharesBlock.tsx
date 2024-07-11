@@ -10,7 +10,7 @@ import { useTranslations } from "next-intl";
 import { roundToTwo } from "@/services/helpers";
 import { Tooltip } from "@mui/material";
 import { strkGetFreeBalance } from "@/services/blockchain/server";
-import {useUserStore} from "@/store/user";
+import { useUserStore } from "@/store/user";
 
 const theme = createTheme({
   palette: {
@@ -24,14 +24,15 @@ export function SharesBlock(props: {
   price: number;
   tokenAddress: string;
   tokenName: string;
-    setApprovePurchaseModal: React.Dispatch<React.SetStateAction<string>>;
+  setApprovePurchaseModal: React.Dispatch<React.SetStateAction<string>>;
 }) {
   const t = useTranslations("SharesBlock");
   const price = roundToTwo(props.price);
+  const minTokensForBuy = 24; // limited by whitepay provider
 
-    const currentUser = useUserStore((state) => state.currentUserEmail)
-  const [prevAmount, setPrevAmount] = useState(price*24);
-  const [currentAmount, setCurrentAmount] = useState(price*24);
+  const currentUser = useUserStore((state) => state.currentUserEmail);
+  const [prevAmount, setPrevAmount] = useState(price * minTokensForBuy);
+  const [currentAmount, setCurrentAmount] = useState(price * minTokensForBuy);
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);
 
   useEffect(() => {
@@ -55,7 +56,7 @@ export function SharesBlock(props: {
 
   function changeAmountButton(down?: boolean) {
     if (
-      (down && currentAmount == price*24) ||
+      (down && currentAmount == price * 24) ||
       (!down && currentAmount >= getMaxPrice())
     ) {
       return;

@@ -19,6 +19,7 @@ import { useTranslations } from "next-intl";
 export function ConnectWallet(props: {
   connectedWallets: Wallet[];
   setConnectedWallets: Dispatch<SetStateAction<Wallet[]>>;
+  setPrimaryWallet: Dispatch<SetStateAction<string>>
 }) {
   const t = useTranslations("ProfileInvestor.Profile");
   const router = useRouter();
@@ -53,6 +54,7 @@ export function ConnectWallet(props: {
               let newArray = [...props.connectedWallets];
               newArray.unshift({ name: walletName, address: address });
               props.setConnectedWallets(newArray);
+              props.setPrimaryWallet(walletName)
               toast.success(t("Toast.wallet_connected"));
             })
             .catch((error) => {
@@ -79,6 +81,17 @@ export function ConnectWallet(props: {
     t,
   ]);
 
+  function connectWalletIfNew(name: string) {
+    props.connectedWallets.map((w) => {
+      if (w.name === name) {
+        toast.info(t("Toast.address_already_exist"))
+        return;
+      }
+    })
+    setWalletName(name);
+    connect({ connector });
+  }
+
   function WalletIcon(props: { path: string }) {
     return (
       <Image src={props.path} alt={"Wallet logo"} width={36} height={36} />
@@ -96,8 +109,7 @@ export function ConnectWallet(props: {
             <div
               key={index.toString()}
               onClick={() => {
-                setWalletName(name);
-                connect({ connector });
+                connectWalletIfNew(name)
               }}
               className={s.baseWalletRow}
             >

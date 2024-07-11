@@ -103,7 +103,11 @@ export function WalletList() {
               address: "internal",
             });
             setConnectedWallets(newArray);
-            setPrimaryWallet("internal")
+            setPrimaryWallet("internal");
+            handleUpdatePrimaryWallet({
+              name: "internal",
+              address: "internal",
+            })
             toast.success(t("Toast.internal_created"))
           })
           .catch((error) => {
@@ -133,6 +137,7 @@ export function WalletList() {
         <ConnectWallet
           connectedWallets={connectedWallets}
           setConnectedWallets={setConnectedWallets}
+          setPrimaryWallet={setPrimaryWallet}
         />
       ) : null}
       {!hasInternalWallet && (

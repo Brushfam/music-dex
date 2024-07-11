@@ -245,7 +245,8 @@
         "error_adding_wallet": "Error adding wallet",
         "error_updating_wallets": "Error updating wallets",
         "internal_created": "Internal wallet was created!",
-        "internal_error": "Error creating internal wallet"
+        "internal_error": "Error creating internal wallet",
+        "address_already_exist": "Address is already exist"
       },
       "name": "Name",
       "email": "Email",
