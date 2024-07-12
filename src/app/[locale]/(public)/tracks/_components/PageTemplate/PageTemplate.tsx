@@ -12,11 +12,12 @@ import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
 import { VideoSection } from "@/app/[locale]/(public)/tracks/_components/VideoSection/VideoSection";
 import { ApprovePurchaseModal } from "@/components/modals/ApprovePurchaseModal/ApprovePurchaseModal";
-import {Overview} from "@/app/[locale]/(public)/tracks/_components/Overview/Overview";
-import {Royalties} from "@/app/[locale]/(public)/tracks/_components/Royalties/Royalties";
-import {Statistics} from "@/app/[locale]/(public)/tracks/_components/Statistics/Statistics";
-import {AboutArtist} from "@/app/[locale]/(public)/tracks/_components/AboutArtist/AboutArtist";
-import {useUserStore} from "@/store/user";
+import { Overview } from "@/app/[locale]/(public)/tracks/_components/Overview/Overview";
+import { Royalties } from "@/app/[locale]/(public)/tracks/_components/Royalties/Royalties";
+import { Statistics } from "@/app/[locale]/(public)/tracks/_components/Statistics/Statistics";
+import { AboutArtist } from "@/app/[locale]/(public)/tracks/_components/AboutArtist/AboutArtist";
+import { useUserStore } from "@/store/user";
+import { NoWalletsModal } from "@/components/modals/NoWalletsModal/NoWalletsModal";
 
 type PageTemplateProps = {
   artist: string;
@@ -83,7 +84,7 @@ export function PageTemplate(props: PageTemplateProps) {
               setCurrentPage(TrackSubpages.Overview);
             }}
           >
-              {t("TabRow.overview")}
+            {t("TabRow.overview")}
           </p>
           <p
             style={getColor("Royalties")}
@@ -91,7 +92,7 @@ export function PageTemplate(props: PageTemplateProps) {
               setCurrentPage(TrackSubpages.Royalties);
             }}
           >
-              {t("TabRow.royalties")}
+            {t("TabRow.royalties")}
           </p>
         </div>
         <div className={s.tabsSubRow}>
@@ -109,7 +110,7 @@ export function PageTemplate(props: PageTemplateProps) {
               setCurrentPage(TrackSubpages.AboutArtist);
             }}
           >
-              {t("TabRow.about")}
+            {t("TabRow.about")}
           </p>
         </div>
       </div>
@@ -128,7 +129,8 @@ export function PageTemplate(props: PageTemplateProps) {
 
   return (
     <div className={cs.main}>
-      <ApprovePurchaseModal/>
+      <ApprovePurchaseModal />
+      <NoWalletsModal />
       <div className={s.sectionWrapper}>
         <div className={s.bg}></div>
         <div className={s.trackPageSection}>

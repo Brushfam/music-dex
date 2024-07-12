@@ -11,7 +11,7 @@ import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import { useUserStore } from "@/store/user";
 import { LogoutButton } from "@/components/Header/Logout";
 import { useTranslations } from "next-intl";
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import SideMenu from "@/components/MobileHeader/SideMenu";
 
 function ProfileButton() {
@@ -57,9 +57,7 @@ export function Header() {
   const currentLocale = useLocale();
   const t = useTranslations("Header");
 
-  useEffect(() => {
-    console.log(currentUser)
-  }, [currentUser]);
+  useEffect(() => {}, [currentUser]);
 
   return (
     <div className={s.header}>
@@ -70,7 +68,9 @@ export function Header() {
           </Link>
           <div className={s.menu}>
             <Link href={"/" + currentLocale + "/catalog"}>{t("catalog")}</Link>
-            <Link href={"/" + currentLocale + "/for-artist"}>{t("for_artist")}</Link>
+            <Link href={"/" + currentLocale + "/for-artist"}>
+              {t("for_artist")}
+            </Link>
             <Link href={"/" + currentLocale + "/blog"}>{t("blog")}</Link>
             <Link href={"/" + currentLocale + "/faq"}>FAQ</Link>
           </div>
@@ -83,7 +83,7 @@ export function Header() {
               <LogoutButton />
             </div>
             <div className={s.mobile}>
-              <SideMenu currentUser={currentUser}/>
+              <SideMenu currentUser={currentUser} />
             </div>
           </div>
         ) : (
@@ -91,7 +91,7 @@ export function Header() {
             <LangSwitcher />
             <Login />
             <div className={s.mobile}>
-              <SideMenu currentUser={currentUser}/>
+              <SideMenu currentUser={currentUser} />
             </div>
           </div>
         )}

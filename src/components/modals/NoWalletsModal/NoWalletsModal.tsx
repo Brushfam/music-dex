@@ -5,18 +5,19 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button/Button";
 import React from "react";
 import { useUserStore } from "@/store/user";
+import { useLocale } from "use-intl";
 
-export function ApprovePurchaseModal() {
-  const t = useTranslations("SharesBlock.ApprovePurchaseModal");
-  const orderLink = useUserStore((state) => state.orderLink);
-  const setOrderLink = useUserStore((state) => state.setOrderLink);
+export function NoWalletsModal() {
+  const t = useTranslations("SharesBlock.NoWalletsModal");
+  const currentLocale = useLocale();
+  const noWalletsModal = useUserStore((state) => state.noWalletsModal);
+  const setNoWalletsModal = useUserStore((state) => state.setNoWalletsModal);
 
-  return orderLink ? (
+  return noWalletsModal ? (
     <div className={s.overlay}>
       <div className={s.baseModal}>
         <p className={s.title}>{t("title")}</p>
-        <p className={s.content}>{t("content1")}</p>
-        <p className={s.content}>{t("content2")}</p>
+        <p className={s.content}>{t("content")}</p>
         <div
           style={{
             display: "flex",
@@ -31,15 +32,14 @@ export function ApprovePurchaseModal() {
             color={"grey"}
             arrow={false}
             action={() => {
-              setOrderLink("");
+              setNoWalletsModal("");
             }}
           />
           <a
-            href={orderLink}
-            target={"_blank"}
+            href={"/" + currentLocale + "/profile"}
             className={s.linkButton}
             onClick={() => {
-              setOrderLink("");
+              setNoWalletsModal("");
             }}
           >
             <p>{t("ok")}</p>

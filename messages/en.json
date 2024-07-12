@@ -386,6 +386,12 @@
       "content2": "After validation, your balance will be updated on the songs page in your Profile.",
       "close": "Close",
       "ok": "Buy tokens"
+    },
+    "NoWalletsModal": {
+      "title": "Please connect wallet",
+      "content": "To make a purchase, you need a crypto wallet that will hold your tokens. You can connect an existing wallet or automatically create an internal wallet on the Profile!",
+      "close": "Close",
+      "ok": "Profile"
     }
   },
 
