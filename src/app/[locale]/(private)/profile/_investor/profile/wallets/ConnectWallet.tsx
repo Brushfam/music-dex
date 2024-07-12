@@ -26,7 +26,7 @@ export function ConnectWallet(props: {
   const [mounted, setMounted] = useState(false);
   const { disconnect } = useDisconnect();
 
-  const { address, connector } = useAccount();
+  const { address } = useAccount();
   const [prevAddress, setPrevAddress] = useState("");
   const { connect, connectors } = useConnect();
   const [walletName, setWalletName] = useState("Braavos");
@@ -81,7 +81,8 @@ export function ConnectWallet(props: {
     t,
   ]);
 
-  function connectWalletIfNew(name: string) {
+  function connectWalletIfNew(name: string, connector: Connector) {
+    console.log("+")
     props.connectedWallets.map((w) => {
       if (w.name === name) {
         toast.info(t("Toast.address_already_exist"))
@@ -109,7 +110,7 @@ export function ConnectWallet(props: {
             <div
               key={index.toString()}
               onClick={() => {
-                connectWalletIfNew(name)
+                connectWalletIfNew(name, connector)
               }}
               className={s.baseWalletRow}
             >
