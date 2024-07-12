@@ -7,16 +7,17 @@ import { toast } from "sonner";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useRouter } from "next/navigation";
 import { createInvoice } from "@/services/users/investors/investors";
+import {useUserStore} from "@/store/user";
 
 export function ByCrypto(props: {
   user: string;
   tokensToPay: number;
   tokensToBuy: number;
   address: string;
-  setApprovePurchaseModal: React.Dispatch<React.SetStateAction<string>>;
 }) {
   const t = useTranslations("SharesBlock.ByCrypto");
   const router = useRouter();
+  const setOrderLink = useUserStore((state) => state.setOrderLink);
 
   async function handlePurchase() {
     firebaseAuth.onAuthStateChanged(async (user) => {
@@ -24,7 +25,7 @@ export function ByCrypto(props: {
         const token = await user.getIdToken(true);
         createInvoice(token, props.tokensToBuy)
           .then((res) => {
-            props.setApprovePurchaseModal(res.data.order_url.toString());
+            setOrderLink(res.data.order_url.toString());
           })
           .catch((error) => {
             console.log(error);

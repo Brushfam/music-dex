@@ -1,16 +1,18 @@
+"use client";
+
 import ms from "../Modals.module.scss";
 import s from "./ApprovePurchaseModal.module.scss";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button/Button";
 import React from "react";
+import { useUserStore } from "@/store/user";
 
-export function ApprovePurchaseModal(props: {
-  orderUrl: string;
-  setModal: React.Dispatch<React.SetStateAction<string>>;
-}) {
+export function ApprovePurchaseModal() {
   const t = useTranslations("SharesBlock.ApprovePurchaseModal");
+  const orderLink = useUserStore((state) => state.orderLink);
+  const setOrderLink = useUserStore((state) => state.setOrderLink);
 
-  return (
+  return orderLink ? (
     <div className={ms.overlay}>
       <div className={s.approvePurchaseModal}>
         <p className={s.title}>{t("title")}</p>
@@ -30,15 +32,15 @@ export function ApprovePurchaseModal(props: {
             color={"grey"}
             arrow={false}
             action={() => {
-              props.setModal("");
+              setOrderLink("");
             }}
           />
           <a
-            href={props.orderUrl}
+            href={orderLink}
             target={"_blank"}
             className={s.linkButton}
             onClick={() => {
-              props.setModal("");
+              setOrderLink("");
             }}
           >
             <p>{t("ok")}</p>
@@ -46,5 +48,5 @@ export function ApprovePurchaseModal(props: {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 }

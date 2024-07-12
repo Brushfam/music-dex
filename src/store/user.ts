@@ -4,8 +4,8 @@ import { createJSONStorage, persist } from "zustand/middleware";
 interface State {
   currentUserName: string;
   currentUserEmail: string;
-  currentUserRole: string;
-  orderLink: string;
+  orderLink: string; // for tracks pages, triggers ApprovePurchase modal window
+  noWalletsModal: string; // for tracks pages, triggers NoWallets modal window
 }
 
 interface Actions {
@@ -17,8 +17,8 @@ interface Actions {
 const INITIAL_STATE: State = {
   currentUserName: "",
   currentUserEmail: "",
-  currentUserRole: "",
   orderLink: "",
+  noWalletsModal: "",
 };
 
 // Use only for client components
@@ -27,8 +27,8 @@ export const useUserStore = create<State & Actions>()(
     (set) => ({
       currentUserName: INITIAL_STATE.currentUserName,
       currentUserEmail: INITIAL_STATE.currentUserEmail,
-      currentUserRole: INITIAL_STATE.currentUserRole,
       orderLink: INITIAL_STATE.orderLink,
+      noWalletsModal: INITIAL_STATE.noWalletsModal,
       setCurrentUserEmail: (email) => set(() => ({ currentUserEmail: email })),
       setCurrentUserName: (name) => set(() => ({ currentUserName: name })),
       setOrderLink: (orderUrl) => set(() => ({ orderLink: orderUrl })),

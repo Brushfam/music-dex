@@ -24,7 +24,6 @@ export function SharesBlock(props: {
   price: number;
   tokenAddress: string;
   tokenName: string;
-  setApprovePurchaseModal: React.Dispatch<React.SetStateAction<string>>;
 }) {
   const t = useTranslations("SharesBlock");
   const price = roundToTwo(props.price);
@@ -127,7 +126,6 @@ export function SharesBlock(props: {
           tokensToPay={currentAmount}
           tokensToBuy={getTokenAmount()}
           address={props.tokenAddress}
-          setApprovePurchaseModal={props.setApprovePurchaseModal}
         />
         <Tooltip title={t("fiat_description")} enterTouchDelay={0}>
           <div className={s.disabledFiat}>

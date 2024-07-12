@@ -16,6 +16,7 @@ import {Overview} from "@/app/[locale]/(public)/tracks/_components/Overview/Over
 import {Royalties} from "@/app/[locale]/(public)/tracks/_components/Royalties/Royalties";
 import {Statistics} from "@/app/[locale]/(public)/tracks/_components/Statistics/Statistics";
 import {AboutArtist} from "@/app/[locale]/(public)/tracks/_components/AboutArtist/AboutArtist";
+import {useUserStore} from "@/store/user";
 
 type PageTemplateProps = {
   artist: string;
@@ -37,7 +38,6 @@ export function PageTemplate(props: PageTemplateProps) {
   const currentLocale = useLocale();
   const trackData =
     currentLocale === "uk" ? props.trackDataUK : props.trackDataEN;
-  const [approvePurchaseModal, setApprovePurchaseModal] = useState("");
   const [currentPage, setCurrentPage] = useState(TrackSubpages.Overview);
 
   function TrackDescription() {
@@ -128,12 +128,7 @@ export function PageTemplate(props: PageTemplateProps) {
 
   return (
     <div className={cs.main}>
-      {approvePurchaseModal.length ? (
-        <ApprovePurchaseModal
-          orderUrl={approvePurchaseModal}
-          setModal={setApprovePurchaseModal}
-        />
-      ) : null}
+      <ApprovePurchaseModal/>
       <div className={s.sectionWrapper}>
         <div className={s.bg}></div>
         <div className={s.trackPageSection}>
@@ -153,7 +148,6 @@ export function PageTemplate(props: PageTemplateProps) {
               price={trackData.price}
               tokenAddress={props.tokenAddress}
               tokenName={props.songName}
-              setApprovePurchaseModal={setApprovePurchaseModal}
             />
           </div>
         </div>
