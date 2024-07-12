@@ -33,9 +33,7 @@ function LangSwitcher() {
 export function MobileHeader(props: {children: React.ReactNode}) {
   const currentUser = useUserStore((state) => state.currentUserEmail);
 
-  useEffect(() => {
-    console.log(currentUser);
-  }, [currentUser]);
+  useEffect(() => {}, [currentUser]);
 
   return (
     <div className={s.header}>

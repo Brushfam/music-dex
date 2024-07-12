@@ -67,7 +67,6 @@ function Login(props: {
         getUserLoginInfo(idToken)
           .then((res) => {
             setCurrentUserName(res.data.firstName);
-            console.log(res.data.isFirstLogin);
             if (res.data.isFirstLogin) {
               props.setStep(LoginSteps.ProfileForm);
             } else {

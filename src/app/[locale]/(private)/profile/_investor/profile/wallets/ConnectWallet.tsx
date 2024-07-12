@@ -82,7 +82,6 @@ export function ConnectWallet(props: {
   ]);
 
   function connectWalletIfNew(name: string, connector: Connector) {
-    console.log("+")
     props.connectedWallets.map((w) => {
       if (w.name === name) {
         toast.info(t("Toast.address_already_exist"))
