@@ -31,8 +31,8 @@ export function SuggestedSongs() {
       </div>
       <a href={"/" + currentLocale + "/tracks/dealer"} className={s.suggestedSongs_song}>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-            <p className={s.statisticsBlock_text1}>Дилер</p>
-            <p className={s.statisticsBlock_text2}>Tonu Tonite</p>
+            <p className={s.suggestedSongs_text1}>Дилер</p>
+            <p className={s.suggestedSongs_text2}>Tony Tonite</p>
           </div>
           <Image
             src={"/profile/icons/link-to-song.svg"}

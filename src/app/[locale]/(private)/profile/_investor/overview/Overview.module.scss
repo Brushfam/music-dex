@@ -98,12 +98,19 @@
     color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: 400;
+    text-align: center;
+    margin-top: 6px;
+
+    @media (max-width: 500px) {
+      max-width: 260px;
+    }
   }
 
   &_text2 {
     color: rgba(255, 255, 255, 0.5);
     font-size: 14px;
     font-weight: 400;
+    text-align: center;
   }
 
   @media (max-width: 1440px) {

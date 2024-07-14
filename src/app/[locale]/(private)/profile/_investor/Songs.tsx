@@ -27,7 +27,8 @@ export default function Songs() {
         const token = await user.getIdToken();
         const response = await getUserSongs(token);
         if (response.data.tokens) {
-          setDealerAmount(response.data.tokens);
+          const tokens = response.data.tokens;
+          setDealerAmount(parseFloat(tokens.toFixed(2)));
         }
         if (response.data.date) {
           setLastDate(response.data.date);

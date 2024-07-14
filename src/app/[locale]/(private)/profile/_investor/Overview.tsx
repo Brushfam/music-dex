@@ -10,7 +10,7 @@ import { LoadingSpinner } from "@/app/[locale]/(private)/profile/_components/Loa
 import { OverviewRow } from "@/app/[locale]/(private)/profile/_investor/overview/OverviewRow";
 import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
 import { ProfileHeader } from "@/app/[locale]/(private)/profile/_components/ProfileHeader/ProfileHeader";
-import {SecondBlock} from "@/app/[locale]/(private)/profile/_investor/overview/SecondBlock";
+import { SecondBlock } from "@/app/[locale]/(private)/profile/_investor/overview/SecondBlock";
 
 export function Overview() {
   const t = useTranslations("ProfileInvestor.Overview");
@@ -25,8 +25,9 @@ export function Overview() {
         const token = await user.getIdToken();
         getUserOverview(token)
           .then((res) => {
-            setTotalInvestedAmount(res.data.totalInvestedAmount);
-            setTotalTokensAmount(res.data.totalTokensAmount);
+            setTotalInvestedAmount(Number(res.data.totalInvestedAmount));
+            const tokens = res.data.totalTokensAmount;
+            setTotalTokensAmount(parseFloat(tokens.toFixed(2)));
           })
           .catch((error) => {
             console.log(error);
@@ -58,10 +59,10 @@ export function Overview() {
       ) : (
         <div className={s.contentWrapper}>
           <OverviewRow
-            totalInvestedAmount={Number(totalInvestedAmount)}
-            totalTokensAmount={Number(totalTokensAmount)}
+            totalInvestedAmount={totalInvestedAmount}
+            totalTokensAmount={totalTokensAmount}
           />
-            <SecondBlock/>
+          <SecondBlock />
         </div>
       )}
     </div>
