@@ -7,7 +7,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
     <div className={s.authLayout}>
       <div className={s.blockWrapper}>
         <Image
-          src={"/auth/orange-logo.svg"}
+          src={"/auth/orange-logo.png"}
           alt={"MusicDex logo"}
           width={48}
           height={47}
