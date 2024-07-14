@@ -31,7 +31,7 @@ export function Overview() {
           })
           .catch((error) => {
             console.log(error);
-            toast.error("Something went wrong");
+            toast.error(t("another_error"));
           })
           .finally(() => {
             setLoading(false);

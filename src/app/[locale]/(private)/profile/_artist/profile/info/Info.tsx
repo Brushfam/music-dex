@@ -8,8 +8,10 @@ import { useRouter } from "next/navigation";
 import { getInvestorInfo } from "@/services/users/investors/investors";
 import {ArtistInfo} from "@/types/types";
 import { toast } from "sonner";
+import {useTranslations} from "next-intl";
 
 export function Info() {
+  const t = useTranslations("ProfileArtist.Profile");
   const router = useRouter();
   const [artistInfo, setArtistInfo] = useState<null | ArtistInfo>(null);
   const [triggerFormRefresh, setTriggerFormRefresh] = useState(0);
@@ -30,7 +32,7 @@ export function Info() {
           })
           .catch((error) => {
             console.log(error);
-            toast.error("Error fetching info");
+            toast.error(t("another_error"));
           });
       } else {
         router.replace("/en/auth/login?expired-session=true");

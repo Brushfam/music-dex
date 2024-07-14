@@ -240,7 +240,7 @@
       "loading": "Loading...",
       "Toast": {
         "updated": "Information was updated!",
-        "another_error": "Something went wrong...",
+        "another_error": "Something went wrong",
         "wallet_connected": "Wallet was connected!",
         "error_adding_wallet": "Error adding wallet",
         "error_updating_wallets": "Error updating wallets",
@@ -273,7 +273,8 @@
       "empty_history_title": "Your payment history will be listed here",
       "empty_history_desc": "Choose a song to invest",
       "suggestions": "Suggestions",
-      "invest": "Invest"
+      "invest": "Invest",
+      "another_error": "Something went wrong"
     },
     "Songs": {
       "title": "Invested songs",
@@ -325,7 +326,9 @@
       "select_country": "Select Country",
       "cancel": "Cancel",
       "saving": "Saving...",
-      "save": "Save Changes"
+      "save": "Save Changes",
+      "updated": "Information was updated!",
+      "another_error": "Something went wrong"
     },
     "Overview": {
       "title": "Overview",
@@ -364,7 +367,6 @@
     "sold_out": "Sold out",
     "price": "Price",
     "tokens": "Tokens",
-    "nbu_text": ", according to the NBU exchange rate {rate} for 1 USD.",
     "min": "min.",
     "max": "max.",
     "please_login": "Please log in to buy tokens.",
@@ -375,9 +377,6 @@
     "fiat_description": "Coming soon!",
     "ByCrypto": {
       "default": "Purchase by Crypto",
-      "loading": "Transaction executing...",
-      "info": "Please wait for the transaction to complete.",
-      "success": "Success! Your tokens will be transferred within several minutes.",
       "error": "Something went wrong."
     },
     "ApprovePurchaseModal": {

@@ -46,11 +46,11 @@ export function InfoForm(props: {
         };
         updateArtistInfo(token, updatedData)
           .then(() => {
-            toast.success("updated");
+            toast.success(t("updated"));
           })
           .catch((error) => {
             console.log(error);
-            toast.error("error");
+            toast.error(t("another_error"));
           })
           .finally(() => {
             setLoading(false);

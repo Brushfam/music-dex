@@ -8,8 +8,10 @@ import { useRouter } from "next/navigation";
 import { getInvestorInfo } from "@/services/users/investors/investors";
 import { InvestorInfo } from "@/types/types";
 import { toast } from "sonner";
+import {useTranslations} from "next-intl";
 
 export function Info() {
+  const t = useTranslations("Profile.Toast")
   const router = useRouter();
   const [investorInfo, setInvestorInfo] = useState<null | InvestorInfo>(null);
   const [triggerFormRefresh, setTriggerFormRefresh] = useState(0);
@@ -31,13 +33,13 @@ export function Info() {
           })
           .catch((error) => {
             console.log(error);
-            toast.error("Error fetching info");
+            toast.error(t("another_error"));
           });
       } else {
         router.replace("/en/auth/login?expired-session=true");
       }
     });
-  }, [router, triggerFormRefresh]);
+  }, [router, t, triggerFormRefresh]);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
