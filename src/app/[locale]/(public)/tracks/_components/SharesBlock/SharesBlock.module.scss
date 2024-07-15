@@ -1,0 +1,144 @@
+@import '../../../../../../constants/constants';
+
+.sharesBlock {
+  width: 310px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 12px 24px 12px;
+  gap: 32px;
+
+  border-radius: 12px;
+  box-shadow: 0 13.04px 26.08px 0 rgba(0, 0, 0, 0.15);
+  background: rgb(34, 34, 34);
+
+  color: white;
+
+  @media (max-width: $desktop-size) {
+    width: 280px;
+  }
+
+  @media (max-width: 1100px) {
+    width: 310px;
+    align-self: center;
+  }
+
+  @media (max-width: $mobile-size) {
+    width: 100%;
+  }
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 130%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.priceBlockWrapper {
+  width: 100%;
+}
+
+.priceBlock {
+  position: relative;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1),0 4px 4px 0 rgba(0, 0, 0, 0.05),0 1px 0 0 rgba(0, 0, 0, 0.05);
+  background: rgb(79, 79, 79);
+}
+
+.priceTextBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &_divider {
+    height: 41px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 12px;
+  }
+}
+
+.changeAmountButton {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 57px;
+  padding: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  box-shadow: 0px 13.04px 26.08px 0px rgba(0, 0, 0, 0.15),0px 9.78px 19.56px 0px rgba(0, 0, 0, 0.1),0px 3.26px 6.52px 0px rgba(0, 0, 0, 0.1);
+  background: rgb(52, 52, 52);
+  cursor: pointer;
+
+  p {
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  &:hover {
+    filter: brightness(120%);
+  }
+}
+
+.nbuText {
+  text-align: right;
+  font-size: 11px;
+  line-height: 120%;
+  margin-top: 4px;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.smallText {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 110%;
+}
+
+.boldSmallText {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 110%;
+}
+
+.disabledFiat {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px 8px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: transparent;
+
+  p {
+    color: gray;
+    user-select: none;
+  }
+
+  &:hover {
+    filter: none;
+    cursor: initial;
+  }
+
+}

@@ -1,0 +1,223 @@
+
+.songListSubPage {
+  display: flex;
+  flex-direction: column;
+  margin: 42px 36px 36px 0;
+  height: auto;
+  border-radius: 14px;
+  padding: 32px 36px 36px 36px;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.16);
+  background: rgb(17, 17, 17);
+  overflow-x: auto;
+}
+
+.activitiesWrapper {
+  @media (max-width: 1200px) {
+    min-width: 724px;
+  }
+}
+
+.songListSubPageEmpty {
+  @extend .songListSubPage;
+  min-width: 0;
+}
+
+.noSongBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 128px 0;
+
+  &_title {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    margin-bottom: 8px;
+  }
+
+  &_description {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 32px;
+  }
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  &_text {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 120%;
+  }
+}
+
+.songHeader {
+  position: relative;
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 32px 0px 32px;
+  border-radius: 8px;
+  background: rgb(23, 23, 23);
+  margin-top: 24px;
+
+  p {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+  }
+
+  &_date {
+    left: 32px;
+  }
+
+  &_song {
+    left: 238px;
+  }
+
+  &_tokens {
+    left: 428px;
+  }
+
+  &_invested {
+    left: 590px;
+  }
+
+  &_status {
+    left: 800px;
+  }
+
+  @media (max-width: 1380px) {
+    &_date {
+      left: 32px;
+    }
+
+    &_song {
+      left: 200px;
+    }
+
+    &_tokens {
+      left: 340px;
+    }
+
+    &_invested {
+      left: 420px;
+    }
+
+    &_status {
+      left: 600px;
+    }
+  }
+}
+
+.songRow {
+  position: relative;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 32px 8px 32px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background: rgb(29, 29, 29);
+
+  p {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+  }
+
+  &_date {
+    left: 32px;
+  }
+
+  &_song {
+    left: 238px;
+  }
+
+  &_tokens {
+    left: 450px;
+  }
+
+  &_invested {
+    left: 610px;
+  }
+
+  @media (max-width: 1380px) {
+    &_date {
+      left: 32px;
+    }
+
+    &_song {
+      left: 200px;
+    }
+
+    &_tokens {
+      left: 355px;
+    }
+
+    &_invested {
+      left: 435px;
+    }
+  }
+}
+
+@mixin status {
+  position: absolute;
+  left: 782px;
+  width: 90px;
+  height: 29px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 8px 6px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 400;
+
+  @media (max-width: 1380px) {
+    left: 580px;
+  }
+}
+
+.waiting {
+  @include status;
+  background: rgba(246, 160, 31, 0.1);
+  p {
+    color: rgb(246, 160, 31);
+  }
+}
+
+.complete {
+  @include status;
+  background: rgba(54, 192, 78, 0.1);
+  p {
+    color: rgb(54, 192, 78);
+  }
+}
+
+.declined {
+  @include status;
+  background: rgb(23, 23, 23);
+  p {
+    color: rgba(255, 255, 255, 0.4);
+  }
+}

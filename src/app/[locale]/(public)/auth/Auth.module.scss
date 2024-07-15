@@ -1,0 +1,133 @@
+@import '../../../../constants/constants';
+
+.authLayout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 80px;
+  padding-bottom: 20px;
+  margin: 0;
+  background-image: url("/backgrounds/login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media (max-width: $mobile-size) {
+    padding: 40px 0 10px 0;
+  }
+}
+
+.blockWrapper {
+  width: 560px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 42px 40px 48px 40px;
+  border-radius: 24px;
+  background: rgb(17, 17, 17);
+
+  @media (max-width: 500px) {
+    margin-top: 40px;
+    padding: 21px 20px 24px 20px;
+    width: 90%;
+  }
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 300px;
+
+  label {
+    color: white;
+  }
+}
+
+.title {
+  color: rgb(255, 255, 255);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 150%;
+  text-align: center;
+
+  @media (max-width: 500px) {
+    font-size: 24px;
+    line-height: 140%;
+  }
+}
+
+.secondaryText {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+}
+
+.formInput {
+  width: 100%;
+  height: 50px;
+  padding: 8px 16px 8px 16px;
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #ffffff;
+  border: none;
+  background: rgb(29, 29, 29);
+  outline-style: none;
+}
+
+.formInput:-webkit-autofill,
+.formInput:-webkit-autofill:hover,
+.formInput:-webkit-autofill:focus,
+.formInput:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px darkgrey inset !important;
+}
+
+.formInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+}
+
+.passwordIconWrapper {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  cursor: pointer;
+}
+
+.dontHaveAccount {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 24px;
+  gap: 8px;
+  border-top: 1px solid;
+  border-image: linear-gradient(90deg, rgba(35,35,32,1) 0%, rgba(175,175,175,0.9) 50%, rgba(35,35,35,1) 100%) 30;
+
+  @media (max-width: 500px) {
+    padding-top: 18px;
+  }
+
+  a, p {
+    font-size: 18px;
+    @media (max-width: 500px) {
+      font-size: 15px;
+    }
+  }
+
+  p {
+    color: white;
+  }
+
+  a {
+    color: $main-orange;
+    font-weight: 600;
+  }
+}

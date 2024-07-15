@@ -1,0 +1,79 @@
+@import '../../../../../../../constants/constants';
+
+.inputRow {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+  gap: 32px;
+  
+  @media (max-width: 980px) {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.inputSocialRow {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.inputRowTitle {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+
+.inputBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  option {
+    background-color: rgb(30, 30, 30);
+    margin: 4px 0;
+  }
+}
+
+.formInput {
+  height: 44px;
+  width: 400px;
+  padding: 0px 16px 0px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgb(30, 30, 30);
+  color: white;
+  font-size: 16px;
+  outline-style: none;
+
+  @media (max-width: 980px) {
+    width: 100%;
+  }
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.formInput:-webkit-autofill,
+.formInput:-webkit-autofill:hover,
+.formInput:-webkit-autofill:focus,
+.formInput:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px darkgrey inset !important;
+}
+
+.formSocialInput {
+  @extend .formInput;
+  width: 265px;
+}

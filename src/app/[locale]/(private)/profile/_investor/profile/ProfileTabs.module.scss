@@ -1,0 +1,14 @@
+
+.tabsList {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-bottom: 43px;
+
+  p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+  }
+}
+

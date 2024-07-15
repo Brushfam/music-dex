@@ -33,6 +33,64 @@
     "join": "Join"
   },
 
+  "Auth": {
+    "existing_email_error": "Email address already in use.",
+    "expired_session": "You session have expired. Please re-login",
+    "invalid_email": "Invalid email.",
+    "weak_password": "Password is not strong enough.",
+    "wrong_password": "Email address and password do not match.",
+    "email_is_not_verified": "Please check your mailbox and verify your email.",
+    "other_errors": "Something went wrong.",
+    "sign_up": "Sign Up",
+    "sign_in": "Sign In",
+    "signup_title": "Create an account",
+    "signup_artist_title": "Create an account as an artist",
+    "login_title": "Welcome back!",
+    "or_continue_with": "or continue with",
+    "email": "Email",
+    "password": "Password",
+    "forgot_password": "Forgot your password?",
+    "link_to_signup": "Don’t have an account?",
+    "link_to_artist_signup": "Sign up as an artist, producer or composer",
+    "agreement_text": "By clicking on “Sign Up” or signing-up with Google or Twitter you expressly agree to our Terms of Use and Privacy Policy.",
+    "reset_password": "Reset password",
+    "enter_email": "Enter your email address and we’ll send you the link to reset your password",
+    "reset_password_content": "A letter with instructions for resetting the password has been sent to your email.",
+    "continue": "Continue",
+    "verify_the_email": "Verify the email",
+    "verify_message1": "If you previously registered with this email address, please check your inbox for a verification to confirm your identity.",
+    "verify_message2": "If this was not you, for security, please set a new password through the email. Click the button below to send this email.",
+    "send_the_email": "Send the email",
+    "email_sent": "Email was sent!",
+    "done": "Done",
+    "email_sent_signup": "We have sent an email to your registered email address with instructions on how to verify your account. Please check your inbox and follow the link provided to complete the verification process.",
+    "email_sent_reset": "An email with instructions to reset your password has been sent to your registered email address. Please check your inbox and follow the link provided in the email to complete the password reset process. If you don't see the email in your inbox, please check your spam or junk folder.",
+    "ProfileForm": {
+      "title": "Fill out your profile",
+      "name": "Name",
+      "name_placeholder": "Enter your name",
+      "last_name": "Last Name",
+      "last_name_placeholder": "Enter your last name",
+      "artist_name": "Artist name",
+      "artist_name_placeholder": "Enter your artist name",
+      "genre": "Favorite Music Genre",
+      "select_genre": "Select Genre",
+      "country": "Country",
+      "select_country": "Select Country",
+      "social_media": "Social Media",
+      "skip": "Skip",
+      "saving": "Saving...",
+      "save": "Save",
+      "other_errors": "Something went wrong"
+    }
+  },
+
+  "Blog": {
+    "title": "MusicDex Blog",
+    "description": "Discover the latest insights and updates on all things related to MusicDex, including breaking news, community highlights, technical deep dives, and much more.",
+    "empty_blog": "Our blog is under construction. Check back soon!"
+  },
+
   "Catalog": {
     "header": "Choose your track",
     "description": "Invest in Music Royalties and Shape the Future of Music",
@@ -44,7 +102,13 @@
     "song_button": "Invest in the track",
     "details": "DETAILS",
     "watch_video": "WATCH OFFICIAL VIDEO",
-    "locked_title": "Coming soon!"
+    "locked_title": "Coming soon!",
+    "TabRow": {
+      "overview": "Overview",
+      "royalties": "Royalties",
+      "statistics": "Statistics",
+      "about": "About Artist"
+    }
   },
 
   "Dealer": {
@@ -62,13 +126,18 @@
     "legal": "Legal",
     "privacy_policy": "Privacy Policy",
     "terms": "Terms and Conditions",
-    "public_offer": "Public Offer"
+    "public_offer": "Public Offer",
+    "we_accept": "We accept:"
   },
 
   "Header": {
     "login": "Log in",
     "logout": "Log out",
-    "my_tokens": "My tokens",
+    "catalog": "Catalog",
+    "blog": "Blog",
+    "for_artist": "For Artist",
+    "faq": "FAQ",
+    "profile": "Profile",
     "earned": "Earned",
     "claim": "Claim",
     "no_tokes": "You do not have any tokens yet.",
@@ -77,6 +146,7 @@
     "amount": "amount",
     "invalid_amount": "Invalid amount.",
     "close": "Close",
+    "error_logout": "Something went wrong.",
     "toaster": {
       "income_info": "Sending income...",
       "income_success": "Income was sent successfully.",
@@ -106,7 +176,34 @@
       "fourth": "Investor protection measures"
     },
     "built_on": "Built on:",
-    "starknet_description": "Validity-Rollup Layer 2 network that operates on top of Ethereum, enabling dApps to massively scale without compromising on security."
+    "starknet_description": "Validity-Rollup Layer 2 network that operates on top of Ethereum, enabling dApps to massively scale without compromising on security.",
+    "partners": "Our Partners:"
+  },
+
+  "ForArtist": {
+    "submit_song": "Submit my song",
+    "card1_title": "Submit your best song",
+    "card1_description": "Interested in joining MusicDex community and starting your exciting journey with us? Fill out the form and our team of experts will review it.",
+    "card2_title": "Get an offer",
+    "card2_description": "We will offer you a chance to start your growth with us by signing an agreement. Our team will guide you through the process, ensuring you have all the information you need to make the best career decision.",
+    "card3_title": "Start your journey with MusicDex",
+    "card3_description": "Unlock the power to passively fund your music career and cover Marketing and PR expenses. Build a unique bond with fans who want to support YOU and your musical activity.",
+    "form_title": "Interested in working with us?",
+    "form_description": "Reach out to us and we will send you a value proposition",
+    "Form": {
+      "topic": "Topic",
+      "topic_placeholder": "Write a topic for your inquiry",
+      "name": "Name",
+      "name_placeholder": "Enter your name",
+      "email": "Email",
+      "email_placeholder": "Enter your email",
+      "message": "Message",
+      "message_placeholder": "Type your message",
+      "send": "Send message",
+      "sending": "Sending...",
+      "sent": "Sent",
+      "submitted": "Your form was submitted!"
+    }
   },
 
   "Legal": {
@@ -124,30 +221,198 @@
     }
   },
 
+  "ProfileInvestor": {
+    "Sidebar": {
+      "overview": "Overview",
+      "songs": "Songs & Analytics",
+      "royalties": "Royalties",
+      "activities": "Activities",
+      "profile": "My profile",
+      "logout": "Log out"
+    },
+    "Profile": {
+      "title": "Profile",
+      "tab1": "Personal info",
+      "tab2": "Wallets",
+      "connected_wallets": "Connected Wallets",
+      "connect_wallet": "Connect a wallet",
+      "create_internal_wallet": "Or automatically create a wallet",
+      "loading": "Loading...",
+      "Toast": {
+        "updated": "Information was updated!",
+        "another_error": "Something went wrong",
+        "wallet_connected": "Wallet was connected!",
+        "error_adding_wallet": "Error adding wallet",
+        "error_updating_wallets": "Error updating wallets",
+        "internal_created": "Internal wallet was created!",
+        "internal_error": "Error creating internal wallet",
+        "address_already_exist": "Address is already exist"
+      },
+      "name": "Name",
+      "email": "Email",
+      "last_name": "Last Name",
+      "additional_info": "Additional Info",
+      "genre": "Favorite Music Genre",
+      "select_genre": "Select Genre",
+      "country": "Country",
+      "select_country": "Select Country",
+      "social_media": "Social Media",
+      "cancel": "Cancel",
+      "saving": "Saving...",
+      "save": "Save Changes"
+    },
+    "Overview": {
+      "title": "Overview",
+      "earned": "Earned from royalties",
+      "total_songs": "Total songs invested",
+      "invested_amount": "Invested amount",
+      "total_tokens": "Total token amount",
+      "statistics": "Statistics",
+      "sample_statistics": "The statistics of your income data will be shown here",
+      "payment_history": "Payment History",
+      "empty_history_title": "Your payment history will be listed here",
+      "empty_history_desc": "Choose a song to invest",
+      "suggestions": "Suggestions",
+      "invest": "Invest",
+      "another_error": "Something went wrong"
+    },
+    "Songs": {
+      "title": "Invested songs",
+      "no_songs": "No invested songs here yet",
+      "choose_song": "Choose a song to invest",
+      "invest": "Invest",
+      "list_of_songs": "List of songs",
+      "last_purchase": "Last purchase",
+      "song": "Song",
+      "tokens": "Tokens",
+      "invested": "Invested",
+      "loading": "Loading..."
+    },
+    "Royalties": {
+      "title": "Royalties",
+      "statistics": "Statistics",
+      "sample_statistics": "The statistics of your income data will be shown here",
+      "payment_history": "Payment History",
+      "empty_history_title": "Your payment history will be listed here",
+      "empty_history_desc": "Choose a song to invest",
+      "future_payouts": "Future payouts",
+      "empty_payouts_title": "Your future payouts will be listed here",
+      "empty_payouts_desc": "Choose a song from the catalog to invest and receive income"
+    },
+    "Activities": {
+      "title": "Activities",
+      "no_activities": "No activities songs here yet",
+      "list_of_activities": "List of activities",
+      "date": "Date",
+      "song": "Song",
+      "activity": "Activity",
+      "tokens": "Tokens",
+      "invested": "Invested",
+      "status": "Status",
+      "loading": "Loading..."
+    }
+  },
+
+  "ProfileArtist": {
+    "Profile": {
+      "title": "Profile",
+      "form_title": "Personal info & Settings",
+      "name": "Name",
+      "email": "Email",
+      "last_name": "Last Name",
+      "additional_info": "Additional Info",
+      "artist_name": "Artist Name",
+      "country": "Country",
+      "select_country": "Select Country",
+      "cancel": "Cancel",
+      "saving": "Saving...",
+      "save": "Save Changes",
+      "updated": "Information was updated!",
+      "another_error": "Something went wrong"
+    },
+    "Overview": {
+      "title": "Overview",
+      "overview_block1": "Tokens purchased by listeners’",
+      "overview_block2": "Listeners invested",
+      "overview_block3": "Royalties paid",
+      "transactions_title": "Latest users’ transactions",
+      "date_time": "Date / Time",
+      "song": "Song",
+      "tokens": "Tokens",
+      "amount": "Amount",
+      "royalty_title": "Royalty payments",
+      "date": "Date",
+      "period": "Period covered",
+      "empty_royalties_history": "Royalty payment history will be listed here",
+      "empty_transactions_list": "The history of user's purchases will be shown here"
+    },
+    "Songs": {
+      "title": "Uploaded songs",
+      "list_title": "List of songs",
+      "listing_date": "Listing date",
+      "song": "Song",
+      "tokens": "Tokens",
+      "total": "Total received",
+      "sales_activity": "Sales activity",
+      "empty_song_list": " List of your songs will be shown here"
+    },
+    "FAQ": {
+      "title": "FAQ",
+      "list_title": "Answers to Frequently Asked Questions"
+    }
+  },
+
   "SharesBlock": {
     "header": "Select token amount",
     "sold_out": "Sold out",
     "price": "Price",
     "tokens": "Tokens",
-    "nbu_text": ", according to the NBU exchange rate {rate} for 1 USD.",
     "min": "min.",
     "max": "max.",
     "please_login": "Please log in to buy tokens.",
+    "please_login_artist": "Please log in as investor to buy tokens.",
     "sign_agreement": "Agreement",
     "agreement_description": "To buy tokens, you need to accept the terms of the agreement.",
     "fiat_title": "Purchase by Fiat",
     "fiat_description": "Coming soon!",
     "ByCrypto": {
       "default": "Purchase by Crypto",
-      "loading": "Transaction executing...",
-      "info": "Please wait for the transaction to complete.",
-      "success": "Success! Your tokens will be transferred within several minutes.",
       "error": "Something went wrong."
     },
-    "LowBalanceModal": {
-      "title": "Low balance",
-      "content": "There are not enough funds in your wallet. Please, check your USDT balance.",
-      "ok": "OK"
+    "ApprovePurchaseModal": {
+      "title": "Crypto payment",
+      "content1": "Follow the link to pay for tokens. After you send the full amount, the provider will start validating the payment. You do not have to wait for validation confirmation and you can close the payment page.",
+      "content2": "After validation, your balance will be updated on the songs page in your Profile.",
+      "close": "Close",
+      "ok": "Purchase"
+    },
+    "NoWalletsModal": {
+      "title": "Please connect wallet",
+      "content": "To make a purchase, you need a crypto wallet that will hold your tokens. You can connect an existing wallet or automatically create an internal wallet on the Profile!",
+      "close": "Close",
+      "ok": "Profile"
+    }
+  },
+
+  "Tracks": {
+    "Overview": {
+      "price_per_token": "Price per token",
+      "total_purchased_tokens": "Total purchased tokens",
+      "tokens_remaining": "Tokens remaining",
+      "revenue": "Revenue sources",
+      "revenue1_description": "Whenever a track is played on Apple Music, royalties are automatically distributed among token holders in proportion to the number of tokens they hold.",
+      "revenue2_description": "Whenever a track is played on YouTube Music, royalties are automatically distributed to tokenholders in proportion to the number of tokens they hold.",
+      "revenue3_description": "Whenever a track is streamed on Spotify, royalties are automatically distributed to token holders in proportion to the number of tokens they hold."
+    },
+    "Royalties": {
+      "title": "Payouts History",
+      "no_history": "No payouts yet"
+    },
+    "Statistics": {
+      "title1": "Total Spotify streams",
+      "title2": "Total YouTube Music streams",
+      "title3": "Total Apple Music streams",
+      "title4": "Radio plays"
     }
   }
 }

@@ -1,0 +1,121 @@
+.forArtist {
+  width: 100%;
+}
+
+.mainTextWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 120px 0 60px 0;
+}
+
+.mainTextEN1, .mainTextUK1 {
+  @media (max-width: 1300px) {
+    display: none;
+  }
+}
+
+.mainTextEN2, .mainTextUK2 {
+  display: none;
+
+  @media (max-width: 1299px) {
+    display: block;
+  }
+
+  @media (max-width: 801px) {
+    display: none;
+  }
+}
+
+.mainTextEN3, .mainTextUK3 {
+  @media (min-width: 800px) {
+    display: none;
+  }
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+
+  @media (max-width: 1300px) {
+    flex-direction: column;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 385px;
+  padding: 32px 30px 32px 30px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(246, 96, 31, 0.5);
+  border-radius: 16px;
+  box-shadow:
+    0px 13px 26px 0px rgba(0, 0, 0, 0.15),
+    0px 10px 20px 0px rgba(0, 0, 0, 0.1),
+    0px 3px 6px 0px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.04px);
+  background: rgba(30, 30, 30, 0.3);
+
+  @media (max-width: 1300px) {
+    width: 560px;
+  }
+
+  @media (max-width: 600px) {
+    width: 340px;
+  }
+
+  &_title {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin: 32px 0 16px 0;
+  }
+
+  &_description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    @media (max-width: 1300px) {
+      text-align: center;
+    }
+  }
+}
+
+.submitSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px 12px 24px;
+    box-sizing: border-box;
+    border: 1px solid rgb(246, 96, 31);
+    border-radius: 8px;
+    box-shadow:
+      0px 10px 20px 0px rgba(246, 96, 31, 0.1),
+      0px 3px 6px 0px rgba(246, 96, 31, 0.1);
+    background: rgb(22, 22, 22);
+    color: rgb(246, 96, 31);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 150%;
+    text-transform: uppercase;
+  }
+
+  a:hover {
+    background: rgb(246, 96, 31);
+    color: rgb(22, 22, 22);
+  }
+}

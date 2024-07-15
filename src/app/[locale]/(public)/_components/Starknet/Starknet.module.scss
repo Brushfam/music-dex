@@ -1,0 +1,56 @@
+@import '../../../../../constants/constants';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  gap: 30px;
+
+  p {
+    text-align: center;
+    color: white;
+    line-height: 130%;
+  }
+
+  @media (max-width: $tablet-size) {
+    width: 72%;
+  }
+
+  @media (max-width: $mobile-size) {
+    width: 82%;
+    gap: 36px;
+  }
+}
+
+.title {
+  font-weight: 600;
+  font-size: 32px;
+
+  @media (max-width: $mobile-size) {
+    font-size: 24px;
+  }
+}
+
+.logoContainer {
+  position: relative;
+  display: block;
+  width: 200px;
+  height: 120px;
+
+  @media (max-width: $mobile-size) {
+    width: 160px;
+    height: 90px;
+  }
+}
+
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  max-width: 600px;
+
+  @media (max-width: $tablet-size) {
+    width: 100%;
+  }
+}
