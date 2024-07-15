@@ -119,7 +119,7 @@ export function PageTemplate(props: PageTemplateProps) {
 
   function CurrentSubPage() {
     if (currentPage === "Overview") {
-      return <Overview videoId={"Jb5qdg30jSU"} />;
+      return <Overview videoId={"Jb5qdg30jSU"} tokenAddress={props.tokenAddress} />;
     } else if (currentPage === "Royalties") {
       return <Royalties />;
     } else if (currentPage === "Statistics") {
