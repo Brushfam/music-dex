@@ -34,7 +34,7 @@
   }
 }
 
-.partners {
+@mixin partnersList {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -43,6 +43,28 @@
   svg:hover path {
     fill: $main-orange
   }
+}
+
+.partners {
+  @include partnersList;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 44px
+  }
+
+  @media (max-width: 500px) {
+    gap: 32px
+  }
+}
+
+.lastRow {
+  @include partnersList;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
 
   @media (max-width: 500px) {
     flex-direction: column;
