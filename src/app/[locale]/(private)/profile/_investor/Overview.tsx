@@ -25,9 +25,10 @@ export function Overview() {
         const token = await user.getIdToken();
         getUserOverview(token)
           .then((res) => {
-            setTotalInvestedAmount(Number(res.data.totalInvestedAmount));
-            const tokens = res.data.totalTokensAmount;
-            setTotalTokensAmount(parseFloat(tokens.toFixed(2)));
+            const investedAmount = res.data.totalInvestedAmount;
+            setTotalInvestedAmount(parseFloat(investedAmount.toFixed(2)));
+            const tokensAmount = res.data.totalTokensAmount;
+            setTotalTokensAmount(parseFloat(tokensAmount.toFixed(2)));
           })
           .catch((error) => {
             console.log(error);
@@ -40,7 +41,7 @@ export function Overview() {
         router.replace("/en/auth/login?expired-session=true");
       }
     });
-  }, [router]);
+  }, [router, t]);
 
   return (
     <div className={s.subpageWrapper}>
