@@ -21,7 +21,7 @@ export function SampleStatisticsChart() {
     <ResponsiveContainer height={200}>
       <AreaChart
         data={data}
-        margin={{ top: 20, right: 0, bottom: 0, left: -20 }}
+        margin={{ top: 20, right: 0, bottom: 0, left: -28 }}
       >
         <defs>
           <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">

@@ -116,6 +116,10 @@
   @media (max-width: 1440px) {
     width: 100%;
   }
+
+  @media (max-width: 500px) {
+    height: 310px;
+  }
 }
 
 .suggestedSongs {

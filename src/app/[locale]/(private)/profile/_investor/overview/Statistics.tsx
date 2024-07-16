@@ -1,5 +1,4 @@
 import s from "./Overview.module.scss";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { SampleStatisticsChart } from "@/app/[locale]/(private)/profile/_investor/overview/SampleStatisticsChart";
 
