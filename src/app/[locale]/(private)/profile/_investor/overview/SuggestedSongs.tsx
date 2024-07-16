@@ -26,7 +26,7 @@ export function SuggestedSongs() {
           title={t("invest")}
           color={"main"}
           arrow={false}
-          path={"/" + currentLocale + "/catalog"}
+          path={"/catalog"}
         />
       </div>
       <a href={"/" + currentLocale + "/tracks/dealer"} className={s.suggestedSongs_song}>
