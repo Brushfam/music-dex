@@ -96,14 +96,14 @@ export function PageTemplate(props: PageTemplateProps) {
           </p>
         </div>
         <div className={s.tabsSubRow}>
-          {/*<p*/}
-          {/*  style={getColor("Statistics")}*/}
-          {/*  onClick={() => {*/}
-          {/*    setCurrentPage(TrackSubpages.Statistics);*/}
-          {/*  }}*/}
-          {/*>*/}
-          {/*  {t("TabRow.statistics")}*/}
-          {/*</p>*/}
+          <p
+            style={getColor("Statistics")}
+            onClick={() => {
+              setCurrentPage(TrackSubpages.Statistics);
+            }}
+          >
+            {t("TabRow.statistics")}
+          </p>
           <p
             style={getColor("AboutArtist")}
             onClick={() => {
@@ -123,7 +123,7 @@ export function PageTemplate(props: PageTemplateProps) {
     } else if (currentPage === "Royalties") {
       return <Royalties />;
     } else if (currentPage === "Statistics") {
-      return <Statistics />;
+      return <Statistics songId={1} />;
     } else return <AboutArtist />;
   }
 
