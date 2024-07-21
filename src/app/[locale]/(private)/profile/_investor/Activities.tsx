@@ -34,6 +34,11 @@ export default function Activities() {
   }
 
   useEffect(() => {
+    function computeInvestedAmount(tokenAmount: number, tokenPrice: number) {
+      const floatAmount = tokenAmount * tokenPrice;
+      return parseFloat(floatAmount.toFixed(2));
+    }
+
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
         const token = await user.getIdToken();
@@ -42,16 +47,15 @@ export default function Activities() {
             const data = res.data.purchaseHistory;
             let actList: ActivitiesData[] = [];
             for (let i = 0; i < data.length; ++i) {
-              const token_amount =
-                Number(data[i].token_amount) * Number(data[i].token_price);
-              const amount =
-                data[i].payment_status === "DECLINED"
-                  ? "-"
-                  : parseFloat(token_amount.toFixed(2));
-              const tokens =
-                data[i].payment_status === "DECLINED"
-                  ? "-"
-                  : Number(data[i].token_amount);
+              const tokenAmount = Number(data[i].token_amount);
+              const isDeclined = data[i].payment_status === "DECLINED";
+              const amount = isDeclined
+                ? "-"
+                : computeInvestedAmount(
+                    tokenAmount,
+                    Number(data[i].token_price),
+                  );
+              const tokens = isDeclined ? "-" : tokenAmount;
               actList.push({
                 date: formatDate(data[i].purchase_timestamp),
                 name: "Дилер",
