@@ -131,3 +131,8 @@
     font-weight: 600;
   }
 }
+
+.emailIsNotVerified {
+  @extend .block;
+  min-height: 200px;
+}

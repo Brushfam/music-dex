@@ -8,7 +8,6 @@ import { useLocale } from "use-intl";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { getUserActivities } from "@/services/users/investors/investors";
 import s from "@/app/[locale]/(private)/profile/_investor/activities/Activities.module.scss";
-import { Button } from "@/components/ui/Button/Button";
 import { ActivitiesHeader } from "@/app/[locale]/(private)/profile/_investor/activities/ActivitiesHeader";
 import { ActivitiesRow } from "@/app/[locale]/(private)/profile/_investor/activities/ActivitiesRow";
 

@@ -60,6 +60,7 @@
     "verify_the_email": "Verify the email",
     "verify_message1": "If you previously registered with this email address, please check your inbox for a verification to confirm your identity.",
     "verify_message2": "If this was not you, for security, please set a new password through the email. Click the button below to send this email.",
+    "already_verified": "I've verified my email",
     "send_the_email": "Send the email",
     "email_sent": "Email was sent!",
     "done": "Done",

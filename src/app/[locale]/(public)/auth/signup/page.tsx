@@ -162,7 +162,7 @@ export default function SignUpPage() {
       case SignUpSteps.EmailSent:
         return <EmailSent comment={t("email_sent_signup")} />;
       case SignUpSteps.EmailIsNotVerified:
-        return <EmailIsNotVerified setStep={setStep} />;
+        return <EmailIsNotVerified />;
       default:
         return <SignUp setStep={setStep} />;
     }
