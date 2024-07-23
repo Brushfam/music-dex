@@ -72,6 +72,7 @@ export function Header() {
               {t("for_artist")}
             </Link>
             <Link href={"/" + currentLocale + "/blog"}>{t("blog")}</Link>
+            <Link href={"/" + currentLocale + "/gallery"}>{t("gallery")}</Link>
             <Link href={"/" + currentLocale + "/faq"}>FAQ</Link>
           </div>
         </div>
