@@ -16,7 +16,7 @@ export function EmailSent(props: { comment: string }) {
         title={t("done")}
         color={"main"}
         arrow={false}
-        path={"/"}
+        path={"/auth/login"}
         fullLength={true}
       />
     </div>

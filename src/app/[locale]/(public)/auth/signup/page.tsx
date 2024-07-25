@@ -30,6 +30,7 @@ function SignUp(props: {
   const t = useTranslations("Auth");
   const currentLocale = useLocale();
 
+  const [loading, setLoading] = useState(false);
   const [role, setRole] = useState<UserRoles>(UserRoles.Investor);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -41,6 +42,7 @@ function SignUp(props: {
   };
 
   const handleSignUp = async () => {
+    setLoading(true);
     createUserWithEmailAndPassword(firebaseAuth, email.trim(), password)
       .then(async (user) => {
         const idToken = await user.user.getIdToken();
@@ -96,7 +98,6 @@ function SignUp(props: {
           console.log(`Email address already in use.`);
           toast.error(t("existing_email_error"));
         } else {
-          // add send new email feature
           props.setStep(SignUpSteps.EmailIsNotVerified);
         }
       })
@@ -139,10 +140,10 @@ function SignUp(props: {
         />
         <Button
           title={t("sign_up")}
-          color={"main"}
+          color={loading ? "loading" : "main"}
           arrow={false}
-          type={"submit"}
-          action={handleSignUp}
+          type={loading ? "button" : "submit"}
+          action={loading ? () => {} : handleSignUp}
           fullLength={true}
         />
       </div>
@@ -162,7 +163,7 @@ export default function SignUpPage() {
       case SignUpSteps.EmailSent:
         return <EmailSent comment={t("email_sent_signup")} />;
       case SignUpSteps.EmailIsNotVerified:
-        return <EmailIsNotVerified setStep={setStep} />;
+        return <EmailIsNotVerified />;
       default:
         return <SignUp setStep={setStep} />;
     }
