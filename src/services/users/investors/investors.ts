@@ -53,3 +53,12 @@ export function getUserActivities(jwt: string) {
     },
   });
 }
+
+export function getNFTs(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/nfts", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+  });
+}

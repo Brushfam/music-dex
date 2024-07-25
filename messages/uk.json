@@ -233,39 +233,9 @@
       "songs": "Треки",
       "royalties": "Роялті",
       "activities": "Активність",
+      "nfts": "NFT",
       "profile": "Мій профіль",
       "logout": "Вихід"
-    },
-    "Profile": {
-      "title": "Профіль",
-      "tab1": "Мої дані",
-      "tab2": "Гаманці",
-      "connected_wallets": "Прив'язані гаманці",
-      "connect_wallet": "Прив'язати гаманець",
-      "create_internal_wallet": "Або автоматично створити гаманець",
-      "loading": "Завантаження...",
-      "Toast": {
-        "updated": "Інформацію оновлено!",
-        "another_error": "Виникла помилка",
-        "wallet_connected": "Гаманець прив'язано!",
-        "error_adding_wallet": "Помилка додавання гаманця",
-        "error_updating_wallets": "Помилка оновлення гаманців",
-        "internal_created": "Гаманець було успішно створено!",
-        "internal_error": "Помилка під час створення гаманця",
-        "address_already_exist": "Адреса вже існує"
-      },
-      "name": "Ім'я",
-      "email": "Email",
-      "last_name": "Фамілія",
-      "additional_info": "Додаткова інформація",
-      "genre": "Улюблений жанр",
-      "select_genre": "Обрати жанр",
-      "country": "Країна",
-      "select_country": "Обрати країну",
-      "social_media": "Соц мережі",
-      "cancel": "Відміна",
-      "saving": "Збереження...",
-      "save": "Зберегти"
     },
     "Overview": {
       "title": "Overview",
@@ -316,6 +286,47 @@
       "invested": "Інвестиції",
       "status": "Статус",
       "loading": "Завантаження..."
+    },
+    "NFTs": {
+      "title": "NFT",
+      "empty_title": "У Вас поки що немає NFT",
+      "empty_desc": "Слідкуйте за нашими соцмережами щоб дізнаватися про можливості першими",
+      "date": "Отримано",
+      "item": "Вміст",
+      "name": "Назва",
+      "amount": "Кількість",
+      "description": "Опис"
+    },
+    "Profile": {
+      "title": "Профіль",
+      "tab1": "Мої дані",
+      "tab2": "Гаманці",
+      "connected_wallets": "Прив'язані гаманці",
+      "connect_wallet": "Прив'язати гаманець",
+      "create_internal_wallet": "Або автоматично створити гаманець",
+      "loading": "Завантаження...",
+      "Toast": {
+        "updated": "Інформацію оновлено!",
+        "another_error": "Виникла помилка",
+        "wallet_connected": "Гаманець прив'язано!",
+        "error_adding_wallet": "Помилка додавання гаманця",
+        "error_updating_wallets": "Помилка оновлення гаманців",
+        "internal_created": "Гаманець було успішно створено!",
+        "internal_error": "Помилка під час створення гаманця",
+        "address_already_exist": "Адреса вже існує"
+      },
+      "name": "Ім'я",
+      "email": "Email",
+      "last_name": "Фамілія",
+      "additional_info": "Додаткова інформація",
+      "genre": "Улюблений жанр",
+      "select_genre": "Обрати жанр",
+      "country": "Країна",
+      "select_country": "Обрати країну",
+      "social_media": "Соц мережі",
+      "cancel": "Відміна",
+      "saving": "Збереження...",
+      "save": "Зберегти"
     }
   },
 

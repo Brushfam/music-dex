@@ -233,39 +233,9 @@
       "songs": "Songs & Analytics",
       "royalties": "Royalties",
       "activities": "Activities",
+      "nfts": "NFT",
       "profile": "My profile",
       "logout": "Log out"
-    },
-    "Profile": {
-      "title": "Profile",
-      "tab1": "Personal info",
-      "tab2": "Wallets",
-      "connected_wallets": "Connected Wallets",
-      "connect_wallet": "Connect a wallet",
-      "create_internal_wallet": "Or automatically create a wallet",
-      "loading": "Loading...",
-      "Toast": {
-        "updated": "Information was updated!",
-        "another_error": "Something went wrong",
-        "wallet_connected": "Wallet was connected!",
-        "error_adding_wallet": "Error adding wallet",
-        "error_updating_wallets": "Error updating wallets",
-        "internal_created": "Internal wallet was created!",
-        "internal_error": "Error creating internal wallet",
-        "address_already_exist": "Address is already exist"
-      },
-      "name": "Name",
-      "email": "Email",
-      "last_name": "Last Name",
-      "additional_info": "Additional Info",
-      "genre": "Favorite Music Genre",
-      "select_genre": "Select Genre",
-      "country": "Country",
-      "select_country": "Select Country",
-      "social_media": "Social Media",
-      "cancel": "Cancel",
-      "saving": "Saving...",
-      "save": "Save Changes"
     },
     "Overview": {
       "title": "Overview",
@@ -316,6 +286,47 @@
       "invested": "Invested",
       "status": "Status",
       "loading": "Loading..."
+    },
+    "NFTs": {
+      "title": "NFT",
+      "empty_title": "No NFTs here yet",
+      "empty_desc": "Follow our social networks to be the first to learn about opportunities",
+      "date": "Received",
+      "item": "Item",
+      "name": "Name",
+      "amount": "Amount",
+      "description": "Description"
+    },
+    "Profile": {
+      "title": "Profile",
+      "tab1": "Personal info",
+      "tab2": "Wallets",
+      "connected_wallets": "Connected Wallets",
+      "connect_wallet": "Connect a wallet",
+      "create_internal_wallet": "Or automatically create a wallet",
+      "loading": "Loading...",
+      "Toast": {
+        "updated": "Information was updated!",
+        "another_error": "Something went wrong",
+        "wallet_connected": "Wallet was connected!",
+        "error_adding_wallet": "Error adding wallet",
+        "error_updating_wallets": "Error updating wallets",
+        "internal_created": "Internal wallet was created!",
+        "internal_error": "Error creating internal wallet",
+        "address_already_exist": "Address is already exist"
+      },
+      "name": "Name",
+      "email": "Email",
+      "last_name": "Last Name",
+      "additional_info": "Additional Info",
+      "genre": "Favorite Music Genre",
+      "select_genre": "Select Genre",
+      "country": "Country",
+      "select_country": "Select Country",
+      "social_media": "Social Media",
+      "cancel": "Cancel",
+      "saving": "Saving...",
+      "save": "Save Changes"
     }
   },
 

@@ -1,0 +1,150 @@
+
+.noNftBlock {
+  &_text1 {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 6px;
+
+    @media (max-width: 500px) {
+      max-width: 260px;
+    }
+  }
+
+  &_text2 {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 110%;
+  }
+}
+
+.nftHeader {
+  position: relative;
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 32px 0px 32px;
+  border-radius: 8px;
+  background: rgb(23, 23, 23);
+  margin-bottom: 10px;
+
+  p {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+  }
+
+  &_date {
+    left: 32px;
+  }
+
+  &_item {
+    left: 200px;
+  }
+
+  &_name {
+    left: 400px;
+  }
+
+  &_amount {
+    left: 540px;
+  }
+
+  &_description {
+    left: 640px;
+  }
+
+  @media (max-width: 1300px) {
+    &_date {
+      left: 32px;
+    }
+
+    &_item {
+      left: 200px;
+    }
+
+    &_name {
+      left: 350px;
+    }
+
+    &_amount {
+      left: 470px;
+    }
+
+    &_description {
+      left: 560px;
+    }
+  }
+}
+
+.nftRow {
+  position: relative;
+  height: 134px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 32px;
+  border-radius: 8px;
+  background: rgb(23, 23, 23);
+  margin-bottom: 10px;
+
+  p, a {
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+  }
+
+  &_date {
+    left: 32px;
+  }
+
+  &_item {
+    left: 170px;
+  }
+
+  &_name {
+    left: 400px;
+  }
+
+  &_amount {
+    left: 564px;
+  }
+
+  &_description {
+    left: 640px;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 1300px) {
+    &_date {
+      left: 32px;
+    }
+
+    &_item {
+      left: 170px;
+    }
+
+    &_name {
+      left: 350px;
+    }
+
+    &_amount {
+      left: 494px;
+    }
+
+    &_description {
+      left: 560px;
+    }
+  }
+}

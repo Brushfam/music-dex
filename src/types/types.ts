@@ -5,12 +5,6 @@ export type trackDataType = {
   description?: string;
 };
 
-export type trackOwnerType = {
-  address: string;
-  track: string;
-  tokenAddress: string;
-};
-
 export type faqNavigationType = {
   title: string;
 }[];
@@ -38,6 +32,7 @@ export enum ProfilePages {
   Songs,
   Royalties,
   Activities,
+  NFTs,
   Settings,
   FAQ
 }
@@ -62,8 +57,12 @@ export interface Wallet {
   name: string;
 }
 
-export enum ActivitiesStatus {
-  WAITING= "Waiting",
-  COMPLETE= "Complete",
-  "DECLINED"= "Declined"
+export interface NFT {
+  nft_name: string,
+  nft_description: string,
+  nft_description_uk: string,
+  nft_link: string,
+  nft_thumbnail_link: string,
+  nft_transfer_date: string,
+  nft_amount: number,
 }
