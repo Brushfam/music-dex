@@ -2,12 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import s from "@/app/[locale]/(public)/auth/Auth.module.scss";
-import { Button } from "@/components/ui/Button/Button";
-import { sendPasswordResetEmail } from "firebase/auth";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { toast } from "sonner";
 import React from "react";
-import { SignUpSteps } from "@/types/types";
 import { useLocale } from "use-intl";
 
 export function EmailIsNotVerified() {
