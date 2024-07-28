@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import { ValueType } from "recharts/types/component/DefaultTooltipContent";
 import { useLocale } from "use-intl";
-import {investorStatisticsDataEN, investorStatisticsDataUK} from "@/data/sampleData";
+import {investorStatisticsDataEN, investorStatisticsDataUK} from "@/data/profile/sampleData";
 
 export function SampleStatisticsChart() {
   const currentLocale = useLocale();

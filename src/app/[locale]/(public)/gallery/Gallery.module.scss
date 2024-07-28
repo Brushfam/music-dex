@@ -99,3 +99,62 @@
   }
 }
 
+.eventList {
+  display: flex;
+  gap: 24px;
+}
+
+.eventBlock {
+  width: 385px;
+  height: 310px;
+  background: #34343480;
+  border-radius: 8px;
+  overflow: hidden;
+
+  @media (max-width: 500px) {
+    width: 310px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(80%);
+  }
+
+  &_illustration {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 190px;
+    width: 100%;
+    background: lightgoldenrodyellow;
+  }
+
+  &_description {
+    padding: 20px 12px 12px 20px;
+    height: 100%;
+  }
+
+  &_title {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &_date {
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+}
+
+.backToAllEvent {
+  width: 100%;
+  margin-bottom: 14px;
+  color: white;
+  text-decoration: underline;
+  font-size: 16px;
+  cursor: pointer;
+}
