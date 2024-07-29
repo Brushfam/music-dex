@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/Button/Button";
 import React from "react";
 import { useTranslations } from "next-intl";
 
-export function EmailSent(props: { comment: string }) {
+export function EmailSent(props: { comment: string, route: string }) {
   const t = useTranslations("Auth");
 
   return (
@@ -16,7 +16,7 @@ export function EmailSent(props: { comment: string }) {
         title={t("done")}
         color={"main"}
         arrow={false}
-        path={"/auth/login"}
+        path={props.route}
         fullLength={true}
       />
     </div>

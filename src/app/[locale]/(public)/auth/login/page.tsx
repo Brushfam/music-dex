@@ -144,7 +144,7 @@ export default function LoginPage() {
           <ResetPassword setStep={setStep} currentLocale={currentLocale} />
         );
       case LoginSteps.EmailSent:
-        return <EmailSent comment={t("email_sent_reset")} />;
+        return <EmailSent comment={t("email_sent_reset")} route={"/"} />;
       case LoginSteps.ProfileForm:
         return <ProfileForm />;
       default:
