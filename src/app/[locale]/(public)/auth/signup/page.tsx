@@ -37,7 +37,7 @@ function SignUp(props: {
   const [isHidden, setHidden] = useState(true);
 
   const actionCodeSettings = {
-    url: "https://musicdex.co/" + currentLocale + "/auth//login",
+    url: "https://musicdex.co/" + currentLocale + "/auth/login",
     handleCodeInApp: true,
   };
 
