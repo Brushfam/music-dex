@@ -16,7 +16,7 @@ export function ResetPassword(props: {
   const [email, setEmail] = useState("");
 
   const actionCodeSettings = {
-    url: "https://musicdex.co/" + props.currentLocale + "/auth//login",
+    url: "https://musicdex.co/" + props.currentLocale + "/auth/login",
     handleCodeInApp: true,
   };
 
