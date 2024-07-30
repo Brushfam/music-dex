@@ -10,7 +10,7 @@ export function Donate(props: { donateLink: string }) {
       <p className={s.title}>{t("donate")}</p>
       <Button
         title={t("donate_crypto")}
-        color={"main"}
+        color={"transparent"}
         arrow={true}
         fullLength={true}
         path={props.donateLink}
