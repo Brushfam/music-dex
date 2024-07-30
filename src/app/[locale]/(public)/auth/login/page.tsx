@@ -89,7 +89,7 @@ function Login(props: {
       <p className={s.title} style={{ marginBottom: 24 }}>
         {t("login_title")}
       </p>
-      <div style={{ width: "100%" }}>
+      <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 10 }}>
         <EmailInput setEmail={setEmail} email={email} />
         <PasswordInput
           setPassword={setPassword}
