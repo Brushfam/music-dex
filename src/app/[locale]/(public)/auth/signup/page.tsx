@@ -50,7 +50,7 @@ function SignUp(props: {
     }
 
     setLoading(true);
-    createUserWithEmailAndPassword(firebaseAuth, email.trim(), password)
+    createUserWithEmailAndPassword(firebaseAuth, email.trim(), password.trim())
       .then(async (user) => {
         const idToken = await user.user.getIdToken();
         await addNewUser(idToken, email.trim(), props.role);

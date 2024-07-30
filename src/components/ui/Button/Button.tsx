@@ -22,6 +22,7 @@ export function Button(props: {
   arrow: boolean;
   type?: ButtonType;
   path?: string;
+  target?: "_self" | "_blank" | "_parent" | "_top";
   action?: () => void;
   fullLength?: boolean;
 }) {
@@ -51,6 +52,7 @@ export function Button(props: {
       className={colors[props.color]}
       style={props.fullLength ? { width: "100%" } : {}}
       onClick={props.action}
+      target={props.target}
     >
       <Content />
     </LocalLink>

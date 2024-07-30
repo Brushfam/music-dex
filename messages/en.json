@@ -400,6 +400,8 @@
     "agreement_description": "To buy tokens, you need to accept the terms of the agreement.",
     "fiat_title": "Purchase by Fiat",
     "fiat_description": "Coming soon!",
+    "donate": "Donate to the artist",
+    "donate_crypto": "By Crypto",
     "ByCrypto": {
       "default": "Purchase by Crypto",
       "error": "Something went wrong."

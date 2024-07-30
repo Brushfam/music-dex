@@ -10,14 +10,13 @@ import React, { useState } from "react";
 import { trackDataType } from "@/types/types";
 import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
-import { VideoSection } from "@/app/[locale]/(public)/tracks/_components/VideoSection/VideoSection";
 import { ApprovePurchaseModal } from "@/components/modals/ApprovePurchaseModal/ApprovePurchaseModal";
 import { Overview } from "@/app/[locale]/(public)/tracks/_components/Overview/Overview";
 import { Royalties } from "@/app/[locale]/(public)/tracks/_components/Royalties/Royalties";
 import { Statistics } from "@/app/[locale]/(public)/tracks/_components/Statistics/Statistics";
 import { AboutArtist } from "@/app/[locale]/(public)/tracks/_components/AboutArtist/AboutArtist";
-import { useUserStore } from "@/store/user";
 import { NoWalletsModal } from "@/components/modals/NoWalletsModal/NoWalletsModal";
+import { Donate } from "@/app/[locale]/(public)/tracks/_components/Donate/Donate";
 
 type PageTemplateProps = {
   artist: string;
@@ -119,7 +118,9 @@ export function PageTemplate(props: PageTemplateProps) {
 
   function CurrentSubPage() {
     if (currentPage === "Overview") {
-      return <Overview videoId={"Jb5qdg30jSU"} tokenAddress={props.tokenAddress} />;
+      return (
+        <Overview videoId={"Jb5qdg30jSU"} tokenAddress={props.tokenAddress} />
+      );
     } else if (currentPage === "Royalties") {
       return <Royalties />;
     } else if (currentPage === "Statistics") {
@@ -146,11 +147,14 @@ export function PageTemplate(props: PageTemplateProps) {
               <p className={s.trackCover_songName}>{props.songName}</p>
             </div>
             <TrackDescription />
-            <SharesBlock
-              price={trackData.price}
-              tokenAddress={props.tokenAddress}
-              tokenName={props.songName}
-            />
+            <div className={s.buyAndDonateBlock}>
+              <SharesBlock
+                price={trackData.price}
+                tokenAddress={props.tokenAddress}
+                tokenName={props.songName}
+              />
+              <Donate donateLink={props.trackDataEN.donateLink} />
+            </div>
           </div>
         </div>
       </div>
