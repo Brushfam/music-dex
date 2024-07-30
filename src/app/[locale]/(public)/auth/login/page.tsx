@@ -35,6 +35,7 @@ function Login(props: {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isHidden, setHidden] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const expiredSession = searchParams.get("expired-session");
@@ -43,17 +44,18 @@ function Login(props: {
     }
   }, [searchParams, t]);
 
-  const handleLogin = async () => {
+  async function handleLogin() {
+    setLoading(true);
     signInWithEmailAndPassword(firebaseAuth, email, password)
       .then(async (userCredential: UserCredential) => {
-        setCurrentUserEmail(userCredential.user.email || "");
         verifyUser(userCredential);
       })
       .catch((error) => {
         console.log(error);
         toast.error(t("wrong_password"));
+        setLoading(false);
       });
-  };
+  }
 
   function verifyUser(userCredential: UserCredential) {
     isVerified(email.trim())
@@ -62,6 +64,7 @@ function Login(props: {
           toast.error(t("email_is_not_verified"));
           return;
         }
+        setCurrentUserEmail(userCredential.user.email || "");
         const user = userCredential.user;
         const idToken = await user.getIdToken();
         getUserLoginInfo(idToken)
@@ -89,7 +92,14 @@ function Login(props: {
       <p className={s.title} style={{ marginBottom: 24 }}>
         {t("login_title")}
       </p>
-      <div style={{ width: "100%" }}>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          gap: 10,
+        }}
+      >
         <EmailInput setEmail={setEmail} email={email} />
         <PasswordInput
           setPassword={setPassword}
@@ -100,10 +110,16 @@ function Login(props: {
         />
         <Button
           title={t("sign_in")}
-          color={"main"}
+          color={loading ? "loading" : "main"}
           arrow={false}
-          type={"submit"}
-          action={handleLogin}
+          type={loading ? "button" : "submit"}
+          action={
+            loading
+              ? () => {}
+              : async () => {
+                  await handleLogin();
+                }
+          }
           fullLength={true}
         />
         <p

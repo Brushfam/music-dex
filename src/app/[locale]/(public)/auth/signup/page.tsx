@@ -30,16 +30,27 @@ function SignUp(props: {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [secondPassword, setSecondPassword] = useState("");
   const [isHidden, setHidden] = useState(true);
+  const [isSecondHidden, setSecondHidden] = useState(true);
 
   const actionCodeSettings = {
     url: "https://musicdex.co/" + currentLocale + "/auth/login",
     handleCodeInApp: true,
   };
 
+  function isPasswordsMatch() {
+    return password.trim() === secondPassword.trim();
+  }
+
   const handleSignUp = async () => {
+    if (!isPasswordsMatch()) {
+      toast.error(t("passwords_dont_match"));
+      return;
+    }
+
     setLoading(true);
-    createUserWithEmailAndPassword(firebaseAuth, email.trim(), password)
+    createUserWithEmailAndPassword(firebaseAuth, email.trim(), password.trim())
       .then(async (user) => {
         const idToken = await user.user.getIdToken();
         await addNewUser(idToken, email.trim(), props.role);
@@ -111,7 +122,7 @@ function SignUp(props: {
           ? t("signup_investor_title")
           : t("signup_artist_title")}
       </p>
-      <div style={{ marginBottom: 24, width: "100%" }}>
+      <div style={{ marginBottom: 24, display: "flex", flexDirection: "column", gap: 10, width: "100%" }}>
         <EmailInput setEmail={setEmail} email={email} />
         <PasswordInput
           setPassword={setPassword}
@@ -120,6 +131,14 @@ function SignUp(props: {
           setHidden={setHidden}
           isHidden={isHidden}
         />
+        <PasswordInput
+          setPassword={setSecondPassword}
+          password={secondPassword}
+          placeholder={t("confirm_password")}
+          setHidden={setSecondHidden}
+          isHidden={isSecondHidden}
+        />
+        <div style={{marginBottom: 14}}/>
         <Button
           title={t("sign_up")}
           color={loading ? "loading" : "main"}

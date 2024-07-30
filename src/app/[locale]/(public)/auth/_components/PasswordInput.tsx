@@ -47,7 +47,6 @@ export function PasswordInput(props: {
         value={props.password}
         onChange={(e) => props.setPassword(e.target.value)}
         className={s.formInput}
-        style={{ marginBottom: 24 }}
       />
       <PasswordIcon />
     </div>

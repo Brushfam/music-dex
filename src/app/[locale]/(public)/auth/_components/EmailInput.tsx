@@ -17,7 +17,6 @@ export function EmailInput(props: {
         props.setEmail(e.target.value);
       }}
       className={s.formInput}
-      style={{ marginBottom: 10 }}
     />
   );
 }

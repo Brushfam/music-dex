@@ -39,6 +39,7 @@
     "invalid_email": "Invalid email.",
     "weak_password": "Password is not strong enough.",
     "wrong_password": "Email address and password do not match.",
+    "passwords_dont_match": "Passwords do not match.",
     "email_is_not_verified": "Please check your mailbox and verify your email.",
     "other_errors": "Something went wrong.",
     "sign_up": "Sign Up",
@@ -53,6 +54,7 @@
     "or_continue_with": "or continue with",
     "email": "Email",
     "password": "Password",
+    "confirm_password": "Confirm Password",
     "forgot_password": "Forgot your password?",
     "link_to_signup": "Don’t have an account?",
     "link_to_artist_signup": "Sign up as an artist, producer or composer",
@@ -398,6 +400,8 @@
     "agreement_description": "To buy tokens, you need to accept the terms of the agreement.",
     "fiat_title": "Purchase by Fiat",
     "fiat_description": "Coming soon!",
+    "donate": "Donate to the artist",
+    "donate_crypto": "By Crypto",
     "ByCrypto": {
       "default": "Purchase by Crypto",
       "error": "Something went wrong."

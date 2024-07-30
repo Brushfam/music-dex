@@ -1,6 +1,7 @@
 export const dealerEN = {
   rights_holder: "Tony Tonite",
   price: 0.22,
+  donateLink: "https://pay.whitepay.com/crypto-jars/70515433-5c99-46fb-8ffe-58e28cb6369b",
   details: [
     {
       type: "Song Release:",
@@ -42,6 +43,7 @@ export const dealerEN = {
 export const dealerUK = {
   rights_holder: "Tony Tonite",
   price: 0.22,
+  donateLink: "https://pay.whitepay.com/crypto-jars/70515433-5c99-46fb-8ffe-58e28cb6369b",
   details: [
     {
       type: "Реліз пісні:",

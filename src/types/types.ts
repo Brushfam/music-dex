@@ -1,6 +1,7 @@
 export type trackDataType = {
   rights_holder: string;
   price: number;
+  donateLink: string;
   details: { type: string; value: string }[];
   description?: string;
 };
