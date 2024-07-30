@@ -45,6 +45,7 @@ function Login(props: {
   }, [searchParams, t]);
 
   const handleLogin = async () => {
+    setLoading(true);
     signInWithEmailAndPassword(firebaseAuth, email, password)
       .then(async (userCredential: UserCredential) => {
         verifyUser(userCredential);
@@ -53,6 +54,7 @@ function Login(props: {
         console.log(error);
         toast.error(t("wrong_password"));
       });
+    setLoading(false);
   };
 
   function verifyUser(userCredential: UserCredential) {
