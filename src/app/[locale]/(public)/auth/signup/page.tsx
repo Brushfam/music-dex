@@ -37,7 +37,7 @@ function SignUp(props: {
   const [isHidden, setHidden] = useState(true);
 
   const actionCodeSettings = {
-    url: "https://musicdex.co/auth/" + currentLocale + "/login",
+    url: "https://musicdex.co/" + currentLocale + "/auth/login",
     handleCodeInApp: true,
   };
 
@@ -161,7 +161,7 @@ export default function SignUpPage() {
       case SignUpSteps.SignUp:
         return <SignUp setStep={setStep} />;
       case SignUpSteps.EmailSent:
-        return <EmailSent comment={t("email_sent_signup")} />;
+        return <EmailSent comment={t("email_sent_signup")} route={"/auth/login"} />;
       case SignUpSteps.EmailIsNotVerified:
         return <EmailIsNotVerified />;
       default:
