@@ -7,7 +7,7 @@ import {
   ResponsiveContainer,
   YAxis,
 } from "recharts";
-import { sampleRoyaltiesData } from "@/data/sampleData";
+import { sampleRoyaltiesData } from "@/data/profile/sampleData";
 
 export function SampleRoyaltiesChart() {
   return (

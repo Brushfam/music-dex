@@ -1,0 +1,68 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+import s from "@/app/[locale]/(public)/auth/Auth.module.scss";
+import React, { useState } from "react";
+import { SignUpSteps, UserRoles } from "@/types/types";
+import Image from "next/image";
+import { Button } from "@/components/ui/Button/Button";
+
+export function ChooseAccount(props: {
+  setStep: React.Dispatch<React.SetStateAction<SignUpSteps>>;
+  setRole: React.Dispatch<React.SetStateAction<UserRoles>>;
+}) {
+  const t = useTranslations("Auth");
+  const [userRole, setUserRole] = useState<UserRoles>(UserRoles.Investor);
+
+  function isInvestor() {
+    return userRole === UserRoles.Investor;
+  }
+
+  return (
+    <div className={s.block}>
+      <p className={s.title} style={{ marginBottom: 24 }}>
+        {t("signup_title")}
+      </p>
+      <div className={s.userRoles}>
+        <div
+          className={isInvestor() ? s.userRoleActive : s.userRole}
+          onClick={() => {
+            setUserRole(UserRoles.Investor);
+          }}
+        >
+          <Image
+            src={"/profile/empty-list/future-payouts.svg"}
+            alt={"investor account"}
+            width={30}
+            height={25}
+          />
+          <p>{t("signup_investor")}</p>
+        </div>
+        <div
+          className={isInvestor() ? s.userRole : s.userRoleActive}
+          onClick={() => {
+            setUserRole(UserRoles.Artist);
+          }}
+        >
+          <Image
+            src={"/auth/artist.svg"}
+            alt={"artist account"}
+            width={31}
+            height={30}
+          />
+          <p>{t("signup_artist")}</p>
+        </div>
+      </div>
+      <Button
+        title={t("create_account")}
+        color={"main"}
+        arrow={false}
+        fullLength={true}
+        action={() => {
+          props.setRole(userRole);
+          props.setStep(SignUpSteps.SignUp);
+        }}
+      />
+    </div>
+  );
+}

@@ -1,5 +1,5 @@
 // MATH FUNCTIONS
-import { monthList } from "@/data/months";
+import { monthList } from "@/data/profile/months";
 
 export function roundToTwo(n: number) {
   return Math.round(n * 100) / 100;

@@ -5,12 +5,6 @@ export type trackDataType = {
   description?: string;
 };
 
-export type trackOwnerType = {
-  address: string;
-  track: string;
-  tokenAddress: string;
-};
-
 export type faqNavigationType = {
   title: string;
 }[];
@@ -20,7 +14,13 @@ export type faqContentType = {
   answer: string;
 }[];
 
+export enum UserRoles {
+  Investor = "investor",
+  Artist = "artist",
+}
+
 export enum SignUpSteps {
+  ChooseAccount,
   SignUp,
   EmailSent,
   EmailIsNotVerified,
@@ -30,7 +30,7 @@ export enum LoginSteps {
   Login,
   ResetPassword,
   EmailSent,
-  ProfileForm // Is used when user is verified and log in for the first time
+  ProfileForm, // Is used when user is verified and log in for the first time
 }
 
 export enum ProfilePages {
@@ -38,8 +38,9 @@ export enum ProfilePages {
   Songs,
   Royalties,
   Activities,
+  NFTs,
   Settings,
-  FAQ
+  FAQ,
 }
 
 export interface InvestorInfo {
@@ -62,8 +63,12 @@ export interface Wallet {
   name: string;
 }
 
-export enum ActivitiesStatus {
-  WAITING= "Waiting",
-  COMPLETE= "Complete",
-  "DECLINED"= "Declined"
+export interface NFT {
+  nft_name: string;
+  nft_description: string;
+  nft_description_uk: string;
+  nft_link: string;
+  nft_thumbnail_link: string;
+  nft_transfer_date: string;
+  nft_amount: number;
 }

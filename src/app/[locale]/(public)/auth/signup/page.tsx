@@ -17,21 +17,17 @@ import { useLocale } from "use-intl";
 import { Button } from "@/components/ui/Button/Button";
 import { PasswordInput } from "@/app/[locale]/(public)/auth/_components/PasswordInput";
 import { EmailInput } from "@/app/[locale]/(public)/auth/_components/EmailInput";
-import { SignUpSteps } from "@/types/types";
-
-enum UserRoles {
-  Investor = "investor",
-  Artist = "artist",
-}
+import { SignUpSteps, UserRoles } from "@/types/types";
+import { ChooseAccount } from "@/app/[locale]/(public)/auth/signup/ChooseAccount";
 
 function SignUp(props: {
   setStep: React.Dispatch<React.SetStateAction<SignUpSteps>>;
+  role: UserRoles;
 }) {
   const t = useTranslations("Auth");
   const currentLocale = useLocale();
 
   const [loading, setLoading] = useState(false);
-  const [role, setRole] = useState<UserRoles>(UserRoles.Investor);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isHidden, setHidden] = useState(true);
@@ -46,7 +42,7 @@ function SignUp(props: {
     createUserWithEmailAndPassword(firebaseAuth, email.trim(), password)
       .then(async (user) => {
         const idToken = await user.user.getIdToken();
-        await addNewUser(idToken, email.trim(), role);
+        await addNewUser(idToken, email.trim(), props.role);
         sendEmailVerification(user.user, actionCodeSettings)
           .then(() => {
             props.setStep(SignUpSteps.EmailSent);
@@ -110,25 +106,10 @@ function SignUp(props: {
   return (
     <div className={s.block}>
       <p className={s.title} style={{ marginBottom: 14 }}>
-        {role === UserRoles.Investor
-          ? t("signup_title")
+        {props.role === UserRoles.Investor
+          ? t("signup_investor_title")
           : t("signup_artist_title")}
       </p>
-      {role === UserRoles.Investor ? (
-        <p
-          className={s.secondaryText}
-          style={{
-            textDecoration: "underline",
-            cursor: "pointer",
-            marginBottom: 24,
-          }}
-          onClick={() => {
-            setRole(UserRoles.Artist);
-          }}
-        >
-          {t("link_to_artist_signup")}
-        </p>
-      ) : null}
       <div style={{ marginBottom: 24, width: "100%" }}>
         <EmailInput setEmail={setEmail} email={email} />
         <PasswordInput
@@ -154,18 +135,23 @@ function SignUp(props: {
 
 export default function SignUpPage() {
   const t = useTranslations("Auth");
-  const [step, setStep] = useState<SignUpSteps>(SignUpSteps.SignUp);
+  const [step, setStep] = useState<SignUpSteps>(SignUpSteps.ChooseAccount);
+  const [role, setRole] = useState<UserRoles>(UserRoles.Investor);
 
   function CurrentStep() {
     switch (step) {
+      case SignUpSteps.ChooseAccount:
+        return <ChooseAccount setStep={setStep} setRole={setRole} />;
       case SignUpSteps.SignUp:
-        return <SignUp setStep={setStep} />;
+        return <SignUp setStep={setStep} role={role} />;
       case SignUpSteps.EmailSent:
-        return <EmailSent comment={t("email_sent_signup")} route={"/auth/login"} />;
+        return (
+          <EmailSent comment={t("email_sent_signup")} route={"/auth/login"} />
+        );
       case SignUpSteps.EmailIsNotVerified:
         return <EmailIsNotVerified />;
       default:
-        return <SignUp setStep={setStep} />;
+        return <SignUp setStep={setStep} role={role} />;
     }
   }
 

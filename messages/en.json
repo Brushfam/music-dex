@@ -43,7 +43,11 @@
     "other_errors": "Something went wrong.",
     "sign_up": "Sign Up",
     "sign_in": "Sign In",
-    "signup_title": "Create an account",
+    "signup_title": "Join as an investor or an artist",
+    "signup_investor": "I’m an investor, I want to invest in Music Royalties",
+    "signup_artist": "I’m an artist, I want to tokenize my tracks",
+    "create_account": "Create Account",
+    "signup_investor_title": "Create an account as an investor",
     "signup_artist_title": "Create an account as an artist",
     "login_title": "Welcome back!",
     "or_continue_with": "or continue with",
@@ -131,12 +135,19 @@
     "we_accept": "We accept:"
   },
 
+  "Gallery": {
+    "title": "Gallery",
+    "description": "Here, you'll find a collection of photographs from our latest events. Relive the moments and immerse yourself in the vibrant atmosphere captured in each snapshot!",
+    "back_button": "Back to all events"
+  },
+
   "Header": {
     "login": "Log in",
     "logout": "Log out",
     "catalog": "Catalog",
     "blog": "Blog",
     "for_artist": "For Artist",
+    "gallery": "Gallery",
     "faq": "FAQ",
     "profile": "Profile",
     "earned": "Earned",
@@ -228,39 +239,9 @@
       "songs": "Songs & Analytics",
       "royalties": "Royalties",
       "activities": "Activities",
+      "nfts": "NFT",
       "profile": "My profile",
       "logout": "Log out"
-    },
-    "Profile": {
-      "title": "Profile",
-      "tab1": "Personal info",
-      "tab2": "Wallets",
-      "connected_wallets": "Connected Wallets",
-      "connect_wallet": "Connect a wallet",
-      "create_internal_wallet": "Or automatically create a wallet",
-      "loading": "Loading...",
-      "Toast": {
-        "updated": "Information was updated!",
-        "another_error": "Something went wrong",
-        "wallet_connected": "Wallet was connected!",
-        "error_adding_wallet": "Error adding wallet",
-        "error_updating_wallets": "Error updating wallets",
-        "internal_created": "Internal wallet was created!",
-        "internal_error": "Error creating internal wallet",
-        "address_already_exist": "Address is already exist"
-      },
-      "name": "Name",
-      "email": "Email",
-      "last_name": "Last Name",
-      "additional_info": "Additional Info",
-      "genre": "Favorite Music Genre",
-      "select_genre": "Select Genre",
-      "country": "Country",
-      "select_country": "Select Country",
-      "social_media": "Social Media",
-      "cancel": "Cancel",
-      "saving": "Saving...",
-      "save": "Save Changes"
     },
     "Overview": {
       "title": "Overview",
@@ -311,6 +292,47 @@
       "invested": "Invested",
       "status": "Status",
       "loading": "Loading..."
+    },
+    "NFTs": {
+      "title": "NFT",
+      "empty_title": "No NFTs here yet",
+      "empty_desc": "Follow our social networks to be the first to learn about opportunities",
+      "date": "Received",
+      "item": "Item",
+      "name": "Name",
+      "amount": "Amount",
+      "description": "Description"
+    },
+    "Profile": {
+      "title": "Profile",
+      "tab1": "Personal info",
+      "tab2": "Wallets",
+      "connected_wallets": "Connected Wallets",
+      "connect_wallet": "Connect a wallet",
+      "create_internal_wallet": "Or automatically create a wallet",
+      "loading": "Loading...",
+      "Toast": {
+        "updated": "Information was updated!",
+        "another_error": "Something went wrong",
+        "wallet_connected": "Wallet was connected!",
+        "error_adding_wallet": "Error adding wallet",
+        "error_updating_wallets": "Error updating wallets",
+        "internal_created": "Internal wallet was created!",
+        "internal_error": "Error creating internal wallet",
+        "address_already_exist": "Address is already exist"
+      },
+      "name": "Name",
+      "email": "Email",
+      "last_name": "Last Name",
+      "additional_info": "Additional Info",
+      "genre": "Favorite Music Genre",
+      "select_genre": "Select Genre",
+      "country": "Country",
+      "select_country": "Select Country",
+      "social_media": "Social Media",
+      "cancel": "Cancel",
+      "saving": "Saving...",
+      "save": "Save Changes"
     }
   },
 

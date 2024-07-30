@@ -43,8 +43,12 @@
     "other_errors": "Виникла помилка.",
     "sign_up": "Зареєструватися",
     "sign_in": "Увійти",
-    "signup_title": "Створити аккаунт",
+    "signup_title": "Створити акаунт інвестора або артиста",
+    "signup_investor": "Я інвестор, я хочу інвестувати в музичні треки",
+    "signup_artist": "Я артист, я хочу токенізувати мій трек",
+    "signup_investor_title": "Створіть обліковий запис інвестора",
     "signup_artist_title": "Створіть обліковий запис артиста",
+    "create_account": "Створити Акаунт",
     "login_title": "З поверненням!",
     "or_continue_with": "або продовжити з",
     "email": "Email",
@@ -131,12 +135,19 @@
     "we_accept": "Ми приймаємо:"
   },
 
+  "Gallery": {
+    "title": "Галерея",
+    "description": "Тут ви знайдете колекцію фотографій з наших останніх заходів. Переживіть моменти та пориньте в яскраву атмосферу, зафіксовану на кожному знімку!",
+    "back_button": "Назад до всіх подій"
+  },
+
   "Header": {
     "login": "Вхід",
     "logout": "Вихід",
     "catalog": "Каталог",
     "blog": "Блог",
     "for_artist": "Для Артиста",
+    "gallery": "Галерея",
     "faq": "FAQ",
     "profile": "Профіль",
     "earned": "Заробіток",
@@ -228,39 +239,9 @@
       "songs": "Треки",
       "royalties": "Роялті",
       "activities": "Активність",
+      "nfts": "NFT",
       "profile": "Мій профіль",
       "logout": "Вихід"
-    },
-    "Profile": {
-      "title": "Профіль",
-      "tab1": "Мої дані",
-      "tab2": "Гаманці",
-      "connected_wallets": "Прив'язані гаманці",
-      "connect_wallet": "Прив'язати гаманець",
-      "create_internal_wallet": "Або автоматично створити гаманець",
-      "loading": "Завантаження...",
-      "Toast": {
-        "updated": "Інформацію оновлено!",
-        "another_error": "Виникла помилка",
-        "wallet_connected": "Гаманець прив'язано!",
-        "error_adding_wallet": "Помилка додавання гаманця",
-        "error_updating_wallets": "Помилка оновлення гаманців",
-        "internal_created": "Гаманець було успішно створено!",
-        "internal_error": "Помилка під час створення гаманця",
-        "address_already_exist": "Адреса вже існує"
-      },
-      "name": "Ім'я",
-      "email": "Email",
-      "last_name": "Фамілія",
-      "additional_info": "Додаткова інформація",
-      "genre": "Улюблений жанр",
-      "select_genre": "Обрати жанр",
-      "country": "Країна",
-      "select_country": "Обрати країну",
-      "social_media": "Соц мережі",
-      "cancel": "Відміна",
-      "saving": "Збереження...",
-      "save": "Зберегти"
     },
     "Overview": {
       "title": "Overview",
@@ -311,6 +292,47 @@
       "invested": "Інвестиції",
       "status": "Статус",
       "loading": "Завантаження..."
+    },
+    "NFTs": {
+      "title": "NFT",
+      "empty_title": "У Вас поки що немає NFT",
+      "empty_desc": "Слідкуйте за нашими соцмережами щоб дізнаватися про можливості першими",
+      "date": "Отримано",
+      "item": "Вміст",
+      "name": "Назва",
+      "amount": "Кількість",
+      "description": "Опис"
+    },
+    "Profile": {
+      "title": "Профіль",
+      "tab1": "Мої дані",
+      "tab2": "Гаманці",
+      "connected_wallets": "Прив'язані гаманці",
+      "connect_wallet": "Прив'язати гаманець",
+      "create_internal_wallet": "Або автоматично створити гаманець",
+      "loading": "Завантаження...",
+      "Toast": {
+        "updated": "Інформацію оновлено!",
+        "another_error": "Виникла помилка",
+        "wallet_connected": "Гаманець прив'язано!",
+        "error_adding_wallet": "Помилка додавання гаманця",
+        "error_updating_wallets": "Помилка оновлення гаманців",
+        "internal_created": "Гаманець було успішно створено!",
+        "internal_error": "Помилка під час створення гаманця",
+        "address_already_exist": "Адреса вже існує"
+      },
+      "name": "Ім'я",
+      "email": "Email",
+      "last_name": "Фамілія",
+      "additional_info": "Додаткова інформація",
+      "genre": "Улюблений жанр",
+      "select_genre": "Обрати жанр",
+      "country": "Країна",
+      "select_country": "Обрати країну",
+      "social_media": "Соц мережі",
+      "cancel": "Відміна",
+      "saving": "Збереження...",
+      "save": "Зберегти"
     }
   },
 

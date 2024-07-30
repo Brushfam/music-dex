@@ -4,6 +4,7 @@ import Settings from "@/app/[locale]/(private)/profile/_investor/Profile";
 import {Overview} from "@/app/[locale]/(private)/profile/_investor/Overview";
 import {Royalties} from "@/app/[locale]/(private)/profile/_investor/Royalties";
 import Activities from "@/app/[locale]/(private)/profile/_investor/Activities";
+import {NFTs} from "@/app/[locale]/(private)/profile/_investor/NFTs";
 
 export function CurrentInvestorPage(props: { currentPage: ProfilePages }) {
   switch (props.currentPage) {
@@ -15,6 +16,8 @@ export function CurrentInvestorPage(props: { currentPage: ProfilePages }) {
       return <Royalties />;
     case ProfilePages.Activities:
       return <Activities />;
+    case ProfilePages.NFTs:
+      return <NFTs />
     case ProfilePages.Settings:
       return <Settings />;
     default:

@@ -11,6 +11,7 @@ import { ProfilePages } from "@/types/types";
 import React, { Dispatch, SetStateAction } from "react";
 import { useTranslations } from "next-intl";
 import { ActivitiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ActivitiesIcon";
+import { NftIcon } from "@/app/[locale]/(private)/profile/_components/Icons/NftIcon";
 
 export function Sidebar(props: {
   currentPage: ProfilePages;
@@ -70,6 +71,9 @@ export function Sidebar(props: {
         </PageRow>
         <PageRow page={ProfilePages.Activities} title={t("activities")}>
           <ActivitiesIcon color={getCurrentColor(ProfilePages.Activities)} />
+        </PageRow>
+        <PageRow page={ProfilePages.NFTs} title={t("nfts")}>
+          <NftIcon color={getCurrentColor(ProfilePages.NFTs)} />
         </PageRow>
         <PageRow page={ProfilePages.Settings} title={t("profile")}>
           <ProfileIcon color={getCurrentColor(ProfilePages.Settings)} />
