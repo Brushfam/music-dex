@@ -144,17 +144,28 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 .userRole {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 64px 14px 32px 24px;
+  padding: 50px 14px 32px 14px;
   width: 48%;
   border-radius: 8px;
   background: #1D1D1D;
   border: 1px solid #1D1D1D;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: 32px 14px 24px 14px;
+  }
 
   &:hover {
     filter: brightness(120%);
@@ -174,4 +185,25 @@
   &:hover {
     filter: brightness(100%);
   }
+}
+
+.radioButtonCircle {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 14px;
+  right: 14px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #F6601F;
+  border-radius: 50%;
+}
+
+.radioButtonInnerCircle {
+  width: 8px;
+  height: 8px;
+  background: #F6601F;
+  border-radius: 50%;
 }

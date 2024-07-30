@@ -18,6 +18,14 @@ export function ChooseAccount(props: {
     return userRole === UserRoles.Investor;
   }
 
+  function RadioButtonCircle(props: { selected: boolean }) {
+    return (
+      <div className={s.radioButtonCircle}>
+        {props.selected ? <div className={s.radioButtonInnerCircle} /> : null}
+      </div>
+    );
+  }
+
   return (
     <div className={s.block}>
       <p className={s.title} style={{ marginBottom: 24 }}>
@@ -30,6 +38,7 @@ export function ChooseAccount(props: {
             setUserRole(UserRoles.Investor);
           }}
         >
+          <RadioButtonCircle selected={isInvestor()} />
           <Image
             src={"/profile/empty-list/future-payouts.svg"}
             alt={"investor account"}
@@ -44,6 +53,7 @@ export function ChooseAccount(props: {
             setUserRole(UserRoles.Artist);
           }}
         >
+          <RadioButtonCircle selected={!isInvestor()} />
           <Image
             src={"/auth/artist.svg"}
             alt={"artist account"}

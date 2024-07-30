@@ -84,6 +84,7 @@ function SignUp(props: {
         toast.error(t("other_errors"));
         break;
     }
+    setLoading(false);
   }
 
   function checkVerification() {
