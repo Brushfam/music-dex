@@ -133,7 +133,8 @@
 
   "Gallery": {
     "title": "Gallery",
-    "description": "Here, you'll find a collection of photographs from our latest events. Relive the moments and immerse yourself in the vibrant atmosphere captured in each snapshot!"
+    "description": "Here, you'll find a collection of photographs from our latest events. Relive the moments and immerse yourself in the vibrant atmosphere captured in each snapshot!",
+    "back_button": "Back to all events"
   },
 
   "Header": {

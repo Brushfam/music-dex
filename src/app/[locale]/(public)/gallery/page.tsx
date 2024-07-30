@@ -40,7 +40,7 @@ export default function Gallery() {
       {event === null ? (
         <EventList />
       ) : (
-        <EventGallery eventNumber={event} setEvent={setEvent} />
+        <EventGallery eventNumber={event} setEvent={setEvent} backButtonText={t("back_button")} />
       )}
     </div>
   );
