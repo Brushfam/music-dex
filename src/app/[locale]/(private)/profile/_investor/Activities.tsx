@@ -18,6 +18,7 @@ interface ActivitiesData {
   amount: number | string;
   currency: string;
   status: string;
+  link: string
 }
 
 export default function Activities() {
@@ -62,6 +63,7 @@ export default function Activities() {
                 tokens: tokens,
                 currency: data[i].currency,
                 status: data[i].payment_status,
+                link: data[i].order_url
               });
             }
             setActivitiesList(actList);
@@ -100,7 +102,7 @@ export default function Activities() {
               tokens={act.tokens}
               invested={act.amount}
               status={act.status}
-              songLink={"/" + currentLocale + "/tracks/dealer"}
+              songLink={act.link}
             />
           </div>
         );

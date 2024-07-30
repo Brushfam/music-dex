@@ -38,7 +38,7 @@ export function ActivitiesRow(props: {
       <p className={s.songRow_tokens}>{props.tokens}</p>
       <p className={s.songRow_invested}>${props.invested}</p>
       <StatusBlock status={props.status} />
-      <a href={props.songLink} style={{ position: "absolute", right: 32 }}>
+      <a href={props.songLink} target={"_blank"} style={{ position: "absolute", right: 32 }}>
         <Image
           src={"/profile/icons/link-to-song.svg"}
           alt={"arrow"}
