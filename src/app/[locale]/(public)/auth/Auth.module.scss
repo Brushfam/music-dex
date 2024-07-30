@@ -41,7 +41,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 300px;
+  //min-height: 300px;
 
   label {
     color: white;
@@ -135,4 +135,43 @@
 .emailIsNotVerified {
   @extend .block;
   min-height: 200px;
+}
+
+.userRoles {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.userRole {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 64px 14px 32px 24px;
+  width: 48%;
+  border-radius: 8px;
+  background: #1D1D1D;
+  border: 1px solid #1D1D1D;
+
+  &:hover {
+    filter: brightness(120%);
+    cursor: pointer;
+  }
+
+  p {
+    color: white;
+    font-size: 16px;
+  }
+}
+
+.userRoleActive {
+  @extend .userRole;
+
+  border: 1px solid #F6601F;
+  &:hover {
+    filter: brightness(100%);
+  }
 }

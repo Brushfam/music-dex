@@ -14,7 +14,13 @@ export type faqContentType = {
   answer: string;
 }[];
 
+export enum UserRoles {
+  Investor = "investor",
+  Artist = "artist",
+}
+
 export enum SignUpSteps {
+  ChooseAccount,
   SignUp,
   EmailSent,
   EmailIsNotVerified,
@@ -24,7 +30,7 @@ export enum LoginSteps {
   Login,
   ResetPassword,
   EmailSent,
-  ProfileForm // Is used when user is verified and log in for the first time
+  ProfileForm, // Is used when user is verified and log in for the first time
 }
 
 export enum ProfilePages {
@@ -34,7 +40,7 @@ export enum ProfilePages {
   Activities,
   NFTs,
   Settings,
-  FAQ
+  FAQ,
 }
 
 export interface InvestorInfo {
@@ -58,11 +64,11 @@ export interface Wallet {
 }
 
 export interface NFT {
-  nft_name: string,
-  nft_description: string,
-  nft_description_uk: string,
-  nft_link: string,
-  nft_thumbnail_link: string,
-  nft_transfer_date: string,
-  nft_amount: number,
+  nft_name: string;
+  nft_description: string;
+  nft_description_uk: string;
+  nft_link: string;
+  nft_thumbnail_link: string;
+  nft_transfer_date: string;
+  nft_amount: number;
 }
