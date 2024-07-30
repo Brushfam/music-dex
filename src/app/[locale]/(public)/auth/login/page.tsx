@@ -44,7 +44,7 @@ function Login(props: {
     }
   }, [searchParams, t]);
 
-  const handleLogin = async () => {
+  async function handleLogin() {
     setLoading(true);
     signInWithEmailAndPassword(firebaseAuth, email, password)
       .then(async (userCredential: UserCredential) => {
@@ -53,9 +53,9 @@ function Login(props: {
       .catch((error) => {
         console.log(error);
         toast.error(t("wrong_password"));
+        setLoading(false);
       });
-    setLoading(false);
-  };
+  }
 
   function verifyUser(userCredential: UserCredential) {
     isVerified(email.trim())
@@ -113,7 +113,13 @@ function Login(props: {
           color={loading ? "loading" : "main"}
           arrow={false}
           type={loading ? "button" : "submit"}
-          action={loading ? () => {} : handleLogin}
+          action={
+            loading
+              ? () => {}
+              : async () => {
+                  await handleLogin();
+                }
+          }
           fullLength={true}
         />
         <p
