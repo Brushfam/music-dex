@@ -38,7 +38,7 @@ export function Info() {
         router.replace("/en/auth/login?expired-session=true");
       }
     });
-  }, [router, triggerFormRefresh]);
+  }, [router, t, triggerFormRefresh]);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>

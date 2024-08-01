@@ -16,7 +16,6 @@ import { getMonthForArtistSongs } from "@/services/helpers";
 
 export function SongSalesChart(props: { chartData: ArtistSongsStatistics[] }) {
   const currentLocale = useLocale();
-  console.log(props.chartData)
 
   const renamedData = props.chartData.map(({ month, invested }) => ({
     name: getMonthForArtistSongs(month, currentLocale),

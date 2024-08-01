@@ -246,6 +246,7 @@
       "logout": "Log out"
     },
     "Overview": {
+      "projected_earnings": "Projected Yearly Earnings: 127%",
       "title": "Overview",
       "earned": "Earned from royalties",
       "total_songs": "Total songs invested",
@@ -356,6 +357,7 @@
       "another_error": "Something went wrong"
     },
     "Overview": {
+      "projected_earnings": "Projected Yearly Earnings: 127%",
       "title": "Overview",
       "overview_block1": "Tokens purchased by listeners’",
       "overview_block2": "Listeners invested",

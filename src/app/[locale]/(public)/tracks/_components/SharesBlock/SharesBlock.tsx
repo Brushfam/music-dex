@@ -9,7 +9,7 @@ import { ByCrypto } from "@/app/[locale]/(public)/tracks/_components/PaymentMeth
 import { useTranslations } from "next-intl";
 import { roundToTwo } from "@/services/helpers";
 import { Tooltip } from "@mui/material";
-import { strkGetFreeBalance } from "@/services/blockchain/server";
+import { strkGetFreeBalance } from "@/services/blockchain/blockchain";
 import { useUserStore } from "@/store/user";
 
 const theme = createTheme({

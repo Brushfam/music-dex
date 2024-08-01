@@ -246,6 +246,7 @@
       "logout": "Вихід"
     },
     "Overview": {
+      "projected_earnings": "Прогнозований річний прибуток: 127%",
       "title": "Overview",
       "earned": "Отримано роялті",
       "total_songs": "Кількість пісень",
@@ -356,6 +357,7 @@
       "another_error": "Виникла помилка"
     },
     "Overview": {
+      "projected_earnings": "Прогнозований річний прибуток: 127%",
       "title": "Огляд",
       "overview_block1": "Токени, придбані інвесторами",
       "overview_block2": "Інвестиції слухачів",

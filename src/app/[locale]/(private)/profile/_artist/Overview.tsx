@@ -13,6 +13,7 @@ import { LoadingSpinner } from "@/app/[locale]/(private)/profile/_components/Loa
 import { ArtistPurchaseHistory } from "@/types/types";
 import { UserTransactions } from "@/app/[locale]/(private)/profile/_artist/overview/UserTransactions";
 import { RoyaltiesHistory } from "@/app/[locale]/(private)/profile/_artist/overview/PaymentHistory";
+import { ProjectedEarnings } from "@/app/[locale]/(private)/profile/_components/ProjectedEarnings";
 
 export function Overview() {
   const t = useTranslations("ProfileArtist.Overview");
@@ -30,7 +31,6 @@ export function Overview() {
         const token = await user.getIdToken();
         getUserOverview(token)
           .then((res) => {
-              console.log(res.data)
             const investedAmount = res.data.totalInvestedAmount;
             setTotalInvestedAmount(parseFloat(investedAmount.toFixed(2)));
             const tokensAmount = res.data.totalTokensAmount;
@@ -59,7 +59,10 @@ export function Overview() {
           justifyContent: "space-between",
         }}
       >
-        <p className={s.pageTitle}>{t("title")}</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <p className={s.pageTitle}>{t("title")}</p>
+          <ProjectedEarnings />
+        </div>
         <ProfileHeader />
       </div>
       {loading ? (

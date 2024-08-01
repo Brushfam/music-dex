@@ -3,7 +3,7 @@
 import s from "@/app/[locale]/(public)/tracks/_components/Overview/Overview.module.scss";
 import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { strkGetFreeBalance } from "@/services/blockchain/server";
+import { strkGetFreeBalance } from "@/services/blockchain/blockchain";
 import { Spinner } from "@/components/Spinner/Spinner";
 
 export function DetailsBlock(props: { tokenAddress: string }) {
