@@ -361,7 +361,7 @@
       "overview_block2": "Інвестиції слухачів",
       "overview_block3": "Виплачено роялті",
       "transactions_title": "Останні транзакції користувачів",
-      "date_time": "Дата / Час",
+      "date_time": "Дата",
       "song": "Пісня",
       "tokens": "Токени",
       "amount": "Кількість",
@@ -369,7 +369,8 @@
       "date": "Дата",
       "period": "Період",
       "empty_royalties_history": "Тут буде показана історія виплат роялті",
-      "empty_transactions_list": "Тут буде показана історія покупок юзерів"
+      "empty_transactions_list": "Тут буде показана історія покупок юзерів",
+      "another_error": "Виникла помилка"
     },
     "Songs": {
       "title": "Завантажені пісні",

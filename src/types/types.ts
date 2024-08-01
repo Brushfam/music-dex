@@ -73,3 +73,24 @@ export interface NFT {
   nft_transfer_date: string;
   nft_amount: number;
 }
+
+export interface ArtistPurchaseHistory {
+  date: string;
+  name: string;
+  amount: number;
+  invested: number;
+}
+
+export interface ArtistSongsStatistics {
+  month: string;
+  invested: number;
+  amount: number;
+}
+
+export interface ArtistSong {
+  listeningDate: string;
+  songName: string;
+  totalAmount: number;
+  totalInvested: number;
+  statistics: ArtistSongsStatistics[];
+}
