@@ -4,7 +4,6 @@ import { PageWrapper } from "@/app/[locale]/(private)/profile/PageWrapper";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useLocale } from "use-intl";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { getUserActivities } from "@/services/users/investors/investors";
 import s from "@/app/[locale]/(private)/profile/_investor/activities/Activities.module.scss";
@@ -24,7 +23,6 @@ interface ActivitiesData {
 export default function Activities() {
   const t = useTranslations("ProfileInvestor.Activities");
   const router = useRouter();
-  const currentLocale = useLocale();
   const [loading, setLoading] = useState(true);
   const [activitiesList, setActivitiesList] = useState<ActivitiesData[]>([]);
 
@@ -58,7 +56,7 @@ export default function Activities() {
               const tokens = isDeclined ? "-" : tokenAmount;
               actList.push({
                 date: formatDate(data[i].purchase_timestamp),
-                name: "Дилер",
+                name: data[i].song_name,
                 amount: amount,
                 tokens: tokens,
                 currency: data[i].currency,
@@ -98,7 +96,7 @@ export default function Activities() {
           >
             <ActivitiesRow
               lastDate={act.date}
-              song={"Дилер"}
+              song={act.name}
               tokens={act.tokens}
               invested={act.amount}
               status={act.status}

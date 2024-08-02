@@ -10,28 +10,15 @@ function LabelBlock(props: { iconName: string; label: string }) {
   );
 }
 
-export function Labels(props: {
-  author?: string;
-  genre?: string;
-  location?: string;
-}) {
+export function Labels(props: { genre?: string; location?: string }) {
   return (
     <div className={s.labels}>
-      {props.author ? (
-        <LabelBlock iconName={"author.svg"} label={props.author} />
-      ) : (
-        <></>
-      )}
-        {props.genre ? (
-            <LabelBlock iconName={"genre.svg"} label={props.genre} />
-        ) : (
-            <></>
-        )}
-        {props.location ? (
-            <LabelBlock iconName={"location.svg"} label={props.location} />
-        ) : (
-            <></>
-        )}
+      {props.genre ? (
+        <LabelBlock iconName={"genre.svg"} label={props.genre} />
+      ) : null}
+      {props.location ? (
+        <LabelBlock iconName={"location.svg"} label={props.location} />
+      ) : null}
     </div>
   );
 }

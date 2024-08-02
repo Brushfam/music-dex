@@ -1,10 +1,10 @@
 import axios from "axios";
 import { InvestorInfo } from "@/types/types";
 
-export function createInvoice(jwt: string, token_amount: number) {
+export function createInvoice(jwt: string, songId: number, token_amount: number) {
   return axios.post(
     process.env.NEXT_PUBLIC_SERVER_URL + "/users/invoice",
-    { song_id: 1, token_amount: token_amount },
+    { song_id: songId, token_amount: token_amount },
     {
       headers: {
         "Access-Control-Allow-Origin": "*",

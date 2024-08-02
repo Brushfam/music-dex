@@ -5,6 +5,13 @@ export function roundToTwo(n: number) {
   return Math.round(n * 100) / 100;
 }
 
+export function computeTokenMinAmount(tokenPrice: number) {
+  const minAmount = 5.1;
+  let tokenAmount = minAmount / tokenPrice;
+
+  return  Math.ceil(tokenAmount);
+}
+
 // FORMATTING
 export function formatBlockchainAddress(address: string): string {
   if (address.length <= 10) {

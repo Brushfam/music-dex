@@ -3,9 +3,10 @@ import { GreyBlock } from "@/components/ui/GreyBlock/GreyBlock";
 import { Labels } from "@/components/Labels/Labels";
 import { Button } from "@/components/ui/Button/Button";
 import { TrackDetails } from "@/components/TrackDetails/TrackDetails";
-import { dealerEN, dealerUK } from "@/data/tracksData";
+import { dealerEN, dealerUK, maniacEN, maniacUK } from "@/data/tracksData";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { trackDataType } from "@/types/types";
 
 export function Catalog() {
   const t = useTranslations("Catalog");
@@ -31,31 +32,53 @@ export function Catalog() {
     );
   }
 
-  return (
-    <div className={s.catalog}>
+  function AvailableSong(props: {
+    coverPath: string;
+    dataEN: trackDataType;
+    dataUK: trackDataType;
+    link: string;
+  }) {
+    return (
       <GreyBlock borderRadius={12}>
         <div className={s.trackCard}>
           <div className={s.trackCard_img}>
             <Image
-              src={"/albums/dealer.jpg"}
+              src={props.coverPath}
               alt={"track cover"}
               fill={true}
               style={{ objectFit: "cover" }}
             />
           </div>
           <div className={s.trackCard_description}>
-            <p className={s.trackCard_title}>{t("song_title")}</p>
-            <Labels genre={t("song_genre")} location={t("song_location")} />
-            <TrackDetails dataEN={dealerEN} dataUK={dealerUK} />
+            <p className={s.trackCard_title}>{props.dataEN.name}</p>
+            <Labels genre={props.dataEN.genre} location={t("song_location")} />
+            <TrackDetails dataEN={props.dataEN} dataUK={props.dataUK} />
             <Button
               title={t("song_button")}
               color={"main"}
               arrow={true}
-              path={"/tracks/dealer"}
+              path={props.link}
             />
           </div>
         </div>
       </GreyBlock>
+    );
+  }
+
+  return (
+    <div className={s.catalog}>
+      <AvailableSong
+        coverPath={"/albums/maniac.jpg"}
+        dataEN={maniacEN}
+        dataUK={maniacUK}
+        link={"/tracks/maniac"}
+      />
+      <AvailableSong
+        coverPath={"/albums/dealer.jpg"}
+        dataEN={dealerEN}
+        dataUK={dealerUK}
+        link={"/tracks/dealer"}
+      />
       <LockedSong imgSrc={"/albums/album4.png"} />
       <LockedSong imgSrc={"/albums/album3.png"} />
       <LockedSong imgSrc={"/albums/album1.png"} />

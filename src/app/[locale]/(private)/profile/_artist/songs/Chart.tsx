@@ -64,7 +64,7 @@ export function SongSalesChart(props: { chartData: ArtistSongsStatistics[] }) {
             fontSize: 14,
             fontWeight: 400,
           }}
-          domain={[0, 80]}
+          domain={[0, 45]}
           axisLine={false}
         />
         <Tooltip

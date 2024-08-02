@@ -125,14 +125,9 @@
   }
 }
 
-.trackCoverDealer {
+.trackCover {
   @extend .trackCover;
   background-image: url("/albums/dealer.jpg");
-}
-
-.trackCoverUKSun {
-  @extend .trackCover;
-  background-image: url("/albums/ukrainian-sun-vertical.png");
 }
 
 .trackDescription {

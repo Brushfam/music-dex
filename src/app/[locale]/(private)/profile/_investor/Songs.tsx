@@ -12,13 +12,20 @@ import { Button } from "@/components/ui/Button/Button";
 import { SongHeader } from "@/app/[locale]/(private)/profile/_investor/songs/SongHeader";
 import { SongRow } from "@/app/[locale]/(private)/profile/_investor/songs/SongRow";
 
+interface SongsData {
+  date: string;
+  name: string;
+  tokens: number;
+  invested: number;
+  link: string;
+}
+
 export default function Songs() {
   const t = useTranslations("ProfileInvestor.Songs");
   const router = useRouter();
   const currentLocale = useLocale();
 
-  const [dealerAmount, setDealerAmount] = useState(0);
-  const [lastDate, setLastDate] = useState("");
+  const [songs, setSongs] = useState<SongsData[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -26,13 +33,7 @@ export default function Songs() {
       if (user) {
         const token = await user.getIdToken();
         const response = await getUserSongs(token);
-        if (response.data.tokens) {
-          const tokens = response.data.tokens;
-          setDealerAmount(parseFloat(tokens.toFixed(2)));
-        }
-        if (response.data.date) {
-          setLastDate(response.data.date);
-        }
+        setSongs(response.data.songs);
         setLoading(false);
       } else {
         router.replace("/en/auth/login?expired-session=true");
@@ -55,13 +56,8 @@ export default function Songs() {
     );
   }
 
-  function getInvestedSum() {
-    const sum = dealerAmount * 2.2;
-    return parseFloat(sum.toFixed(2));
-  }
-
   function SongList() {
-    return dealerAmount ? (
+    return songs ? (
       <div style={{ display: "flex", flexDirection: "column", minWidth: 530 }}>
         <div className={s.titleBlock}>
           <p className={s.titleBlock_text}>{t("list_of_songs")}</p>
@@ -73,13 +69,18 @@ export default function Songs() {
           />
         </div>
         <SongHeader />
-        <SongRow
-          lastDate={lastDate}
-          song={"Дилер"}
-          tokens={dealerAmount}
-          invested={getInvestedSum()}
-          songLink={"/" + currentLocale + "/tracks/dealer"}
-        />
+        {songs.map((song, i) => {
+          return (
+            <SongRow
+              key={i.toString()}
+              lastDate={song.date}
+              song={song.name}
+              tokens={song.tokens}
+              invested={song.invested}
+              songLink={"/" + currentLocale + song.link}
+            />
+          );
+        })}
       </div>
     ) : (
       <NoSongBlock />

@@ -7,7 +7,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { ByCrypto } from "@/app/[locale]/(public)/tracks/_components/PaymentMethods/ByCrypto";
 import { useTranslations } from "next-intl";
-import { roundToTwo } from "@/services/helpers";
+import {computeTokenMinAmount, roundToTwo} from "@/services/helpers";
 import { Tooltip } from "@mui/material";
 import { strkGetFreeBalance } from "@/services/blockchain/blockchain";
 import { useUserStore } from "@/store/user";
@@ -24,10 +24,11 @@ export function SharesBlock(props: {
   price: number;
   tokenAddress: string;
   tokenName: string;
+  songId: number;
 }) {
   const t = useTranslations("SharesBlock");
   const price = roundToTwo(props.price);
-  const minTokensForBuy = 24; // limited by whitepay provider
+  const minTokensForBuy = computeTokenMinAmount(props.price); // limited by whitepay provider
 
   const currentUser = useUserStore((state) => state.currentUserEmail);
   const [prevAmount, setPrevAmount] = useState(price * minTokensForBuy);
@@ -55,7 +56,7 @@ export function SharesBlock(props: {
 
   function changeAmountButton(down?: boolean) {
     if (
-      (down && currentAmount == price * 24) ||
+      (down && currentAmount == price * minTokensForBuy) ||
       (!down && currentAmount >= getMaxPrice())
     ) {
       return;
@@ -125,6 +126,7 @@ export function SharesBlock(props: {
           user={currentUser}
           tokensToPay={currentAmount}
           tokensToBuy={getTokenAmount()}
+          songId={props.songId}
           address={props.tokenAddress}
         />
         <Tooltip title={t("fiat_description")} enterTouchDelay={0}>
@@ -144,17 +146,17 @@ export function SharesBlock(props: {
         <ThemeProvider theme={theme}>
           <Slider
             value={currentAmount}
-            defaultValue={price * 24}
+            defaultValue={price * minTokensForBuy}
             onChange={handleSliderChange}
             step={price}
-            min={price * 24}
+            min={price * minTokensForBuy}
             max={getMaxPrice()}
             style={{ margin: "0 0 0 4px" }}
           />
         </ThemeProvider>
         <div className={s.rowContainer}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <p className={s.boldSmallText}>{price * 24}</p>
+            <p className={s.boldSmallText}>{price * minTokensForBuy}</p>
             <p className={s.smallText}>{t("min")}</p>
           </div>
           <div

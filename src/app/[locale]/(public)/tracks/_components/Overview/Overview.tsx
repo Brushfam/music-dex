@@ -5,8 +5,15 @@ import { useTranslations } from "next-intl";
 import { RevenueSources } from "@/app/[locale]/(public)/tracks/_components/Overview/RevenueSources";
 import { ListenOnBlock } from "@/app/[locale]/(public)/tracks/_components/Overview/ListenOnBlock";
 import { DetailsBlock } from "@/app/[locale]/(public)/tracks/_components/Overview/DetailsBlock";
+import { streamingServices } from "@/types/types";
 
-export function Overview(props: { videoId: string; tokenAddress: string }) {
+export function Overview(props: {
+  videoId: string;
+  tokenAddress: string;
+  services: streamingServices;
+  price: number
+  totalSupply: number
+}) {
   const t = useTranslations("Tracks.Overview");
   const opts = {
     height: "320",
@@ -21,8 +28,8 @@ export function Overview(props: { videoId: string; tokenAddress: string }) {
           <YouTube videoId={props.videoId} opts={opts} />
         </div>
         <div className={s.streamsBlock}>
-          <DetailsBlock tokenAddress={props.tokenAddress} />
-          <ListenOnBlock />
+          <DetailsBlock tokenAddress={props.tokenAddress} price={props.price} totalSupply={props.totalSupply} />
+          <ListenOnBlock services={props.services} />
         </div>
       </div>
       <div className={s.secondBlockWrapper}>

@@ -43,10 +43,10 @@ export default function SideMenu(props: { currentUser: string }) {
           title={t("blog")}
           link={"/" + currentLocale + "/blog"}
         ></PageRow>
-          <PageRow
-              title={t("gallery")}
-              link={"/" + currentLocale + "/gallery"}
-          ></PageRow>
+        <PageRow
+          title={t("gallery")}
+          link={"/" + currentLocale + "/gallery"}
+        ></PageRow>
         <PageRow title={t("faq")} link={"/" + currentLocale + "/faq"}></PageRow>
       </div>
     );
@@ -65,7 +65,6 @@ export default function SideMenu(props: { currentUser: string }) {
       signOut(firebaseAuth)
         .then(() => {
           setCurrentUserEmail("");
-          router.replace("/en");
         })
         .catch((error) => {
           console.log(error);

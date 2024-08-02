@@ -1,7 +1,10 @@
 export const dealerEN = {
+  name: "Дилер",
   rights_holder: "Tony Tonite",
   price: 0.22,
-  donateLink: "https://pay.whitepay.com/crypto-jars/70515433-5c99-46fb-8ffe-58e28cb6369b",
+  donateLink:
+    "https://pay.whitepay.com/crypto-jars/70515433-5c99-46fb-8ffe-58e28cb6369b",
+  genre: "Rap",
   details: [
     {
       type: "Song Release:",
@@ -41,9 +44,12 @@ export const dealerEN = {
 };
 
 export const dealerUK = {
+  name: "Дилер",
   rights_holder: "Tony Tonite",
   price: 0.22,
-  donateLink: "https://pay.whitepay.com/crypto-jars/70515433-5c99-46fb-8ffe-58e28cb6369b",
+  donateLink:
+    "https://pay.whitepay.com/crypto-jars/70515433-5c99-46fb-8ffe-58e28cb6369b",
+  genre: "Реп",
   details: [
     {
       type: "Реліз пісні:",
@@ -80,6 +86,73 @@ export const dealerUK = {
   ],
 };
 
+export const maniacEN = {
+  name: "МАНІЯК",
+  rights_holder: "FREAKY SIREN",
+  price: 0.3,
+  donateLink:
+    "https://pay.whitepay.com/crypto-jars/7268afdb-03fd-46c8-aeae-5d6e0324cf90",
+  genre: "Jersey Club",
+  details: [
+    {
+      type: "Song Release:",
+      value: "July 2024",
+    },
+    {
+      type: "Published On Platform",
+      value: "July 2024",
+    },
+    {
+      type: "Blockchain:",
+      value: "Starknet",
+    },
+    {
+      type: "Total supply:",
+      value: "5000",
+    },
+  ],
+  description:
+    '"MANIAC" is a track in which the artist aims to bring the listener back to the true summer club vibe. The blend of styles immerses you in the 2000s, while the song is about that special woman who keeps you close but doesn\'t let the man get closer than she wants.',
+  about_artist: [
+    'FREAKY SIREN is a Ukrainian singer and TikTok blogger. She gained fame through her participation in the show "The Voice of Ukraine 10," where she reached the semifinals, as well as the project "Everyone Sings." ',
+    'Karina also runs a blog on TikTok and Instagram, where she has garnered a large following of fans. Her most popular tracks are "OK" and "Demon."',
+  ],
+};
+
+export const maniacUK = {
+  name: "МАНІЯК",
+  rights_holder: "FREAKY SIREN",
+  price: 0.3,
+  donateLink:
+    "https://pay.whitepay.com/crypto-jars/7268afdb-03fd-46c8-aeae-5d6e0324cf90",
+  genre: "Jersey Club",
+  details: [
+    {
+      type: "Реліз пісні:",
+      value: "Липень 2024",
+    },
+    {
+      type: "Опубліковано:",
+      value: "Липень 2024",
+    },
+    {
+      type: "Блокчейн:",
+      value: "Starknet",
+    },
+    {
+      type: "Загальна пропозиція:",
+      value: "5000",
+    },
+  ],
+  description:
+    "«МАНІЯК» - трек, в якому виконавиця хоче повернути слухача до справжнього літнього club вайбу. Поєднання стилів занурює у 2000ні, а трек про ту саму, що тримає поряд, але не дає чоловікові наблизитись більше, ніж вона того хоче.",
+  about_artist: [
+    'FREAKY SIREN — українська співачка та TikTok блогерка. Вона стала відомою завдяки участі в шоу "Голос Країни 10", де дійшла до півфіналу, проєкту "Співають всі"',
+    'Також Каріна веде блог в TikTok і Instagram, де здобула велику підтримку шанувальників. Найпопулярніші треки "ОК" і "Демон"',
+  ],
+};
+
 export const trackAddresses = {
-  dealer: "0x00630cbc324308dad0f847e9e2294611b67f012be5fb7418f38e25e6ab6ab26d"
-}
+  dealer: "0x00630cbc324308dad0f847e9e2294611b67f012be5fb7418f38e25e6ab6ab26d",
+  maniac: "0x04ae0d24fc72b9de8049420875ff48719df527e6f677ff9dca911cb571d11a49",
+};
