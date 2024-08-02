@@ -56,7 +56,7 @@ export default function Activities() {
               const tokens = isDeclined ? "-" : tokenAmount;
               actList.push({
                 date: formatDate(data[i].purchase_timestamp),
-                name: "Дилер",
+                name: data[i].song_name,
                 amount: amount,
                 tokens: tokens,
                 currency: data[i].currency,
@@ -96,7 +96,7 @@ export default function Activities() {
           >
             <ActivitiesRow
               lastDate={act.date}
-              song={"Дилер"}
+              song={act.name}
               tokens={act.tokens}
               invested={act.amount}
               status={act.status}
