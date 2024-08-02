@@ -238,6 +238,7 @@
       "logout": "Log out"
     },
     "Overview": {
+      "projected_earnings": "Projected Yearly Earnings: 127%",
       "title": "Overview",
       "earned": "Earned from royalties",
       "total_songs": "Total songs invested",
@@ -348,12 +349,13 @@
       "another_error": "Something went wrong"
     },
     "Overview": {
+      "projected_earnings": "Projected Yearly Earnings: 127%",
       "title": "Overview",
       "overview_block1": "Tokens purchased by listeners’",
       "overview_block2": "Listeners invested",
       "overview_block3": "Royalties paid",
       "transactions_title": "Latest users’ transactions",
-      "date_time": "Date / Time",
+      "date_time": "Date",
       "song": "Song",
       "tokens": "Tokens",
       "amount": "Amount",
@@ -361,7 +363,8 @@
       "date": "Date",
       "period": "Period covered",
       "empty_royalties_history": "Royalty payment history will be listed here",
-      "empty_transactions_list": "The history of user's purchases will be shown here"
+      "empty_transactions_list": "The history of user's purchases will be shown here",
+      "another_error": "Something went wrong"
     },
     "Songs": {
       "title": "Uploaded songs",

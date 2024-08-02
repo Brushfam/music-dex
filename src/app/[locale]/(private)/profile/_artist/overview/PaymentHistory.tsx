@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 export function RoyaltiesHistory() {
   const t = useTranslations("ProfileArtist.Overview");
   return (
-    <div className={s.statisticsBlock}>
+    <div className={s.royaltiesHistory}>
       <p className={s.title}>{t("royalty_title")}</p>
       <div
         style={{
@@ -23,7 +23,7 @@ export function RoyaltiesHistory() {
           width={38}
           height={48}
         />
-        <p className={s.statisticsBlock_text1}>
+        <p className={s.royaltiesHistory_text1}>
             {t("empty_royalties_history")}
         </p>
       </div>

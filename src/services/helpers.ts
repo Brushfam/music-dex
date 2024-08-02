@@ -1,6 +1,6 @@
-// MATH FUNCTIONS
 import { monthList } from "@/data/profile/months";
 
+// MATH FUNCTIONS
 export function roundToTwo(n: number) {
   return Math.round(n * 100) / 100;
 }
@@ -28,15 +28,12 @@ export function parseWalletListResponse(walletList: string[]) {
   });
 }
 
-export function formatEmail(email: string) {
-  if (email.length <= 14) {
-    return email;
-  }
-  return `${email.slice(0, 6)}...${email.slice(-6)}`;
-}
-
 // CHARTS
-export function getMonthName(month: string, currentLocale: string) {
+export function getMonthForStreamStatistics(
+  month: string,
+  currentLocale: string,
+) {
+  // return month name depends on {currentLocale}
   if (currentLocale === "en") {
     return month;
   } else {
@@ -48,4 +45,11 @@ export function getMonthName(month: string, currentLocale: string) {
     });
     return ukName;
   }
+}
+
+export function getMonthForArtistSongs(date: string, currentLocale: string) {
+  // date is in YYYY-MM format
+  const [, month] = date.split("-");
+  const index = parseInt(month, 10) - 1;
+  return currentLocale === "en" ? monthList[index].en : monthList[index].uk;
 }

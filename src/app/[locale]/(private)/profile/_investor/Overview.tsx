@@ -11,6 +11,8 @@ import { OverviewRow } from "@/app/[locale]/(private)/profile/_investor/overview
 import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
 import { ProfileHeader } from "@/app/[locale]/(private)/profile/_components/ProfileHeader/ProfileHeader";
 import { SecondBlock } from "@/app/[locale]/(private)/profile/_investor/overview/SecondBlock";
+import Image from "next/image";
+import { ProjectedEarnings } from "@/app/[locale]/(private)/profile/_components/ProjectedEarnings";
 
 export function Overview() {
   const t = useTranslations("ProfileInvestor.Overview");
@@ -50,9 +52,13 @@ export function Overview() {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
+          alignItems: "flex-start",
         }}
       >
-        <p className={s.pageTitle}>{t("title")}</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <p className={s.pageTitle}>{t("title")}</p>
+          <ProjectedEarnings />
+        </div>
         <ProfileHeader />
       </div>
       {loading ? (

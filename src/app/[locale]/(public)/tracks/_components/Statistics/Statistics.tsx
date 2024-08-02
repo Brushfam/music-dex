@@ -8,7 +8,7 @@ import { StreamingChart } from "@/app/[locale]/(public)/tracks/_components/Stati
 import { useEffect, useState } from "react";
 import { getSongsStreams } from "@/services/songs";
 import { LoadingSpinner } from "@/app/[locale]/(private)/profile/_components/LoadingSpinner";
-import { getMonthName } from "@/services/helpers";
+import {getMonthForStreamStatistics} from "@/services/helpers";
 
 interface StreamsData {
   month: string;
@@ -39,7 +39,7 @@ export function Statistics(props: { songId: number }) {
             : response.data.result;
         streamsDataList.forEach((data: StreamsData) => {
           list.push({
-            name: getMonthName(data.month, currentLocale),
+            name: getMonthForStreamStatistics(data.month, currentLocale),
             uv: data.streams,
           });
         });
