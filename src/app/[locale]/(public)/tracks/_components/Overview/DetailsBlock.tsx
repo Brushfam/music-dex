@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { strkGetFreeBalance } from "@/services/blockchain/server";
 import { Spinner } from "@/components/Spinner/Spinner";
 
-export function DetailsBlock(props: { tokenAddress: string }) {
+export function DetailsBlock(props: { tokenAddress: string, price: number, totalSupply: number }) {
   const t = useTranslations("Tracks.Overview");
   const [totalAmount, setTotalAmount] = useState<number | undefined>(undefined);
   const [totalPurchased, setTotalPurchased] = useState<number | undefined>(
@@ -17,7 +17,7 @@ export function DetailsBlock(props: { tokenAddress: string }) {
     strkGetFreeBalance(props.tokenAddress).then((fullBalance) => {
       const balanceWithoutDecimals = Number(fullBalance) / 10;
       setTotalAmount(parseFloat(balanceWithoutDecimals.toFixed(2)));
-      const totalSupply = 10_000;
+      const totalSupply = props.totalSupply;
       const remaining = totalSupply - balanceWithoutDecimals
       setTotalPurchased(parseFloat(remaining.toFixed(2)));
     });
@@ -27,7 +27,7 @@ export function DetailsBlock(props: { tokenAddress: string }) {
     <div className={s.detailsBlock}>
       <div className={s.details}>
         <p>{t("price_per_token")}</p>
-        <p>$2.2</p>
+        <p>${props.price}</p>
       </div>
       <div className={s.details}>
         <p>{t("total_purchased_tokens")}</p>

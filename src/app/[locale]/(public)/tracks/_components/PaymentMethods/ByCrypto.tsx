@@ -15,6 +15,7 @@ export function ByCrypto(props: {
   tokensToPay: number;
   tokensToBuy: number;
   address: string;
+  songId: number;
 }) {
   const t = useTranslations("SharesBlock.ByCrypto");
   const router = useRouter();
@@ -28,7 +29,7 @@ export function ByCrypto(props: {
         try {
           const response = await ifUserHasWallets(token);
           if (response.data.hasWallets) {
-            createInvoice(token, props.tokensToBuy).then((res) => {
+            createInvoice(token, props.songId, props.tokensToBuy).then((res) => {
               setOrderLink(res.data.order_url.toString());
             });
           } else {

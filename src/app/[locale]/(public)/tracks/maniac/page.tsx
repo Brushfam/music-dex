@@ -17,7 +17,7 @@ export default function ManiacTrack() {
     <PageTemplate
       artist={"FREAKY SIREN"}
       songName={"МАНІЯК"}
-      tokenAddress={trackAddresses.dealer}
+      tokenAddress={trackAddresses.maniac}
       pathToCover={"/albums/maniac.jpg"}
       youtubeId={"Ply0cjDXRDs"}
       services={services}

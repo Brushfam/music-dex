@@ -154,4 +154,5 @@ export const maniacUK = {
 
 export const trackAddresses = {
   dealer: "0x00630cbc324308dad0f847e9e2294611b67f012be5fb7418f38e25e6ab6ab26d",
+  maniac: "0x04ae0d24fc72b9de8049420875ff48719df527e6f677ff9dca911cb571d11a49",
 };

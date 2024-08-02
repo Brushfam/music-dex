@@ -68,16 +68,16 @@ export function Catalog() {
   return (
     <div className={s.catalog}>
       <AvailableSong
-        coverPath={"/albums/dealer.jpg"}
-        dataEN={dealerEN}
-        dataUK={dealerUK}
-        link={"/tracks/dealer"}
-      />
-      <AvailableSong
         coverPath={"/albums/maniac.jpg"}
         dataEN={maniacEN}
         dataUK={maniacUK}
         link={"/tracks/maniac"}
+      />
+      <AvailableSong
+        coverPath={"/albums/dealer.jpg"}
+        dataEN={dealerEN}
+        dataUK={dealerUK}
+        link={"/tracks/dealer"}
       />
       <LockedSong imgSrc={"/albums/album4.png"} />
       <LockedSong imgSrc={"/albums/album3.png"} />

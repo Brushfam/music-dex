@@ -11,6 +11,8 @@ export function Overview(props: {
   videoId: string;
   tokenAddress: string;
   services: streamingServices;
+  price: number
+  totalSupply: number
 }) {
   const t = useTranslations("Tracks.Overview");
   const opts = {
@@ -26,7 +28,7 @@ export function Overview(props: {
           <YouTube videoId={props.videoId} opts={opts} />
         </div>
         <div className={s.streamsBlock}>
-          <DetailsBlock tokenAddress={props.tokenAddress} />
+          <DetailsBlock tokenAddress={props.tokenAddress} price={props.price} totalSupply={props.totalSupply} />
           <ListenOnBlock services={props.services} />
         </div>
       </div>

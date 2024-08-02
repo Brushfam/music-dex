@@ -7,7 +7,7 @@ import { TrackDetails } from "@/components/TrackDetails/TrackDetails";
 import { SharesBlock } from "@/app/[locale]/(public)/tracks/_components/SharesBlock/SharesBlock";
 import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import React, { useState } from "react";
-import {streamingServices, trackDataType} from "@/types/types";
+import { streamingServices, trackDataType } from "@/types/types";
 import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
 import { ApprovePurchaseModal } from "@/components/modals/ApprovePurchaseModal/ApprovePurchaseModal";
@@ -50,10 +50,7 @@ export function PageTemplate(props: PageTemplateProps) {
         <p className={s.titleText} style={{ marginBottom: 16 }}>
           {props.songName}
         </p>
-        <Labels
-          genre={props.trackDataEN.genre}
-          location={t("song_location")}
-        />
+        <Labels genre={props.trackDataEN.genre} location={t("song_location")} />
         <p className={s.descriptionText}>{trackData.description}</p>
         <p
           style={{
@@ -122,13 +119,22 @@ export function PageTemplate(props: PageTemplateProps) {
   function CurrentSubPage() {
     if (currentPage === "Overview") {
       return (
-        <Overview videoId={props.youtubeId} tokenAddress={props.tokenAddress} services={props.services} />
+        <Overview
+          videoId={props.youtubeId}
+          tokenAddress={props.tokenAddress}
+          services={props.services}
+          price={props.trackDataEN.price * 10}
+          totalSupply={Number(props.trackDataEN.details[3].value)}
+        />
       );
     } else if (currentPage === "Royalties") {
       return <Royalties />;
     } else if (currentPage === "Statistics") {
       return <Statistics songId={props.songId} />;
-    } else return <AboutArtist dataEN={props.trackDataEN} dataUK={props.trackDataUK} />;
+    } else
+      return (
+        <AboutArtist dataEN={props.trackDataEN} dataUK={props.trackDataUK} />
+      );
   }
 
   const coverStyle = {
@@ -152,6 +158,7 @@ export function PageTemplate(props: PageTemplateProps) {
               <SharesBlock
                 price={trackData.price}
                 tokenAddress={props.tokenAddress}
+                songId={props.songId}
                 tokenName={props.songName}
               />
               <Donate donateLink={props.trackDataEN.donateLink} />
