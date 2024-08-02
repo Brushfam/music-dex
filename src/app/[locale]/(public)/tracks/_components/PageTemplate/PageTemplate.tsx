@@ -7,7 +7,7 @@ import { TrackDetails } from "@/components/TrackDetails/TrackDetails";
 import { SharesBlock } from "@/app/[locale]/(public)/tracks/_components/SharesBlock/SharesBlock";
 import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import React, { useState } from "react";
-import { trackDataType } from "@/types/types";
+import {streamingServices, trackDataType} from "@/types/types";
 import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
 import { ApprovePurchaseModal } from "@/components/modals/ApprovePurchaseModal/ApprovePurchaseModal";
@@ -22,6 +22,10 @@ type PageTemplateProps = {
   artist: string;
   songName: string;
   tokenAddress: string;
+  pathToCover: string;
+  youtubeId: string;
+  services: streamingServices;
+  songId: number;
   trackDataEN: trackDataType;
   trackDataUK: trackDataType;
 };
@@ -47,8 +51,7 @@ export function PageTemplate(props: PageTemplateProps) {
           {props.songName}
         </p>
         <Labels
-          author={props.artist}
-          genre={t("song_genre")}
+          genre={props.trackDataEN.genre}
           location={t("song_location")}
         />
         <p className={s.descriptionText}>{trackData.description}</p>
@@ -119,14 +122,18 @@ export function PageTemplate(props: PageTemplateProps) {
   function CurrentSubPage() {
     if (currentPage === "Overview") {
       return (
-        <Overview videoId={"Jb5qdg30jSU"} tokenAddress={props.tokenAddress} />
+        <Overview videoId={props.youtubeId} tokenAddress={props.tokenAddress} services={props.services} />
       );
     } else if (currentPage === "Royalties") {
       return <Royalties />;
     } else if (currentPage === "Statistics") {
-      return <Statistics songId={1} />;
-    } else return <AboutArtist />;
+      return <Statistics songId={props.songId} />;
+    } else return <AboutArtist dataEN={props.trackDataEN} dataUK={props.trackDataUK} />;
   }
+
+  const coverStyle = {
+    backgroundImage: `url(${props.pathToCover})`,
+  };
 
   return (
     <div className={cs.main}>
@@ -136,13 +143,7 @@ export function PageTemplate(props: PageTemplateProps) {
         <div className={s.bg}></div>
         <div className={s.trackPageSection}>
           <div className={s.info}>
-            <div
-              className={
-                props.songName === "Дилер"
-                  ? s.trackCoverDealer
-                  : s.trackCoverUKSun
-              }
-            >
+            <div style={coverStyle} className={s.trackCover}>
               <p className={s.titleText}>{props.artist}</p>
               <p className={s.trackCover_songName}>{props.songName}</p>
             </div>

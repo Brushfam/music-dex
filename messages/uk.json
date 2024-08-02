@@ -101,9 +101,7 @@
   "Catalog": {
     "header": "Оберіть ваш трек",
     "description": "Інвестуйте в Музичні Роялті та Формуйте Майбутнє Музики",
-    "song_title": "Tony Tonite - Дилер",
     "rights_holder": "Правовласник:",
-    "song_genre": "Реп",
     "song_location": "Україна",
     "price_text": "Ціна за токен:",
     "song_button": "Інвестувати в трек",
@@ -116,12 +114,6 @@
       "statistics": "Статистика",
       "about": "Про Артиста"
     }
-  },
-
-  "Dealer": {
-    "song_genre": "Реп",
-    "song_location": "Україна",
-    "details": "ДЕТАЛІ"
   },
 
   "Footer": {

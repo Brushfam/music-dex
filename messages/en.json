@@ -101,9 +101,7 @@
   "Catalog": {
     "header": "Choose your track",
     "description": "Invest in Music Royalties and Shape the Future of Music",
-    "song_title": "Tony Tonite - Дилер",
     "rights_holder": "Rights Holder:",
-    "song_genre": "Rap",
     "song_location": "Ukraine",
     "price_text": "Price per token:",
     "song_button": "Invest in the track",
@@ -116,12 +114,6 @@
       "statistics": "Statistics",
       "about": "About Artist"
     }
-  },
-
-  "Dealer": {
-    "song_genre": "Rap",
-    "song_location": "Ukraine",
-    "details": "DETAILS"
   },
 
   "Footer": {
