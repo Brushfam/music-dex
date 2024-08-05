@@ -28,6 +28,7 @@ type PageTemplateProps = {
   songId: number;
   trackDataEN: trackDataType;
   trackDataUK: trackDataType;
+  coverTop?: boolean;
 };
 
 enum TrackSubpages {
@@ -139,6 +140,7 @@ export function PageTemplate(props: PageTemplateProps) {
 
   const coverStyle = {
     backgroundImage: `url(${props.pathToCover})`,
+    backgroundPosition: props.coverTop ? "top" : "center",
   };
 
   return (
