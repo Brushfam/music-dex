@@ -30,6 +30,10 @@
     height: 210px;
     border-radius: 6px;
     overflow: hidden;
+
+    img {
+      object-fit: cover;
+    }
   }
 
   &_title {

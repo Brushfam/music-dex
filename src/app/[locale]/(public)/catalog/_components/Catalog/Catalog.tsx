@@ -3,7 +3,14 @@ import { GreyBlock } from "@/components/ui/GreyBlock/GreyBlock";
 import { Labels } from "@/components/Labels/Labels";
 import { Button } from "@/components/ui/Button/Button";
 import { TrackDetails } from "@/components/TrackDetails/TrackDetails";
-import { dealerEN, dealerUK, maniacEN, maniacUK } from "@/data/tracksData";
+import {
+  chytEN,
+  chytUK,
+  dealerEN,
+  dealerUK,
+  maniacEN,
+  maniacUK,
+} from "@/data/tracksData";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { trackDataType } from "@/types/types";
@@ -37,6 +44,7 @@ export function Catalog() {
     dataEN: trackDataType;
     dataUK: trackDataType;
     link: string;
+    coverTop?: boolean;
   }) {
     return (
       <GreyBlock borderRadius={12}>
@@ -46,7 +54,7 @@ export function Catalog() {
               src={props.coverPath}
               alt={"track cover"}
               fill={true}
-              style={{ objectFit: "cover" }}
+              style={props.coverTop ? { objectPosition: "top" } : {}}
             />
           </div>
           <div className={s.trackCard_description}>
@@ -68,6 +76,13 @@ export function Catalog() {
   return (
     <div className={s.catalog}>
       <AvailableSong
+        coverPath={"/albums/chyt.jpg"}
+        dataEN={chytEN}
+        dataUK={chytUK}
+        link={"/tracks/chyt"}
+        coverTop={true}
+      />
+      <AvailableSong
         coverPath={"/albums/maniac.jpg"}
         dataEN={maniacEN}
         dataUK={maniacUK}
@@ -79,7 +94,6 @@ export function Catalog() {
         dataUK={dealerUK}
         link={"/tracks/dealer"}
       />
-      <LockedSong imgSrc={"/albums/album4.png"} />
       <LockedSong imgSrc={"/albums/album3.png"} />
       <LockedSong imgSrc={"/albums/album1.png"} />
       <LockedSong imgSrc={"/albums/album2.png"} />
