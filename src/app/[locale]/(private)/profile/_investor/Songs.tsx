@@ -29,7 +29,6 @@ export default function Songs() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("+")
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
         const token = await user.getIdToken();
@@ -58,7 +57,6 @@ export default function Songs() {
   }
 
   function SongList() {
-    console.log(songs)
     return songs.length ? (
       <div style={{ display: "flex", flexDirection: "column", minWidth: 530 }}>
         <div className={s.titleBlock}>

@@ -13,7 +13,7 @@ export function RecommendButton() {
       color={"main"}
       arrow={false}
       action={() => {
-        changeStep("1");
+        changeStep("2");
       }}
     />
   );

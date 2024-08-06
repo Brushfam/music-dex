@@ -11,7 +11,7 @@ import {useTranslations} from "next-intl";
 import {getUserInfo} from "@/services/users/users";
 
 export function Info() {
-  const t = useTranslations("Profile.Toast")
+  const t = useTranslations("ProfileInvestor.Profile.Toast")
   const router = useRouter();
   const [investorInfo, setInvestorInfo] = useState<null | InvestorInfo>(null);
   const [triggerFormRefresh, setTriggerFormRefresh] = useState(0);
