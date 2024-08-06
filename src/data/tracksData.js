@@ -157,7 +157,7 @@ export const chytEN = {
   rights_holder: "David Maskisa",
   price: 0.3,
   donateLink:
-    "https://pay.whitepay.com/crypto-jars/7268afdb-03fd-46c8-aeae-5d6e0324cf90",
+    "https://pay.whitepay.com/crypto-jars/f426ae3a-7d04-4568-baac-2f0fccc758d9",
   genre: "Pop",
   details: [
     {
@@ -186,7 +186,7 @@ export const chytUK = {
   rights_holder: "David Maskisa",
   price: 0.3,
   donateLink:
-    "https://pay.whitepay.com/crypto-jars/7268afdb-03fd-46c8-aeae-5d6e0324cf90",
+    "https://pay.whitepay.com/crypto-jars/f426ae3a-7d04-4568-baac-2f0fccc758d9",
   genre: "Поп",
   details: [
     {
