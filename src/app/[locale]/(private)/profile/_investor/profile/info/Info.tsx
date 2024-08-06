@@ -5,10 +5,10 @@ import { LoadingSpinner } from "@/app/[locale]/(private)/profile/_components/Loa
 import { InfoForm } from "@/app/[locale]/(private)/profile/_investor/profile/info/InfoForm";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useRouter } from "next/navigation";
-import { getInvestorInfo } from "@/services/users/investors/investors";
 import { InvestorInfo } from "@/types/types";
 import { toast } from "sonner";
 import {useTranslations} from "next-intl";
+import {getUserInfo} from "@/services/users/users";
 
 export function Info() {
   const t = useTranslations("Profile.Toast")
@@ -20,7 +20,7 @@ export function Info() {
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
         const token = await user.getIdToken();
-        getInvestorInfo(token)
+        getUserInfo(token)
           .then((res) => {
             const i = res.data.info;
             setInvestorInfo({

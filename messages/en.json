@@ -296,7 +296,8 @@
       "item": "Item",
       "name": "Name",
       "amount": "Amount",
-      "description": "Description"
+      "description": "Description",
+      "have_not_received": "Please, add wallet, and NFT will be sent soon"
     },
     "Profile": {
       "title": "Profile",

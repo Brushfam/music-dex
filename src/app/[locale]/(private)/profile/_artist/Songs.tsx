@@ -6,11 +6,11 @@ import s from "@/app/[locale]/(private)/profile/_artist/songs/Songs.module.scss"
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { getUserSongs } from "@/services/users/investors/investors";
 import { useRouter } from "next/navigation";
 import { SongHeader } from "@/app/[locale]/(private)/profile/_artist/songs/SongHeader";
 import { ArtistSong } from "@/types/types";
 import { SongRow } from "@/app/[locale]/(private)/profile/_artist/songs/SongRow";
+import {getUserSongs} from "@/services/users/users";
 
 export function Songs() {
   const t = useTranslations("ProfileArtist.Songs");

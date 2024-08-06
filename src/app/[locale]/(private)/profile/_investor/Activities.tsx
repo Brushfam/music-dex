@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { getUserActivities } from "@/services/users/investors/investors";
+import {getInvestorActivities} from "@/services/users/investors/investors";
 import s from "@/app/[locale]/(private)/profile/_investor/activities/Activities.module.scss";
 import { ActivitiesHeader } from "@/app/[locale]/(private)/profile/_investor/activities/ActivitiesHeader";
 import { ActivitiesRow } from "@/app/[locale]/(private)/profile/_investor/activities/ActivitiesRow";
@@ -40,7 +40,7 @@ export default function Activities() {
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
         const token = await user.getIdToken();
-        getUserActivities(token)
+        getInvestorActivities(token)
           .then((res) => {
             const data = res.data.purchaseHistory;
             let actList: ActivitiesData[] = [];

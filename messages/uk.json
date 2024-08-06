@@ -296,7 +296,8 @@
       "item": "Вміст",
       "name": "Назва",
       "amount": "Кількість",
-      "description": "Опис"
+      "description": "Опис",
+      "have_not_received": "Будь ласка, додайте гаманець, і NFT буде надіслано незабаром"
     },
     "Profile": {
       "title": "Профіль",

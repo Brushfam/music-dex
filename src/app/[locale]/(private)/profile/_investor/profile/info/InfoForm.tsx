@@ -7,9 +7,9 @@ import { countries } from "@/data/countries";
 import { Button } from "@/components/ui/Button/Button";
 import { useUserStore } from "@/store/user";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { updateInvestorInfo } from "@/services/users/investors/investors";
 import { toast } from "sonner";
 import {useTranslations} from "next-intl";
+import {updateUserInfo} from "@/services/users/users";
 
 export function InfoForm(props: {
   investor: InvestorInfo;
@@ -58,7 +58,7 @@ export function InfoForm(props: {
           country: formData.country,
           profiles: [formData.tiktok, formData.instagram, formData.twitter],
         };
-        updateInvestorInfo(token, updatedData)
+        updateUserInfo(token, updatedData)
           .then(() => {
             setCurrentUserName(formData.firstName)
             toast.success(t("Toast.updated"));
