@@ -1,5 +1,5 @@
 import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
-import { ProfileHeader } from "@/app/[locale]/(private)/profile/_components/ProfileHeader/ProfileHeader";
+import { ProfileHeader } from "@/app/[locale]/(private)/_components/ProfileHeader/ProfileHeader";
 import React from "react";
 import { useTranslations } from "next-intl";
 import { Income } from "@/app/[locale]/(private)/profile/_investor/royalties/Income";

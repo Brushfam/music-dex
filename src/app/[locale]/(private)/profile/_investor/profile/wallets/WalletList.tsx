@@ -17,7 +17,7 @@ import { CreateInternalWallet } from "@/app/[locale]/(private)/profile/_investor
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { parseWalletListResponse } from "@/services/helpers";
 import {useTranslations} from "next-intl";
-import {LoadingSpinner} from "@/app/[locale]/(private)/profile/_components/LoadingSpinner";
+import {LoadingSpinner} from "@/app/[locale]/(private)/_components/LoadingSpinner";
 
 export function WalletList() {
   const t = useTranslations("ProfileInvestor.Profile");

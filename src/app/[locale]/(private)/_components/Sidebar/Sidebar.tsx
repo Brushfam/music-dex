@@ -3,15 +3,15 @@
 import s from "./Sidebar.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import { OverviewIcon } from "@/app/[locale]/(private)/profile/_components/Icons/OverviewIcon";
-import { SongsIcon } from "@/app/[locale]/(private)/profile/_components/Icons/SongsIcon";
-import { RoyaltiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/RoyaltiesIcon";
-import { ProfileIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ProfileIcon";
+import { OverviewIcon } from "@/app/[locale]/(private)/_components/Icons/OverviewIcon";
+import { SongsIcon } from "@/app/[locale]/(private)/_components/Icons/SongsIcon";
+import { RoyaltiesIcon } from "@/app/[locale]/(private)/_components/Icons/RoyaltiesIcon";
+import { ProfileIcon } from "@/app/[locale]/(private)/_components/Icons/ProfileIcon";
 import { ProfilePages } from "@/types/types";
 import React, { Dispatch, SetStateAction } from "react";
 import { useTranslations } from "next-intl";
-import { ActivitiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ActivitiesIcon";
-import { NftIcon } from "@/app/[locale]/(private)/profile/_components/Icons/NftIcon";
+import { ActivitiesIcon } from "@/app/[locale]/(private)/_components/Icons/ActivitiesIcon";
+import { NftIcon } from "@/app/[locale]/(private)/_components/Icons/NftIcon";
 
 export function Sidebar(props: {
   currentPage: ProfilePages;

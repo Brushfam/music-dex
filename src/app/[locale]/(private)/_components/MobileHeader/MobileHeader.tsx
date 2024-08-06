@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 import { useLocale } from "use-intl";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import cs from "@/app/commonStyles.module.scss";
-import SideMenu from "@/app/[locale]/(private)/_components/SideMenu";
+import SideMenu from "@/app/[locale]/(private)/_components/MobileHeader/SideMenu";
 
 function LangSwitcher() {
   const pathname = usePathname();

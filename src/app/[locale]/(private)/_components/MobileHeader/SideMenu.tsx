@@ -6,19 +6,19 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ProfilePages } from "@/types/types";
 import s from "./MobileHeader.module.scss";
-import { OverviewIcon } from "@/app/[locale]/(private)/profile/_components/Icons/OverviewIcon";
-import { SongsIcon } from "@/app/[locale]/(private)/profile/_components/Icons/SongsIcon";
-import { RoyaltiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/RoyaltiesIcon";
-import { ProfileIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ProfileIcon";
+import { OverviewIcon } from "@/app/[locale]/(private)/_components/Icons/OverviewIcon";
+import { SongsIcon } from "@/app/[locale]/(private)/_components/Icons/SongsIcon";
+import { RoyaltiesIcon } from "@/app/[locale]/(private)/_components/Icons/RoyaltiesIcon";
+import { ProfileIcon } from "@/app/[locale]/(private)/_components/Icons/ProfileIcon";
 import { Dispatch, SetStateAction } from "react";
-import { ActivitiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ActivitiesIcon";
+import { ActivitiesIcon } from "@/app/[locale]/(private)/_components/Icons/ActivitiesIcon";
 import Link from "next/link";
 import { useUserStore } from "@/store/user";
 import { signOut } from "@firebase/auth";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { NftIcon } from "@/app/[locale]/(private)/profile/_components/Icons/NftIcon";
+import { NftIcon } from "@/app/[locale]/(private)/_components/Icons/NftIcon";
 
 export default function SideMenu(props: {
   currentPage: ProfilePages;

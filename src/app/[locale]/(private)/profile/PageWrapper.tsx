@@ -1,7 +1,7 @@
 import React from "react";
 import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
-import { ProfileHeader } from "@/app/[locale]/(private)/profile/_components/ProfileHeader/ProfileHeader";
-import { LoadingSpinner } from "@/app/[locale]/(private)/profile/_components/LoadingSpinner";
+import { ProfileHeader } from "@/app/[locale]/(private)/_components/ProfileHeader/ProfileHeader";
+import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 
 export function PageWrapper(props: {
   title: string;

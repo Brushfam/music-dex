@@ -4,16 +4,16 @@ import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 import { OverviewRow } from "@/app/[locale]/(private)/profile/_artist/overview/OverviewRow";
 import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
-import { ProfileHeader } from "@/app/[locale]/(private)/profile/_components/ProfileHeader/ProfileHeader";
+import { ProfileHeader } from "@/app/[locale]/(private)/_components/ProfileHeader/ProfileHeader";
 import { useRouter } from "next/navigation";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { getUserOverview } from "@/services/users/users";
 import { toast } from "sonner";
-import { LoadingSpinner } from "@/app/[locale]/(private)/profile/_components/LoadingSpinner";
+import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 import { ArtistPurchaseHistory } from "@/types/types";
 import { UserTransactions } from "@/app/[locale]/(private)/profile/_artist/overview/UserTransactions";
 import { RoyaltiesHistory } from "@/app/[locale]/(private)/profile/_artist/overview/PaymentHistory";
-import { ProjectedEarnings } from "@/app/[locale]/(private)/profile/_components/ProjectedEarnings";
+import { ProjectedEarnings } from "@/app/[locale]/(private)/_components/ProjectedEarnings";
 
 export function Overview() {
   const t = useTranslations("ProfileArtist.Overview");

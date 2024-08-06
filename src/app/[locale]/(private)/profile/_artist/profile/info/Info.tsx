@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LoadingSpinner } from "@/app/[locale]/(private)/profile/_components/LoadingSpinner";
+import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 import { InfoForm } from "@/app/[locale]/(private)/profile/_artist/profile/info/InfoForm";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useRouter } from "next/navigation";

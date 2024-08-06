@@ -7,7 +7,7 @@ import { useLocale } from "use-intl";
 import { StreamingChart } from "@/app/[locale]/(public)/tracks/_components/Statistics/StreamingChart";
 import { useEffect, useState } from "react";
 import { getSongsStreams } from "@/services/songs";
-import { LoadingSpinner } from "@/app/[locale]/(private)/profile/_components/LoadingSpinner";
+import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 import {getMonthForStreamStatistics} from "@/services/helpers";
 
 interface StreamsData {
