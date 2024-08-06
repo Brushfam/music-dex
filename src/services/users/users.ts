@@ -1,4 +1,5 @@
 import axios from "axios";
+import {InvestorInfo} from "@/types/types";
 
 export function getUserRole(jwt: string) {
   return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/role", {
@@ -20,32 +21,31 @@ export function getUserLoginInfo(jwt: string) {
 
 export function setFirstLogin(jwt: string) {
   return axios.post(
-      process.env.NEXT_PUBLIC_SERVER_URL + "/users/login-info",
-      {},
-      {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          Authorization: "Bearer: " + jwt,
-        },
+    process.env.NEXT_PUBLIC_SERVER_URL + "/users/login-info",
+    {},
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer: " + jwt,
       },
+    },
   );
 }
 
 export function addNewUser(jwt: string, email: string, role: string) {
-  return axios
-    .post(
-      process.env.NEXT_PUBLIC_SERVER_URL + "/users",
-      {
-        email: email,
-        role: role,
+  return axios.post(
+    process.env.NEXT_PUBLIC_SERVER_URL + "/users",
+    {
+      email: email,
+      role: role,
+    },
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer: " + jwt,
       },
-      {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          Authorization: "Bearer: " + jwt,
-        },
-      },
-    )
+    },
+  );
 }
 
 export function getUserOverview(jwt: string) {
@@ -55,4 +55,35 @@ export function getUserOverview(jwt: string) {
       Authorization: "Bearer: " + jwt,
     },
   });
+}
+
+export function getUserSongs(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/songs", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+  });
+}
+
+export function getUserInfo(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/info", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+  });
+}
+
+export function updateUserInfo(jwt: string, info: InvestorInfo) {
+  return axios.post(
+      process.env.NEXT_PUBLIC_SERVER_URL + "/users/info",
+      { details: info },
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          Authorization: "Bearer: " + jwt,
+        },
+      },
+  );
 }

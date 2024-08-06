@@ -25,7 +25,8 @@
       "tracks": "Your favorite tracks:"
     },
     "close": "Close",
-    "open": "Open the form",
+    "open": "Open",
+    "open_form": "Open the form",
     "send": "Submit",
     "error": "Something went wrong",
     "success": "Thank you for your recommendation!",
@@ -296,7 +297,8 @@
       "item": "Item",
       "name": "Name",
       "amount": "Amount",
-      "description": "Description"
+      "description": "Description",
+      "have_not_received": "Please, add wallet, and NFT will be sent soon"
     },
     "Profile": {
       "title": "Profile",

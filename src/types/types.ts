@@ -54,7 +54,7 @@ export enum ProfilePages {
   FAQ,
 }
 
-export interface InvestorInfo {
+export type InvestorInfo = {
   firstName: string;
   lastName: string;
   favGenre: string;
@@ -62,19 +62,19 @@ export interface InvestorInfo {
   profiles: string[]; // tiktok, instagram, twitter
 }
 
-export interface ArtistInfo {
+export type ArtistInfo = {
   firstName: string;
   lastName: string;
   artistName: string;
   country: string;
 }
 
-export interface Wallet {
+export type Wallet = {
   address: string;
   name: string;
 }
 
-export interface NFT {
+export type NFT = {
   nft_name: string;
   nft_description: string;
   nft_description_uk: string;
@@ -84,20 +84,20 @@ export interface NFT {
   nft_amount: number;
 }
 
-export interface ArtistPurchaseHistory {
+export type ArtistPurchaseHistory = {
   date: string;
   name: string;
   amount: number;
   invested: number;
 }
 
-export interface ArtistSongsStatistics {
+export type ArtistSongsStatistics = {
   month: string;
   invested: number;
   amount: number;
 }
 
-export interface ArtistSong {
+export type ArtistSong = {
   listeningDate: string;
   songName: string;
   totalAmount: number;

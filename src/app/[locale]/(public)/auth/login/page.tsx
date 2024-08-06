@@ -1,7 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { signInWithEmailAndPassword, UserCredential } from "firebase/auth";
+import {
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+  UserCredential,
+} from "firebase/auth";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
@@ -15,7 +19,7 @@ import Link from "next/link";
 import { useLocale } from "use-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { isVerified } from "@/services/auth/auth";
-import { LoginSteps } from "@/types/types";
+import { LoginSteps, SignUpSteps } from "@/types/types";
 import { useUserStore } from "@/store/user";
 import { getUserLoginInfo } from "@/services/users/users";
 import { ProfileForm } from "@/app/[locale]/(public)/auth/login/_forms/ProfileForm";
@@ -25,8 +29,10 @@ function Login(props: {
   currentLocale: string;
 }) {
   const t = useTranslations("Auth");
+  const currentLocale = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
+
   const setCurrentUserEmail = useUserStore(
     (state) => state.setCurrentUserEmail,
   );
@@ -44,6 +50,11 @@ function Login(props: {
     }
   }, [searchParams, t]);
 
+  const actionCodeSettings = {
+    url: "https://musicdex.co/" + currentLocale + "/auth/login",
+    handleCodeInApp: true,
+  };
+
   async function handleLogin() {
     setLoading(true);
     signInWithEmailAndPassword(firebaseAuth, email, password)
@@ -57,29 +68,40 @@ function Login(props: {
       });
   }
 
+  function getUserInfoAndRedirect(idToken: string) {
+    getUserLoginInfo(idToken)
+      .then((res) => {
+        setCurrentUserName(res.data.firstName);
+        if (res.data.isFirstLogin) {
+          props.setStep(LoginSteps.ProfileForm);
+        } else {
+          router.replace("/" + props.currentLocale + "/profile");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        router.replace("/" + props.currentLocale + "/profile");
+      });
+  }
+
   function verifyUser(userCredential: UserCredential) {
     isVerified(email.trim())
       .then(async (response) => {
         if (!response.data.isVerified) {
-          toast.error(t("email_is_not_verified"));
-          return;
+          sendEmailVerification(userCredential.user, actionCodeSettings)
+            .then(() => {
+              toast.error(t("email_is_not_verified"));
+            })
+            .catch((e) => {
+              console.log(e);
+              toast.error(t("other_errors"));
+            });
+        } else {
+          setCurrentUserEmail(userCredential.user.email || "");
+          const user = userCredential.user;
+          const idToken = await user.getIdToken();
+          getUserInfoAndRedirect(idToken);
         }
-        setCurrentUserEmail(userCredential.user.email || "");
-        const user = userCredential.user;
-        const idToken = await user.getIdToken();
-        getUserLoginInfo(idToken)
-          .then((res) => {
-            setCurrentUserName(res.data.firstName);
-            if (res.data.isFirstLogin) {
-              props.setStep(LoginSteps.ProfileForm);
-            } else {
-              router.replace("/" + props.currentLocale + "/profile");
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-            router.replace("/" + props.currentLocale + "/profile");
-          });
       })
       .catch((e) => {
         console.log(e);
