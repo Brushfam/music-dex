@@ -3,15 +3,15 @@
 import React, { useEffect, useState } from "react";
 import { ProfilePages } from "@/types/types";
 import s from "./Profile.module.scss";
-import { Sidebar } from "@/app/[locale]/(private)/profile/_components/Sidebar/Sidebar";
+import { Sidebar } from "@/app/[locale]/(private)/_components/Sidebar/Sidebar";
 import { getUserRole } from "@/services/users/users";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useRouter } from "next/navigation";
 import { CurrentInvestorPage } from "@/app/[locale]/(private)/profile/CurrentInvestorPage";
 import { CurrentArtistPage } from "@/app/[locale]/(private)/profile/CurrentArtistPage";
-import { LoadingSpinner } from "@/app/[locale]/(private)/profile/_components/LoadingSpinner";
-import { MobileHeader } from "@/app/[locale]/(private)/_components/MobileHeader";
-import SideMenu from "@/app/[locale]/(private)/_components/SideMenu";
+import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
+import { MobileHeader } from "@/app/[locale]/(private)/_components/MobileHeader/MobileHeader";
+import SideMenu from "@/app/[locale]/(private)/_components/MobileHeader/SideMenu";
 
 export default function Profile() {
   const [currentPage, setCurrentPage] = useState(ProfilePages.Overview);

@@ -1,35 +1,21 @@
-"use client";
-
-import s from "./Sidebar.module.scss";
-import Image from "next/image";
-import Link from "next/link";
-import { OverviewIcon } from "@/app/[locale]/(private)/profile/_components/Icons/OverviewIcon";
-import { SongsIcon } from "@/app/[locale]/(private)/profile/_components/Icons/SongsIcon";
-import { RoyaltiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/RoyaltiesIcon";
-import { ProfileIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ProfileIcon";
 import { ProfilePages } from "@/types/types";
-import React, { Dispatch, SetStateAction } from "react";
+import * as React from "react";
+import s from "./PagesList.module.scss";
+import { OverviewIcon } from "@/app/[locale]/(private)/_components/Icons/OverviewIcon";
+import { SongsIcon } from "@/app/[locale]/(private)/_components/Icons/SongsIcon";
+import { RoyaltiesIcon } from "@/app/[locale]/(private)/_components/Icons/RoyaltiesIcon";
+import { ActivitiesIcon } from "@/app/[locale]/(private)/_components/Icons/ActivitiesIcon";
+import { NftIcon } from "@/app/[locale]/(private)/_components/Icons/NftIcon";
+import { ProfileIcon } from "@/app/[locale]/(private)/_components/Icons/ProfileIcon";
+import { Dispatch, SetStateAction } from "react";
 import { useTranslations } from "next-intl";
-import { ActivitiesIcon } from "@/app/[locale]/(private)/profile/_components/Icons/ActivitiesIcon";
-import { NftIcon } from "@/app/[locale]/(private)/profile/_components/Icons/NftIcon";
 
-export function Sidebar(props: {
+export function PageList(props: {
+  role: string;
   currentPage: ProfilePages;
   setCurrentPage: Dispatch<SetStateAction<ProfilePages>>;
-  role: string;
 }) {
   const t = useTranslations("ProfileInvestor.Sidebar");
-  function Logo() {
-    return (
-      <div className={s.logoWrapper}>
-        <div className={s.logoBlock}>
-          <Link href={"/"} className={s.logo}>
-            <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
-          </Link>
-        </div>
-      </div>
-    );
-  }
 
   function getCurrentColor(page: ProfilePages) {
     return props.currentPage === page ? "rgb(246, 96, 31)" : "white";
@@ -101,10 +87,9 @@ export function Sidebar(props: {
     );
   }
 
-  return (
-    <div className={s.sidebar}>
-      <Logo />
-      {props.role === "investor" ? <InvestorPagesList /> : <ArtistPagesList />}
-    </div>
+  return props.role === "investor" ? (
+    <InvestorPagesList />
+  ) : (
+    <ArtistPagesList />
   );
 }

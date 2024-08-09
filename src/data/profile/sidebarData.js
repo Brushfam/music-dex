@@ -1,5 +1,5 @@
 import {ProfilePages} from "../../types/types";
-import {OverviewIcon} from "../../app/[locale]/(private)/profile/_components/Icons/OverviewIcon";
+import {OverviewIcon} from "../../app/[locale]/(private)/_components/Icons/OverviewIcon";
 
 export const sidebarData = [
     {

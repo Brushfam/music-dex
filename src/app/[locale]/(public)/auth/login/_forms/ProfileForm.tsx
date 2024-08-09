@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { getUserRole } from "@/services/users/users";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { LoadingSpinner } from "@/app/[locale]/(private)/profile/_components/LoadingSpinner";
+import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 import { useRouter } from "next/navigation";
 import ProfileFormInvestor from "@/app/[locale]/(public)/auth/login/_forms/ProfileFormInvestor";
 import ProfileFormArtist from "@/app/[locale]/(public)/auth/login/_forms/ProfileFormArtist";
