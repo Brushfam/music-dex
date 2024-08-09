@@ -6,11 +6,11 @@ import { useRouter } from "next/navigation";
 import { useLocale } from "use-intl";
 import { useEffect, useState } from "react";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { getUserSongs } from "@/services/users/investors/investors";
 import s from "@/app/[locale]/(private)/profile/_investor/songs/Songs.module.scss";
 import { Button } from "@/components/ui/Button/Button";
 import { SongHeader } from "@/app/[locale]/(private)/profile/_investor/songs/SongHeader";
 import { SongRow } from "@/app/[locale]/(private)/profile/_investor/songs/SongRow";
+import {getUserSongs} from "@/services/users/users";
 
 interface SongsData {
   date: string;
@@ -57,7 +57,7 @@ export default function Songs() {
   }
 
   function SongList() {
-    return songs ? (
+    return songs.length ? (
       <div style={{ display: "flex", flexDirection: "column", minWidth: 530 }}>
         <div className={s.titleBlock}>
           <p className={s.titleBlock_text}>{t("list_of_songs")}</p>

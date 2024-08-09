@@ -48,7 +48,7 @@ export function NFTs() {
           return (
             <NftRow
               key={i.toString()}
-              date={data.nft_transfer_date}
+              date={data.nft_transfer_date || t("have_not_received")}
               item_link={data.nft_thumbnail_link}
               item_full_link={data.nft_link}
               name={data.nft_name}

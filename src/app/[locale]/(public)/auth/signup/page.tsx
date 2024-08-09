@@ -7,7 +7,7 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { authWithGoogle, isVerified } from "@/services/auth/auth";
+import { isVerified } from "@/services/auth/auth";
 import { EmailSent } from "@/app/[locale]/(public)/auth/EmailSent";
 import { EmailIsNotVerified } from "@/app/[locale]/(public)/auth/signup/EmailIsNotVerified";
 import { toast } from "sonner";

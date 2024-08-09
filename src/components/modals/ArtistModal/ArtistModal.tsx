@@ -1,4 +1,5 @@
 "use client";
+
 import ms from "../Modals.module.scss";
 import s from "./ArtistModal.module.scss";
 import { Button } from "@/components/ui/Button/Button";
@@ -13,7 +14,7 @@ export function ArtistModal() {
   const t = useTranslations("ArtistModal");
 
   useEffect(() => {
-    function checkAndSetStep(formStepObject: string|null) {
+    function checkAndSetStep(formStepObject: string | null) {
       if (!formStepObject) {
         changeStep("1");
         return;
@@ -25,20 +26,16 @@ export function ArtistModal() {
     }
 
     if (typeof window !== "undefined") {
-      let formStepObject =
-        window.localStorage.getItem("artist-form-step");
-      checkAndSetStep(formStepObject)
+      let formStepObject = window.localStorage.getItem("artist-form-step");
+      checkAndSetStep(formStepObject);
     }
   }, [changeStep]);
 
   function FirstStep() {
     return (
-      <div className={s.artistModal}>
-        <p className={s.title}>{t("title")}</p>
-        <div className={s.content}>
-          <p className={s.formDescription}>{t("description")}</p>
-        </div>
-        <div className={s.buttonRow}>
+      <div className={s.artistSuggestionModal}>
+        <p>{t("title")}</p>
+        <div className={s.artistSuggestionModal_buttons}>
           <Button
             title={t("close")}
             color={"grey"}
@@ -60,11 +57,50 @@ export function ArtistModal() {
     );
   }
 
+  function SecondStep() {
+    return (
+      <div className={s.artistModal}>
+        <p className={s.title}>{t("title")}</p>
+        <div className={s.content}>
+          <p className={s.formDescription}>{t("description")}</p>
+        </div>
+        <div className={s.buttonRow}>
+          <Button
+            title={t("close")}
+            color={"grey"}
+            arrow={false}
+            action={() => {
+              changeStep("0");
+            }}
+          />
+          <Button
+            title={t("open_form")}
+            color={"main"}
+            arrow={true}
+            action={() => {
+              changeStep("3");
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
+
   function CurrentStep() {
     if (currentStep == "1") {
       return <FirstStep />;
     } else if (currentStep == "2") {
-      return <FormStep />;
+      return (
+        <div className={ms.overlay}>
+          <SecondStep />
+        </div>
+      );
+    } else if (currentStep == "3") {
+      return (
+        <div className={ms.overlay}>
+          <FormStep />;
+        </div>
+      );
     } else {
       changeStep("0");
       return null;
@@ -75,9 +111,5 @@ export function ArtistModal() {
     return currentStep === "0" || currentStep === "";
   }
 
-  return isClosed() ? null : (
-    <div className={ms.overlay}>
-      <CurrentStep />
-    </div>
-  );
+  return isClosed() ? null : <CurrentStep />;
 }

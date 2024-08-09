@@ -7,10 +7,9 @@ import { useUserStore } from "@/store/user";
 import { countries } from "@/data/countries";
 import { Button } from "@/components/ui/Button/Button";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { updateInvestorInfo } from "@/services/users/investors/investors";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { setFirstLogin } from "@/services/users/users";
+import {setFirstLogin, updateUserInfo} from "@/services/users/users";
 
 export default function ProfileFormInvestor(props: { currentLocale: string }) {
   const t = useTranslations("Auth.ProfileForm");
@@ -52,7 +51,7 @@ export default function ProfileFormInvestor(props: { currentLocale: string }) {
         setFirstLogin(token).catch((error) => {
           console.log(error);
         });
-        updateInvestorInfo(token, updatedData)
+        updateUserInfo(token, updatedData)
           .then(() => {
             setCurrentUserName(formData.firstName);
             router.replace("/" + props.currentLocale + "/profile");
