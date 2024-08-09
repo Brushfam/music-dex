@@ -20,7 +20,7 @@ export default function ChytTrack() {
       songName={"Чуть"}
       tokenAddress={trackAddresses.chyt}
       pathToCover={"/albums/chyt.jpg"}
-      youtubeId={"j6SHQRh7yWo"}
+      youtubeId={"24DOEHjEyvc"}
       services={services}
       songId={3}
       trackDataEN={chytEN}
