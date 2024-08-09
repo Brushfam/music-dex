@@ -6,19 +6,14 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ProfilePages } from "@/types/types";
 import s from "./MobileHeader.module.scss";
-import { OverviewIcon } from "@/app/[locale]/(private)/_components/Icons/OverviewIcon";
-import { SongsIcon } from "@/app/[locale]/(private)/_components/Icons/SongsIcon";
-import { RoyaltiesIcon } from "@/app/[locale]/(private)/_components/Icons/RoyaltiesIcon";
-import { ProfileIcon } from "@/app/[locale]/(private)/_components/Icons/ProfileIcon";
 import { Dispatch, SetStateAction } from "react";
-import { ActivitiesIcon } from "@/app/[locale]/(private)/_components/Icons/ActivitiesIcon";
 import Link from "next/link";
 import { useUserStore } from "@/store/user";
 import { signOut } from "@firebase/auth";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { NftIcon } from "@/app/[locale]/(private)/_components/Icons/NftIcon";
+import { PageList } from "@/app/[locale]/(private)/_components/PageList/PagesList";
 
 export default function SideMenu(props: {
   currentPage: ProfilePages;
@@ -28,76 +23,6 @@ export default function SideMenu(props: {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
   const t = useTranslations("ProfileInvestor.Sidebar");
-
-  function getCurrentColor(page: ProfilePages) {
-    return props.currentPage === page ? "rgb(246, 96, 31)" : "white";
-  }
-
-  // children property is using for icon component
-  function PageRow(rowProps: {
-    page: ProfilePages;
-    children: React.ReactNode;
-    title: string;
-  }) {
-    return (
-      <div
-        className={s.pagesRow}
-        onClick={() => {
-          props.setCurrentPage(rowProps.page);
-        }}
-      >
-        <div className={s.hoverBlock}></div>
-        {rowProps.children}
-        <p style={{ color: getCurrentColor(rowProps.page) }}>
-          {rowProps.title}
-        </p>
-      </div>
-    );
-  }
-
-  function InvestorPagesList() {
-    return (
-      <div className={s.pagesList}>
-        <PageRow page={ProfilePages.Overview} title={t("overview")}>
-          <OverviewIcon color={getCurrentColor(ProfilePages.Overview)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Songs} title={t("songs")}>
-          <SongsIcon color={getCurrentColor(ProfilePages.Songs)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Royalties} title={t("royalties")}>
-          <RoyaltiesIcon color={getCurrentColor(ProfilePages.Royalties)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Activities} title={t("activities")}>
-          <ActivitiesIcon color={getCurrentColor(ProfilePages.Activities)} />
-        </PageRow>
-        <PageRow page={ProfilePages.NFTs} title={t("nfts")}>
-          <NftIcon color={getCurrentColor(ProfilePages.NFTs)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Settings} title={t("profile")}>
-          <ProfileIcon color={getCurrentColor(ProfilePages.Settings)} />
-        </PageRow>
-      </div>
-    );
-  }
-
-  function ArtistPagesList() {
-    return (
-      <div className={s.pagesList}>
-        <PageRow page={ProfilePages.Overview} title={t("overview")}>
-          <OverviewIcon color={getCurrentColor(ProfilePages.Overview)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Songs} title={t("songs")}>
-          <SongsIcon color={getCurrentColor(ProfilePages.Songs)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Settings} title={t("profile")}>
-          <ProfileIcon color={getCurrentColor(ProfilePages.Settings)} />
-        </PageRow>
-        <PageRow page={ProfilePages.FAQ} title={"FAQ"}>
-          <ActivitiesIcon color={getCurrentColor(ProfilePages.FAQ)} />
-        </PageRow>
-      </div>
-    );
-  }
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -143,7 +68,11 @@ export default function SideMenu(props: {
       <Link href={"/"} className={s.header_sideLogo}>
         <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
       </Link>
-      {props.role === "investor" ? <InvestorPagesList /> : <ArtistPagesList />}
+      <PageList
+        role={props.role}
+        currentPage={props.currentPage}
+        setCurrentPage={props.setCurrentPage}
+      />
       <LogoutButton />
     </div>
   );
