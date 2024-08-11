@@ -406,7 +406,7 @@
     "ApprovePurchaseModal": {
       "title": "Crypto payment",
       "content1": "Follow the link to pay for tokens. After you send the full amount, the provider will start validating the payment. You do not have to wait for validation confirmation and you can close the payment page.",
-      "content2": "After validation, your balance will be updated on the songs page in your Profile.",
+      "content2": "After validation, your balance will be updated on the songs page in your Profile within 10 minutes.",
       "close": "Close",
       "ok": "Purchase"
     },

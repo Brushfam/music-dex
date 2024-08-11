@@ -65,7 +65,15 @@ export default function SideMenu(props: {
 
   const DrawerList = (
     <div className={s.sidebar} onClick={toggleDrawer(false)}>
-      <Link href={"/"} className={s.header_sideLogo}>
+      <Image
+        src={"/icons/close.svg"}
+        alt={"close"}
+        width={14}
+        height={14}
+        className={s.sidebar_close}
+        onClick={toggleDrawer(false)}
+      />
+      <Link href={"/"} className={s.sidebar_logo}>
         <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
       </Link>
       <PageList
