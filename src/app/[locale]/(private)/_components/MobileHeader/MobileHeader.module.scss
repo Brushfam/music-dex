@@ -23,16 +23,6 @@
     height: 25px;
   }
 
-  &_sideLogo {
-    position: relative;
-    display: block;
-    width: 141px;
-    height: 32px;
-    margin-left: 40px;
-    margin-top: 20px;
-    margin-bottom: 120px;
-  }
-
   &_content {
     display: flex;
     flex-direction: row;
@@ -70,6 +60,23 @@
   width: 300px;
   background: rgb(17, 17, 17);
   padding-top: 20px;
+
+  &_logo {
+    position: relative;
+    display: block;
+    width: 141px;
+    height: 32px;
+    margin-left: 40px;
+    margin-top: 60px;
+    margin-bottom: 120px;
+  }
+
+  &_close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
 }
 
 .logout {
