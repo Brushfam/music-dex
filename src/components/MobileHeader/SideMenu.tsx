@@ -10,12 +10,10 @@ import { useUserStore } from "@/store/user";
 import { signOut } from "@firebase/auth";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 import { useLocale } from "use-intl";
 
 export default function SideMenu(props: { currentUser: string }) {
   const currentLocale = useLocale();
-  const router = useRouter();
   const [open, setOpen] = React.useState(false);
   const t = useTranslations("Header");
 
@@ -92,7 +90,15 @@ export default function SideMenu(props: { currentUser: string }) {
 
   const DrawerList = (
     <div className={s.sidebar} onClick={toggleDrawer(false)}>
-      <Link href={"/"} className={s.header_sideLogo}>
+      <Image
+        src={"/icons/close.svg"}
+        alt={"close"}
+        width={14}
+        height={14}
+        className={s.sidebar_close}
+        onClick={toggleDrawer(false)}
+      />
+      <Link href={"/"} className={s.sidebar_logo}>
         <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
       </Link>
       <PagesList />

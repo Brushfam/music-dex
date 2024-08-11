@@ -18,8 +18,15 @@ export function PageList(props: {
   const t = useTranslations("ProfileInvestor.Sidebar");
 
   function getCurrentColor(page: ProfilePages) {
-    return props.currentPage === page ? "rgb(246, 96, 31)" : "white";
+    return isCurrentPage(page) ? "rgb(246, 96, 31)" : "white";
   }
+
+  function isCurrentPage(page: ProfilePages) {
+    return props.currentPage === page;
+  }
+
+  const activeHoverBlockBg =
+    "linear-gradient(90.00deg, rgb(246, 96, 31) -26%,rgba(17, 17, 17, 0) 91%)";
 
   // children property is using for icon component
   function PageRow(rowProps: {
@@ -27,6 +34,12 @@ export function PageList(props: {
     children: React.ReactNode;
     title: string;
   }) {
+    const hoverBlockBg = isCurrentPage(rowProps.page)
+      ? {
+          background: activeHoverBlockBg,
+        }
+      : {};
+
     return (
       <div
         className={s.pagesRow}
@@ -34,7 +47,7 @@ export function PageList(props: {
           props.setCurrentPage(rowProps.page);
         }}
       >
-        <div className={s.hoverBlock}></div>
+        <div className={s.hoverBlock} style={hoverBlockBg} />
         {rowProps.children}
         <p style={{ color: getCurrentColor(rowProps.page) }}>
           {rowProps.title}
