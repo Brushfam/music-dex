@@ -29,7 +29,7 @@ export function Overview(props: {
         </div>
         <div className={s.streamsBlock}>
           <DetailsBlock tokenAddress={props.tokenAddress} price={props.price} totalSupply={props.totalSupply} />
-          <ListenOnBlock services={props.services} />
+          <ListenOnBlock services={props.services} text={t("listen_on")} />
         </div>
       </div>
       <div className={s.secondBlockWrapper}>

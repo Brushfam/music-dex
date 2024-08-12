@@ -423,6 +423,7 @@
       "price_per_token": "Price per token",
       "total_purchased_tokens": "Total purchased tokens",
       "tokens_remaining": "Tokens remaining",
+      "listen_on": "Listen on",
       "revenue": "Revenue sources",
       "revenue1_description": "Whenever a track is played on Apple Music, royalties are automatically distributed among token holders in proportion to the number of tokens they hold.",
       "revenue2_description": "Whenever a track is played on YouTube Music, royalties are automatically distributed to tokenholders in proportion to the number of tokens they hold.",

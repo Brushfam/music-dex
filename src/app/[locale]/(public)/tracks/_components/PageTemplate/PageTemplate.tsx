@@ -70,7 +70,16 @@ export function PageTemplate(props: PageTemplateProps) {
 
   function getColor(title: string) {
     return currentPage === title
-      ? { color: "rgb(246, 96, 31)" }
+      ? {
+          color: "rgb(246, 96, 31)",
+          borderBottom: "1px solid",
+          borderImage:
+            "linear-gradient(90deg," +
+            " rgba(246, 96, 31, 0) 0%," +
+            " rgba(246, 96, 31, 0.8) 50%," +
+            " rgba(246, 96, 31, 0) 100%" +
+            ") 15",
+        }
       : { color: "white", cursor: "pointer" };
   }
 

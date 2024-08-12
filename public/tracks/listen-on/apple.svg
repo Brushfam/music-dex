@@ -1,0 +1,22 @@
+<svg width="32.000000" height="32.000000" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<clipPath id="clip1059_89709">
+			<rect id="apple_music" rx="-0.500000" width="31.000000" height="31.000000" transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0"/>
+		</clipPath>
+		<linearGradient x1="15.999343" y1="3.238281" x2="15.999343" y2="28.791378" id="paint_linear_1059_89710_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FFFFFF"/>
+			<stop offset="1.000000" stop-color="#DDE2E7"/>
+		</linearGradient>
+		<radialGradient gradientTransform="translate(8.31859 27.7389) rotate(-55.1326) scale(28.0109 21.9967)" cx="0.000000" cy="0.000000" r="1.000000" id="paint_radial_1059_89711_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#7A66FB"/>
+			<stop offset="0.440198" stop-color="#52A2F4"/>
+			<stop offset="0.702000" stop-color="#FC5D6D"/>
+			<stop offset="1.000000" stop-color="#E85E7B"/>
+		</radialGradient>
+	</defs>
+	<rect id="apple_music" rx="-0.500000" width="31.000000" height="31.000000" transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip1059_89709)">
+		<ellipse id="bg" cx="15.999329" cy="16.015625" rx="12.761062" ry="12.776548" fill="url(#paint_linear_1059_89710_0)" fill-opacity="1.000000"/>
+		<path id="apple_music" d="M16 30C23.73 30 30 23.73 30 16C30 8.26 23.73 2 16 2C8.26 2 2 8.26 2 16C2 23.73 8.26 30 16 30ZM16 28.79C23.04 28.79 28.76 23.07 28.76 16.01C28.76 8.96 23.04 3.23 16 3.23C8.95 3.23 3.23 8.96 3.23 16.01C3.23 23.07 8.95 28.79 16 28.79ZM21.56 6.83L13.15 8.51C12.72 8.59 12.4 8.98 12.4 9.42L12.4 19.45C12.4 19.73 12.21 19.98 11.94 20.05L9.74 20.64C8.9 20.86 8.31 21.62 8.31 22.49C8.31 23.85 9.57 24.87 10.9 24.58L11.41 24.48C12.58 24.23 13.42 23.19 13.42 21.99L13.42 13.06C13.42 12.84 13.58 12.65 13.79 12.6L20.8 11.15C21.07 11.09 21.32 11.3 21.32 11.57L21.32 17.55C21.32 17.85 21.12 18.11 20.84 18.18L18.73 18.74C17.83 18.97 17.2 19.79 17.2 20.72C17.2 22.04 18.42 23.03 19.72 22.75L20.46 22.6C21.53 22.37 22.3 21.42 22.3 20.32L22.3 7.44C22.3 7.05 21.94 6.76 21.56 6.83Z" fill="url(#paint_radial_1059_89711_0)" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+</svg>
