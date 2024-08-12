@@ -40,8 +40,7 @@
   width: 520px;
   height: 320px;
   border-radius: 16px;
-
-  box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.15);
   background: linear-gradient(180.00deg, rgba(17, 17, 17, 0.2) 50%,rgba(17, 17, 17, 0.8) 85.4%);
 
   @media (max-width: 1100px) {

@@ -25,7 +25,7 @@ export function RevenueSources() {
   return (
     <div className={s.revenueSources}>
       <Image
-        src={"/tracks/revenue-sources-line.svg"}
+        src={"/tracks/revenue/revenue-sources-line.svg"}
         alt={"line"}
         width={761}
         height={415}
@@ -33,7 +33,7 @@ export function RevenueSources() {
       />
       <Revenue title={"Apple Music"} description={t("revenue1_description")}>
         <Image
-          src={"/tracks/revenue-apple.svg"}
+          src={"/tracks/revenue/revenue-apple.svg"}
           alt={"apple"}
           width={32}
           height={32}
@@ -41,7 +41,7 @@ export function RevenueSources() {
       </Revenue>
       <Revenue title={"YouTube Music"} description={t("revenue2_description")}>
         <Image
-          src={"/tracks/revenue-youtube.svg"}
+          src={"/tracks/revenue/revenue-youtube.svg"}
           alt={"youtube"}
           width={20}
           height={25}
@@ -49,7 +49,7 @@ export function RevenueSources() {
       </Revenue>
       <Revenue title={"Spotify"} description={t("revenue3_description")}>
         <Image
-          src={"/tracks/revenue-spotify.svg"}
+          src={"/tracks/revenue/revenue-spotify.svg"}
           alt={"spotify"}
           width={26}
           height={16}

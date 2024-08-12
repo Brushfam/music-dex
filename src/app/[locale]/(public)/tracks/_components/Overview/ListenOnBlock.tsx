@@ -10,7 +10,7 @@ export function ListenOnBlock(props: { services: streamingServices }) {
       <div className={s.listenOn}>
         <Link href={props.services.youtube} target={"_blank"}>
           <Image
-            src={"/tracks/youtube.svg"}
+            src={"/tracks/listen-on/youtube.svg"}
             alt={"youtube"}
             width={203}
             height={81}
@@ -18,7 +18,7 @@ export function ListenOnBlock(props: { services: streamingServices }) {
         </Link>
         <Link href={props.services.apple} target={"_blank"}>
           <Image
-            src={"/tracks/apple.svg"}
+            src={"/tracks/listen-on/apple.svg"}
             alt={"apple"}
             width={203}
             height={81}
@@ -28,7 +28,7 @@ export function ListenOnBlock(props: { services: streamingServices }) {
       <div className={s.listenOn}>
         <Link href={props.services.youtubeMusic} target={"_blank"}>
           <Image
-            src={"/tracks/youtube-music.svg"}
+            src={"/tracks/listen-on/youtube-music.svg"}
             alt={"youtube-music"}
             width={203}
             height={81}
@@ -36,7 +36,7 @@ export function ListenOnBlock(props: { services: streamingServices }) {
         </Link>
         <Link href={props.services.spotify} target={"_blank"}>
           <Image
-            src={"/tracks/spotify.svg"}
+            src={"/tracks/listen-on/spotify.svg"}
             alt={"spotify"}
             width={203}
             height={81}
