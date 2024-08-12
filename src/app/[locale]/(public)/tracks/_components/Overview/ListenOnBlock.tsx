@@ -12,7 +12,6 @@ export function ListenOnBlock(props: {
   const appleShadow = "8px 4px 16px 0 rgba(0, 0, 0, 0.1), inset 0 0 8px 0 rgba(233, 97, 125, 0.4)"
   const spotifyShadow = "8px 4px 16px 0 rgba(0, 0, 0, 0.1), inset 0 0 8px 0 rgba(43, 217, 105, 0.4)"
 
-
   function ServiceIcon(props: { name: string }) {
     return (
       <Image
