@@ -1,4 +1,4 @@
-@import '../../../../constants/constants';
+@import "../../../../constants/constants";
 
 .authLayout {
   display: flex;
@@ -89,7 +89,7 @@
 .formInput:-webkit-autofill,
 .formInput:-webkit-autofill:hover,
 .formInput:-webkit-autofill:focus,
-.formInput:-webkit-autofill:active{
+.formInput:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px darkgrey inset !important;
 }
 
@@ -113,13 +113,20 @@
   padding-top: 24px;
   gap: 8px;
   border-top: 1px solid;
-  border-image: linear-gradient(90deg, rgba(35,35,32,1) 0%, rgba(175,175,175,0.9) 50%, rgba(35,35,35,1) 100%) 30;
+  border-image: linear-gradient(
+      90deg,
+      rgba(35, 35, 32, 1) 0%,
+      rgba(175, 175, 175, 0.9) 50%,
+      rgba(35, 35, 35, 1) 100%
+    )
+    30;
 
   @media (max-width: 500px) {
     padding-top: 18px;
   }
 
-  a, p {
+  a,
+  p {
     font-size: 18px;
     @media (max-width: 500px) {
       font-size: 15px;
@@ -163,8 +170,8 @@
   padding: 50px 14px 32px 14px;
   width: 48%;
   border-radius: 8px;
-  background: #1D1D1D;
-  border: 1px solid #1D1D1D;
+  background: #1d1d1d;
+  border: 1px solid #1d1d1d;
 
   @media (max-width: 500px) {
     width: 100%;
@@ -185,7 +192,7 @@
 .userRoleActive {
   @extend .userRole;
 
-  border: 1px solid #F6601F;
+  border: 1px solid #f6601f;
   &:hover {
     filter: brightness(100%);
   }
@@ -201,13 +208,13 @@
   right: 14px;
   width: 20px;
   height: 20px;
-  border: 1px solid #F6601F;
+  border: 1px solid #f6601f;
   border-radius: 50%;
 }
 
 .radioButtonInnerCircle {
   width: 8px;
   height: 8px;
-  background: #F6601F;
+  background: #f6601f;
   border-radius: 50%;
 }

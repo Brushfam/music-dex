@@ -1,9 +1,5 @@
-import {
-  chytEN,
-  chytUK,
-  trackAddresses,
-} from "@/data/tracksData";
 import { PageTemplate } from "@/app/[locale]/(public)/tracks/_components/PageTemplate/PageTemplate";
+import { chytEN, chytUK } from "@/data/tracksData";
 import { streamingServices } from "@/types/types";
 
 export default function ChytTrack() {
@@ -18,7 +14,6 @@ export default function ChytTrack() {
     <PageTemplate
       artist={"David Maskisa"}
       songName={"Чуть"}
-      tokenAddress={trackAddresses.chyt}
       pathToCover={"/albums/chyt.jpg"}
       youtubeId={"24DOEHjEyvc"}
       services={services}

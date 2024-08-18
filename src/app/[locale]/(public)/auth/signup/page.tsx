@@ -1,24 +1,24 @@
 "use client";
 
-import s from "../Auth.module.scss";
-import React, { useState } from "react";
+import { EmailSent } from "@/app/[locale]/(public)/auth/EmailSent";
+import { EmailInput } from "@/app/[locale]/(public)/auth/_components/EmailInput";
+import { PasswordInput } from "@/app/[locale]/(public)/auth/_components/PasswordInput";
+import { ChooseAccount } from "@/app/[locale]/(public)/auth/signup/ChooseAccount";
+import { EmailIsNotVerified } from "@/app/[locale]/(public)/auth/signup/EmailIsNotVerified";
+import { Button } from "@/components/ui/Button/Button";
+import { isVerified } from "@/services/auth/auth";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { addNewUser } from "@/services/users/users";
+import { SignUpSteps, UserRoles } from "@/types/types";
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from "firebase/auth";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { isVerified } from "@/services/auth/auth";
-import { EmailSent } from "@/app/[locale]/(public)/auth/EmailSent";
-import { EmailIsNotVerified } from "@/app/[locale]/(public)/auth/signup/EmailIsNotVerified";
-import { toast } from "sonner";
 import { useTranslations } from "next-intl";
-import { addNewUser } from "@/services/users/users";
+import React, { useState } from "react";
+import { toast } from "sonner";
 import { useLocale } from "use-intl";
-import { Button } from "@/components/ui/Button/Button";
-import { PasswordInput } from "@/app/[locale]/(public)/auth/_components/PasswordInput";
-import { EmailInput } from "@/app/[locale]/(public)/auth/_components/EmailInput";
-import { SignUpSteps, UserRoles } from "@/types/types";
-import { ChooseAccount } from "@/app/[locale]/(public)/auth/signup/ChooseAccount";
+import s from "../Auth.module.scss";
 
 function SignUp(props: {
   setStep: React.Dispatch<React.SetStateAction<SignUpSteps>>;
@@ -122,7 +122,15 @@ function SignUp(props: {
           ? t("signup_investor_title")
           : t("signup_artist_title")}
       </p>
-      <div style={{ marginBottom: 24, display: "flex", flexDirection: "column", gap: 10, width: "100%" }}>
+      <div
+        style={{
+          marginBottom: 24,
+          display: "flex",
+          flexDirection: "column",
+          gap: 10,
+          width: "100%",
+        }}
+      >
         <EmailInput setEmail={setEmail} email={email} />
         <PasswordInput
           setPassword={setPassword}
@@ -138,7 +146,7 @@ function SignUp(props: {
           setHidden={setSecondHidden}
           isHidden={isSecondHidden}
         />
-        <div style={{marginBottom: 14}}/>
+        <div style={{ marginBottom: 14 }} />
         <Button
           title={t("sign_up")}
           color={loading ? "loading" : "main"}

@@ -1,5 +1,5 @@
-import s from "./NFTs.module.scss";
 import { useTranslations } from "next-intl";
+import s from "./NFTs.module.scss";
 
 export function NftHeader() {
   const t = useTranslations("ProfileInvestor.NFTs");

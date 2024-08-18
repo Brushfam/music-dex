@@ -57,11 +57,11 @@ export const pointsEN = [
       {
         text: (
           <p>
-            Public Offer (hereinafter referred to as the &#34;Offer&#34;) is a public
-            offer of the Seller, addressed to an indefinite number of persons,
-            to conclude a contract for the sale of goods with the Seller
-            remotely (hereinafter referred to as the &#34;Agreement&#34;) on the terms
-            and conditions contained in this Offer.
+            Public Offer (hereinafter referred to as the &#34;Offer&#34;) is a
+            public offer of the Seller, addressed to an indefinite number of
+            persons, to conclude a contract for the sale of goods with the
+            Seller remotely (hereinafter referred to as the &#34;Agreement&#34;)
+            on the terms and conditions contained in this Offer.
           </p>
         ),
       },
@@ -78,10 +78,10 @@ export const pointsEN = [
       {
         text: (
           <p>
-            Online store - the Seller&#39;s website at www.musicdex.co is designed
-            to conclude retail and wholesale purchase and sale agreements on the
-            basis of the Customer&#39;s familiarization with the description of the
-            Goods offered by the Seller via the Internet.
+            Online store - the Seller&#39;s website at www.musicdex.co is
+            designed to conclude retail and wholesale purchase and sale
+            agreements on the basis of the Customer&#39;s familiarization with
+            the description of the Goods offered by the Seller via the Internet.
           </p>
         ),
       },
@@ -99,8 +99,8 @@ export const pointsEN = [
       {
         text: (
           <p>
-            Seller – Limited liability company &#34;MUSICDEX&#34;, registered in Ukraine
-            at the address: Legal address: 01104, Ukraine, Kyiv city,
+            Seller – Limited liability company &#34;MUSICDEX&#34;, registered in
+            Ukraine at the address: Legal address: 01104, Ukraine, Kyiv city,
             Bolsunovska street, building 13-15, register code: 45327185.
           </p>
         ),
@@ -207,11 +207,11 @@ export const pointsEN = [
       {
         text: (
           <p>
-            The Customer&#39;s acceptance of the terms of this Offer is carried out
-            by entering the relevant data by the Customer in the registration
-            form on the website of the online store. After placing the Order
-            through the Operator, the Customer&#39;s data is entered into the
-            Seller&#39;s database.
+            The Customer&#39;s acceptance of the terms of this Offer is carried
+            out by entering the relevant data by the Customer in the
+            registration form on the website of the online store. After placing
+            the Order through the Operator, the Customer&#39;s data is entered
+            into the Seller&#39;s database.
           </p>
         ),
       },
@@ -275,11 +275,11 @@ export const pointsEN = [
         text: (
           <p>
             The Customer agrees that the period of selling the Token and
-            increasing its price (hereinafter referred to as the &#34;Sale Period&#34;)
-            will last for 9 months from the date of the start of the Token sale
-            on the platform. After the end of the said Sale Period, the price of
-            the Token will be fixed and will remain unchanged from the last day
-            of the Sale Period.
+            increasing its price (hereinafter referred to as the &#34;Sale
+            Period&#34;) will last for 9 months from the date of the start of
+            the Token sale on the platform. After the end of the said Sale
+            Period, the price of the Token will be fixed and will remain
+            unchanged from the last day of the Sale Period.
           </p>
         ),
       },
@@ -404,10 +404,11 @@ export const pointsEN = [
             warranty period, the Customer personally, in the manner and within
             the time limits established by the legislation of Ukraine, has the
             right to make claims to the Seller provided for by the Law of
-            Ukraine &#34;On Protection of Consumer Rights&#34;. In case of claims for
-            free elimination of defects, the period for their elimination shall
-            be calculated from the date of receipt of the Goods by the Seller at
-            its disposal and physical access to such Goods.
+            Ukraine &#34;On Protection of Consumer Rights&#34;. In case of
+            claims for free elimination of defects, the period for their
+            elimination shall be calculated from the date of receipt of the
+            Goods by the Seller at its disposal and physical access to such
+            Goods.
           </p>
         ),
       },
@@ -415,12 +416,12 @@ export const pointsEN = [
         text: (
           <p>
             The Seller shall consider the requirements provided for by the Law
-            of Ukraine &#34;On Consumer Protection&#34;, provided that the Customer
-            provides the documents provided for by the current legislation of
-            Ukraine. The Seller shall not be liable for defects in the Goods
-            that arose after their transfer to the Customer as a result of the
-            Customer&#39;s violation of the rules for the use or storage of the
-            Goods, actions of third parties, or force majeure.
+            of Ukraine &#34;On Consumer Protection&#34;, provided that the
+            Customer provides the documents provided for by the current
+            legislation of Ukraine. The Seller shall not be liable for defects
+            in the Goods that arose after their transfer to the Customer as a
+            result of the Customer&#39;s violation of the rules for the use or
+            storage of the Goods, actions of third parties, or force majeure.
           </p>
         ),
       },
@@ -503,8 +504,8 @@ export const pointsEN = [
             when registering or placing an Order, the Customer gives the Seller
             his voluntary consent to the processing, and use (including
             transfer) of his personal data, as well as to perform other actions
-            provided for by the Law of Ukraine &#34;On Personal Data Protection&#34;,
-            without limiting the validity of such consent.
+            provided for by the Law of Ukraine &#34;On Personal Data
+            Protection&#34;, without limiting the validity of such consent.
           </p>
         ),
       },

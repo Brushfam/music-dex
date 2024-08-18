@@ -1,11 +1,11 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import s from "@/app/[locale]/(public)/auth/Auth.module.scss";
-import React, { useState } from "react";
-import { SignUpSteps, UserRoles } from "@/types/types";
-import Image from "next/image";
 import { Button } from "@/components/ui/Button/Button";
+import { SignUpSteps, UserRoles } from "@/types/types";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import React, { useState } from "react";
 
 export function ChooseAccount(props: {
   setStep: React.Dispatch<React.SetStateAction<SignUpSteps>>;

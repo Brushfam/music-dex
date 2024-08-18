@@ -31,6 +31,6 @@ export const useArtistFormStore = create<FormStore>()(
     {
       name: "artist-form-step",
       storage: createJSONStorage(() => localStorage),
-    },
-  ),
+    }
+  )
 );

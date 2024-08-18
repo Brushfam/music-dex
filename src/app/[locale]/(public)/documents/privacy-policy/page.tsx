@@ -1,10 +1,8 @@
-import s from "../documents.module.css";
-import cs from "../../../../commonStyles.module.scss";
-import { Section } from "@/components/ui/Section/Section";
-import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import { Contacts } from "@/app/[locale]/(public)/documents/_components/Contacts/Contacts";
-import { useTranslations } from "next-intl";
+import Content from "@/app/[locale]/(public)/documents/_components/Content/Content";
 import Navigation from "@/app/[locale]/(public)/documents/_components/Navigation/Navigation";
+import FaqSection from "@/components/Faq/FaqSection/FaqSection";
+import { Section } from "@/components/ui/Section/Section";
 import {
   introductionEN,
   introductionUK,
@@ -15,7 +13,9 @@ import {
   privacyPolicyNavigationEN,
   privacyPolicyNavigationUK,
 } from "@/data/documents/privacy-policy/privacyPolicyNavigation";
-import Content from "@/app/[locale]/(public)/documents/_components/Content/Content";
+import { useTranslations } from "next-intl";
+import cs from "../../../../commonStyles.module.scss";
+import s from "../documents.module.css";
 
 export default function PrivacyPolicy() {
   const t = useTranslations("Legal.PrivacyPolicy");

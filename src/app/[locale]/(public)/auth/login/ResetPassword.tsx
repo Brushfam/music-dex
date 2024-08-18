@@ -1,12 +1,12 @@
-import { useTranslations } from "next-intl";
-import { toast } from "sonner";
-import { sendPasswordResetEmail } from "firebase/auth";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import s from "@/app/[locale]/(public)/auth/Auth.module.scss";
-import { Button } from "@/components/ui/Button/Button";
-import React, { useState } from "react";
 import { EmailInput } from "@/app/[locale]/(public)/auth/_components/EmailInput";
-import {LoginSteps} from "@/types/types";
+import { Button } from "@/components/ui/Button/Button";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { LoginSteps } from "@/types/types";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { useTranslations } from "next-intl";
+import React, { useState } from "react";
+import { toast } from "sonner";
 
 export function ResetPassword(props: {
   setStep: React.Dispatch<React.SetStateAction<LoginSteps>>;

@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 import { InfoForm } from "@/app/[locale]/(private)/profile/_artist/profile/info/InfoForm";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { getUserInfo } from "@/services/users/users";
+import { ArtistInfo } from "@/types/types";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import {ArtistInfo} from "@/types/types";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import {useTranslations} from "next-intl";
-import {getUserInfo} from "@/services/users/users";
 
 export function Info() {
   const t = useTranslations("ProfileArtist.Profile");

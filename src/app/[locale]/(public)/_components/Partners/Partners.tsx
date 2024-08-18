@@ -1,9 +1,9 @@
-import { useTranslations } from "next-intl";
-import s from "./Partners.module.scss";
-import Link from "next/link";
 import { BrushfamLogo } from "@/app/[locale]/(public)/_components/Partners/BrushfamLogo";
-import { WhitepayLogo } from "@/app/[locale]/(public)/_components/Partners/WhitepayLogo";
 import { IncryptedLogo } from "@/app/[locale]/(public)/_components/Partners/IncryptedLogo";
+import { WhitepayLogo } from "@/app/[locale]/(public)/_components/Partners/WhitepayLogo";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import s from "./Partners.module.scss";
 
 export function Partners() {
   const t = useTranslations("Home");

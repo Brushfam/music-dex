@@ -1,9 +1,9 @@
 import s from "@/app/[locale]/(private)/profile/_investor/profile/wallets/Wallets.module.scss";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import {useTranslations} from "next-intl";
 
 export function CreateInternalWallet(props: { createWallet: () => void }) {
-    const t = useTranslations("ProfileInvestor.Profile");
+  const t = useTranslations("ProfileInvestor.Profile");
   const handleCreate = async () => {
     props.createWallet();
   };

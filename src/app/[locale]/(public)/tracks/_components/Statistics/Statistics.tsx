@@ -1,14 +1,14 @@
 "use client";
 
-import s from "./Statistics.module.scss";
+import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
+import { StreamingChart } from "@/app/[locale]/(public)/tracks/_components/Statistics/StreamingChart";
+import { getMonthForStreamStatistics } from "@/services/helpers";
+import { getSongStreams } from "@/services/songs";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useLocale } from "use-intl";
-import { StreamingChart } from "@/app/[locale]/(public)/tracks/_components/Statistics/StreamingChart";
 import { useEffect, useState } from "react";
-import { getSongsStreams } from "@/services/songs";
-import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
-import {getMonthForStreamStatistics} from "@/services/helpers";
+import { useLocale } from "use-intl";
+import s from "./Statistics.module.scss";
 
 interface StreamsData {
   month: string;
@@ -25,11 +25,11 @@ export function Statistics(props: { songId: number }) {
   const t = useTranslations("Tracks.Statistics");
   const currentLocale = useLocale();
   const [chartData, setChartData] = useState<undefined | ChartStreamsData[]>(
-    undefined,
+    undefined
   );
 
   useEffect(() => {
-    getSongsStreams(props.songId, "Spotify")
+    getSongStreams(props.songId, "Spotify")
       .then((response) => {
         let list: ChartStreamsData[] = [];
         // get data for 6 months

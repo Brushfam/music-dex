@@ -1,5 +1,5 @@
-@import '../../../constants/constants';
-@import '../Modals.module';
+@import "../../../constants/constants";
+@import "../Modals.module";
 
 .artistSuggestionModal {
   display: flex;
@@ -78,7 +78,8 @@
   flex-direction: column;
   gap: 10px;
 
-  label, input {
+  label,
+  input {
     color: white;
     font-size: 14px;
     line-height: 140%;
@@ -129,7 +130,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 150%;
-  color: #FFFFFF;
+  color: #ffffff;
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   outline-style: none;

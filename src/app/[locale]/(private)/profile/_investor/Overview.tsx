@@ -1,18 +1,17 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import React, { useEffect, useState } from "react";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { useRouter } from "next/navigation";
-import { getUserOverview } from "@/services/users/users";
-import { toast } from "sonner";
 import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
-import { OverviewRow } from "@/app/[locale]/(private)/profile/_investor/overview/OverviewRow";
-import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
 import { ProfileHeader } from "@/app/[locale]/(private)/_components/ProfileHeader/ProfileHeader";
-import { SecondBlock } from "@/app/[locale]/(private)/profile/_investor/overview/SecondBlock";
-import Image from "next/image";
 import { ProjectedEarnings } from "@/app/[locale]/(private)/_components/ProjectedEarnings";
+import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
+import { OverviewRow } from "@/app/[locale]/(private)/profile/_investor/overview/OverviewRow";
+import { SecondBlock } from "@/app/[locale]/(private)/profile/_investor/overview/SecondBlock";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { getUserOverview } from "@/services/users/users";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export function Overview() {
   const t = useTranslations("ProfileInvestor.Overview");

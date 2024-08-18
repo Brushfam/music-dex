@@ -1,4 +1,4 @@
-@import '../../../../constants/constants';
+@import "../../../../constants/constants";
 
 .catalogPageWrapper {
   position: relative;
@@ -16,7 +16,11 @@
   top: -180px;
   z-index: -1;
   filter: blur(180px);
-  background: linear-gradient(133deg, rgb(255, 206, 144) -22%,rgb(254, 60, 6) 165%);
+  background: linear-gradient(
+    133deg,
+    rgb(255, 206, 144) -22%,
+    rgb(254, 60, 6) 165%
+  );
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -42,6 +46,5 @@
     p {
       text-align: center;
     }
-
   }
 }

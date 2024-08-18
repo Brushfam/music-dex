@@ -1,12 +1,11 @@
 "use client";
 
-import s from "./Gallery.module.scss";
-import * as React from "react";
+import { EventBlock } from "@/app/[locale]/(public)/gallery/EventBlock";
 import { EventGallery } from "@/app/[locale]/(public)/gallery/EventGallery";
+import { galleryData } from "@/data/galleryData";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { galleryData } from "@/data/galleryData";
-import { EventBlock } from "@/app/[locale]/(public)/gallery/EventBlock";
+import s from "./Gallery.module.scss";
 
 export default function Gallery() {
   const t = useTranslations("Gallery");
@@ -40,7 +39,11 @@ export default function Gallery() {
       {event === null ? (
         <EventList />
       ) : (
-        <EventGallery eventNumber={event} setEvent={setEvent} backButtonText={t("back_button")} />
+        <EventGallery
+          eventNumber={event}
+          setEvent={setEvent}
+          backButtonText={t("back_button")}
+        />
       )}
     </div>
   );

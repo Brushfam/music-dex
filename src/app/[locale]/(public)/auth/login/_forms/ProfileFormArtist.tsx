@@ -1,17 +1,17 @@
 "use client";
 
-import s from "../../Auth.module.scss";
-import { useTranslations } from "next-intl";
-import React, { ChangeEvent, useState } from "react";
-import { useUserStore } from "@/store/user";
-import { countries } from "@/data/countries";
 import { Button } from "@/components/ui/Button/Button";
+import { countries } from "@/data/countries";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
-import { ArtistInfo } from "@/types/types";
 import { updateArtistInfo } from "@/services/users/artist/artist";
-import {setFirstLogin} from "@/services/users/users";
+import { setFirstLogin } from "@/services/users/users";
+import { useUserStore } from "@/store/user";
+import { ArtistInfo } from "@/types/types";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { ChangeEvent, useState } from "react";
+import { toast } from "sonner";
+import s from "../../Auth.module.scss";
 
 export default function ProfileFormArtist(props: { currentLocale: string }) {
   const t = useTranslations("Auth.ProfileForm");
@@ -26,7 +26,7 @@ export default function ProfileFormArtist(props: { currentLocale: string }) {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -57,7 +57,7 @@ export default function ProfileFormArtist(props: { currentLocale: string }) {
           .catch((error) => {
             console.log(error);
             toast.error(t("other_errors"));
-          })
+          });
       }
     });
   };
@@ -70,7 +70,7 @@ export default function ProfileFormArtist(props: { currentLocale: string }) {
           console.log(error);
         });
       }
-    })
+    });
     router.replace("/" + props.currentLocale + "/profile");
   };
 
@@ -83,76 +83,75 @@ export default function ProfileFormArtist(props: { currentLocale: string }) {
       <p className={s.title} style={{ marginBottom: 24 }}>
         {t("title")}
       </p>
-      <div style={{width: "100%"}}>
+      <div style={{ width: "100%" }}>
         <label>{t("name")}</label>
         <input
-            type="text"
-            name="firstName"
-            placeholder={t("name_placeholder")}
-            value={formData.firstName}
-            onChange={handleChange}
-            className={s.formInput}
-            style={{margin: "4px 0 10px 0"}}
+          type="text"
+          name="firstName"
+          placeholder={t("name_placeholder")}
+          value={formData.firstName}
+          onChange={handleChange}
+          className={s.formInput}
+          style={{ margin: "4px 0 10px 0" }}
         />
         <label>{t("last_name")}</label>
         <input
-            type="text"
-            name="lastName"
-            placeholder={t("last_name_placeholder")}
-            value={formData.lastName}
-            onChange={handleChange}
-            className={s.formInput}
-            style={{margin: "4px 0 10px 0"}}
+          type="text"
+          name="lastName"
+          placeholder={t("last_name_placeholder")}
+          value={formData.lastName}
+          onChange={handleChange}
+          className={s.formInput}
+          style={{ margin: "4px 0 10px 0" }}
         />
         <label>{t("artist_name")}</label>
         <input
-            type="text"
-            name="artistName"
-            placeholder={t("artist_name_placeholder")}
-            value={formData.artistName}
-            onChange={handleChange}
-            className={s.formInput}
-            style={{margin: "4px 0 10px 0"}}
+          type="text"
+          name="artistName"
+          placeholder={t("artist_name_placeholder")}
+          value={formData.artistName}
+          onChange={handleChange}
+          className={s.formInput}
+          style={{ margin: "4px 0 10px 0" }}
         />
         {/*<AdditionalInfo />*/}
         <label>{t("country")}</label>
         <select
-            name="country"
-            value={formData.country}
-            onChange={handleChange}
-            className={s.formInput}
-            style={{margin: "4px 0 10px 0"}}
+          name="country"
+          value={formData.country}
+          onChange={handleChange}
+          className={s.formInput}
+          style={{ margin: "4px 0 10px 0" }}
         >
           <option value="">{t("select_country")}</option>
           {countries.map((country, index) => {
             return (
-                <option key={index.toString()} value={country.name}>
-                  {country.name}
-                </option>
+              <option key={index.toString()} value={country.name}>
+                {country.name}
+              </option>
             );
           })}
         </select>
         <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              gap: 12,
-              marginTop: 12,
-            }}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            gap: 12,
+            marginTop: 12,
+          }}
         >
           <Button
-              title={t("skip")}
-              color={"transparent"}
-              arrow={false}
-              action={handleSkip}
+            title={t("skip")}
+            color={"transparent"}
+            arrow={false}
+            action={handleSkip}
           />
           <Button
-              title={loading ? t("saving") : t("save")}
-              color={loading ? "loading" : "main"}
-              arrow={false}
-              action={loading ? () => {
-              } : handleSubmit}
+            title={loading ? t("saving") : t("save")}
+            color={loading ? "loading" : "main"}
+            arrow={false}
+            action={loading ? () => {} : handleSubmit}
           />
         </div>
       </div>

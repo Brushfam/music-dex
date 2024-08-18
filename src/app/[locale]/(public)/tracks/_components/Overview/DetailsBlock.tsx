@@ -1,24 +1,28 @@
 "use client";
 
 import s from "@/app/[locale]/(public)/tracks/_components/Overview/Overview.module.scss";
-import React, { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
-import { strkGetFreeBalance } from "@/services/blockchain/blockchain";
 import { Spinner } from "@/components/Spinner/Spinner";
+import { getSongAvailableTokens } from "@/services/songs";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
-export function DetailsBlock(props: { tokenAddress: string, price: number, totalSupply: number }) {
+export function DetailsBlock(props: {
+  songId: number;
+  price: number;
+  totalSupply: number;
+}) {
   const t = useTranslations("Tracks.Overview");
   const [totalAmount, setTotalAmount] = useState<number | undefined>(undefined);
   const [totalPurchased, setTotalPurchased] = useState<number | undefined>(
-    undefined,
+    undefined
   );
 
   useEffect(() => {
-    strkGetFreeBalance(props.tokenAddress).then((fullBalance) => {
-      const balanceWithoutDecimals = Number(fullBalance) / 10;
+    getSongAvailableTokens(props.songId).then((res) => {
+      const balanceWithoutDecimals = Number(res.data.amount) / 10;
       setTotalAmount(parseFloat(balanceWithoutDecimals.toFixed(2)));
       const totalSupply = props.totalSupply;
-      const remaining = totalSupply - balanceWithoutDecimals
+      const remaining = totalSupply - balanceWithoutDecimals;
       setTotalPurchased(parseFloat(remaining.toFixed(2)));
     });
   });

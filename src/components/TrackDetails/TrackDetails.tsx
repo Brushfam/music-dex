@@ -1,10 +1,10 @@
 "use client";
 
-import s from "./TrackDetails.module.scss";
-import { trackDataType } from "@/types/types";
-import { useLocale } from "use-intl";
-import { useTranslations } from "next-intl";
 import { roundToTwo } from "@/services/helpers";
+import { trackDataType } from "@/types/types";
+import { useTranslations } from "next-intl";
+import { useLocale } from "use-intl";
+import s from "./TrackDetails.module.scss";
 
 export function TrackDetails(props: {
   dataEN: trackDataType;

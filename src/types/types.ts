@@ -60,19 +60,19 @@ export type InvestorInfo = {
   favGenre: string;
   country: string;
   profiles: string[]; // tiktok, instagram, twitter
-}
+};
 
 export type ArtistInfo = {
   firstName: string;
   lastName: string;
   artistName: string;
   country: string;
-}
+};
 
 export type Wallet = {
   address: string;
   name: string;
-}
+};
 
 export type NFT = {
   nft_name: string;
@@ -82,20 +82,20 @@ export type NFT = {
   nft_thumbnail_link: string;
   nft_transfer_date: string;
   nft_amount: number;
-}
+};
 
 export type ArtistPurchaseHistory = {
   date: string;
   name: string;
   amount: number;
   invested: number;
-}
+};
 
 export type ArtistSongsStatistics = {
   month: string;
   invested: number;
   amount: number;
-}
+};
 
 export type ArtistSong = {
   listeningDate: string;
@@ -103,4 +103,4 @@ export type ArtistSong = {
   totalAmount: number;
   totalInvested: number;
   statistics: ArtistSongsStatistics[];
-}
+};

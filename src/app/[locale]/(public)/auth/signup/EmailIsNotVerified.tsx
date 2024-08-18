@@ -1,8 +1,7 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import s from "@/app/[locale]/(public)/auth/Auth.module.scss";
-import React from "react";
+import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
 
 export function EmailIsNotVerified() {

@@ -1,8 +1,8 @@
 "use client";
-import s from "../ForArtist.module.scss";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useLocale } from "use-intl";
-import {useTranslations} from "next-intl";
+import s from "../ForArtist.module.scss";
 
 export function SubmitSong() {
   const t = useTranslations("ForArtist");
@@ -13,7 +13,9 @@ export function SubmitSong() {
       : "https://forms.gle/GiC38UDHBSkVezLX6";
   return (
     <div className={s.submitSection}>
-      <Link href={submitLink} target={"_blank"}>{t("submit_song")}</Link>
+      <Link href={submitLink} target={"_blank"}>
+        {t("submit_song")}
+      </Link>
     </div>
   );
 }

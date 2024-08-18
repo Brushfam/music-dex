@@ -11,7 +11,11 @@ export function NftRow(props: {
   return (
     <div className={s.nftRow}>
       <p className={s.nftRow_date}>{props.date}</p>
-      <a href={props.item_full_link} target={"_blank"} className={s.nftRow_item}>
+      <a
+        href={props.item_full_link}
+        target={"_blank"}
+        className={s.nftRow_item}
+      >
         <img src={props.item_link} alt={"NFT"} width={100} height={100} />
       </a>
       <p className={s.nftRow_name}>{props.name}</p>

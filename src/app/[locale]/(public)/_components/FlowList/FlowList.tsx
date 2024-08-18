@@ -1,7 +1,7 @@
 "use client";
-import s from "./FlowList.module.scss";
 import { GreyBlock } from "@/components/ui/GreyBlock/GreyBlock";
 import { useLocale } from "use-intl";
+import s from "./FlowList.module.scss";
 
 export function FlowList(props: {
   dataEN: { text: string }[];

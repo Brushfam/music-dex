@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/Button/Button";
-import { useTranslations } from "next-intl";
 import { useArtistFormStore } from "@/store/artistForm";
+import { useTranslations } from "next-intl";
 
 export function RecommendButton() {
   const t = useTranslations("Home");

@@ -1,7 +1,7 @@
 import s from "@/app/[locale]/(public)/tracks/_components/Overview/Overview.module.scss";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
-import { useTranslations } from "next-intl";
 
 function Revenue(props: {
   children: React.ReactNode;

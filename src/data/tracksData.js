@@ -178,7 +178,9 @@ export const chytEN = {
     },
   ],
   description: "The song will be released on August 16! Pre-order available.",
-  about_artist: ["The song will be released on August 16! Pre-order available."],
+  about_artist: [
+    "The song will be released on August 16! Pre-order available.",
+  ],
 };
 
 export const chytUK = {
@@ -206,12 +208,9 @@ export const chytUK = {
       value: "5000",
     },
   ],
-  description: "Реліз пісні відбудеться вже 16 серпня! Доступне передзамовлення.",
-  about_artist: ["Реліз пісні відбудеться вже 16 серпня! Доступне передзамовлення."],
-};
-
-export const trackAddresses = {
-  dealer: "0x00630cbc324308dad0f847e9e2294611b67f012be5fb7418f38e25e6ab6ab26d",
-  maniac: "0x04ae0d24fc72b9de8049420875ff48719df527e6f677ff9dca911cb571d11a49",
-  chyt: "0x07ebc366a95f8f06d61f41c890030e0550349f28139ab13e6343366968750b1b",
+  description:
+    "Реліз пісні відбудеться вже 16 серпня! Доступне передзамовлення.",
+  about_artist: [
+    "Реліз пісні відбудеться вже 16 серпня! Доступне передзамовлення.",
+  ],
 };

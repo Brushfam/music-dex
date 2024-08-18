@@ -1,19 +1,19 @@
 "use client";
 
-import * as React from "react";
-import Drawer from "@mui/material/Drawer";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { ProfilePages } from "@/types/types";
-import s from "./MobileHeader.module.scss";
-import { Dispatch, SetStateAction } from "react";
-import Link from "next/link";
-import { useUserStore } from "@/store/user";
-import { signOut } from "@firebase/auth";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 import { PageList } from "@/app/[locale]/(private)/_components/PageList/PagesList";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { useUserStore } from "@/store/user";
+import { ProfilePages } from "@/types/types";
+import { signOut } from "@firebase/auth";
+import Drawer from "@mui/material/Drawer";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import * as React from "react";
+import { Dispatch, SetStateAction } from "react";
+import { toast } from "sonner";
+import s from "./MobileHeader.module.scss";
 
 export default function SideMenu(props: {
   currentPage: ProfilePages;
@@ -30,7 +30,7 @@ export default function SideMenu(props: {
 
   function LogoutButton() {
     const setCurrentUserEmail = useUserStore(
-      (state) => state.setCurrentUserEmail,
+      (state) => state.setCurrentUserEmail
     );
 
     function handleOnClick() {

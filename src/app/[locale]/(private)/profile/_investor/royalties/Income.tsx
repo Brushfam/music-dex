@@ -1,8 +1,6 @@
-import s from "./Royalties.module.scss";
+import { SampleRoyaltiesChart } from "@/app/[locale]/(private)/profile/_investor/royalties/SampleRoyaltiesChart";
 import { useTranslations } from "next-intl";
-import {
-    SampleRoyaltiesChart,
-} from "@/app/[locale]/(private)/profile/_investor/royalties/SampleRoyaltiesChart";
+import s from "./Royalties.module.scss";
 
 export function Income() {
   const t = useTranslations("ProfileInvestor.Royalties");

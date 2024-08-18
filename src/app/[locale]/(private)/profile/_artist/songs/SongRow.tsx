@@ -1,11 +1,11 @@
 "use client";
 
-import s from "./Songs.module.scss";
+import { SongSalesChart } from "@/app/[locale]/(private)/profile/_artist/songs/Chart";
+import { ArtistSong } from "@/types/types";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
-import {SongSalesChart} from "@/app/[locale]/(private)/profile/_artist/songs/Chart";
-import { useTranslations } from "next-intl";
-import { ArtistSong } from "@/types/types";
+import s from "./Songs.module.scss";
 
 export function SongRow(props: { songData: ArtistSong }) {
   const t = useTranslations("ProfileArtist.Songs");

@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../../globals.scss";
-import { NextIntlClientProvider, useMessages } from "next-intl";
-import { Toaster } from "sonner";
 import { StarknetProvider } from "@/providers/StarknetProvider";
+import type { Metadata } from "next";
+import { NextIntlClientProvider, useMessages } from "next-intl";
+import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
+import "../../globals.scss";
 
 const inter = Inter({
   subsets: ["latin"],

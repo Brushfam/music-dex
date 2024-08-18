@@ -1,8 +1,5 @@
 "use client";
 
-import s from "./FaqList.module.scss";
-import { useState } from "react";
-import { useLocale } from "use-intl";
 import {
   artistFaqEN,
   artistFaqUA,
@@ -10,6 +7,9 @@ import {
   faqTitlesUA,
 } from "@/data/profile/artistFaq";
 import Image from "next/image";
+import { useState } from "react";
+import { useLocale } from "use-intl";
+import s from "./FaqList.module.scss";
 
 export function FaqList() {
   const currentLocale = useLocale();
@@ -29,7 +29,7 @@ export function FaqList() {
         key={props.titleText + "questionsSection" + props.index.toString()}
         className={s.faqItem}
         onClick={() => {
-            setOpen(!open);
+          setOpen(!open);
         }}
       >
         <div
@@ -69,7 +69,7 @@ export function FaqList() {
     return props.questionsSection.map((item, index) => {
       return (
         <QuestionRow
-            key={props.titleText + "QuestionRow" + index.toString()}
+          key={props.titleText + "QuestionRow" + index.toString()}
           titleText={props.titleText}
           index={index}
           question={item.question}

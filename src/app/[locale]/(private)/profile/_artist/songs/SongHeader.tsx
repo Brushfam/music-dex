@@ -1,5 +1,5 @@
-import s from "./Songs.module.scss";
 import { useTranslations } from "next-intl";
+import s from "./Songs.module.scss";
 
 export function SongHeader() {
   const t = useTranslations("ProfileArtist.Songs");

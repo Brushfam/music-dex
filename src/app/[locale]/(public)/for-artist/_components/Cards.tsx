@@ -1,18 +1,20 @@
 import s from "@/app/[locale]/(public)/for-artist/ForArtist.module.scss";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import {useTranslations} from "next-intl";
 
 export function Cards() {
   const t = useTranslations("ForArtist");
 
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      width: "100%",
-      padding: "60px 0",
-    }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100%",
+        padding: "60px 0",
+      }}
+    >
       <div className={s.cardsWrapper}>
         <div className={s.card}>
           <Image
@@ -22,9 +24,7 @@ export function Cards() {
             height={50}
           />
           <p className={s.card_title}>{t("card1_title")}</p>
-          <p className={s.card_description}>
-            {t("card1_description")}
-          </p>
+          <p className={s.card_description}>{t("card1_description")}</p>
         </div>
         <div className={s.card}>
           <Image
@@ -34,9 +34,7 @@ export function Cards() {
             height={50}
           />
           <p className={s.card_title}>{t("card2_title")}</p>
-          <p className={s.card_description}>
-            {t("card2_description")}
-          </p>
+          <p className={s.card_description}>{t("card2_description")}</p>
         </div>
         <div className={s.card}>
           <Image
@@ -46,9 +44,7 @@ export function Cards() {
             height={50}
           />
           <p className={s.card_title}>{t("card3_title")}</p>
-          <p className={s.card_description}>
-            {t("card3_description")}
-          </p>
+          <p className={s.card_description}>{t("card3_description")}</p>
         </div>
       </div>
     </div>

@@ -1,10 +1,10 @@
-import s from "./Tracks.module.scss";
 import {
   TrackCard1,
   TrackCard2,
   TrackCard3,
   TrackCard4,
 } from "@/app/[locale]/(public)/_components/TrackCard/TrackCard";
+import s from "./Tracks.module.scss";
 
 export function BannerTracks() {
   return (

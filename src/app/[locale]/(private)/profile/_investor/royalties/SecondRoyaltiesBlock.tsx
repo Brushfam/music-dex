@@ -1,9 +1,9 @@
-import s from "./Royalties.module.scss";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import {useTranslations} from "next-intl";
+import s from "./Royalties.module.scss";
 
 export function SecondRoyaltiesBlock() {
-    const t = useTranslations("ProfileInvestor.Royalties")
+  const t = useTranslations("ProfileInvestor.Royalties");
   return (
     <div className={s.secondBlockRow}>
       <div className={s.secondBlock}>
@@ -23,11 +23,9 @@ export function SecondRoyaltiesBlock() {
             alt={"icon"}
             width={38}
             height={48}
-            style={{marginBottom: 4}}
+            style={{ marginBottom: 4 }}
           />
-          <p className={s.text1}>
-              {t("empty_history_title")}
-          </p>
+          <p className={s.text1}>{t("empty_history_title")}</p>
           <p className={s.text2}>{t("empty_history_desc")}</p>
         </div>
       </div>
@@ -49,12 +47,8 @@ export function SecondRoyaltiesBlock() {
             width={38}
             height={48}
           />
-          <p className={s.text1}>
-              {t("empty_payouts_title")}
-          </p>
-          <p className={s.text2}>
-              {t("empty_payouts_desc")}
-          </p>
+          <p className={s.text1}>{t("empty_payouts_title")}</p>
+          <p className={s.text2}>{t("empty_payouts_desc")}</p>
         </div>
       </div>
     </div>

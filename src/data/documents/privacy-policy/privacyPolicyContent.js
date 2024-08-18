@@ -225,11 +225,11 @@ export const pointsEN = [
             process your information for the purposes you originally agreed to
             unless we have another legitimate basis for doing so in law. If you
             would like to exercise any of these rights, please get in touch with
-            us at <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>.
-            Before assessing your request, we may request additional information
-            to identify you. If you do not provide the requested information
-            and, as a result, we are not in a position to identify you, we may
-            refuse to action your request.
+            us at <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>
+            . Before assessing your request, we may request additional
+            information to identify you. If you do not provide the requested
+            information and, as a result, we are not in a position to identify
+            you, we may refuse to action your request.
           </p>
         ),
       },
@@ -641,9 +641,9 @@ export const pointsUK = [
             цілей, на які ви спочатку згодилися, якщо у нас немає іншої законної
             підстави для цього. Якщо ви хочете скористатися будь-якими з цих
             прав, будь ласка, зв&#39;яжіться з нами за адресою
-            <span style={{ color: "white" }}> musicdex.inc@gmail.com</span>. Перед
-            оцінкою вашого запиту ми можемо запросити додаткову інформацію для
-            вашої ідентифікації. Якщо ви не надаєте запрошену інформацію і,
+            <span style={{ color: "white" }}> musicdex.inc@gmail.com</span>.
+            Перед оцінкою вашого запиту ми можемо запросити додаткову інформацію
+            для вашої ідентифікації. Якщо ви не надаєте запрошену інформацію і,
             відповідно, ми не зможемо вас ідентифікувати, ми можемо відмовити у
             виконанні вашого запиту.
           </p>

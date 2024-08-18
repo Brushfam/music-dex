@@ -1,5 +1,5 @@
+import { InvestorInfo } from "@/types/types";
 import axios from "axios";
-import {InvestorInfo} from "@/types/types";
 
 export function getUserRole(jwt: string) {
   return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/role", {
@@ -28,7 +28,7 @@ export function setFirstLogin(jwt: string) {
         "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer: " + jwt,
       },
-    },
+    }
   );
 }
 
@@ -44,7 +44,7 @@ export function addNewUser(jwt: string, email: string, role: string) {
         "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer: " + jwt,
       },
-    },
+    }
   );
 }
 
@@ -77,13 +77,13 @@ export function getUserInfo(jwt: string) {
 
 export function updateUserInfo(jwt: string, info: InvestorInfo) {
   return axios.post(
-      process.env.NEXT_PUBLIC_SERVER_URL + "/users/info",
-      { details: info },
-      {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          Authorization: "Bearer: " + jwt,
-        },
+    process.env.NEXT_PUBLIC_SERVER_URL + "/users/info",
+    { details: info },
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer: " + jwt,
       },
+    }
   );
 }

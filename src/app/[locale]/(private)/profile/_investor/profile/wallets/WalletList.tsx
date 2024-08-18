@@ -1,23 +1,23 @@
 "use client";
 
-import s from "../wallets/Wallets.module.scss"
-import { useEffect, useState } from "react";
+import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
+import { ConnectWallet } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/ConnectWallet";
+import { ConnectedWallets } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/ConnectedWallets";
+import { CreateInternalWallet } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/CreateInternalWallet";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { parseWalletListResponse } from "@/services/helpers";
 import {
   createInternalWallet,
   getUserWallets,
   updatePrimaryWallet,
 } from "@/services/users/investors/wallets";
-import { toast } from "sonner";
-import { AxiosError } from "axios";
-import { useRouter } from "next/navigation";
-import { ConnectWallet } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/ConnectWallet";
 import { Wallet } from "@/types/types";
-import { ConnectedWallets } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/ConnectedWallets";
-import { CreateInternalWallet } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/CreateInternalWallet";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { parseWalletListResponse } from "@/services/helpers";
-import {useTranslations} from "next-intl";
-import {LoadingSpinner} from "@/app/[locale]/(private)/_components/LoadingSpinner";
+import { AxiosError } from "axios";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import s from "../wallets/Wallets.module.scss";
 
 export function WalletList() {
   const t = useTranslations("ProfileInvestor.Profile");
@@ -40,7 +40,7 @@ export function WalletList() {
 
           // Check if any wallet has the type "internal"
           const internalWalletExists = connectedWallets.some(
-            (wallet: Wallet) => wallet.name === "internal",
+            (wallet: Wallet) => wallet.name === "internal"
           );
           setHasInternalWallet(internalWalletExists);
 
@@ -107,8 +107,8 @@ export function WalletList() {
             handleUpdatePrimaryWallet({
               name: "internal",
               address: "internal",
-            })
-            toast.success(t("Toast.internal_created"))
+            });
+            toast.success(t("Toast.internal_created"));
           })
           .catch((error) => {
             console.log(error);
@@ -125,7 +125,7 @@ export function WalletList() {
   }
 
   return loading ? (
-    <LoadingSpinner fullHeight={true}/>
+    <LoadingSpinner fullHeight={true} />
   ) : (
     <div className={s.walletsWrapper}>
       <ConnectedWallets

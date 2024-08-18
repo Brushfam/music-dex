@@ -1,7 +1,7 @@
 "use client";
 
-import s from "../../documents.module.css";
 import { useLocale } from "use-intl";
+import s from "../../documents.module.css";
 
 type PointType = {
   title: JSX.Element;

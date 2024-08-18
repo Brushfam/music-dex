@@ -1,7 +1,7 @@
-import { ColumnContainer } from "@/components/ui/Containers/Containers";
 import { FaqCard } from "@/components/Faq/FaqCard/FaqCard";
-import React from "react";
+import { ColumnContainer } from "@/components/ui/Containers/Containers";
 import { faqContentType } from "@/types/types";
+import React from "react";
 
 export function FaqBlock(props: {
   children?: React.ReactNode;

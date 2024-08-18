@@ -1,12 +1,15 @@
 import axios from "axios";
 
 export function ifUserHasWallets(jwt: string) {
-  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/wallets/exist", {
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      Authorization: "Bearer: " + jwt,
-    },
-  });
+  return axios.get(
+    process.env.NEXT_PUBLIC_SERVER_URL + "/users/wallets/exist",
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer: " + jwt,
+      },
+    }
+  );
 }
 
 export function getUserWallets(jwt: string) {
@@ -30,7 +33,7 @@ export function addUserWallet(jwt: string, address: string, name: string) {
         "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer: " + jwt,
       },
-    },
+    }
   );
 }
 
@@ -45,7 +48,7 @@ export function updatePrimaryWallet(jwt: string, primaryAddress: string) {
         "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer: " + jwt,
       },
-    },
+    }
   );
 }
 
@@ -58,6 +61,6 @@ export function createInternalWallet(jwt: string) {
         "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer: " + jwt,
       },
-    },
+    }
   );
 }

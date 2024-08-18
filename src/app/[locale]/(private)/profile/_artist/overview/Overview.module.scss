@@ -1,5 +1,5 @@
-
-.overviewRow, .overviewSubRow {
+.overviewRow,
+.overviewSubRow {
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -125,11 +125,11 @@
   }
 }
 
-.royaltiesHistoryList, .transactionsBlockList {
+.royaltiesHistoryList,
+.transactionsBlockList {
   width: 100%;
   overflow: auto;
 }
-
 
 .royaltiesHistoryList::-webkit-scrollbar,
 .transactionsBlockList::-webkit-scrollbar {

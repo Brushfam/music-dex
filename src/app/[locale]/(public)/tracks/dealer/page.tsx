@@ -1,5 +1,5 @@
-import { dealerEN, dealerUK, trackAddresses } from "@/data/tracksData";
 import { PageTemplate } from "@/app/[locale]/(public)/tracks/_components/PageTemplate/PageTemplate";
+import { dealerEN, dealerUK } from "@/data/tracksData";
 import { streamingServices } from "@/types/types";
 
 export default function DealerTrack() {
@@ -17,7 +17,6 @@ export default function DealerTrack() {
     <PageTemplate
       artist={"Tony Tonite"}
       songName={"Дилер"}
-      tokenAddress={trackAddresses.dealer}
       pathToCover={"/albums/dealer.jpg"}
       youtubeId={"Jb5qdg30jSU"}
       services={services}

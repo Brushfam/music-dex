@@ -1,16 +1,16 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { PageWrapper } from "@/app/[locale]/(private)/profile/PageWrapper";
-import { useRouter } from "next/navigation";
-import { useLocale } from "use-intl";
-import { useEffect, useState } from "react";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import s from "@/app/[locale]/(private)/profile/_investor/songs/Songs.module.scss";
-import { Button } from "@/components/ui/Button/Button";
 import { SongHeader } from "@/app/[locale]/(private)/profile/_investor/songs/SongHeader";
 import { SongRow } from "@/app/[locale]/(private)/profile/_investor/songs/SongRow";
-import {getUserSongs} from "@/services/users/users";
+import s from "@/app/[locale]/(private)/profile/_investor/songs/Songs.module.scss";
+import { Button } from "@/components/ui/Button/Button";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { getUserSongs } from "@/services/users/users";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useLocale } from "use-intl";
 
 interface SongsData {
   date: string;

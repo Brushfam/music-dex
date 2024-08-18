@@ -1,13 +1,13 @@
-import s from "./Info.module.scss";
-import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
-import { ArtistInfo } from "@/types/types";
-import { countries } from "@/data/countries";
 import { Button } from "@/components/ui/Button/Button";
-import { useUserStore } from "@/store/user";
+import { countries } from "@/data/countries";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { toast } from "sonner";
 import { updateArtistInfo } from "@/services/users/artist/artist";
+import { useUserStore } from "@/store/user";
+import { ArtistInfo } from "@/types/types";
 import { useTranslations } from "next-intl";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import { toast } from "sonner";
+import s from "./Info.module.scss";
 
 export function InfoForm(props: {
   artist: ArtistInfo;
@@ -24,7 +24,7 @@ export function InfoForm(props: {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData({

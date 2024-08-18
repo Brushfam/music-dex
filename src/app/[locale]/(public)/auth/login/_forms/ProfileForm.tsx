@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { getUserRole } from "@/services/users/users";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
-import { useRouter } from "next/navigation";
-import ProfileFormInvestor from "@/app/[locale]/(public)/auth/login/_forms/ProfileFormInvestor";
 import ProfileFormArtist from "@/app/[locale]/(public)/auth/login/_forms/ProfileFormArtist";
+import ProfileFormInvestor from "@/app/[locale]/(public)/auth/login/_forms/ProfileFormInvestor";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { getUserRole } from "@/services/users/users";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useLocale } from "use-intl";
 
 export function ProfileForm() {

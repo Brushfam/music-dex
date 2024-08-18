@@ -1,5 +1,4 @@
 import s from "./Lables.module.scss";
-import Image from "next/image";
 
 function LabelBlock(props: { iconName: string; label: string }) {
   return (

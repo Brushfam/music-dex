@@ -1,16 +1,16 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { PageWrapper } from "@/app/[locale]/(private)/profile/PageWrapper";
-import s from "@/app/[locale]/(private)/profile/_artist/songs/Songs.module.scss";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { useRouter } from "next/navigation";
 import { SongHeader } from "@/app/[locale]/(private)/profile/_artist/songs/SongHeader";
-import { ArtistSong } from "@/types/types";
 import { SongRow } from "@/app/[locale]/(private)/profile/_artist/songs/SongRow";
-import {getUserSongs} from "@/services/users/users";
+import s from "@/app/[locale]/(private)/profile/_artist/songs/Songs.module.scss";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { getUserSongs } from "@/services/users/users";
+import { ArtistSong } from "@/types/types";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export function Songs() {
   const t = useTranslations("ProfileArtist.Songs");
@@ -23,7 +23,7 @@ export function Songs() {
       if (user) {
         const token = await user.getIdToken();
         const response = await getUserSongs(token);
-        console.log(response.data.songData)
+        console.log(response.data.songData);
         setSongs(response.data.songData);
       } else {
         router.replace("/en/auth/login?expired-session=true");
@@ -51,7 +51,7 @@ export function Songs() {
             width={50}
             height={50}
           />
-          <p style={{color: "white", marginTop: 6}}>{t("empty_song_list")}</p>
+          <p style={{ color: "white", marginTop: 6 }}>{t("empty_song_list")}</p>
         </div>
       </div>
     );

@@ -1,11 +1,11 @@
 .contacts {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .header {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 8px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }

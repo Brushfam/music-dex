@@ -1,7 +1,7 @@
-import s from "./Button.module.scss";
-import Image from "next/image";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
+import Image from "next/image";
 import { Fragment } from "react";
+import s from "./Button.module.scss";
 
 interface ColorsType {
   [key: string]: string;

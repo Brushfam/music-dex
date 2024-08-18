@@ -1,4 +1,4 @@
-@import '../../../constants/constants';
+@import "../../../constants/constants";
 
 .bannerContainer {
   display: flex;
@@ -19,7 +19,7 @@
     max-width: 460px;
 
     @media (max-width: $desktop-size) {
-      max-width: 420px
+      max-width: 420px;
     }
   }
 }
@@ -48,7 +48,7 @@
     max-width: 460px;
 
     @media (max-width: $desktop-size) {
-      max-width: 370px
+      max-width: 370px;
     }
 
     @media (max-width: $desktop-md-size) {
@@ -98,7 +98,7 @@
     max-width: 460px;
 
     @media (max-width: $desktop-size) {
-      max-width: 420px
+      max-width: 420px;
     }
   }
 
@@ -174,21 +174,25 @@
   width: 100%;
   height: 80px;
   z-index: 5;
-  background: linear-gradient(180.00deg, rgba(17, 17, 17, 0),rgb(17, 17, 17) 110%);
+  background: linear-gradient(
+    180deg,
+    rgba(17, 17, 17, 0),
+    rgb(17, 17, 17) 110%
+  );
 
   @media (max-width: $desktop-md-size) {
     display: none;
   }
 }
 
-.shadowBottom, .shadowTop {
+.shadowBottom,
+.shadowTop {
   @include shadowElement;
-  bottom: 0
+  bottom: 0;
 }
 
 .shadowTop {
   @include shadowElement;
   top: 30px;
-  transform: rotate(-180.00deg);
+  transform: rotate(-180deg);
 }
-

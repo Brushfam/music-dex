@@ -1,20 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
 import { Button } from "@/components/ui/Button/Button";
-import { useTranslations } from "next-intl";
-import { toast } from "sonner";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { useRouter } from "next/navigation";
 import { createInvoice } from "@/services/users/investors/investors";
-import { useUserStore } from "@/store/user";
 import { ifUserHasWallets } from "@/services/users/investors/wallets";
+import { useUserStore } from "@/store/user";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export function ByCrypto(props: {
   user: string;
   tokensToPay: number;
   tokensToBuy: number;
-  address: string;
   songId: number;
 }) {
   const t = useTranslations("SharesBlock.ByCrypto");
@@ -29,9 +27,11 @@ export function ByCrypto(props: {
         try {
           const response = await ifUserHasWallets(token);
           if (response.data.hasWallets) {
-            createInvoice(token, props.songId, props.tokensToBuy).then((res) => {
-              setOrderLink(res.data.order_url.toString());
-            });
+            createInvoice(token, props.songId, props.tokensToBuy).then(
+              (res) => {
+                setOrderLink(res.data.order_url.toString());
+              }
+            );
           } else {
             setNoWalletsModal("true");
           }

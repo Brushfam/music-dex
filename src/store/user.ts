@@ -38,6 +38,6 @@ export const useUserStore = create<State & Actions>()(
     {
       name: "user-data",
       storage: createJSONStorage(() => localStorage),
-    },
-  ),
+    }
+  )
 );

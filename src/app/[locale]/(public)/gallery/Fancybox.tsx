@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, PropsWithChildren } from "react";
-import s from "./Gallery.module.scss";
 import { Fancybox as NativeFancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import { OptionsType } from "@fancyapps/ui/types/Fancybox/options";
+import { PropsWithChildren, useEffect, useRef } from "react";
+import s from "./Gallery.module.scss";
 
 interface Props {
   options?: Partial<OptionsType>;

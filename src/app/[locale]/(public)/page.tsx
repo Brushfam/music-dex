@@ -1,23 +1,23 @@
-import s from "./page.module.scss";
-import cs from "../../commonStyles.module.scss";
-import { Section } from "@/components/ui/Section/Section";
-import { ColumnContainer } from "@/components/ui/Containers/Containers";
-import { Button } from "@/components/ui/Button/Button";
 import { FlowList } from "@/app/[locale]/(public)/_components/FlowList/FlowList";
-import { Terms } from "@/app/[locale]/(public)/_components/Terms/Terms";
+import { Partners } from "@/app/[locale]/(public)/_components/Partners/Partners";
+import { RecommendButton } from "@/app/[locale]/(public)/_components/RecommendButton/RecommendButton";
 import { Roadmap } from "@/app/[locale]/(public)/_components/Roadmap/Roadmap";
+import { StarknetSection } from "@/app/[locale]/(public)/_components/Starknet/StarknetSection";
 import { TeamList } from "@/app/[locale]/(public)/_components/TeamList/TeamList";
+import { Terms } from "@/app/[locale]/(public)/_components/Terms/Terms";
 import {
   BannerTracks,
   TracksSectionAlbums,
 } from "@/app/[locale]/(public)/_components/Tracks/Tracks";
 import FaqSection from "@/components/Faq/FaqSection/FaqSection";
-import { useTranslations } from "next-intl";
-import { flowListDataEN, flowListDataUK } from "@/data/homepage/flowListData";
-import { StarknetSection } from "@/app/[locale]/(public)/_components/Starknet/StarknetSection";
 import { ArtistModal } from "@/components/modals/ArtistModal/ArtistModal";
-import { RecommendButton } from "@/app/[locale]/(public)/_components/RecommendButton/RecommendButton";
-import { Partners } from "@/app/[locale]/(public)/_components/Partners/Partners";
+import { Button } from "@/components/ui/Button/Button";
+import { ColumnContainer } from "@/components/ui/Containers/Containers";
+import { Section } from "@/components/ui/Section/Section";
+import { flowListDataEN, flowListDataUK } from "@/data/homepage/flowListData";
+import { useTranslations } from "next-intl";
+import cs from "../../commonStyles.module.scss";
+import s from "./page.module.scss";
 
 export default function Home() {
   const t = useTranslations("Home");

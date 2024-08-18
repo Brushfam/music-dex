@@ -1,30 +1,28 @@
-"use client"
+"use client";
 
-import s from "./Info.module.scss";
-import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
-import { InvestorInfo } from "@/types/types";
-import { countries } from "@/data/countries";
 import { Button } from "@/components/ui/Button/Button";
-import { useUserStore } from "@/store/user";
+import { countries } from "@/data/countries";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { updateUserInfo } from "@/services/users/users";
+import { useUserStore } from "@/store/user";
+import { InvestorInfo } from "@/types/types";
+import { useTranslations } from "next-intl";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import { toast } from "sonner";
-import {useTranslations} from "next-intl";
-import {updateUserInfo} from "@/services/users/users";
+import s from "./Info.module.scss";
 
 export function InfoForm(props: {
   investor: InvestorInfo;
   setTriggerFormRefresh: Dispatch<SetStateAction<number>>;
 }) {
   const t = useTranslations("ProfileInvestor.Profile");
-  const setCurrentUserName = useUserStore(
-      (state) => state.setCurrentUserName,
-  );
+  const setCurrentUserName = useUserStore((state) => state.setCurrentUserName);
   const userEmail = useUserStore((state) => state.currentUserEmail);
   const [loading, setLoading] = useState(false);
 
   let profiles = ["", "", ""];
   for (let i = 0; i < props.investor.profiles?.length; ++i) {
-    profiles[i] = props.investor.profiles[i]
+    profiles[i] = props.investor.profiles[i];
   }
   const [formData, setFormData] = useState({
     firstName: props.investor.firstName || "",
@@ -37,7 +35,7 @@ export function InfoForm(props: {
   });
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -60,7 +58,7 @@ export function InfoForm(props: {
         };
         updateUserInfo(token, updatedData)
           .then(() => {
-            setCurrentUserName(formData.firstName)
+            setCurrentUserName(formData.firstName);
             toast.success(t("Toast.updated"));
           })
           .catch((error) => {

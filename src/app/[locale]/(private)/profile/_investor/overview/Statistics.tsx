@@ -1,6 +1,6 @@
-import s from "./Overview.module.scss";
-import { useTranslations } from "next-intl";
 import { SampleStatisticsChart } from "@/app/[locale]/(private)/profile/_investor/overview/SampleStatisticsChart";
+import { useTranslations } from "next-intl";
+import s from "./Overview.module.scss";
 
 export function Statistics() {
   const t = useTranslations("ProfileInvestor.Overview");

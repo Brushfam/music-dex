@@ -1,4 +1,4 @@
-@import './../../constants/constants.scss';
+@import "./../../constants/constants.scss";
 
 .header {
   position: fixed;
@@ -88,8 +88,12 @@
   }
 
   @media (max-width: 900px) {
-    img {display: block;}
-    p {display: none;}
+    img {
+      display: block;
+    }
+    p {
+      display: none;
+    }
   }
 }
 
@@ -98,7 +102,6 @@
 
   @media (max-width: 900px) {
     display: flex;
-
   }
 }
 

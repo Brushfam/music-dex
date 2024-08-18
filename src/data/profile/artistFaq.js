@@ -1,6 +1,10 @@
 export const faqTitlesEN = ["Financial questions", "Blockchain", "General"];
 
-export const faqTitlesUA = ["Фінансові питання", "Блокчейн", "Загальні питання"];
+export const faqTitlesUA = [
+  "Фінансові питання",
+  "Блокчейн",
+  "Загальні питання",
+];
 
 export const artistFaqEN = [
   [

@@ -1,13 +1,13 @@
 "use client";
 
+import { sampleRoyaltiesData } from "@/data/profile/sampleData";
 import {
-  Line,
   CartesianGrid,
+  Line,
   LineChart,
   ResponsiveContainer,
   YAxis,
 } from "recharts";
-import { sampleRoyaltiesData } from "@/data/profile/sampleData";
 
 export function SampleRoyaltiesChart() {
   return (
