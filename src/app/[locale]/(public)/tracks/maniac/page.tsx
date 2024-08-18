@@ -1,5 +1,5 @@
-import { maniacEN, maniacUK } from "@/data/tracksData";
 import { PageTemplate } from "@/app/[locale]/(public)/tracks/_components/PageTemplate/PageTemplate";
+import { maniacEN, maniacUK } from "@/data/tracksData";
 import { streamingServices } from "@/types/types";
 
 export default function ManiacTrack() {

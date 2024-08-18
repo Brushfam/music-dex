@@ -1,9 +1,9 @@
 "use client";
 
 import Fancybox from "@/app/[locale]/(public)/gallery/Fancybox";
-import * as React from "react";
-import { galleryData } from "@/data/galleryData";
 import s from "@/app/[locale]/(public)/gallery/Gallery.module.scss";
+import { galleryData } from "@/data/galleryData";
+import * as React from "react";
 
 function ArrowIcon() {
   return (
@@ -49,7 +49,7 @@ export function EventGallery(props: {
 }) {
   const event = galleryData[props.eventNumber];
   const numbersArray = Array.from(Array(event.imageNumber).keys()).map(
-    (i) => i + 1,
+    (i) => i + 1
   );
 
   function BackToAllEventLink() {

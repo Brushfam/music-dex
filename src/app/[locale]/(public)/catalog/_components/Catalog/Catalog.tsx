@@ -1,8 +1,7 @@
-import s from "./Catalog.module.scss";
-import { GreyBlock } from "@/components/ui/GreyBlock/GreyBlock";
 import { Labels } from "@/components/Labels/Labels";
-import { Button } from "@/components/ui/Button/Button";
 import { TrackDetails } from "@/components/TrackDetails/TrackDetails";
+import { Button } from "@/components/ui/Button/Button";
+import { GreyBlock } from "@/components/ui/GreyBlock/GreyBlock";
 import {
   chytEN,
   chytUK,
@@ -11,9 +10,10 @@ import {
   maniacEN,
   maniacUK,
 } from "@/data/tracksData";
+import { trackDataType } from "@/types/types";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { trackDataType } from "@/types/types";
+import s from "./Catalog.module.scss";
 
 export function Catalog() {
   const t = useTranslations("Catalog");

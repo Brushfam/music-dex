@@ -1,19 +1,19 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import React, { useEffect, useState } from "react";
-import { OverviewRow } from "@/app/[locale]/(private)/profile/_artist/overview/OverviewRow";
-import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
+import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 import { ProfileHeader } from "@/app/[locale]/(private)/_components/ProfileHeader/ProfileHeader";
-import { useRouter } from "next/navigation";
+import { ProjectedEarnings } from "@/app/[locale]/(private)/_components/ProjectedEarnings";
+import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
+import { OverviewRow } from "@/app/[locale]/(private)/profile/_artist/overview/OverviewRow";
+import { RoyaltiesHistory } from "@/app/[locale]/(private)/profile/_artist/overview/PaymentHistory";
+import { UserTransactions } from "@/app/[locale]/(private)/profile/_artist/overview/UserTransactions";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { getUserOverview } from "@/services/users/users";
-import { toast } from "sonner";
-import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 import { ArtistPurchaseHistory } from "@/types/types";
-import { UserTransactions } from "@/app/[locale]/(private)/profile/_artist/overview/UserTransactions";
-import { RoyaltiesHistory } from "@/app/[locale]/(private)/profile/_artist/overview/PaymentHistory";
-import { ProjectedEarnings } from "@/app/[locale]/(private)/_components/ProjectedEarnings";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export function Overview() {
   const t = useTranslations("ProfileArtist.Overview");

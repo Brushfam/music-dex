@@ -1,14 +1,14 @@
 "use client";
 import s from "@/components/modals/ArtistModal/ArtistModal.module.scss";
-import React, { useEffect } from "react";
 import { Button } from "@/components/ui/Button/Button";
+import { useArtistFormStore } from "@/store/artistForm";
 import { useForm } from "@formspree/react";
 import { useTranslations } from "next-intl";
+import { useEffect } from "react";
 import { toast } from "sonner";
-import {useArtistFormStore} from "@/store/artistForm";
 
 export function FormStep() {
-  const changeStep = useArtistFormStore((state) => state.setArtistFormStep)
+  const changeStep = useArtistFormStore((state) => state.setArtistFormStep);
   const t = useTranslations("ArtistModal");
   const [state, handleSubmit] = useForm("mleqayvd");
 

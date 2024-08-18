@@ -1,15 +1,15 @@
 "use client";
 
+import { PageWrapper } from "@/app/[locale]/(private)/profile/PageWrapper";
+import { NftHeader } from "@/app/[locale]/(private)/profile/_investor/nft/NftHeader";
+import { NftRow } from "@/app/[locale]/(private)/profile/_investor/nft/NftRow";
+import { NoNFTsBlock } from "@/app/[locale]/(private)/profile/_investor/nft/NoNFTsBlock";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { getNFTs } from "@/services/users/investors/investors";
+import { NFT } from "@/types/types";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { PageWrapper } from "@/app/[locale]/(private)/profile/PageWrapper";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { getNFTs } from "@/services/users/investors/investors";
-import { NoNFTsBlock } from "@/app/[locale]/(private)/profile/_investor/nft/NoNFTsBlock";
-import { NFT } from "@/types/types";
-import { NftHeader } from "@/app/[locale]/(private)/profile/_investor/nft/NftHeader";
-import { NftRow } from "@/app/[locale]/(private)/profile/_investor/nft/NftRow";
 import { useLocale } from "use-intl";
 
 export function NFTs() {

@@ -1,12 +1,11 @@
 "use client";
 
 import cs from "@/app/commonStyles.module.scss";
-import { useTranslations } from "next-intl";
-import { useLocale } from "use-intl";
-import Link from "next/link";
 import s from "@/components/Header/Header.module.scss";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import { useLocale } from "use-intl";
 
 export function Login() {
   const t = useTranslations("Header");

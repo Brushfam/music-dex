@@ -1,22 +1,22 @@
 "use client";
 
-import s from "./ProfileHeader.module.scss";
-import { useUserStore } from "@/store/user";
-import { useEffect, useState } from "react";
-import { useLocale } from "use-intl";
-import Image from "next/image";
-import { signOut } from "@firebase/auth";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { toast } from "sonner";
+import { useUserStore } from "@/store/user";
+import { signOut } from "@firebase/auth";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { toast } from "sonner";
+import { useLocale } from "use-intl";
+import s from "./ProfileHeader.module.scss";
 
 export function ProfileHeader() {
   const t = useTranslations("Header");
   const userName = useUserStore((state) => state.currentUserName);
   const userEmail = useUserStore((state) => state.currentUserEmail);
   const setCurrentUserEmail = useUserStore(
-    (state) => state.setCurrentUserEmail,
+    (state) => state.setCurrentUserEmail
   );
   const [modalOpen, setModalOpen] = useState(false);
   const currentLocale = useLocale();

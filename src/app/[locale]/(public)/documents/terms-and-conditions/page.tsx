@@ -1,21 +1,21 @@
-import s from "../documents.module.css";
-import cs from "../../../../commonStyles.module.scss";
-import { Section } from "@/components/ui/Section/Section";
-import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import { Contacts } from "@/app/[locale]/(public)/documents/_components/Contacts/Contacts";
-import Navigation from "@/app/[locale]/(public)/documents/_components/Navigation/Navigation";
 import Content from "@/app/[locale]/(public)/documents/_components/Content/Content";
-import {
-  termsNavigationEN,
-  termsNavigationUA,
-} from "@/data/documents/terms-and-conditions/termsNavigation";
+import Navigation from "@/app/[locale]/(public)/documents/_components/Navigation/Navigation";
+import FaqSection from "@/components/Faq/FaqSection/FaqSection";
+import { Section } from "@/components/ui/Section/Section";
 import {
   generalInformationEN,
   generalInformationUA,
   pointsEN,
   pointsUA,
 } from "@/data/documents/terms-and-conditions/termsContent";
+import {
+  termsNavigationEN,
+  termsNavigationUA,
+} from "@/data/documents/terms-and-conditions/termsNavigation";
 import { useTranslations } from "next-intl";
+import cs from "../../../../commonStyles.module.scss";
+import s from "../documents.module.css";
 
 export default function Terms() {
   const t = useTranslations("Legal.Terms");

@@ -1,11 +1,11 @@
 "use client";
-import s from "./FaqSection.module.scss";
-import { ColumnContainer } from "@/components/ui/Containers/Containers";
-import { faqDataEN, faqDataUK } from "@/data/components/faqData";
-import { Section } from "@/components/ui/Section/Section";
-import { useLocale } from "use-intl";
-import { Button } from "@/components/ui/Button/Button";
 import { FaqBlock } from "@/components/Faq/FaqBlock/FaqBlock";
+import { Button } from "@/components/ui/Button/Button";
+import { ColumnContainer } from "@/components/ui/Containers/Containers";
+import { Section } from "@/components/ui/Section/Section";
+import { faqDataEN, faqDataUK } from "@/data/components/faqData";
+import { useLocale } from "use-intl";
+import s from "./FaqSection.module.scss";
 
 export default function FaqSection() {
   const currentLocale = useLocale();

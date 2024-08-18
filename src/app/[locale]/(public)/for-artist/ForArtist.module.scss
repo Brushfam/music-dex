@@ -10,13 +10,15 @@
   padding: 120px 0 60px 0;
 }
 
-.mainTextEN1, .mainTextUK1 {
+.mainTextEN1,
+.mainTextUK1 {
   @media (max-width: 1300px) {
     display: none;
   }
 }
 
-.mainTextEN2, .mainTextUK2 {
+.mainTextEN2,
+.mainTextUK2 {
   display: none;
 
   @media (max-width: 1299px) {
@@ -28,7 +30,8 @@
   }
 }
 
-.mainTextEN3, .mainTextUK3 {
+.mainTextEN3,
+.mainTextUK3 {
   @media (min-width: 800px) {
     display: none;
   }

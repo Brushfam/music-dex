@@ -1,10 +1,10 @@
 "use client";
-import s from "./ReachOut.module.scss";
-import React, { useEffect } from "react";
 import { Button } from "@/components/ui/Button/Button";
 import { useForm } from "@formspree/react";
 import { useTranslations } from "next-intl";
+import { useEffect } from "react";
 import { toast } from "sonner";
+import s from "./ReachOut.module.scss";
 
 export function ReachOutForm() {
   const t = useTranslations("ForArtist.Form");

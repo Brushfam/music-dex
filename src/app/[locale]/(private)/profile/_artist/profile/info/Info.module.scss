@@ -1,11 +1,11 @@
-@import '../../../../../../../constants/constants';
+@import "../../../../../../../constants/constants";
 
 .inputRow {
   display: flex;
   flex-direction: row;
   margin-bottom: 16px;
   gap: 32px;
-  
+
   @media (max-width: 980px) {
     flex-direction: column;
     gap: 16px;
@@ -69,7 +69,7 @@
 .formInput:-webkit-autofill,
 .formInput:-webkit-autofill:hover,
 .formInput:-webkit-autofill:focus,
-.formInput:-webkit-autofill:active{
+.formInput:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px darkgrey inset !important;
 }
 

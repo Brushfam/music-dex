@@ -1,7 +1,6 @@
-import s from "./TeamList.module.scss";
-import React from "react";
 import { teamListData } from "@/data/homepage/teamListData";
 import Image from "next/image";
+import s from "./TeamList.module.scss";
 
 export function TeamList() {
   function Card(props: { path: string; name: string; role: string }) {
@@ -9,7 +8,7 @@ export function TeamList() {
       <div className={s.cardWrapper}>
         <div className={s.teamCard}>
           <div className={s.teamCard_img}>
-            <Image src={props.path} alt={props.name} fill={true}/>
+            <Image src={props.path} alt={props.name} fill={true} />
           </div>
           <p className={s.teamCard_name}>{props.name}</p>
           <p className={s.teamCard_role}>{props.role}</p>

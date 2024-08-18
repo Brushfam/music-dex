@@ -1,15 +1,15 @@
 "use client";
 
-import s from "../../Auth.module.scss";
-import { useTranslations } from "next-intl";
-import React, { ChangeEvent, useState } from "react";
-import { useUserStore } from "@/store/user";
-import { countries } from "@/data/countries";
 import { Button } from "@/components/ui/Button/Button";
+import { countries } from "@/data/countries";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { toast } from "sonner";
+import { setFirstLogin, updateUserInfo } from "@/services/users/users";
+import { useUserStore } from "@/store/user";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import {setFirstLogin, updateUserInfo} from "@/services/users/users";
+import { ChangeEvent, useState } from "react";
+import { toast } from "sonner";
+import s from "../../Auth.module.scss";
 
 export default function ProfileFormInvestor(props: { currentLocale: string }) {
   const t = useTranslations("Auth.ProfileForm");
@@ -27,7 +27,7 @@ export default function ProfileFormInvestor(props: { currentLocale: string }) {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData({

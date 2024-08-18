@@ -28,7 +28,11 @@
 
 .pagesRow:hover {
   .hoverBlock {
-    background: linear-gradient(90.00deg, rgb(246, 96, 31) -26%,rgba(17, 17, 17, 0) 91%);
+    background: linear-gradient(
+      90deg,
+      rgb(246, 96, 31) -26%,
+      rgba(17, 17, 17, 0) 91%
+    );
   }
 }
 

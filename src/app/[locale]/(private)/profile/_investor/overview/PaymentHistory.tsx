@@ -1,6 +1,6 @@
-import s from "./Overview.module.scss";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import s from "./Overview.module.scss";
 
 export function PaymentHistory() {
   const t = useTranslations("ProfileInvestor.Overview");

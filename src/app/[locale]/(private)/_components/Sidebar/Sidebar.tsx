@@ -1,11 +1,11 @@
 "use client";
 
-import s from "./Sidebar.module.scss";
+import { PageList } from "@/app/[locale]/(private)/_components/PageList/PagesList";
+import { ProfilePages } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
-import { ProfilePages } from "@/types/types";
-import React, { Dispatch, SetStateAction } from "react";
-import { PageList } from "@/app/[locale]/(private)/_components/PageList/PagesList";
+import { Dispatch, SetStateAction } from "react";
+import s from "./Sidebar.module.scss";
 
 export function Sidebar(props: {
   currentPage: ProfilePages;

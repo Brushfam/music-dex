@@ -1,10 +1,10 @@
 "use client";
 
 import s from "@/app/[locale]/(public)/tracks/_components/Overview/Overview.module.scss";
-import React, { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { getSongAvailableTokens } from "@/services/songs";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 export function DetailsBlock(props: {
   songId: number;
@@ -14,7 +14,7 @@ export function DetailsBlock(props: {
   const t = useTranslations("Tracks.Overview");
   const [totalAmount, setTotalAmount] = useState<number | undefined>(undefined);
   const [totalPurchased, setTotalPurchased] = useState<number | undefined>(
-    undefined,
+    undefined
   );
 
   useEffect(() => {

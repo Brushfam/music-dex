@@ -1,25 +1,25 @@
 "use client";
 
-import s from "./Wallets.module.scss";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { addUserWallet } from "@/services/users/investors/wallets";
+import { Wallet } from "@/types/types";
 import {
   Connector,
   useAccount,
   useConnect,
   useDisconnect,
 } from "@starknet-react/core";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import Image from "next/image";
-import { addUserWallet } from "@/services/users/investors/wallets";
-import { toast } from "sonner";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { useRouter } from "next/navigation";
-import { Wallet } from "@/types/types";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { toast } from "sonner";
+import s from "./Wallets.module.scss";
 
 export function ConnectWallet(props: {
   connectedWallets: Wallet[];
   setConnectedWallets: Dispatch<SetStateAction<Wallet[]>>;
-  setPrimaryWallet: Dispatch<SetStateAction<string>>
+  setPrimaryWallet: Dispatch<SetStateAction<string>>;
 }) {
   const t = useTranslations("ProfileInvestor.Profile");
   const router = useRouter();
@@ -54,7 +54,7 @@ export function ConnectWallet(props: {
               let newArray = [...props.connectedWallets];
               newArray.unshift({ name: walletName, address: address });
               props.setConnectedWallets(newArray);
-              props.setPrimaryWallet(walletName)
+              props.setPrimaryWallet(walletName);
               toast.success(t("Toast.wallet_connected"));
             })
             .catch((error) => {
@@ -84,10 +84,10 @@ export function ConnectWallet(props: {
   function connectWalletIfNew(name: string, connector: Connector) {
     props.connectedWallets.map((w) => {
       if (w.name === name) {
-        toast.info(t("Toast.address_already_exist"))
+        toast.info(t("Toast.address_already_exist"));
         return;
       }
-    })
+    });
     setWalletName(name);
     connect({ connector });
   }
@@ -109,7 +109,7 @@ export function ConnectWallet(props: {
             <div
               key={index.toString()}
               onClick={() => {
-                connectWalletIfNew(name, connector)
+                connectWalletIfNew(name, connector);
               }}
               className={s.baseWalletRow}
             >

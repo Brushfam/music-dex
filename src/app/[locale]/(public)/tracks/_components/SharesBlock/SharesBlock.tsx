@@ -1,16 +1,16 @@
 "use client";
 
-import s from "./SharesBlock.module.scss";
-import React, { useEffect, useState } from "react";
-import Slider from "@mui/material/Slider";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Spinner } from "@/components/Spinner/Spinner";
 import { ByCrypto } from "@/app/[locale]/(public)/tracks/_components/PaymentMethods/ByCrypto";
-import { useTranslations } from "next-intl";
+import { Spinner } from "@/components/Spinner/Spinner";
 import { computeTokenMinAmount, roundToTwo } from "@/services/helpers";
-import { Tooltip } from "@mui/material";
-import { useUserStore } from "@/store/user";
 import { getSongAvailableTokens } from "@/services/songs";
+import { useUserStore } from "@/store/user";
+import { Tooltip } from "@mui/material";
+import Slider from "@mui/material/Slider";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import s from "./SharesBlock.module.scss";
 
 const theme = createTheme({
   palette: {
@@ -74,7 +74,7 @@ export function SharesBlock(props: {
   const handleSliderChange = (
     _event: Event,
     value: number | number[],
-    _activeThumb: number,
+    _activeThumb: number
   ) => {
     if (Array.isArray(value) || value > getMaxPrice()) {
       return;

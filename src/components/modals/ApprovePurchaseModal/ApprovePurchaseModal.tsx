@@ -1,10 +1,9 @@
 "use client";
 
-import s from "../Modals.module.scss";
-import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button/Button";
-import React from "react";
 import { useUserStore } from "@/store/user";
+import { useTranslations } from "next-intl";
+import s from "../Modals.module.scss";
 
 export function ApprovePurchaseModal() {
   const t = useTranslations("SharesBlock.ApprovePurchaseModal");

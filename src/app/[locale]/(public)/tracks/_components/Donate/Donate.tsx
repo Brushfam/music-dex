@@ -1,6 +1,6 @@
-import s from "./Donate.module.scss";
-import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button/Button";
+import { useTranslations } from "next-intl";
+import s from "./Donate.module.scss";
 
 export function Donate(props: { donateLink: string }) {
   const t = useTranslations("SharesBlock");

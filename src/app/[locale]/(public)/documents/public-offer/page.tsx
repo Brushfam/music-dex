@@ -1,21 +1,21 @@
-import s from "../documents.module.css";
-import cs from "../../../../commonStyles.module.scss";
-import { Section } from "@/components/ui/Section/Section";
 import { Contacts } from "@/app/[locale]/(public)/documents/_components/Contacts/Contacts";
-import FaqSection from "@/components/Faq/FaqSection/FaqSection";
-import Navigation from "@/app/[locale]/(public)/documents/_components/Navigation/Navigation";
 import Content from "@/app/[locale]/(public)/documents/_components/Content/Content";
-import {
-  publicOfferNavigationEN,
-  publicOfferNavigationUA,
-} from "@/data/documents/public-offer/publicOfferNavigation";
+import Navigation from "@/app/[locale]/(public)/documents/_components/Navigation/Navigation";
+import FaqSection from "@/components/Faq/FaqSection/FaqSection";
+import { Section } from "@/components/ui/Section/Section";
 import {
   introductionEN,
   introductionUA,
   pointsEN,
   pointsUA,
 } from "@/data/documents/public-offer/publicOfferContent";
+import {
+  publicOfferNavigationEN,
+  publicOfferNavigationUA,
+} from "@/data/documents/public-offer/publicOfferNavigation";
 import { useTranslations } from "next-intl";
+import cs from "../../../../commonStyles.module.scss";
+import s from "../documents.module.css";
 
 export default function PublicOffer() {
   const t = useTranslations("Legal.PublicOffer");

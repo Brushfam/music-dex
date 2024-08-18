@@ -1,8 +1,8 @@
 "use client";
 
-import s from "./ProfileTabs.module.scss";
 import { useTranslations } from "next-intl";
 import { Dispatch, SetStateAction } from "react";
+import s from "./ProfileTabs.module.scss";
 
 export function ProfileTabs(props: {
   currentTab: string;

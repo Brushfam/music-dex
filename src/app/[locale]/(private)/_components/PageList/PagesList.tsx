@@ -1,14 +1,14 @@
-import { ProfilePages } from "@/types/types";
-import * as React from "react";
-import s from "./PagesList.module.scss";
-import { OverviewIcon } from "@/app/[locale]/(private)/_components/Icons/OverviewIcon";
-import { SongsIcon } from "@/app/[locale]/(private)/_components/Icons/SongsIcon";
-import { RoyaltiesIcon } from "@/app/[locale]/(private)/_components/Icons/RoyaltiesIcon";
 import { ActivitiesIcon } from "@/app/[locale]/(private)/_components/Icons/ActivitiesIcon";
 import { NftIcon } from "@/app/[locale]/(private)/_components/Icons/NftIcon";
+import { OverviewIcon } from "@/app/[locale]/(private)/_components/Icons/OverviewIcon";
 import { ProfileIcon } from "@/app/[locale]/(private)/_components/Icons/ProfileIcon";
-import { Dispatch, SetStateAction } from "react";
+import { RoyaltiesIcon } from "@/app/[locale]/(private)/_components/Icons/RoyaltiesIcon";
+import { SongsIcon } from "@/app/[locale]/(private)/_components/Icons/SongsIcon";
+import { ProfilePages } from "@/types/types";
 import { useTranslations } from "next-intl";
+import * as React from "react";
+import { Dispatch, SetStateAction } from "react";
+import s from "./PagesList.module.scss";
 
 export function PageList(props: {
   role: string;

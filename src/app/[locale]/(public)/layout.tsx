@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../../globals.scss";
-import { NextIntlClientProvider, useMessages } from "next-intl";
-import { Header } from "@/components/Header/Header";
-import { Toaster } from "sonner";
-import { StarknetProvider } from "@/providers/StarknetProvider";
-import Script from "next/script";
 import { FooterController } from "@/components/Footer/FooterController";
+import { Header } from "@/components/Header/Header";
+import { StarknetProvider } from "@/providers/StarknetProvider";
+import type { Metadata } from "next";
+import { NextIntlClientProvider, useMessages } from "next-intl";
+import { Inter } from "next/font/google";
+import Script from "next/script";
+import { Toaster } from "sonner";
+import "../../globals.scss";
 
 const inter = Inter({
   subsets: ["latin"],

@@ -1,6 +1,6 @@
-import s from "./Overview.module.scss";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import {useTranslations} from "next-intl";
+import s from "./Overview.module.scss";
 
 export function OverviewRow(props: {
   totalInvestedAmount: number;

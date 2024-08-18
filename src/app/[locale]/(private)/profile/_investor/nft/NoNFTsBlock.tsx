@@ -1,6 +1,6 @@
-import Image from "next/image";
 import s from "@/app/[locale]/(private)/profile/_investor/nft/NFTs.module.scss";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export function NoNFTsBlock() {
   const t = useTranslations("ProfileInvestor.NFTs");

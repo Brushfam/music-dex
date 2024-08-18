@@ -1,22 +1,22 @@
 "use client";
 
-import cs from "../../../../../commonStyles.module.scss";
-import s from "./PageTemplate.module.scss";
-import { Labels } from "@/components/Labels/Labels";
-import { TrackDetails } from "@/components/TrackDetails/TrackDetails";
-import { SharesBlock } from "@/app/[locale]/(public)/tracks/_components/SharesBlock/SharesBlock";
-import FaqSection from "@/components/Faq/FaqSection/FaqSection";
-import React, { useState } from "react";
-import { streamingServices, trackDataType } from "@/types/types";
-import { useTranslations } from "next-intl";
-import { useLocale } from "use-intl";
-import { ApprovePurchaseModal } from "@/components/modals/ApprovePurchaseModal/ApprovePurchaseModal";
+import { AboutArtist } from "@/app/[locale]/(public)/tracks/_components/AboutArtist/AboutArtist";
+import { Donate } from "@/app/[locale]/(public)/tracks/_components/Donate/Donate";
 import { Overview } from "@/app/[locale]/(public)/tracks/_components/Overview/Overview";
 import { Royalties } from "@/app/[locale]/(public)/tracks/_components/Royalties/Royalties";
+import { SharesBlock } from "@/app/[locale]/(public)/tracks/_components/SharesBlock/SharesBlock";
 import { Statistics } from "@/app/[locale]/(public)/tracks/_components/Statistics/Statistics";
-import { AboutArtist } from "@/app/[locale]/(public)/tracks/_components/AboutArtist/AboutArtist";
+import FaqSection from "@/components/Faq/FaqSection/FaqSection";
+import { Labels } from "@/components/Labels/Labels";
+import { TrackDetails } from "@/components/TrackDetails/TrackDetails";
+import { ApprovePurchaseModal } from "@/components/modals/ApprovePurchaseModal/ApprovePurchaseModal";
 import { NoWalletsModal } from "@/components/modals/NoWalletsModal/NoWalletsModal";
-import { Donate } from "@/app/[locale]/(public)/tracks/_components/Donate/Donate";
+import { streamingServices, trackDataType } from "@/types/types";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { useLocale } from "use-intl";
+import cs from "../../../../../commonStyles.module.scss";
+import s from "./PageTemplate.module.scss";
 
 type PageTemplateProps = {
   artist: string;

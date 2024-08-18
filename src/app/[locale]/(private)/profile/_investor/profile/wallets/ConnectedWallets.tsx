@@ -1,8 +1,8 @@
-import s from "./Wallets.module.scss";
-import { Wallet } from "@/types/types";
 import { formatBlockchainAddress } from "@/services/helpers";
+import { Wallet } from "@/types/types";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import {useTranslations} from "next-intl";
+import s from "./Wallets.module.scss";
 
 export function ConnectedWallets(props: {
   wallets: Wallet[];
@@ -32,7 +32,7 @@ export function ConnectedWallets(props: {
 
   function isPrimary(wallet: Wallet): boolean {
     if (props.primaryWallet === wallet.name) {
-      return true
+      return true;
     }
     return wallet.address === props.primaryWallet;
   }

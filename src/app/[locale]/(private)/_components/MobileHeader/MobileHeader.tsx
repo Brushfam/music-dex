@@ -1,15 +1,14 @@
 "use client";
 
-import s from "./MobileHeader.module.scss";
-import { useUserStore } from "@/store/user";
-import React, { useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useLocale } from "use-intl";
-import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import cs from "@/app/commonStyles.module.scss";
-import SideMenu from "@/app/[locale]/(private)/_components/MobileHeader/SideMenu";
+import { useUserStore } from "@/store/user";
+import { createSharedPathnamesNavigation } from "next-intl/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React, { useEffect } from "react";
+import { useLocale } from "use-intl";
+import s from "./MobileHeader.module.scss";
 
 function LangSwitcher() {
   const pathname = usePathname();
@@ -30,7 +29,7 @@ function LangSwitcher() {
   );
 }
 
-export function MobileHeader(props: {children: React.ReactNode}) {
+export function MobileHeader(props: { children: React.ReactNode }) {
   const currentUser = useUserStore((state) => state.currentUserEmail);
 
   useEffect(() => {}, [currentUser]);

@@ -1,6 +1,6 @@
-import s from "./Overview.module.scss";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import s from "./Overview.module.scss";
 
 export function RoyaltiesHistory() {
   const t = useTranslations("ProfileArtist.Overview");
@@ -24,7 +24,7 @@ export function RoyaltiesHistory() {
           height={48}
         />
         <p className={s.royaltiesHistory_text1}>
-            {t("empty_royalties_history")}
+          {t("empty_royalties_history")}
         </p>
       </div>
     </div>

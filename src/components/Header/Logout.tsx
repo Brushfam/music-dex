@@ -2,26 +2,28 @@
 
 import cs from "@/app/commonStyles.module.scss";
 import s from "@/components/Header/Header.module.scss";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { useUserStore } from "@/store/user";
+import { signOut } from "@firebase/auth";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useUserStore } from "@/store/user";
-import {firebaseAuth} from "@/services/auth/firebaseConfig";
-import {signOut} from "@firebase/auth";
-import {toast} from "sonner";
+import { toast } from "sonner";
 
 export function LogoutButton() {
   const t = useTranslations("Header");
   const setCurrentUserEmail = useUserStore(
-    (state) => state.setCurrentUserEmail,
+    (state) => state.setCurrentUserEmail
   );
 
   function handleOnClick() {
-    signOut(firebaseAuth).then(() => {
-      setCurrentUserEmail("");
-    }).catch((error) => {
-      console.log(error)
-      toast.error(t("error_logout"))
-    });
+    signOut(firebaseAuth)
+      .then(() => {
+        setCurrentUserEmail("");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(t("error_logout"));
+      });
   }
 
   return (

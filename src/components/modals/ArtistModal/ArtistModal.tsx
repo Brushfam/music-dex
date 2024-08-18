@@ -1,12 +1,12 @@
 "use client";
 
+import { FormStep } from "@/components/modals/ArtistModal/FormStep";
+import { Button } from "@/components/ui/Button/Button";
+import { useArtistFormStore } from "@/store/artistForm";
+import { useTranslations } from "next-intl";
+import { useEffect } from "react";
 import ms from "../Modals.module.scss";
 import s from "./ArtistModal.module.scss";
-import { Button } from "@/components/ui/Button/Button";
-import React, { useEffect } from "react";
-import { FormStep } from "@/components/modals/ArtistModal/FormStep";
-import { useTranslations } from "next-intl";
-import { useArtistFormStore } from "@/store/artistForm";
 
 export function ArtistModal() {
   const currentStep = useArtistFormStore((state) => state.artistFormStep);

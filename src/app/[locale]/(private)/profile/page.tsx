@@ -1,17 +1,17 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { ProfilePages } from "@/types/types";
-import s from "./Profile.module.scss";
-import { Sidebar } from "@/app/[locale]/(private)/_components/Sidebar/Sidebar";
-import { getUserRole } from "@/services/users/users";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { useRouter } from "next/navigation";
-import { CurrentInvestorPage } from "@/app/[locale]/(private)/profile/CurrentInvestorPage";
-import { CurrentArtistPage } from "@/app/[locale]/(private)/profile/CurrentArtistPage";
 import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 import { MobileHeader } from "@/app/[locale]/(private)/_components/MobileHeader/MobileHeader";
 import SideMenu from "@/app/[locale]/(private)/_components/MobileHeader/SideMenu";
+import { Sidebar } from "@/app/[locale]/(private)/_components/Sidebar/Sidebar";
+import { CurrentArtistPage } from "@/app/[locale]/(private)/profile/CurrentArtistPage";
+import { CurrentInvestorPage } from "@/app/[locale]/(private)/profile/CurrentInvestorPage";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { getUserRole } from "@/services/users/users";
+import { ProfilePages } from "@/types/types";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import s from "./Profile.module.scss";
 
 export default function Profile() {
   const [currentPage, setCurrentPage] = useState(ProfilePages.Overview);

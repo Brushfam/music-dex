@@ -1,6 +1,10 @@
 "use client";
 
 import {
+  investorStatisticsDataEN,
+  investorStatisticsDataUK,
+} from "@/data/profile/sampleData";
+import {
   Area,
   AreaChart,
   CartesianGrid,
@@ -11,11 +15,13 @@ import {
 } from "recharts";
 import { ValueType } from "recharts/types/component/DefaultTooltipContent";
 import { useLocale } from "use-intl";
-import {investorStatisticsDataEN, investorStatisticsDataUK} from "@/data/profile/sampleData";
 
 export function SampleStatisticsChart() {
   const currentLocale = useLocale();
-  const data = currentLocale === "en" ? investorStatisticsDataEN : investorStatisticsDataUK
+  const data =
+    currentLocale === "en"
+      ? investorStatisticsDataEN
+      : investorStatisticsDataUK;
 
   return (
     <ResponsiveContainer height={200}>

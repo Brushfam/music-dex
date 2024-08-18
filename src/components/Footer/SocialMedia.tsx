@@ -1,6 +1,6 @@
-import s from "./Footer.module.scss";
 import { socialMediaData } from "@/data/components/socialMediaData";
 import { useTranslations } from "next-intl";
+import s from "./Footer.module.scss";
 
 export function SocialMedia() {
   const t = useTranslations("Footer");

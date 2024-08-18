@@ -1,14 +1,14 @@
 "use client";
 
 import { PageWrapper } from "@/app/[locale]/(private)/profile/PageWrapper";
-import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import {getInvestorActivities} from "@/services/users/investors/investors";
 import s from "@/app/[locale]/(private)/profile/_investor/activities/Activities.module.scss";
 import { ActivitiesHeader } from "@/app/[locale]/(private)/profile/_investor/activities/ActivitiesHeader";
 import { ActivitiesRow } from "@/app/[locale]/(private)/profile/_investor/activities/ActivitiesRow";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { getInvestorActivities } from "@/services/users/investors/investors";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface ActivitiesData {
   date: string;
@@ -17,7 +17,7 @@ interface ActivitiesData {
   amount: number | string;
   currency: string;
   status: string;
-  link: string
+  link: string;
 }
 
 export default function Activities() {
@@ -51,7 +51,7 @@ export default function Activities() {
                 ? "-"
                 : computeInvestedAmount(
                     tokenAmount,
-                    Number(data[i].token_price),
+                    Number(data[i].token_price)
                   );
               const tokens = isDeclined ? "-" : tokenAmount;
               actList.push({
@@ -61,7 +61,7 @@ export default function Activities() {
                 tokens: tokens,
                 currency: data[i].currency,
                 status: data[i].payment_status,
-                link: data[i].order_url
+                link: data[i].order_url,
               });
             }
             setActivitiesList(actList);

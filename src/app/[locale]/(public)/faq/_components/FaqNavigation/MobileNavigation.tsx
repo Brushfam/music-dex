@@ -1,8 +1,8 @@
 "use client";
-import s from "./FaqNavigation.module.scss";
 import { faqNavigationType } from "@/types/types";
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
+import s from "./FaqNavigation.module.scss";
 
 export function MobileNavigation(props: {
   faqNavigation: faqNavigationType;
@@ -19,13 +19,13 @@ export function MobileNavigation(props: {
         }}
       >
         <p>{props.tabText}</p>
-          <Image
-              src={"/icons/faq/arrow.svg"}
-              alt={"arrow"}
-              width={6}
-              height={10}
-              style={open ? { rotate: "180deg" } : {}}
-          />
+        <Image
+          src={"/icons/faq/arrow.svg"}
+          alt={"arrow"}
+          width={6}
+          height={10}
+          style={open ? { rotate: "180deg" } : {}}
+        />
       </div>
     );
   }

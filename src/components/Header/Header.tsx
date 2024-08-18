@@ -1,18 +1,18 @@
 "use client";
 
-import s from "./Header.module.scss";
-import cs from "../../app/commonStyles.module.scss";
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { Login } from "@/components/Header/Login";
-import { useLocale } from "use-intl";
-import { createSharedPathnamesNavigation } from "next-intl/navigation";
-import { useUserStore } from "@/store/user";
 import { LogoutButton } from "@/components/Header/Logout";
-import { useTranslations } from "next-intl";
-import React, { useEffect } from "react";
 import SideMenu from "@/components/MobileHeader/SideMenu";
+import { useUserStore } from "@/store/user";
+import { useTranslations } from "next-intl";
+import { createSharedPathnamesNavigation } from "next-intl/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+import { useLocale } from "use-intl";
+import cs from "../../app/commonStyles.module.scss";
+import s from "./Header.module.scss";
 
 function ProfileButton() {
   const currentLocale = useLocale();

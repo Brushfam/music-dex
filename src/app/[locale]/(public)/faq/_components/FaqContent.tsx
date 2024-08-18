@@ -1,12 +1,12 @@
 "use client";
 
-import s from "@/app/[locale]/(public)/faq/page.module.scss";
 import { DesktopNavigation } from "@/app/[locale]/(public)/faq/_components/FaqNavigation/DesktopNavigation";
 import { MobileNavigation } from "@/app/[locale]/(public)/faq/_components/FaqNavigation/MobileNavigation";
 import { QuestionsColumn } from "@/app/[locale]/(public)/faq/_components/QuestionsColumn";
-import { useLocale } from "use-intl";
+import s from "@/app/[locale]/(public)/faq/page.module.scss";
 import { faqContentEN, faqContentUA } from "@/data/faq/faqContent";
 import { faqNavigationEN, faqNavigationUA } from "@/data/faq/faqNavigation";
+import { useLocale } from "use-intl";
 
 export function FaqContent() {
   const currentLocale = useLocale();

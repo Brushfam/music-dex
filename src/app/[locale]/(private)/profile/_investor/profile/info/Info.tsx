@@ -1,17 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 import { InfoForm } from "@/app/[locale]/(private)/profile/_investor/profile/info/InfoForm";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { useRouter } from "next/navigation";
+import { getUserInfo } from "@/services/users/users";
 import { InvestorInfo } from "@/types/types";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import {useTranslations} from "next-intl";
-import {getUserInfo} from "@/services/users/users";
 
 export function Info() {
-  const t = useTranslations("ProfileInvestor.Profile.Toast")
+  const t = useTranslations("ProfileInvestor.Profile.Toast");
   const router = useRouter();
   const [investorInfo, setInvestorInfo] = useState<null | InvestorInfo>(null);
   const [triggerFormRefresh, setTriggerFormRefresh] = useState(0);

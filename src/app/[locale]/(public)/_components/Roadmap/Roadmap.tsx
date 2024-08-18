@@ -1,8 +1,8 @@
 "use client";
-import s from "./Roadmap.module.scss";
 import { FlowList } from "@/app/[locale]/(public)/_components/FlowList/FlowList";
 import { roadmapDataEN, roadmapDataUA } from "@/data/homepage/roadmapData";
 import { useLocale } from "use-intl";
+import s from "./Roadmap.module.scss";
 
 export function Roadmap() {
   const locale = useLocale();

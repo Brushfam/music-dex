@@ -7,7 +7,7 @@ export function getSongAvailableTokens(songId: number) {
       params: {
         songId,
       },
-    },
+    }
   );
 }
 

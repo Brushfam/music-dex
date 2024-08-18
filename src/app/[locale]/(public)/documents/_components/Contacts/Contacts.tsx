@@ -1,7 +1,7 @@
 "use client";
-import s from "./Contacts.module.css";
 import { contactsDataEN, contactsDataUK } from "@/data/documents/contactsData";
 import { useLocale } from "use-intl";
+import s from "./Contacts.module.css";
 
 export function Contacts() {
   const currentLocale = useLocale();

@@ -1,7 +1,7 @@
-import s from "./Overview.module.scss";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { ArtistPurchaseHistory } from "@/types/types";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import s from "./Overview.module.scss";
 
 export function UserTransactions(props: { history: ArtistPurchaseHistory[] }) {
   const t = useTranslations("ProfileArtist.Overview");

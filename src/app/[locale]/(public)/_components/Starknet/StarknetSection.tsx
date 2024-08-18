@@ -1,6 +1,6 @@
-import s from "./Starknet.module.scss";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import s from "./Starknet.module.scss";
 
 export function StarknetSection() {
   const t = useTranslations("Home");

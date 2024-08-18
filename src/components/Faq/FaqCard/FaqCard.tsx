@@ -1,6 +1,6 @@
 "use client";
-import s from "./FaqCard.module.scss";
 import { useState } from "react";
+import s from "./FaqCard.module.scss";
 
 export function FaqCard(props: {
   question: string;

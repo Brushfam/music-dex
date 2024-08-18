@@ -1,28 +1,28 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import {
-  sendEmailVerification,
-  signInWithEmailAndPassword,
-  UserCredential,
-} from "firebase/auth";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { useTranslations } from "next-intl";
-import { toast } from "sonner";
 import s from "@/app/[locale]/(public)/auth/Auth.module.scss";
 import { EmailSent } from "@/app/[locale]/(public)/auth/EmailSent";
 import { EmailInput } from "@/app/[locale]/(public)/auth/_components/EmailInput";
 import { PasswordInput } from "@/app/[locale]/(public)/auth/_components/PasswordInput";
-import { Button } from "@/components/ui/Button/Button";
 import { ResetPassword } from "@/app/[locale]/(public)/auth/login/ResetPassword";
-import Link from "next/link";
-import { useLocale } from "use-intl";
-import { useRouter, useSearchParams } from "next/navigation";
-import { isVerified } from "@/services/auth/auth";
-import { LoginSteps, SignUpSteps } from "@/types/types";
-import { useUserStore } from "@/store/user";
-import { getUserLoginInfo } from "@/services/users/users";
 import { ProfileForm } from "@/app/[locale]/(public)/auth/login/_forms/ProfileForm";
+import { Button } from "@/components/ui/Button/Button";
+import { isVerified } from "@/services/auth/auth";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { getUserLoginInfo } from "@/services/users/users";
+import { useUserStore } from "@/store/user";
+import { LoginSteps } from "@/types/types";
+import {
+  UserCredential,
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { toast } from "sonner";
+import { useLocale } from "use-intl";
 
 function Login(props: {
   setStep: React.Dispatch<React.SetStateAction<LoginSteps>>;
@@ -34,7 +34,7 @@ function Login(props: {
   const searchParams = useSearchParams();
 
   const setCurrentUserEmail = useUserStore(
-    (state) => state.setCurrentUserEmail,
+    (state) => state.setCurrentUserEmail
   );
   const setCurrentUserName = useUserStore((state) => state.setCurrentUserName);
 

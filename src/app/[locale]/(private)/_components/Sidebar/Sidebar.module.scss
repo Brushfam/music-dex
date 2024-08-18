@@ -1,4 +1,4 @@
-@import '../../../../../constants/constants';
+@import "../../../../../constants/constants";
 
 .sidebar {
   display: flex;
@@ -33,7 +33,13 @@
   padding-bottom: 32px;
   width: 170px;
   border-bottom: 1px solid;
-  border-image: linear-gradient(90deg, rgba(35,35,32,1) 0%, rgba(175,175,175,0.6) 50%, rgba(35,35,35,1) 100%) 30;
+  border-image: linear-gradient(
+      90deg,
+      rgba(35, 35, 32, 1) 0%,
+      rgba(175, 175, 175, 0.6) 50%,
+      rgba(35, 35, 35, 1) 100%
+    )
+    30;
 }
 
 .logo {
@@ -72,7 +78,11 @@
 
 .pagesRow:hover {
   .hoverBlock {
-    background: linear-gradient(90.00deg, rgb(246, 96, 31) -25.902%,rgba(17, 17, 17, 0) 91.406%);
+    background: linear-gradient(
+      90deg,
+      rgb(246, 96, 31) -25.902%,
+      rgba(17, 17, 17, 0) 91.406%
+    );
   }
 }
 

@@ -1,6 +1,6 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import s from "./Blog.module.scss";
-import { useTranslations } from "next-intl";
 
 export default function Blog() {
   const t = useTranslations("Blog");
@@ -21,9 +21,7 @@ export default function Blog() {
             width={50}
             height={50}
           />
-          <p className={s.emptyBlog_description}>
-              {t("empty_blog")}
-          </p>
+          <p className={s.emptyBlog_description}>{t("empty_blog")}</p>
         </div>
       </div>
     </div>

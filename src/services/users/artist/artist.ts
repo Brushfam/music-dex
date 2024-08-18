@@ -1,5 +1,5 @@
-import axios from "axios";
 import { ArtistInfo } from "@/types/types";
+import axios from "axios";
 
 export function updateArtistInfo(jwt: string, info: ArtistInfo) {
   return axios.post(
@@ -10,6 +10,6 @@ export function updateArtistInfo(jwt: string, info: ArtistInfo) {
         "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer: " + jwt,
       },
-    },
+    }
   );
 }

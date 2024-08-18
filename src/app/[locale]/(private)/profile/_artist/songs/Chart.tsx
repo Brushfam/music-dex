@@ -1,5 +1,7 @@
 "use client";
 
+import { getMonthForArtistSongs } from "@/services/helpers";
+import { ArtistSongsStatistics } from "@/types/types";
 import {
   Area,
   AreaChart,
@@ -11,8 +13,6 @@ import {
 } from "recharts";
 import { ValueType } from "recharts/types/component/DefaultTooltipContent";
 import { useLocale } from "use-intl";
-import { ArtistSongsStatistics } from "@/types/types";
-import { getMonthForArtistSongs } from "@/services/helpers";
 
 export function SongSalesChart(props: { chartData: ArtistSongsStatistics[] }) {
   const currentLocale = useLocale();

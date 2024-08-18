@@ -1,8 +1,8 @@
-import { ProfilePages } from "@/types/types";
+import { FAQ } from "@/app/[locale]/(private)/profile/_artist/FAQ";
+import { Overview } from "@/app/[locale]/(private)/profile/_artist/Overview";
 import Profile from "@/app/[locale]/(private)/profile/_artist/Profile";
 import { Songs } from "@/app/[locale]/(private)/profile/_artist/Songs";
-import { Overview } from "@/app/[locale]/(private)/profile/_artist/Overview";
-import {FAQ} from "@/app/[locale]/(private)/profile/_artist/FAQ";
+import { ProfilePages } from "@/types/types";
 
 export function CurrentArtistPage(props: { currentPage: ProfilePages }) {
   switch (props.currentPage) {

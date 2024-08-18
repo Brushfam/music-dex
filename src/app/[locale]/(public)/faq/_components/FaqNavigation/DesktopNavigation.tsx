@@ -1,5 +1,5 @@
-import s from "./FaqNavigation.module.scss";
 import { faqNavigationType } from "@/types/types";
+import s from "./FaqNavigation.module.scss";
 
 export function DesktopNavigation(props: { faqNavigation: faqNavigationType }) {
   return (

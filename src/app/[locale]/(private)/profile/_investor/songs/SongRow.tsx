@@ -1,5 +1,5 @@
-import s from "./Songs.module.scss";
 import Image from "next/image";
+import s from "./Songs.module.scss";
 
 export function SongRow(props: {
   lastDate: string;

@@ -178,7 +178,9 @@ export const chytEN = {
     },
   ],
   description: "The song will be released on August 16! Pre-order available.",
-  about_artist: ["The song will be released on August 16! Pre-order available."],
+  about_artist: [
+    "The song will be released on August 16! Pre-order available.",
+  ],
 };
 
 export const chytUK = {
@@ -206,6 +208,9 @@ export const chytUK = {
       value: "5000",
     },
   ],
-  description: "Реліз пісні відбудеться вже 16 серпня! Доступне передзамовлення.",
-  about_artist: ["Реліз пісні відбудеться вже 16 серпня! Доступне передзамовлення."],
+  description:
+    "Реліз пісні відбудеться вже 16 серпня! Доступне передзамовлення.",
+  about_artist: [
+    "Реліз пісні відбудеться вже 16 серпня! Доступне передзамовлення.",
+  ],
 };

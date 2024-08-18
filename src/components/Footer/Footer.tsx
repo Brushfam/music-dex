@@ -1,9 +1,9 @@
-import s from "./Footer.module.scss";
-import Image from "next/image";
 import { SocialMedia } from "@/components/Footer/SocialMedia";
-import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import { useTranslations } from "next-intl";
+import { createSharedPathnamesNavigation } from "next-intl/navigation";
+import Image from "next/image";
 import Link from "next/link";
+import s from "./Footer.module.scss";
 
 export function Footer() {
   const { Link: LocalLink } = createSharedPathnamesNavigation({

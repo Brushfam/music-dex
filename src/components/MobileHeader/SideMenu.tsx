@@ -1,16 +1,16 @@
 "use client";
 
-import * as React from "react";
-import Drawer from "@mui/material/Drawer";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import s from "./MobileHeader.module.scss";
-import Link from "next/link";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useUserStore } from "@/store/user";
 import { signOut } from "@firebase/auth";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import Drawer from "@mui/material/Drawer";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import * as React from "react";
 import { toast } from "sonner";
 import { useLocale } from "use-intl";
+import s from "./MobileHeader.module.scss";
 
 export default function SideMenu(props: { currentUser: string }) {
   const currentLocale = useLocale();
@@ -56,7 +56,7 @@ export default function SideMenu(props: { currentUser: string }) {
 
   function LogoutButton() {
     const setCurrentUserEmail = useUserStore(
-      (state) => state.setCurrentUserEmail,
+      (state) => state.setCurrentUserEmail
     );
 
     function handleOnClick() {

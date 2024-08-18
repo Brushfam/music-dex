@@ -1,9 +1,9 @@
-import s from "./Terms.module.scss";
 import { ColumnContainer } from "@/components/ui/Containers/Containers";
+import { GreyBlock } from "@/components/ui/GreyBlock/GreyBlock";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
-import {useTranslations} from "next-intl";
-import {GreyBlock} from "@/components/ui/GreyBlock/GreyBlock";
+import s from "./Terms.module.scss";
 
 export function Terms() {
   const t = useTranslations("Home.Terms");

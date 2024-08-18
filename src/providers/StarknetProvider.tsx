@@ -7,8 +7,8 @@ import {
   publicProvider,
   starkscan,
 } from "@starknet-react/core";
-import { InjectedConnector } from "starknetkit/injected";
 import { ArgentMobileConnector } from "starknetkit/argentMobile";
+import { InjectedConnector } from "starknetkit/injected";
 
 export function StarknetProvider({ children }: { children: React.ReactNode }) {
   const connectors = [

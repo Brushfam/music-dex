@@ -187,8 +187,8 @@ export const pointsEN = [
             aforementioned sale period, the price of the token may be increased
             in accordance with the growing popularity of the associated music
             piece. Any adjustments to the token price during this period shall
-            be made transparently and in accordance with the Platform&#39;s pricing
-            policies.
+            be made transparently and in accordance with the Platform&#39;s
+            pricing policies.
           </p>
         ),
       },

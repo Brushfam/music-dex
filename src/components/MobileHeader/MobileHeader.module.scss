@@ -1,4 +1,4 @@
-@import './../../constants/constants.scss';
+@import "./../../constants/constants.scss";
 
 .header {
   position: fixed;
@@ -95,7 +95,13 @@
   cursor: pointer;
   width: 100%;
   border-bottom: 1px solid;
-  border-image: linear-gradient(90deg, rgb(17, 17, 17) 15%, rgba(175,175,175) 40%, rgb(17, 17, 17) 65%) 30;
+  border-image: linear-gradient(
+      90deg,
+      rgb(17, 17, 17) 15%,
+      rgba(175, 175, 175) 40%,
+      rgb(17, 17, 17) 65%
+    )
+    30;
 
   p {
     position: absolute;
@@ -111,7 +117,11 @@
 
 .pagesRow:hover {
   .hoverBlock {
-    background: linear-gradient(90.00deg, rgb(246, 96, 31) -25.902%,rgba(17, 17, 17, 0) 91.406%);
+    background: linear-gradient(
+      90deg,
+      rgb(246, 96, 31) -25.902%,
+      rgba(17, 17, 17, 0) 91.406%
+    );
   }
 
   p {

@@ -1,7 +1,7 @@
-import s from "./Overview.module.scss";
-import { Statistics } from "@/app/[locale]/(private)/profile/_investor/overview/Statistics";
 import { PaymentHistory } from "@/app/[locale]/(private)/profile/_investor/overview/PaymentHistory";
+import { Statistics } from "@/app/[locale]/(private)/profile/_investor/overview/Statistics";
 import { SuggestedSongs } from "@/app/[locale]/(private)/profile/_investor/overview/SuggestedSongs";
+import s from "./Overview.module.scss";
 
 export function SecondBlock() {
   return (

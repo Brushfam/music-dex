@@ -1,4 +1,4 @@
-@import '../../../../../constants/constants';
+@import "../../../../../constants/constants";
 
 .section {
   display: flex;
@@ -41,7 +41,7 @@
   gap: 60px;
 
   svg:hover path {
-    fill: $main-orange
+    fill: $main-orange;
   }
 }
 
@@ -50,11 +50,11 @@
 
   @media (max-width: 900px) {
     flex-direction: column;
-    gap: 44px
+    gap: 44px;
   }
 
   @media (max-width: 500px) {
-    gap: 32px
+    gap: 32px;
   }
 }
 
@@ -68,6 +68,6 @@
 
   @media (max-width: 500px) {
     flex-direction: column;
-    gap: 24px
+    gap: 24px;
   }
 }

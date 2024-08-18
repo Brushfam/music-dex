@@ -9,7 +9,7 @@ export function computeTokenMinAmount(tokenPrice: number) {
   const minAmount = 5.1;
   let tokenAmount = minAmount / tokenPrice;
 
-  return  Math.ceil(tokenAmount);
+  return Math.ceil(tokenAmount);
 }
 
 // FORMATTING
@@ -31,7 +31,7 @@ export function parseWalletListResponse(walletList: string[]) {
 // CHARTS
 export function getMonthForStreamStatistics(
   month: string,
-  currentLocale: string,
+  currentLocale: string
 ) {
   // return month name depends on {currentLocale}
   if (currentLocale === "en") {

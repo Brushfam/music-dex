@@ -1,9 +1,8 @@
-import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
 import { ProfileHeader } from "@/app/[locale]/(private)/_components/ProfileHeader/ProfileHeader";
-import React from "react";
-import { useTranslations } from "next-intl";
+import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
 import { Income } from "@/app/[locale]/(private)/profile/_investor/royalties/Income";
 import { SecondRoyaltiesBlock } from "@/app/[locale]/(private)/profile/_investor/royalties/SecondRoyaltiesBlock";
+import { useTranslations } from "next-intl";
 
 export function Royalties() {
   const t = useTranslations("ProfileInvestor.Royalties");

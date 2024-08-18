@@ -1,11 +1,10 @@
 "use client";
 
-import s from "../Modals.module.scss";
-import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button/Button";
-import React from "react";
 import { useUserStore } from "@/store/user";
+import { useTranslations } from "next-intl";
 import { useLocale } from "use-intl";
+import s from "../Modals.module.scss";
 
 export function NoWalletsModal() {
   const t = useTranslations("SharesBlock.NoWalletsModal");

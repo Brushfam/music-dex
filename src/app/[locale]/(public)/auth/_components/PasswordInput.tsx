@@ -1,6 +1,6 @@
-import React from "react";
 import s from "@/app/[locale]/(public)/auth/Auth.module.scss";
 import Image from "next/image";
+import React from "react";
 
 export function PasswordInput(props: {
   setPassword: React.Dispatch<React.SetStateAction<string>>;

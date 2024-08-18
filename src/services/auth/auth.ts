@@ -1,12 +1,12 @@
-import axios from "axios";
-import {
-    getAdditionalUserInfo,
-    GoogleAuthProvider,
-    signInWithRedirect,
-    UserCredential,
-} from "firebase/auth";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { addNewUser } from "@/services/users/users";
+import axios from "axios";
+import {
+  getAdditionalUserInfo,
+  GoogleAuthProvider,
+  signInWithRedirect,
+  UserCredential,
+} from "firebase/auth";
 
 export async function isVerified(email: string) {
   return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/is-verified", {
