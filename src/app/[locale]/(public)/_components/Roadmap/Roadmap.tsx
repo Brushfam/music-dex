@@ -9,7 +9,7 @@ export function Roadmap() {
   return (
     <div className={s.roadmap}>
       <img
-        src={locale === "uk" ? "/roadmap-uk.svg" : "/roadmap-en.svg"}
+        src={locale === "uk" ? "/roadmap/roadmap-uk.svg" : "/roadmap/roadmap-en.svg"}
         alt={"roadmap"}
       />
       <div className={s.mobileRoadmap}>

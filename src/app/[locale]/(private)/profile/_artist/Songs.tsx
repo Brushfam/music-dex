@@ -23,7 +23,6 @@ export function Songs() {
       if (user) {
         const token = await user.getIdToken();
         const response = await getUserSongs(token);
-        console.log(response.data.songData);
         setSongs(response.data.songData);
       } else {
         router.replace("/en/auth/login?expired-session=true");
