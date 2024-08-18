@@ -9,7 +9,7 @@ import { streamingServices } from "@/types/types";
 
 export function Overview(props: {
   videoId: string;
-  tokenAddress: string;
+  songId: number;
   services: streamingServices;
   price: number
   totalSupply: number
@@ -28,7 +28,7 @@ export function Overview(props: {
           <YouTube videoId={props.videoId} opts={opts} />
         </div>
         <div className={s.streamsBlock}>
-          <DetailsBlock tokenAddress={props.tokenAddress} price={props.price} totalSupply={props.totalSupply} />
+          <DetailsBlock songId={props.songId} price={props.price} totalSupply={props.totalSupply} />
           <ListenOnBlock services={props.services} text={t("listen_on")} />
         </div>
       </div>

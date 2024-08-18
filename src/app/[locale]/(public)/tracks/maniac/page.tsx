@@ -1,4 +1,4 @@
-import { maniacEN, maniacUK, trackAddresses } from "@/data/tracksData";
+import { maniacEN, maniacUK } from "@/data/tracksData";
 import { PageTemplate } from "@/app/[locale]/(public)/tracks/_components/PageTemplate/PageTemplate";
 import { streamingServices } from "@/types/types";
 
@@ -17,7 +17,6 @@ export default function ManiacTrack() {
     <PageTemplate
       artist={"FREAKY SIREN"}
       songName={"МАНІЯК"}
-      tokenAddress={trackAddresses.maniac}
       pathToCover={"/albums/maniac.jpg"}
       youtubeId={"Ply0cjDXRDs"}
       services={services}

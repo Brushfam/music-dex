@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/Button/Button";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
@@ -14,7 +14,6 @@ export function ByCrypto(props: {
   user: string;
   tokensToPay: number;
   tokensToBuy: number;
-  address: string;
   songId: number;
 }) {
   const t = useTranslations("SharesBlock.ByCrypto");

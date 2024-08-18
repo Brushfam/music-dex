@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useLocale } from "use-intl";
 import { StreamingChart } from "@/app/[locale]/(public)/tracks/_components/Statistics/StreamingChart";
 import { useEffect, useState } from "react";
-import { getSongsStreams } from "@/services/songs";
+import { getSongStreams } from "@/services/songs";
 import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 import {getMonthForStreamStatistics} from "@/services/helpers";
 
@@ -29,7 +29,7 @@ export function Statistics(props: { songId: number }) {
   );
 
   useEffect(() => {
-    getSongsStreams(props.songId, "Spotify")
+    getSongStreams(props.songId, "Spotify")
       .then((response) => {
         let list: ChartStreamsData[] = [];
         // get data for 6 months

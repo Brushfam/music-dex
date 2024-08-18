@@ -1,16 +1,16 @@
 "use client";
 
 import s from "./SharesBlock.module.scss";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "@mui/material/Slider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { ByCrypto } from "@/app/[locale]/(public)/tracks/_components/PaymentMethods/ByCrypto";
 import { useTranslations } from "next-intl";
-import {computeTokenMinAmount, roundToTwo} from "@/services/helpers";
+import { computeTokenMinAmount, roundToTwo } from "@/services/helpers";
 import { Tooltip } from "@mui/material";
-import { strkGetFreeBalance } from "@/services/blockchain/blockchain";
 import { useUserStore } from "@/store/user";
+import { getSongAvailableTokens } from "@/services/songs";
 
 const theme = createTheme({
   palette: {
@@ -22,7 +22,6 @@ const theme = createTheme({
 
 export function SharesBlock(props: {
   price: number;
-  tokenAddress: string;
   tokenName: string;
   songId: number;
 }) {
@@ -36,13 +35,13 @@ export function SharesBlock(props: {
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);
 
   useEffect(() => {
-    strkGetFreeBalance(props.tokenAddress).then((fullBalance) => {
-      const balanceWithoutDecimals = Number(fullBalance) / 10;
+    getSongAvailableTokens(props.songId).then((res) => {
+      const balanceWithoutDecimals = Number(res.data.amount) / 10;
       const balance =
         balanceWithoutDecimals > 1000 ? 1000 : balanceWithoutDecimals;
       setTotalAmount(balance);
     });
-  }, [props.tokenAddress]);
+  }, [props.songId]);
 
   function getMaxPrice() {
     if (!totalAmount) return 0;
@@ -127,7 +126,6 @@ export function SharesBlock(props: {
           tokensToPay={currentAmount}
           tokensToBuy={getTokenAmount()}
           songId={props.songId}
-          address={props.tokenAddress}
         />
         <Tooltip title={t("fiat_description")} enterTouchDelay={0}>
           <div className={s.disabledFiat}>

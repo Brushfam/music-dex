@@ -21,7 +21,6 @@ import { Donate } from "@/app/[locale]/(public)/tracks/_components/Donate/Donate
 type PageTemplateProps = {
   artist: string;
   songName: string;
-  tokenAddress: string;
   pathToCover: string;
   youtubeId: string;
   services: streamingServices;
@@ -131,7 +130,7 @@ export function PageTemplate(props: PageTemplateProps) {
       return (
         <Overview
           videoId={props.youtubeId}
-          tokenAddress={props.tokenAddress}
+          songId={props.songId}
           services={props.services}
           price={props.trackDataEN.price * 10}
           totalSupply={Number(props.trackDataEN.details[3].value)}
@@ -168,7 +167,6 @@ export function PageTemplate(props: PageTemplateProps) {
             <div className={s.buyAndDonateBlock}>
               <SharesBlock
                 price={trackData.price}
-                tokenAddress={props.tokenAddress}
                 songId={props.songId}
                 tokenName={props.songName}
               />
