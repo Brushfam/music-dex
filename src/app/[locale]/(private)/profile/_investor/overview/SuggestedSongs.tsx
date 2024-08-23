@@ -26,11 +26,11 @@ export function SuggestedSongs() {
           title={t("invest")}
           color={"main"}
           arrow={false}
-          path={"/catalog"}
+          path={"/songs"}
         />
       </div>
       <a
-        href={"/" + currentLocale + "/tracks/dealer"}
+        href={"/" + currentLocale + "/songs/dealer"}
         className={s.suggestedSongs_song}
       >
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>

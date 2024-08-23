@@ -76,7 +76,7 @@ export default function Home() {
               title={t("tracks_button")}
               color={"transparent"}
               arrow={true}
-              path={"/catalog"}
+              path={"/songs"}
             />
           </div>
           <TracksSectionAlbums />

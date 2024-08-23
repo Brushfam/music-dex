@@ -1,21 +1,3 @@
-export type trackDataType = {
-  name: string;
-  rights_holder: string;
-  price: number;
-  donateLink: string;
-  genre: string;
-  details: { type: string; value: string }[];
-  description: string;
-  about_artist: string[];
-};
-
-export type streamingServices = {
-  youtube: string;
-  youtubeMusic: string;
-  apple: string;
-  spotify: string;
-};
-
 export type faqNavigationType = {
   title: string;
 }[];

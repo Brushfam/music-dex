@@ -6,7 +6,7 @@ export function roundToTwo(n: number) {
 }
 
 export function computeTokenMinAmount(tokenPrice: number) {
-  const minAmount = 5.1;
+  const minAmount = 5.1; // $ min limit for whitepay provider
   let tokenAmount = minAmount / tokenPrice;
 
   return Math.ceil(tokenAmount);

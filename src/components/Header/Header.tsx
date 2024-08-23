@@ -67,7 +67,7 @@ export function Header() {
             <Image alt={"logo"} src={"/logos/MusicDex-logo.svg"} fill={true} />
           </Link>
           <div className={s.menu}>
-            <Link href={"/" + currentLocale + "/catalog"}>{t("catalog")}</Link>
+            <Link href={"/" + currentLocale + "/songs"}>{t("catalog")}</Link>
             <Link href={"/" + currentLocale + "/for-artist"}>
               {t("for_artist")}
             </Link>

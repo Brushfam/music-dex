@@ -31,7 +31,7 @@ export default function SideMenu(props: { currentUser: string }) {
       <div className={s.pagesList}>
         <PageRow
           title={t("catalog")}
-          link={"/" + currentLocale + "/catalog"}
+          link={"/" + currentLocale + "/songs"}
         ></PageRow>
         <PageRow
           title={t("for_artist")}

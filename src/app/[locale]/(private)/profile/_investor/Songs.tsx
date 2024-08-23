@@ -17,7 +17,7 @@ interface SongsData {
   name: string;
   tokens: number;
   invested: number;
-  link: string;
+  slug: string;
 }
 
 export default function Songs() {
@@ -50,7 +50,7 @@ export default function Songs() {
           title={t("invest")}
           color={"main"}
           arrow={false}
-          path={"/catalog"}
+          path={"/songs"}
         />
       </div>
     );
@@ -65,7 +65,7 @@ export default function Songs() {
             title={t("invest")}
             color={"main"}
             arrow={false}
-            path={"/catalog"}
+            path={"/songs"}
           />
         </div>
         <SongHeader />
@@ -77,7 +77,7 @@ export default function Songs() {
               song={song.name}
               tokens={song.tokens}
               invested={song.invested}
-              songLink={"/" + currentLocale + song.link}
+              songLink={"/" + currentLocale + "/songs/" + song.slug}
             />
           );
         })}
