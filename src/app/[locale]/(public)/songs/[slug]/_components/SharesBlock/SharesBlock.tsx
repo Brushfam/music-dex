@@ -127,6 +127,7 @@ export function SharesBlock(props: {
           tokensToPay={currentAmount}
           tokensToBuy={getTokenAmount()}
           songId={props.songId}
+          slug={props.slug}
         />
         <Tooltip title={t("fiat_description")} enterTouchDelay={0}>
           <div className={s.disabledFiat}>

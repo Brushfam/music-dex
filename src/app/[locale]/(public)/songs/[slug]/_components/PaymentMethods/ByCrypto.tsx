@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/Button/Button";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { handleInitCheckoutPixelEvent } from "@/services/pixel";
 import { createInvoice } from "@/services/users/investors/investors";
 import { ifUserHasWallets } from "@/services/users/investors/wallets";
 import { useUserStore } from "@/store/user";
@@ -14,6 +15,7 @@ export function ByCrypto(props: {
   tokensToPay: number;
   tokensToBuy: number;
   songId: number;
+  slug: string;
 }) {
   const t = useTranslations("SharesBlock.ByCrypto");
   const router = useRouter();
@@ -23,6 +25,10 @@ export function ByCrypto(props: {
   async function handlePurchase() {
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
+        handleInitCheckoutPixelEvent([props.slug], {
+          id: props.slug,
+          quantity: props.tokensToBuy,
+        });
         const token = await user.getIdToken(true);
         try {
           const response = await ifUserHasWallets(token);
