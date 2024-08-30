@@ -1,8 +1,8 @@
 import { BlogList } from "@/app/[locale]/(public)/blog/_components/BlogList";
+import { EmptyBlog } from "@/app/[locale]/(public)/blog/_components/EmptyBlog";
+import { getBlog } from "@/services/blog";
 import { useTranslations } from "next-intl";
 import s from "./Blog.module.scss";
-import { EmptyBlog } from '@/app/[locale]/(public)/blog/_components/EmptyBlog';
-import { getBlog } from '@/services/blog';
 
 function BlogTitle() {
   const t = useTranslations("Blog");
