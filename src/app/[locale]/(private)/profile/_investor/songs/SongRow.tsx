@@ -16,7 +16,7 @@ export function SongRow(props: {
       <p className={s.songRow_invested}>${props.invested}</p>
       <a href={props.songLink} style={{ position: "absolute", right: 32 }}>
         <Image
-          src={"/profile/icons/link-to-song.svg"}
+          src={"/icons/arrow-link.svg"}
           alt={"arrow"}
           width={10}
           height={10}

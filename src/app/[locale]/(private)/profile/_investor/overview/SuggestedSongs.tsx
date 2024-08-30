@@ -38,7 +38,7 @@ export function SuggestedSongs() {
           <p className={s.suggestedSongs_text2}>Tony Tonite</p>
         </div>
         <Image
-          src={"/profile/icons/link-to-song.svg"}
+          src={"/icons/arrow-link.svg"}
           alt={"arrow"}
           width={10}
           height={10}
