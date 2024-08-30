@@ -44,7 +44,7 @@ export function ActivitiesRow(props: {
         style={{ position: "absolute", right: 32 }}
       >
         <Image
-          src={"/profile/icons/link-to-song.svg"}
+          src={"/icons/arrow-link.svg"}
           alt={"arrow"}
           width={10}
           height={10}
