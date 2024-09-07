@@ -125,11 +125,6 @@
   }
 }
 
-.trackCover {
-  @extend .trackCover;
-  background-image: url("/albums/dealer.jpg");
-}
-
 .trackDescription {
   display: flex;
   flex-direction: column;
