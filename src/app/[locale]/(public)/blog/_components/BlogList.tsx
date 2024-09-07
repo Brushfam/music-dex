@@ -15,6 +15,23 @@ type BlogPostProps = {
 export function BlogList(props: { blog: BlogPostProps[] }) {
   const locale = useLocale();
 
+  function ArrowIcon() {
+    return(
+      <Image
+        src={"/icons/arrow-link.svg"}
+        alt={"arrow"}
+        width={12}
+        height={12}
+        style={{
+          transform: "rotate(45deg)",
+          position: "absolute",
+          right: 16,
+          bottom: 24,
+        }}
+      />
+    )
+  }
+
   return (
     <div className={s.blogList}>
       {props.blog.map((post, index) => {
@@ -30,18 +47,7 @@ export function BlogList(props: { blog: BlogPostProps[] }) {
             <div className={s.post_text}>
               <p className={s.post_date}>{post.blog_date}</p>
               <p className={s.post_title}>{title}</p>
-              <Image
-                src={"/icons/arrow-link.svg"}
-                alt={"arrow"}
-                width={12}
-                height={12}
-                style={{
-                  transform: "rotate(45deg)",
-                  position: "absolute",
-                  right: 16,
-                  bottom: 24,
-                }}
-              />
+              <ArrowIcon/>
             </div>
           </a>
         );

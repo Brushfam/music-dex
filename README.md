@@ -1,5 +1,1 @@
-## Getting Started
-
-```bash
-npm run dev
-```
+Music tokenization project

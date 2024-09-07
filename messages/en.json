@@ -135,6 +135,32 @@
     "we_accept": "We accept:"
   },
 
+  "ForArtist": {
+    "submit_song": "Submit my song",
+    "card1_title": "Submit your best song",
+    "card1_description": "Interested in joining MusicDex community and starting your exciting journey with us? Fill out the form and our team of experts will review it.",
+    "card2_title": "Get an offer",
+    "card2_description": "We will offer you a chance to start your growth with us by signing an agreement. Our team will guide you through the process, ensuring you have all the information you need to make the best career decision.",
+    "card3_title": "Start your journey with MusicDex",
+    "card3_description": "Unlock the power to passively fund your music career and cover Marketing and PR expenses. Build a unique bond with fans who want to support YOU and your musical activity.",
+    "form_title": "Interested in working with us?",
+    "form_description": "Reach out to us and we will send you a value proposition",
+    "Form": {
+      "topic": "Topic",
+      "topic_placeholder": "Write a topic for your inquiry",
+      "name": "Name",
+      "name_placeholder": "Enter your name",
+      "email": "Email",
+      "email_placeholder": "Enter your email",
+      "message": "Message",
+      "message_placeholder": "Type your message",
+      "send": "Send message",
+      "sending": "Sending...",
+      "sent": "Sent",
+      "submitted": "Your form was submitted!"
+    }
+  },
+
   "Gallery": {
     "title": "Gallery",
     "description": "Here, you'll find a collection of photographs from our latest events. Relive the moments and immerse yourself in the vibrant atmosphere captured in each snapshot!",
@@ -190,32 +216,6 @@
     "built_on": "Built on:",
     "starknet_description": "Validity-Rollup Layer 2 network that operates on top of Ethereum, enabling dApps to massively scale without compromising on security.",
     "partners": "Our Partners:"
-  },
-
-  "ForArtist": {
-    "submit_song": "Submit my song",
-    "card1_title": "Submit your best song",
-    "card1_description": "Interested in joining MusicDex community and starting your exciting journey with us? Fill out the form and our team of experts will review it.",
-    "card2_title": "Get an offer",
-    "card2_description": "We will offer you a chance to start your growth with us by signing an agreement. Our team will guide you through the process, ensuring you have all the information you need to make the best career decision.",
-    "card3_title": "Start your journey with MusicDex",
-    "card3_description": "Unlock the power to passively fund your music career and cover Marketing and PR expenses. Build a unique bond with fans who want to support YOU and your musical activity.",
-    "form_title": "Interested in working with us?",
-    "form_description": "Reach out to us and we will send you a value proposition",
-    "Form": {
-      "topic": "Topic",
-      "topic_placeholder": "Write a topic for your inquiry",
-      "name": "Name",
-      "name_placeholder": "Enter your name",
-      "email": "Email",
-      "email_placeholder": "Enter your email",
-      "message": "Message",
-      "message_placeholder": "Type your message",
-      "send": "Send message",
-      "sending": "Sending...",
-      "sent": "Sent",
-      "submitted": "Your form was submitted!"
-    }
   },
 
   "Legal": {

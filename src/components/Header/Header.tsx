@@ -60,7 +60,7 @@ export function Header() {
   useEffect(() => {}, [currentUser]);
 
   return (
-    <div className={s.header}>
+    <header className={s.header}>
       <div className={s.header_content}>
         <div className={s.menuWrapper}>
           <Link href={"/"} className={s.header_logo}>
@@ -97,6 +97,6 @@ export function Header() {
           </div>
         )}
       </div>
-    </div>
+    </header>
   );
 }
