@@ -92,11 +92,13 @@ export default function ProfileFormInvestor(props: { currentLocale: string }) {
           <option value="rock">Rock</option>
           <option value="hiphop">Hip Hop</option>
           <option value="electronic">Electronic</option>
+          <option value="techno">Techno</option>
           <option value="blues">Blues</option>
           <option value="country">Country</option>
           <option value="reggae">Reggae</option>
           <option value="jazz">Jazz</option>
           <option value="classical">Classical</option>
+          <option value="indie">Indie rock</option>
           <option value="metal">Metal</option>
         </select>
         <label>{t("country")}</label>

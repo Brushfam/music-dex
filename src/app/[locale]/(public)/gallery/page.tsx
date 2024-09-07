@@ -22,7 +22,11 @@ export default function Gallery() {
                 setEvent(i);
               }}
             >
-              <EventBlock title={ev.title} date={ev.date} folder={ev.folder} />
+              <EventBlock
+                title={ev.title}
+                date={ev.date}
+                logoLink={ev.logoLink}
+              />
             </div>
           );
         })}
