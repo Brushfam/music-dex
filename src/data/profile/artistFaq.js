@@ -14,33 +14,28 @@ export const artistFaqEN = [
         "Every month, we check how much $ investors have paid to buy your tracks. After that, we withdraw them from the payment service to our account and transfer them to you (in a currency convenient for you)",
     },
     {
-      question: "What is the frequency of payments?",
-      answer: "Payouts are made every 3 months to your account.",
-    },
-    {
       question: "What can I spend my accumulated funds with MusicDex on?",
       answer:
-        "The main areas on which you can spend money are: Marketing, PR, Musical activity (recording at the studio, tract distribution, video shooting, etc.)",
+        "Given that both parties are interested in increasing the profit of a particular song. The main areas where you can spend the funds earned from MusicDex are: marketing and PR of the tokenized song, but not limited to this. You are also allowed to invest in the creation of a new music or audiovisual product (sound recording, video production) or necessary expenses for professional activities (legal services, distribution, content creation, etc.).",
     },
     {
       question: "How to withdraw my funds?",
       answer:
-        "We undertake the work of accruing investments in a pre-agreed period and account",
+        "We take care of the investment accrual within a pre-agreed period of time and account according to the agreement signed with you.",
     },
   ],
   [
     {
       question: "How does my track become tokenized?",
       answer:
-        "The logic of the track is written in a smart contract, which is stored on the Blockchain." +
-        "After this process, your track's smart contract stores the investors' tokens." +
-        "The token represents part of the rights to the track. The total token supply can be seen in the catalog or on the track page.\n" +
-        "The logic of storing and distributing tokens is controlled by a smart contract.",
+        "The track logic is written in a smart contract stored on the Blockchain.\n" +
+        "After this process, your track's smart contract stores investors' tokens.\n" +
+        "A token represents a part of the rights to the track. The general offer of tokens can be seen in the catalog or on the track page. The logic of storing and distributing tokens is managed by the smart contract.",
     },
     {
-      question: "What is tokenization?",
+      question: "What is the advantage of track tokenization?",
       answer:
-        "It is the process of converting real-world assets such as real estate, art, songs, financial instruments, etc., into digital tokens on the blockchain. Tokenization involves the creation of a unique digital token that corresponds to a specific asset. The token is then recorded on the blockchain, providing a transparent and immutable ledger of ownership rights and transactions.",
+        "By tokenizing a part of a track, you allow your fans or any third party to support you through the MusicDex platform and help you develop your career. You can raise funds for your music activities by earning together with your fans.",
     },
     {
       question: "How does a smart contract work?",
@@ -51,9 +46,10 @@ export const artistFaqEN = [
   [
     {
       question: "Why should I partner with MusicDex?",
-      answer:
-        "We understand the challenges artists face today and are committed to giving you new opportunities to earn and grow.\n" +
-        "We are interested in your success, earnings and creativity. Let's create new trends and conquer the peaks together.",
+      answer: `- Our product is an additional source of funding for the promotion of an artist's songs by renting a portion of the royalties from digital distribution.
+      - We are interested in increasing the artist's income, so we multiply the income from each track, depending on the number of streams on streaming platforms.
+      - Being part of a product that shapes the updated Ukrainian and global music market using web3 technologies is trendy and profitable.
+      - We are a team of Ukrainians who are raising the Ukrainian culture, economy and industry in a difficult time. We understand the difficulties faced by artists today and strive to give you new opportunities for earning and development. We are interested in your success, earnings and creativity. Let's create new trends and conquer the tops together.`,
     },
     {
       question: "What are the benefits of track tokenization?",
@@ -68,36 +64,31 @@ export const artistFaqUA = [
     {
       question: "Як відбувається виплата накопичень з пісень?",
       answer:
-        "Кожного місяця ми перевірям, скільки грошей заплатили інвестори за покупки Ваших треків. Після цього, ми виводим їх з платіжного сервісу на наш рахунок, і перераховуємо Вам (в зручній для Вас валюті)",
-    },
-    {
-      question: "Яка періодичність виплат?",
-      answer: "Виплати накопичень відбуваються кожні 3 місяці на Ваш рахунок",
+        "Раз на квартал ми перевірямо, скільки грошей залучили через придбаня ваших треків. Після цього, ми виводимо їх з платіжного сервісу на наш рахунок, і перераховуємо Вам (в домовленій з вами валюті). Виплата відбувається кожні 3 місяці.",
     },
     {
       question: "На що я можу витрачати накопичені кошти із MusicDex?",
       answer:
-        "Основні напрямки на які Ви можете витрачати кошти це: Маркетинг, PR, Музична активність (запис на студії, дистрибюція треку, зйомка кліпу, тощо)",
+        "Враховуючи, що обидві сторони зацікавлені в збільшенні прибутку конкретної пісні. Основні напрямки, на які Ви можете витрачати зароблені з MusicDex кошти це: маркетинг та PR токенізованої пісні, однак не обмежуєтеся цим. Також дозволено у створення нового музичного або аудіовізуального продукту (звукозапис, відеопродакшн) або необхідні статті витрат для провадження професійної діяльності (юридичні послуги, дистрибуція, створення контенту тощо).",
     },
     {
       question: "Як вивести гроші?",
       answer:
-        "Ми беремо на себе роботу по нарахуванню інвестицій в попередньо узгоджений період часу і рахунок",
+        "Ми беремо на себе роботу по нарахуванню інвестицій в попередньо узгоджений період часу і рахунок згідно підписаного з вами договору.",
     },
   ],
   [
     {
       question: "Як мій трек стає токенізованим?",
       answer:
-        "Логіка треку прописується у смарт-контракті який зберігається на Блокчейні." +
-        "Після цього процесу, смарт-контракт Вашого треку зберігає токени інвесторів." +
-        "Токен являє собою частину прав на трек. Загальну пропозицію токенів можна побачити в каталозі або на сторінці треку. \n" +
-        "Логіка зберігання і розподілення токенів керується смарт-контрактом.",
+        "Логіка треку прописується у смарт-контракті який зберігається на Блокчейні.\n" +
+        "Після цього процесу, смарт-контракт Вашого треку зберігає токени інвесторів.\n" +
+        "Токен являє собою частину прав на трек. Загальну пропозицію токенів можна побачити в каталозі або на сторінці треку. Логіка зберігання і розподілення токенів керується смарт-контрактом.",
     },
     {
-      question: "Що таке токенізація?",
+      question: "В чому перевага токенізації треку?",
       answer:
-        "Це процес конвертації реальних активів, таких як нерухомість, мистецтво, пісні,  фінансові інструменти, тощо в цифрові токени на блокчейні. Токенізація передбачає створення унікального цифрового токена, який відповідає певному активу. Потім токен записується на блокчейн, забезпечуючи прозорий і незмінний реєстр прав власності та транзакцій.",
+        "Токенізуючи частину треку, ви дозволяєте своїм шанувальникам або будь-якій третій стороні підтримувати вас через платформу MusicDex та допомагати розвивати ваш творчий шлях. Ви можете збирати кошти на свою музичну діяльність, заробляючи разом зі своїми шанувальниками.",
     },
     {
       question: "Як працює смарт-контракт?",
@@ -108,9 +99,10 @@ export const artistFaqUA = [
   [
     {
       question: "Чому я маю співпрацювати із MusicDex?",
-      answer:
-        "Ми команда українців яка піднімає українську культуру, економіку та індустрію в складний час. Ми розуміємо труднощі, з якими стикаються артисти сьогодні, і прагнемо дати вам нові можливості для заробітку та розвитку. \n" +
-        "Ми зацікавлені у Вашому успіху, заробітку і творчості. Давайте створювати нові тренди і підкорювати вершини разом.",
+      answer: `- Наш продукт – додаткове залучення фінансування на промоцію пісень артиста, через оренду частини роялті з цифрової дистрибуції.
+- Ми зацікавлені у тому, щоб прибуток артиста зростав, тож примножуємо дохід з кожного треку, в залежності від кількості прослуховувань на стримінгових платформах.
+- Бути частиною продукту, що формує оновлений український та світовий музичний ринок з застосуванням web3 технологій – це трендово та вигідно.
+- Ми команда українців яка піднімає українську культуру, економіку та індустрію в складний час. Ми розуміємо труднощі, з якими стикаються артисти сьогодні, і прагнемо дати вам нові можливості для заробітку та розвитку. Ми зацікавлені у Вашому успіху, заробітку і творчості. Давайте створювати нові тренди і підкорювати вершини разом.`,
     },
     {
       question: "В чому перевага токенізації треку?",

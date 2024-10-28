@@ -1,15 +1,15 @@
 "use client";
 
-import { Button } from "@/components/ui/Button/Button";
-import { countries } from "@/data/countries";
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { setFirstLogin, updateUserInfo } from "@/services/users/users";
-import { useUserStore } from "@/store/user";
-import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
-import { ChangeEvent, useState } from "react";
-import { toast } from "sonner";
-import s from "../../Auth.module.scss";
+import { Button } from "@/components/ui/Button/Button"
+import { countries } from "@/data/countries"
+import { firebaseAuth } from "@/services/auth/firebaseConfig"
+import { setFirstLogin, updateUserInfo } from "@/services/users/users"
+import { useUserStore } from "@/store/user"
+import { useTranslations } from "next-intl"
+import { useRouter } from "next/navigation"
+import { ChangeEvent, FormEventHandler, useState } from "react"
+import { toast } from "sonner"
+import s from "../../Auth.module.scss"
 
 export default function ProfileFormInvestor(props: { currentLocale: string }) {
   const t = useTranslations("Auth.ProfileForm");
@@ -36,7 +36,11 @@ export default function ProfileFormInvestor(props: { currentLocale: string }) {
     });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+    if (loading) {
+      return;
+    }
     setLoading(true);
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
@@ -127,7 +131,7 @@ export default function ProfileFormInvestor(props: { currentLocale: string }) {
       <p className={s.title} style={{ marginBottom: 24 }}>
         {t("title")}
       </p>
-      <div style={{ width: "100%" }}>
+      <form style={{ width: "100%" }} onSubmit={handleSubmit}>
         <label>{t("name")}</label>
         <input
           type="text"
@@ -137,6 +141,7 @@ export default function ProfileFormInvestor(props: { currentLocale: string }) {
           onChange={handleChange}
           className={s.formInput}
           style={{ margin: "4px 0 10px 0" }}
+          required
         />
         <label>{t("last_name")}</label>
         <input
@@ -147,59 +152,27 @@ export default function ProfileFormInvestor(props: { currentLocale: string }) {
           onChange={handleChange}
           className={s.formInput}
           style={{ margin: "4px 0 10px 0" }}
+          required
         />
-        <AdditionalInfo />
-        <label>{t("social_media")}</label>
-        <input
-          type="text"
-          name="tiktok"
-          placeholder="tiktok.com/@username"
-          value={formData.tiktok}
-          onChange={handleChange}
-          className={s.formInput}
-          style={{ margin: "4px 0 10px 0" }}
-        />
-        <input
-          type="text"
-          name="instagram"
-          placeholder="instagram.com/@username"
-          value={formData.instagram}
-          onChange={handleChange}
-          className={s.formInput}
-          style={{ margin: "4px 0 10px 0" }}
-        />
-        <input
-          type="text"
-          name="twitter"
-          placeholder="twitter.com/@username"
-          value={formData.twitter}
-          onChange={handleChange}
-          className={s.formInput}
-          style={{ margin: "4px 0 10px 0" }}
-        />
+
         <div
           style={{
             display: "flex",
             flexDirection: "row",
-            justifyContent: "space-between",
+            justifyContent: "flex-end",
             gap: 12,
             marginTop: 12,
           }}
         >
           <Button
-            title={t("skip")}
-            color={"transparent"}
-            arrow={false}
-            action={handleSkip}
-          />
-          <Button
             title={loading ? t("saving") : t("save")}
             color={loading ? "loading" : "main"}
             arrow={false}
-            action={loading ? () => {} : handleSubmit}
+            type="submit"
+            // action={loading ? () => {} : handleSubmit}
           />
         </div>
-      </div>
+      </form>
     </div>
   );
 }

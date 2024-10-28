@@ -32,9 +32,9 @@ export const privacyPolicyNavigationEN = [
   {
     point: "Changes and Updates to this Privacy Policy",
   },
-  {
-    point: "MusicDex Contact Information",
-  },
+  // {
+  //   point: "MusicDex Contact Information",
+  // },
 ];
 
 export const privacyPolicyNavigationUK = [
@@ -71,7 +71,7 @@ export const privacyPolicyNavigationUK = [
   {
     point: "Зміни та оновлення цієї Політики конфіденційності",
   },
-  {
-    point: "Контактна інформація MusicDex",
-  },
+  // {
+  //   point: "Контактна інформація MusicDex",
+  // },
 ];

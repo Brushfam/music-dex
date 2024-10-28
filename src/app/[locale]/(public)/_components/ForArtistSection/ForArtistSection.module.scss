@@ -1,0 +1,92 @@
+@import "../../../../../constants/constants.scss";
+
+@mixin icon {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.forArtist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  // margin-block: 200px;
+  height: 100vh;
+
+  @media (max-width: $desktop-md-size) {
+    height: auto;
+  }
+
+  &_container {
+    position: relative;
+    border-radius: 20px;
+    background-color: $main-orange;
+    padding: 40px 24px;
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: $desktop-md-size) {
+      max-width: 550px;
+      justify-content: center;
+    }
+
+    h2 {
+      font-size: 28px !important;
+      font-weight: bold;
+      text-align: center;
+      max-width: 340px;
+    }
+  }
+
+  &_left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &_btnGroup {
+    display: flex;
+    gap: 10px;
+  }
+
+  &_right {
+    position: relative;
+    width: 450px;
+    padding-left: 40px;
+    img {
+      width: 100%;
+    }
+
+    @media (max-width: $desktop-md-size) {
+      display: none;
+    }
+  }
+
+  &_imgContainer {
+    position: absolute;
+    max-width: 450px;
+    bottom: -85px;
+    // right: -45px;
+  }
+
+  &_iconMic {
+    @include icon;
+    bottom: -40px;
+    transform: translateY(50%);
+    left: 20%;
+    // background: radial-gradient(circle, #ff1a7d, #a800ff);
+  }
+
+  &_iconAudio {
+    @include icon;
+    width: 90px;
+    height: 90px;
+    top: -40px;
+    right: -24px;
+  }
+}

@@ -36,6 +36,7 @@ function Login(props: {
   const setCurrentUserEmail = useUserStore(
     (state) => state.setCurrentUserEmail
   );
+
   const setCurrentUserName = useUserStore((state) => state.setCurrentUserName);
 
   const [email, setEmail] = useState("");

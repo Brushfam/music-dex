@@ -3,6 +3,7 @@ import {
   TrackCard2,
   TrackCard3,
   TrackCard4,
+  TrackCard8,
 } from "@/app/[locale]/(public)/_components/TrackCard/TrackCard";
 import s from "./Tracks.module.scss";
 
@@ -45,7 +46,7 @@ export function TracksSectionAlbums() {
         <TrackCard1 />
       </div>
       <div className={s.tracksSection_desktop}>
-        <TrackCard3 />
+        <TrackCard8 />
       </div>
     </div>
   );

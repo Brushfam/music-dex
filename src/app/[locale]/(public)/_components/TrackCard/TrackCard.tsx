@@ -58,9 +58,21 @@ export function TrackCard3() {
 export function TrackCard4() {
   return (
     <TrackCardComponent
-      image={"https://res.cloudinary.com/dhkzigloj/image/upload/v1724023215/dealer_t9urd7.jpg"}
+      image={
+        "https://res.cloudinary.com/dhkzigloj/image/upload/v1724023215/dealer_t9urd7.jpg"
+      }
       title={"Dealer"}
       author={"Tony Tonite"}
+    />
+  );
+}
+
+export function TrackCard8() {
+  return (
+    <TrackCardComponent
+      image={"/albums/homepage8.jpeg"}
+      title={"МАНІЯК"}
+      author={"FREAKY SIREN"}
     />
   );
 }

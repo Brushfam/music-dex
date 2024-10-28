@@ -57,6 +57,21 @@
     }
   }
 
+  &_black {
+    @include baseButton;
+    background: black;
+
+    p {
+      color: white;
+      user-select: none;
+    }
+
+    &:hover {
+      filter: none;
+      cursor: initial;
+    }
+  }
+
   &_formGrey {
     @include baseButton;
     background: $light-grey;
