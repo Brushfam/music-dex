@@ -8,13 +8,13 @@ export const faqContentEN = [
     {
       question: "What are the benefits of investing?",
       answer:
-        "By investing in a track, you: become a co-owner of a track of your favorite group or singer; support the artist by helping him continue his creativity and use marketing services; profit together with the artist, becoming a real investor!",
+        "By investing in a track, you: become a co-owner of a portion of the royalties from your favorite band or singer's track; support the artist by helping them continue their work and use marketing services; and receive a constant passive income from tokenized tracks, where the main advantage is that it is generated automatically and does not require constant attention and effort.",
     },
     {
       question:
         "What are the risks associated with music royalties investment?",
       answer:
-        "The risk in this case depends on whether the song will become popular and bring a pretty profit.",
+        "The risk in this case depends on how popular the song becomes. The more people listen to it on streaming platforms, the higher the income!",
     },
     {
       question: "Are my tokens secure?",
@@ -90,6 +90,28 @@ export const faqContentEN = [
       answer:
         "By tokenizing a part of the track, you give your fans the opportunity to support you and help in the development of your creative path. You can raise money to promote your tracks by earning with your fans.",
     },
+    {
+      question: "Why should I choose you?",
+      answer: `- Our product is an additional source of funding for the promotion of an artist's songs by renting a portion of the royalties from digital distribution.
+      - We are interested in increasing the artist's income, so we multiply the income from each track, depending on the number of streams on streaming platforms.
+      - Being part of a product that shapes the updated Ukrainian and global music market using web3 technologies is trendy and profitable.
+      - MusicDex's goal is to bring the music industry and the Ukrainian music market to a new financial and technological level.`,
+    },
+    {
+      question: "What happens to my tokenized royalties?",
+      answer:
+        "Tokenization leads to investment in the song. Everyone who buys the number of tokens available to them owns a corresponding share of the royalties for the song, which the platform leases from the Artist for a specified period.",
+    },
+    {
+      question: "How are the savings from songs paid out?",
+      answer:
+        "Once a quarter, we transfer the savings to you to the specified details according to the agreement. The payment is made every 3 months.",
+    },
+    {
+      question: "What can I spend my accumulated funds on with MusicDex?",
+      answer:
+        "The main areas for which you can spend the funds accumulated from MusicDex are: marketing and PR of the tokenized song, but not limited to this. You are also allowed to create a new music or audiovisual product (sound recording, video production) or necessary expenses for professional activities (legal services, distribution, content creation, etc.).",
+    },
   ],
 ];
 
@@ -103,12 +125,12 @@ export const faqContentUA = [
     {
       question: "Для чого інвестувати?",
       answer:
-        "Інвестуючи в трек, ви: стаєте співвласником треку улюбленої групи чи співака; підтримуєте артиста, допомагаючи йому продовжувати свою творчість і користуватись маркетинговими послугами; отримуєте прибуток разом з артистом, стаючи справжнім інвестором! Також ви отримуєте постійний пасивний дохід, де головна перевага полягає в тому, що він генерується автоматично та не потребує постійної уваги та зусиль.",
+        "Інвестуючи в трек, ви: стаєте співвласником частини роялті від треку улюбленого гурту чи співака; підтримуєте артиста, допомагаючи йому продовжувати свою творчість і користуватись маркетинговими послугами; Також ви отримуєте постійний пасивний дохід від токенізованих треків, де головна перевага полягає в тому, що він генерується автоматично та не потребує постійної уваги та зусиль.",
     },
     {
       question: "Які є ризики, пов’язані з інвестиціями?",
       answer:
-        "Ризик в цьому випадку залежить від того, чи стане пісня популярною і принесе хороший прибуток.",
+        "Ризик в цьому випадку залежить від того, на скільки пісня стане популярною. Чим більше її слухають на стрімінгових майданчиках, тим вищий дохід!",
     },
     {
       question: "Чи захищені мої токени?",
@@ -184,6 +206,28 @@ export const faqContentUA = [
       question: "Які є переваги токенізації треку?",
       answer:
         "Токенізуючи частину треку, Ви надаєте Вашим фанатам можливість підтримати Вас і допомогти у розвитку Вашого творчого шляху. Ви можете збирати кошти на промоцію своїх треків, заробляючи разом з фанатами.",
+    },
+    {
+      question: "Чому маю обрати вас?",
+      answer: `- Наш продукт – додаткове залучення фінансування на промоцію пісень артиста, через оренду частини роялті з цифрової дистрибуції.
+      - Ми зацікавлені у тому, щоб прибуток артиста зростав, тож примножуємо дохід з кожного треку, в залежності від кількості прослуховувань на стримінгових платформах.
+      - Бути частиною продукту, що формує оновлений український та світовий музичний ринок з застосуванням web3 технологій – це трендово та вигідно.
+      - Задача MusicDex – вивести музичну індустрію та український ринок музики на новий фінансовий та технологічний рівень.`,
+    },
+    {
+      question: "Що відбуватиметься з моїми токенізованими роялті?",
+      answer:
+        "Токенізація призводить до залучення інвестицій у пісню. Кожен. хто купує доступну для себе кількість токенів, тим самим володіє відповідною часткою від роялті на пісню, що платформа орендує у Артиста на визначений термін.",
+    },
+    {
+      question: "Як відбувається виплата накопичень з пісень?",
+      answer:
+        "Раз на квартал ми перераховуємо накопичення Вам за вказаними реквізитами згідно договору. Виплата відбувається кожні 3 місяці.",
+    },
+    {
+      question: "На що я можу витрачати накопичені кошти із MusicDex?",
+      answer:
+        "Основні напрямки, на які Ви можете витрачати накопичені з MusicDex кошти це: маркетинг та PR токенізованої пісні, однак не обмежуєтеся цим. Також дозволено у створення нового музичного або аудіовізуального продукту (звукозапис, відеопродакшн) або необхідні статті витрат для провадження професійної діяльності (юридичні послуги, дистрибуція, створення контенту тощо).",
     },
   ],
 ];

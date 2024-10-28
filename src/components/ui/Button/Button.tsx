@@ -14,6 +14,7 @@ const colors: ColorsType = {
   transparent: s.buttonDiv_transparent,
   grey: s.buttonDiv_grey,
   loading: s.buttonDiv_loading,
+  black: s.buttonDiv_black,
 };
 
 export function Button(props: {

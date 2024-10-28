@@ -39,6 +39,7 @@ export enum ProfilePages {
 export type InvestorInfo = {
   firstName: string;
   lastName: string;
+  // tel: string;x
   favGenre: string;
   country: string;
   profiles: string[]; // tiktok, instagram, twitter

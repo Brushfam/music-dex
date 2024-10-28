@@ -9,7 +9,7 @@ import { useUserStore } from "@/store/user";
 import { ArtistInfo } from "@/types/types";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEventHandler, useState } from "react";
 import { toast } from "sonner";
 import s from "../../Auth.module.scss";
 
@@ -35,7 +35,8 @@ export default function ProfileFormArtist(props: { currentLocale: string }) {
     });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
     setLoading(true);
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
@@ -83,7 +84,7 @@ export default function ProfileFormArtist(props: { currentLocale: string }) {
       <p className={s.title} style={{ marginBottom: 24 }}>
         {t("title")}
       </p>
-      <div style={{ width: "100%" }}>
+      <form onSubmit={handleSubmit} style={{ width: "100%" }}>
         <label>{t("name")}</label>
         <input
           type="text"
@@ -93,6 +94,7 @@ export default function ProfileFormArtist(props: { currentLocale: string }) {
           onChange={handleChange}
           className={s.formInput}
           style={{ margin: "4px 0 10px 0" }}
+          required
         />
         <label>{t("last_name")}</label>
         <input
@@ -103,6 +105,7 @@ export default function ProfileFormArtist(props: { currentLocale: string }) {
           onChange={handleChange}
           className={s.formInput}
           style={{ margin: "4px 0 10px 0" }}
+          required
         />
         <label>{t("artist_name")}</label>
         <input
@@ -113,6 +116,7 @@ export default function ProfileFormArtist(props: { currentLocale: string }) {
           onChange={handleChange}
           className={s.formInput}
           style={{ margin: "4px 0 10px 0" }}
+          required
         />
         {/*<AdditionalInfo />*/}
         <label>{t("country")}</label>
@@ -122,6 +126,7 @@ export default function ProfileFormArtist(props: { currentLocale: string }) {
           onChange={handleChange}
           className={s.formInput}
           style={{ margin: "4px 0 10px 0" }}
+          required
         >
           <option value="">{t("select_country")}</option>
           {countries.map((country, index) => {
@@ -145,16 +150,17 @@ export default function ProfileFormArtist(props: { currentLocale: string }) {
             title={t("skip")}
             color={"transparent"}
             arrow={false}
+            type="button"
             action={handleSkip}
           />
           <Button
             title={loading ? t("saving") : t("save")}
             color={loading ? "loading" : "main"}
+            type="submit"
             arrow={false}
-            action={loading ? () => {} : handleSubmit}
           />
         </div>
-      </div>
+      </form>
     </div>
   );
 }

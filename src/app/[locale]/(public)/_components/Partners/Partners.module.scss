@@ -34,40 +34,76 @@
   }
 }
 
-@mixin partnersList {
+.carousel {
+  margin: 0 auto;
+  padding: 20px 0;
+  max-width: 1000px;
+  overflow: hidden;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 60px;
 
-  svg:hover path {
-    fill: $main-orange;
+  @media (max-width: $tablet-size) {
+    max-width: 500px;
+  }
+
+  > * {
+    flex: 0 0 100%;
+  }
+
+  svg,
+  img {
+    width: 180px;
+  }
+
+  &:hover .group {
+    animation-play-state: paused;
   }
 }
 
-.partners {
-  @include partnersList;
+.group {
+  display: flex;
+  gap: 20px;
+  /* Добавляем отступ справа, чтобы создать зазор между последней и первой картой. */
 
-  @media (max-width: 900px) {
-    flex-direction: column;
-    gap: 44px;
+  will-change: transform; /* Мы должны быть добры к браузеру - пусть он знает, что мы будем анимировать. */
+  align-items: center;
+}
+
+@keyframes leftScrolling {
+  0% {
+    transform: translateX(0);
   }
-
-  @media (max-width: 500px) {
-    gap: 32px;
+  100% {
+    transform: translateX(-100%);
   }
 }
 
-.lastRow {
-  @include partnersList;
+.toLeft {
+  animation: leftScrolling 10s linear infinite;
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 60px;
+  padding-right: 20px;
+}
 
-  @media (max-width: 500px) {
-    flex-direction: column;
-    gap: 24px;
+@keyframes rightScrolling {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.toRight {
+  animation: rightScrolling 10s linear infinite;
+
+  padding-left: 20px;
+}
+
+.slashes {
+  font-size: 28px;
+  @media (max-width: $desktop_size) {
+    font-size: 24px;
+  }
+  @media (max-width: $desktop_md_size) {
+    display: none;
   }
 }

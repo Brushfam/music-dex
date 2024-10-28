@@ -135,6 +135,32 @@
     "we_accept": "We accept:"
   },
 
+  "ForArtist": {
+    "submit_song": "Submit my song",
+    "card1_title": "Submit your best song",
+    "card1_description": "Interested in joining MusicDex community and starting your exciting journey with us? Fill out the form and our team of experts will review it.",
+    "card2_title": "Get an offer",
+    "card2_description": "We will offer you a chance to start your growth with us by signing an agreement. Our team will guide you through the process, ensuring you have all the information you need to make the best career decision.",
+    "card3_title": "Start your journey with MusicDex",
+    "card3_description": "Unlock the power to passively fund your music career and cover Marketing and PR expenses. Build a unique bond with fans who want to support YOU and your musical activity.",
+    "form_title": "Interested in working with us?",
+    "form_description": "Reach out to us and we will send you a value proposition",
+    "Form": {
+      "topic": "Topic",
+      "topic_placeholder": "Write a topic for your inquiry",
+      "name": "Name",
+      "name_placeholder": "Enter your name",
+      "email": "Email",
+      "email_placeholder": "Enter your email",
+      "message": "Message",
+      "message_placeholder": "Type your message",
+      "send": "Send message",
+      "sending": "Sending...",
+      "sent": "Sent",
+      "submitted": "Your form was submitted!"
+    }
+  },
+
   "Gallery": {
     "title": "Gallery",
     "description": "Here, you'll find a collection of photographs from our latest events. Relive the moments and immerse yourself in the vibrant atmosphere captured in each snapshot!",
@@ -167,14 +193,19 @@
   },
 
   "Home": {
-    "banner_header": "Welcome to MusicDex",
+    "banner_header": "Invest in music royalties and shape the future of music",
     "banner_description": "Invest in Music Royalties and Shape the Future of Music",
-    "learn_more_button": "Learn more",
+    "learn_more_button": "Start investing",
     "recommend_button": "Recommend an artist",
     "how_it_works_header": "MusicDex revolutionizes music investment",
-    "how_it_works": "Here's how it work:",
+    "how_it_works": "Here’s how it works",
     "terms_header": "Invest with confidence",
     "terms_description": "Our terms include:",
+    "start_building_header_1": "Start building your own",
+    "start_building_header_2": "music portfolio",
+    "start_building_header_3": "in three simple steps",
+    "start_building_btn1": "Register",
+    "start_building_btn2": "Explore songs",
     "tracks_header": "Tracks Available for Investment",
     "tracks_description": "Explore our curated selection of tracks ready for investment. Each track represents a unique investment opportunity with potential for passive income.",
     "tracks_button": "Explore all tracks",
@@ -188,34 +219,12 @@
       "fourth": "Investor protection measures"
     },
     "built_on": "Built on:",
+    "for_artist_description": "Are you an artist, songwriter, or other rights holder?",
+    "for_artist_btn1": "Get a royalty estimate",
+    "for_artist_btn2": "Join",
+
     "starknet_description": "Validity-Rollup Layer 2 network that operates on top of Ethereum, enabling dApps to massively scale without compromising on security.",
     "partners": "Our Partners:"
-  },
-
-  "ForArtist": {
-    "submit_song": "Submit my song",
-    "card1_title": "Submit your best song",
-    "card1_description": "Interested in joining MusicDex community and starting your exciting journey with us? Fill out the form and our team of experts will review it.",
-    "card2_title": "Get an offer",
-    "card2_description": "We will offer you a chance to start your growth with us by signing an agreement. Our team will guide you through the process, ensuring you have all the information you need to make the best career decision.",
-    "card3_title": "Start your journey with MusicDex",
-    "card3_description": "Unlock the power to passively fund your music career and cover Marketing and PR expenses. Build a unique bond with fans who want to support YOU and your musical activity.",
-    "form_title": "Interested in working with us?",
-    "form_description": "Reach out to us and we will send you a value proposition",
-    "Form": {
-      "topic": "Topic",
-      "topic_placeholder": "Write a topic for your inquiry",
-      "name": "Name",
-      "name_placeholder": "Enter your name",
-      "email": "Email",
-      "email_placeholder": "Enter your email",
-      "message": "Message",
-      "message_placeholder": "Type your message",
-      "send": "Send message",
-      "sending": "Sending...",
-      "sent": "Sent",
-      "submitted": "Your form was submitted!"
-    }
   },
 
   "Legal": {
@@ -317,6 +326,9 @@
         "updated": "Information was updated!",
         "another_error": "Something went wrong",
         "wallet_connected": "Wallet was connected!",
+        "error_name": "Write your name",
+        "error_last_name": "Write your last name",
+        "error_social_media": "Social Media (add at least one link)",
         "error_adding_wallet": "Error adding wallet",
         "error_updating_wallets": "Error updating wallets",
         "internal_created": "Internal wallet was created!",
@@ -326,6 +338,7 @@
       "name": "Name",
       "email": "Email",
       "last_name": "Last Name",
+      "phone": "Contact phone connected to TG / Viber",
       "additional_info": "Additional Info",
       "genre": "Favorite Music Genre",
       "select_genre": "Select Genre",
@@ -417,7 +430,7 @@
     },
     "NoWalletsModal": {
       "title": "Please connect wallet",
-      "content": "To make a purchase, you need a crypto wallet that will hold your tokens. You can connect an existing wallet or automatically create an internal wallet on the Profile!",
+      "content": "To make a purchase, you need a crypto wallet. In which your tokens will be stored. And also confirm your contact details. You can connect an existing wallet or automatically create an internal wallet in the \"My Profile\" section.",
       "close": "Close",
       "ok": "Profile"
     }
