@@ -6,7 +6,7 @@ import s from "./Partners.module.scss";
 import { StarknetLogo } from "./StarknetLogo";
 
 function Slashes() {
-  return <div className={s.slashes}>/////</div>;
+  return <div className={s.slashes}>{"/////"}</div>;
 }
 
 export function Partners() {
