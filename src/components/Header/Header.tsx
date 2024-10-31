@@ -57,7 +57,7 @@ function HeaderSocialLinks() {
     <div className={s.header_social_links}>
       <a href="https://www.instagram.com/musicdex.inc/" target="_blank">
         <Image
-          src="/icons/social-media/inst-header-desktop.svg"
+          src="/icons/social-media/inst-mobile.svg"
           alt="instagram logo"
           width={24}
           height={24}
@@ -65,7 +65,7 @@ function HeaderSocialLinks() {
       </a>
       <a href="https://www.youtube.com/@MusicDex" target="_blank">
         <Image
-          src="/icons/social-media/youtube-header-desktop.svg"
+          src="/icons/social-media/youtube-mobile.svg"
           alt="youtube logo"
           width={24}
           height={24}
@@ -73,7 +73,7 @@ function HeaderSocialLinks() {
       </a>
       <a href="https://x.com/MusicDex_inc" target="_blank">
         <Image
-          src="/icons/social-media/twitter-header-desktop.svg"
+          src="/icons/social-media/twitter-mobile.svg"
           alt="youtube logo"
           width={24}
           height={24}
@@ -81,7 +81,7 @@ function HeaderSocialLinks() {
       </a>
       <a href="https://www.tiktok.com/@music.dex?lang=ru-RU" target="_blank">
         <Image
-          src="/icons/social-media/tt-header-desktop.svg"
+          src="/icons/social-media/tt-mobile.svg"
           alt="TikTok logo"
           width={24}
           height={24}
@@ -89,7 +89,7 @@ function HeaderSocialLinks() {
       </a>
       <a href="https://t.me/musicdexplatform" target="_blank">
         <Image
-          src="/icons/social-media/telegram-header-desktop.svg"
+          src="/icons/social-media/telegram-mobile.svg"
           alt="Telegram logo"
           width={24}
           height={24}

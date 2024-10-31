@@ -338,7 +338,7 @@
       "name": "Name",
       "email": "Email",
       "last_name": "Last Name",
-      "phone": "Contact phone connected to TG / Viber",
+      "phone": "Contact phone number connected to TG/Viber",
       "additional_info": "Additional Info",
       "genre": "Favorite Music Genre",
       "select_genre": "Select Genre",

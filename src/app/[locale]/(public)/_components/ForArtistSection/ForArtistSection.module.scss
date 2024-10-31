@@ -26,6 +26,7 @@
     padding: 40px 24px;
     display: flex;
     justify-content: space-between;
+    width: 100%;
 
     @media (max-width: $desktop-md-size) {
       max-width: 550px;

@@ -10,7 +10,11 @@ export const ForArtistSection = () => {
 
   return (
     <div className={s.forArtist} id={"for-artist"}>
-      <Section>
+      <Section
+        style={{
+          alignItems: "center",
+        }}
+      >
         <div className={s.forArtist_container}>
           <div className={s.forArtist_left}>
             <h2>{t("for_artist_description")}</h2>

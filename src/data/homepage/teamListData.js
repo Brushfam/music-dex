@@ -24,7 +24,7 @@ export const teamListData = [
     role: "Marketing",
   },
   {
-    path: "/team/pavlo.png",
+    path: "/team/pavlo.jpg",
     name: "Pavlo Striletskyi",
     nameUK: "Павло Стрілецький",
     role: "Head of Product",

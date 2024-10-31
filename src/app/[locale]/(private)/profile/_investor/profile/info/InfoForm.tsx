@@ -181,7 +181,7 @@ export function InfoForm(props: {
           />
         </div>
         <div className={s.inputBlock}>
-          <label>Контактний телефон с привязкой к TG / Viber</label>
+          <label>{t("phone")}</label>
           <input
             type="text"
             name="phoneNumber"
