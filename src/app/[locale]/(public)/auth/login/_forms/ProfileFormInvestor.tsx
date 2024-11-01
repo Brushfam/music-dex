@@ -1,15 +1,15 @@
 "use client";
 
-import { Button } from "@/components/ui/Button/Button"
-import { countries } from "@/data/countries"
-import { firebaseAuth } from "@/services/auth/firebaseConfig"
-import { setFirstLogin, updateUserInfo } from "@/services/users/users"
-import { useUserStore } from "@/store/user"
-import { useTranslations } from "next-intl"
-import { useRouter } from "next/navigation"
-import { ChangeEvent, FormEventHandler, useState } from "react"
-import { toast } from "sonner"
-import s from "../../Auth.module.scss"
+import { Button } from "@/components/ui/Button/Button";
+import { countries } from "@/data/countries";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { setFirstLogin, updateUserInfo } from "@/services/users/users";
+import { useUserStore } from "@/store/user";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { ChangeEvent, FormEventHandler, useState } from "react";
+import { toast } from "sonner";
+import s from "../../Auth.module.scss";
 
 export default function ProfileFormInvestor(props: { currentLocale: string }) {
   const t = useTranslations("Auth.ProfileForm");
@@ -50,6 +50,7 @@ export default function ProfileFormInvestor(props: { currentLocale: string }) {
           lastName: formData.lastName,
           favGenre: formData.favGenre,
           country: formData.country,
+          phone: formData.country,
           profiles: [formData.tiktok, formData.instagram, formData.twitter],
         };
         setFirstLogin(token).catch((error) => {
