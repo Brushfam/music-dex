@@ -24,12 +24,15 @@ export function InfoForm(props: {
   for (let i = 0; i < props.investor.profiles?.length; ++i) {
     profiles[i] = props.investor.profiles[i];
   }
+
+  console.log(props.investor);
+
   const [formData, setFormData] = useState({
     firstName: props.investor.firstName || "",
     lastName: props.investor.lastName || "",
     favGenre: props.investor.favGenre || "",
     country: props.investor.country || "",
-    phoneNumber: "",
+    phone: props.investor?.phone || "",
     tiktok: profiles[0],
     instagram: profiles[1],
     twitter: profiles[2],
@@ -50,6 +53,7 @@ export function InfoForm(props: {
       firstName: formData.firstName,
       lastName: formData.lastName,
       favGenre: formData.favGenre,
+      phone: formData.phone,
       country: formData.country,
       profiles: [formData.tiktok, formData.instagram, formData.twitter],
     };
@@ -184,8 +188,8 @@ export function InfoForm(props: {
           <label>{t("phone")}</label>
           <input
             type="text"
-            name="phoneNumber"
-            value={formData.phoneNumber}
+            name="phone"
+            value={formData.phone}
             onChange={handleChange}
             className={s.formInput}
           />
