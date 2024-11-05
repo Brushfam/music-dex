@@ -29,15 +29,27 @@
     width: 100%;
 
     @media (max-width: $desktop-md-size) {
+      flex-direction: column;
       max-width: 550px;
       justify-content: center;
+      align-items: center;
     }
 
     h2 {
-      font-size: 28px !important;
+      // font-size: 28px !important;
       font-weight: bold;
       text-align: center;
-      max-width: 340px;
+      max-width: 640px;
+
+      @media (max-width: 1280px) {
+        max-width: 500px;
+        font-size: 46px !important;
+      }
+
+      @media (max-width: $desktop-md-size) {
+        max-width: 340px;
+        font-size: 28px !important;
+      }
     }
   }
 
@@ -53,41 +65,50 @@
   &_btnGroup {
     display: flex;
     gap: 10px;
+
+    @media (max-width: $desktop-md-size) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &_right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    width: 450px;
+    max-width: 450px;
+    width: 100%;
     padding-left: 40px;
     img {
       width: 100%;
     }
 
     @media (max-width: $desktop-md-size) {
-      display: none;
+      padding-left: 0;
+      // display: none;
+      max-width: 100%;
     }
+
+    // @media (max-width: 600px) {
+    //   height: 450px;
+    // }
+
+    // @media (max-width: mobile-size) {
+    //   height: 400px;
+    // }
   }
 
   &_imgContainer {
     position: absolute;
     max-width: 450px;
     bottom: -85px;
+    @media (max-width: $desktop-md-size) {
+      max-width: 350px;
+      position: static;
+      transform: translateY(73px);
+    }
     // right: -45px;
-  }
-
-  &_iconMic {
-    @include icon;
-    bottom: -40px;
-    transform: translateY(50%);
-    left: 20%;
-    // background: radial-gradient(circle, #ff1a7d, #a800ff);
-  }
-
-  &_iconAudio {
-    @include icon;
-    width: 90px;
-    height: 90px;
-    top: -40px;
-    right: -24px;
   }
 }

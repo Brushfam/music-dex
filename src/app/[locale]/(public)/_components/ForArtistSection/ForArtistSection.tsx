@@ -39,12 +39,12 @@ export const ForArtistSection = () => {
               alt=""
               className={s.forArtist_imgContainer}
             />
-            <div className={s.forArtist_iconMic}>
+            {/* <div className={s.forArtist_iconMic}>
               <img src="/for-artist/mic.png" alt="" />
             </div>
             <div className={s.forArtist_iconAudio}>
               <img src="/for-artist/audio.png" alt="" />
-            </div>
+            </div> */}
           </div>
         </div>
       </Section>

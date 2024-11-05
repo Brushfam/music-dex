@@ -19,12 +19,22 @@
   }
 
   @media (max-width: $mobile-size) {
-    grid-column-gap: 18px;
-    grid-row-gap: 18px;
+    // grid-column-gap: 18px;
+    // grid-row-gap: 18px;
+    display: none;
+  }
+}
+
+.teamList_mobile {
+  width: 100%;
+  display: none;
+  @media (max-width: $mobile-size) {
+    display: block;
   }
 }
 
 .cardWrapper {
+  width: 100%;
   padding: 6px;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 8px;
@@ -35,7 +45,7 @@
   }
 
   @media (max-width: $mobile-size) {
-    width: 150px;
+    // width: 150px;
   }
 }
 
@@ -45,7 +55,7 @@
 
   @media (max-width: $mobile-size) {
     position: relative;
-    height: 216px;
+    // height: 3px;
   }
 
   &_img {
@@ -66,7 +76,7 @@
 
     @media (max-width: $mobile-size) {
       // width: 140px;
-      height: 132px;
+      height: 340px;
       margin-bottom: 16px;
     }
   }
@@ -114,10 +124,8 @@
     }
 
     @media (max-width: $mobile-size) {
-      margin-bottom: 0;
-      margin-left: 0;
-      position: absolute;
-      bottom: 0;
+      margin-top: 8px;
+      margin-left: 8px;
       left: 8px;
     }
   }

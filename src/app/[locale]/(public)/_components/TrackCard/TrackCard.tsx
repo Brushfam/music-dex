@@ -16,6 +16,7 @@ function TrackCardComponent(props: {
             alt={props.title}
             fill={true}
             style={{ borderRadius: 4 }}
+            objectFit="cover"
           />
         </div>
         <p className={s.title}>{props.title}</p>

@@ -30,12 +30,22 @@
   }
 
   @media (max-width: $mobile-size) {
-    grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: repeat(2, 1fr);
+    display: none;
   }
 
   &_desktop {
     @media (max-width: $tablet-size) {
       display: none;
+    }
+  }
+
+  &_mobile {
+    width: 100%;
+    display: none;
+    @media (max-width: $mobile-size) {
+      display: block;
+      overflow: hidden;
     }
   }
 

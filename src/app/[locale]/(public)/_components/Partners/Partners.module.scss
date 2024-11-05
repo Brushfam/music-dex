@@ -81,6 +81,10 @@
   animation: leftScrolling 10s linear infinite;
 
   padding-right: 20px;
+
+  @media (max-width: $mobile-size) {
+    display: none;
+  }
 }
 
 @keyframes rightScrolling {

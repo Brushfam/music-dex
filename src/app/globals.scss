@@ -46,3 +46,15 @@ button {
 .justify-center {
   justify-content: center;
 }
+
+.slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.slick-dots {
+  position: relative;
+  bottom: -20px;
+}
