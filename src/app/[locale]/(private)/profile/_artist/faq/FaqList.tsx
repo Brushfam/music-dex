@@ -57,7 +57,11 @@ export function FaqList() {
             />
           )}
         </div>
-        {open ? <p className={s.answer}>{props.answer}</p> : null}
+        {open ? (
+          <p className={s.answer} style={{ whiteSpace: "pre-wrap" }}>
+            {props.answer}
+          </p>
+        ) : null}
       </div>
     );
   }

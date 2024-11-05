@@ -41,6 +41,7 @@ export type InvestorInfo = {
   lastName: string;
   favGenre: string;
   country: string;
+  phone: string;
   profiles: string[]; // tiktok, instagram, twitter
 };
 

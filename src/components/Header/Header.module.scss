@@ -52,6 +52,22 @@
     align-items: center;
     gap: 10px;
   }
+
+  &_social_links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-right: 20px;
+    a {
+      display: flex;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      display: none;
+    }
+  }
 }
 
 .menuWrapper {

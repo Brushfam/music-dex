@@ -1,9 +1,17 @@
 @import "../../../constants/constants";
 
+.bannerTexts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  gap: 50px;
+}
+
 .bannerContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   z-index: 2;
 
@@ -12,7 +20,10 @@
   }
 
   h2 {
-    max-width: 440px;
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    max-width: 460px;
   }
 
   h3 {
@@ -154,7 +165,45 @@
 
 .lightThemeWrapper {
   @include wrappers;
-  background: $primary-grey;
+  background-color: $primary-grey;
+}
+
+.howItWorksWrapper {
+  @include wrappers;
+  position: relative;
+}
+
+.howItWorksBg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  background-image: url("/backgrounds/how-it-work.jpg");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+  opacity: 0.3;
+  z-index: -1;
+
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-image: linear-gradient(
+  //     to right,
+  //     rgb(246, 96, 31, 0.2),
+  //     rgba(17, 17, 17, 1)
+  //   );
+  // }
+
+  @media (max-width: $desktop-md-size) {
+    width: 100%;
+    height: 210px;
+  }
 }
 
 .gradientWrapper {
@@ -195,4 +244,69 @@
   @include shadowElement;
   top: 30px;
   transform: rotate(-180deg);
+}
+
+.videoBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.startBuildingWrapper {
+  @include wrappers;
+  .startBuildingTextCenter {
+    text-align: center;
+  }
+  .startBuildingContainer {
+    @media (max-width: $desktop-size) {
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    @media (max-width: $desktop-md-size) {
+      // display: none;
+      gap: 100px;
+    }
+  }
+
+  .startBuildingImages {
+    position: relative;
+    max-width: 360px;
+    width: 100%;
+    height: 360px;
+    @media (max-width: $desktop-md-size) {
+      // display: none;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left;
+    }
+    .startBuildingImage2 {
+      width: 70%;
+      height: 70%;
+      position: absolute;
+      right: -10px;
+      bottom: -50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+  }
+
+  h3,
+  h4 {
+    margin-bottom: 10px;
+  }
+
+  .orange {
+    font-size: 32px;
+    color: $main-orange;
+  }
 }

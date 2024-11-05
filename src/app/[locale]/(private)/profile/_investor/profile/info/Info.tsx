@@ -29,6 +29,7 @@ export function Info() {
               country: i.country,
               favGenre: i.fav_genre,
               profiles: i.profiles,
+              phone: i.phone,
             });
           })
           .catch((error) => {

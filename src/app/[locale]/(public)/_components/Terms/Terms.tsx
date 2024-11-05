@@ -5,12 +5,12 @@ import Image from "next/image";
 import React from "react";
 import s from "./Terms.module.scss";
 
+function TermsRowContainer(props: { children: React.ReactNode }) {
+  return <div className={s.rowContainer}>{props.children}</div>;
+}
+
 export function Terms() {
   const t = useTranslations("Home.Terms");
-
-  function TermsRowContainer(props: { children: React.ReactNode }) {
-    return <div className={s.rowContainer}>{props.children}</div>;
-  }
 
   return (
     <div className={s.terms}>

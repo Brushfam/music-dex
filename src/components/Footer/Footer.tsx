@@ -102,8 +102,10 @@ export function Footer() {
           <p className={s.footerMainText}>{t("description")}</p>
         </div>
         <div className={s.linksBlock}>
-          <SocialMedia />
-          <EmailContacts />
+          <div className={s.linksRowBlock}>
+            <SocialMedia />
+            <EmailContacts />
+          </div>
           <Legal />
         </div>
       </footer>

@@ -193,14 +193,19 @@
   },
 
   "Home": {
-    "banner_header": "Welcome to MusicDex",
+    "banner_header": "Invest in music royalties and shape the future of music",
     "banner_description": "Invest in Music Royalties and Shape the Future of Music",
-    "learn_more_button": "Learn more",
+    "learn_more_button": "Start investing",
     "recommend_button": "Recommend an artist",
     "how_it_works_header": "MusicDex revolutionizes music investment",
-    "how_it_works": "Here's how it work:",
+    "how_it_works": "Here’s how it works",
     "terms_header": "Invest with confidence",
     "terms_description": "Our terms include:",
+    "start_building_header_1": "Start building your own",
+    "start_building_header_2": "music portfolio",
+    "start_building_header_3": "in three simple steps",
+    "start_building_btn1": "Register",
+    "start_building_btn2": "Explore songs",
     "tracks_header": "Tracks Available for Investment",
     "tracks_description": "Explore our curated selection of tracks ready for investment. Each track represents a unique investment opportunity with potential for passive income.",
     "tracks_button": "Explore all tracks",
@@ -214,6 +219,10 @@
       "fourth": "Investor protection measures"
     },
     "built_on": "Built on:",
+    "for_artist_description": "Are you an artist, songwriter, or other rights holder?",
+    "for_artist_btn1": "Get a royalty estimate",
+    "for_artist_btn2": "Join",
+
     "starknet_description": "Validity-Rollup Layer 2 network that operates on top of Ethereum, enabling dApps to massively scale without compromising on security.",
     "partners": "Our Partners:"
   },
@@ -317,6 +326,9 @@
         "updated": "Information was updated!",
         "another_error": "Something went wrong",
         "wallet_connected": "Wallet was connected!",
+        "error_name": "Write your name",
+        "error_last_name": "Write your last name",
+        "error_social_media": "Social Media (add at least one link)",
         "error_adding_wallet": "Error adding wallet",
         "error_updating_wallets": "Error updating wallets",
         "internal_created": "Internal wallet was created!",
@@ -326,6 +338,7 @@
       "name": "Name",
       "email": "Email",
       "last_name": "Last Name",
+      "phone": "Contact phone number connected to TG/Viber",
       "additional_info": "Additional Info",
       "genre": "Favorite Music Genre",
       "select_genre": "Select Genre",
@@ -417,7 +430,7 @@
     },
     "NoWalletsModal": {
       "title": "Please connect wallet",
-      "content": "To make a purchase, you need a crypto wallet that will hold your tokens. You can connect an existing wallet or automatically create an internal wallet on the Profile!",
+      "content": "To make a purchase, you need a crypto wallet. In which your tokens will be stored. And also confirm your contact details. You can connect an existing wallet or automatically create an internal wallet in the \"My Profile\" section.",
       "close": "Close",
       "ok": "Profile"
     }

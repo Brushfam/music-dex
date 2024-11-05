@@ -24,11 +24,15 @@ export function InfoForm(props: {
   for (let i = 0; i < props.investor.profiles?.length; ++i) {
     profiles[i] = props.investor.profiles[i];
   }
+
+  console.log(props.investor);
+
   const [formData, setFormData] = useState({
     firstName: props.investor.firstName || "",
     lastName: props.investor.lastName || "",
     favGenre: props.investor.favGenre || "",
     country: props.investor.country || "",
+    phone: props.investor?.phone || "",
     tiktok: profiles[0],
     instagram: profiles[1],
     twitter: profiles[2],
@@ -45,17 +49,36 @@ export function InfoForm(props: {
   };
 
   const handleSubmit = async () => {
+    const updatedData = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      favGenre: formData.favGenre,
+      phone: formData.phone,
+      country: formData.country,
+      profiles: [formData.tiktok, formData.instagram, formData.twitter],
+    };
+
+    if (!updatedData.firstName.trim()) {
+      return toast.error(t("Toast.error_name"));
+    }
+
+    if (!updatedData.lastName.trim()) {
+      return toast.error(t("Toast.error_last_name"));
+    }
+
+    const isProfileFilled = updatedData.profiles.some(
+      (profile) => profile.trim().length > 0
+    );
+
+    if (!isProfileFilled) {
+      return toast.error(t("Toast.error_social_media"));
+    }
+
     setLoading(true);
+
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
         const token = await user.getIdToken();
-        const updatedData = {
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          favGenre: formData.favGenre,
-          country: formData.country,
-          profiles: [formData.tiktok, formData.instagram, formData.twitter],
-        };
         updateUserInfo(token, updatedData)
           .then(() => {
             setCurrentUserName(formData.firstName);
@@ -157,6 +180,16 @@ export function InfoForm(props: {
             type="text"
             name="lastName"
             value={formData.lastName}
+            onChange={handleChange}
+            className={s.formInput}
+          />
+        </div>
+        <div className={s.inputBlock}>
+          <label>{t("phone")}</label>
+          <input
+            type="text"
+            name="phone"
+            value={formData.phone}
             onChange={handleChange}
             className={s.formInput}
           />

@@ -12,15 +12,21 @@ export const teamListData = [
     role: "Co-Founder",
   },
   {
-    path: "/team/Alina.png",
-    name: "Alina Antropova",
-    nameUK: "Аліна Антропова",
-    role: "Head of Product",
-  },
-  {
     path: "/team/Serhii.png",
     name: "Serhii Voznyi",
     nameUK: "Сергій Возний",
     role: "COO",
+  },
+  {
+    path: "/team/anna-tehza.png",
+    name: "Anna Tehza",
+    nameUK: "Анна Техза",
+    role: "Marketing",
+  },
+  {
+    path: "/team/pavlo.jpg",
+    name: "Pavlo Striletskyi",
+    nameUK: "Павло Стрілецький",
+    role: "Head of Product",
   },
 ];

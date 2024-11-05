@@ -5,23 +5,34 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  // align-items: center;
 }
 
 .pageSection {
   @include baseSection;
-  max-width: 1140px;
+  // max-width: 1140px;
   padding: 60px 0;
 
-  @media (max-width: $desktop-size) {
-    width: auto;
-  }
+  // @media (max-width: $desktop-size) {
+  //   width: auto;
+  // }
 
-  @media (max-width: $tablet-size) {
-    width: 72%;
+  // @media (max-width: $tablet-size) {
+  //   width: 72%;
+  // }
+
+  // @media (max-width: $mobile-size) {
+  //   width: 82%;
+  // }
+
+  max-width: 1376px;
+
+  @media (max-width: $desktop-size) {
+    width: 88%;
   }
 
   @media (max-width: $mobile-size) {
-    width: 82%;
+    width: 88%;
   }
 }
 

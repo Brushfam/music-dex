@@ -458,19 +458,19 @@ export const pointsEN = [
     ],
   },
 
-  {
-    title: <p>12. MusicDex Contact Information</p>,
-    point: [
-      {
-        text: (
-          <p>
-            For any questions, inquiries, or complaints, please contact us at:
-            <span style={{ color: "white" }}> musicdex.inc@gmail.com</span>.
-          </p>
-        ),
-      },
-    ],
-  },
+  // {
+  //   title: <p>12. MusicDex Contact Information</p>,
+  //   point: [
+  //     {
+  //       text: (
+  //         <p>
+  //           For any questions, inquiries, or complaints, please contact us at:
+  //           <span style={{ color: "white" }}> musicdex.inc@gmail.com</span>.
+  //         </p>
+  //       ),
+  //     },
+  //   ],
+  // },
 ];
 
 export const pointsUK = [
@@ -879,18 +879,18 @@ export const pointsUK = [
     ],
   },
 
-  {
-    title: <p>12. Контактна інформація MusicDex</p>,
-    point: [
-      {
-        text: (
-          <p>
-            Для будь-яких питань, запитів чи скарг, будь ласка, зв&#39;яжіться з
-            нами за адресою:{" "}
-            <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>.
-          </p>
-        ),
-      },
-    ],
-  },
+  // {
+  //   title: <p>12. Контактна інформація MusicDex</p>,
+  //   point: [
+  //     {
+  //       text: (
+  //         <p>
+  //           Для будь-яких питань, запитів чи скарг, будь ласка, зв&#39;яжіться з
+  //           нами за адресою:{" "}
+  //           <span style={{ color: "white" }}>musicdex.inc@gmail.com</span>.
+  //         </p>
+  //       ),
+  //     },
+  //   ],
+  // },
 ];

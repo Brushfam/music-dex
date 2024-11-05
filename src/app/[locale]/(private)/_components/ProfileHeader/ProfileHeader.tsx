@@ -18,6 +18,7 @@ export function ProfileHeader() {
   const setCurrentUserEmail = useUserStore(
     (state) => state.setCurrentUserEmail
   );
+
   const [modalOpen, setModalOpen] = useState(false);
   const currentLocale = useLocale();
   const router = useRouter();

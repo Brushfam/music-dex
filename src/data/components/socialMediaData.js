@@ -23,7 +23,7 @@ export const socialMediaData = [
   },
   {
     name: "Instagram",
-    link: "https://www.instagram.com/musicdex.inc?igsh=YjIxb29yZ2JvODh4",
+    link: "https://www.instagram.com/musicdex.inc/",
     desktopImage: (
       <Image
         src={"/icons/social-media/inst-desktop.svg"}
@@ -43,7 +43,7 @@ export const socialMediaData = [
   },
   {
     name: "TikTok",
-    link: "https://www.tiktok.com/@music.dex?_t=8kEn4aTNHqI",
+    link: "https://www.tiktok.com/@music.dex?lang=ru-RU",
     desktopImage: (
       <Image
         src={"/icons/social-media/tt-desktop.svg"}
@@ -63,7 +63,7 @@ export const socialMediaData = [
   },
   {
     name: "Twitter",
-    link: "https://twitter.com/MusicDex_inc",
+    link: "https://x.com/MusicDex_inc",
     desktopImage: (
       <Image
         src={"/icons/social-media/twitter-desktop.svg"}
@@ -83,7 +83,7 @@ export const socialMediaData = [
   },
   {
     name: "YouTube",
-    link: "https://www.youtube.com/channel/UC3V8OECeFM2Fizg28mGsNHQ",
+    link: "https://www.youtube.com/@MusicDex",
     desktopImage: (
       <Image
         src={"/icons/social-media/youtube-desktop.svg"}
