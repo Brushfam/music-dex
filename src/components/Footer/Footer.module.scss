@@ -70,7 +70,7 @@
 
   @media (max-width: $tablet-size) {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 40px;
   }
 }
@@ -91,7 +91,7 @@
   }
 
   @media (max-width: $tablet-size) {
-    align-items: center;
+    align-items: flex-start;
 
     p,
     a {
@@ -101,6 +101,9 @@
 
     a {
       align-self: center;
+      @media (max-width: $tablet-size) {
+        align-self: flex-start;
+      }
     }
   }
 }
@@ -110,7 +113,7 @@
   flex-direction: column;
 
   @media (max-width: $tablet-size) {
-    align-items: center;
+    align-items: flex-start;
   }
 }
 
@@ -119,25 +122,29 @@
   flex-direction: column;
   gap: 4px;
 
+  // @media (max-width: $tablet-size) {
+  //   display: grid;
+  //   grid-column-gap: 8px;
+  //   grid-row-gap: 8px;
+  //   grid-template-columns: repeat(6, 1fr);
+
+  //   & a:nth-child(n) {
+  //     grid-column: span 2;
+  //   }
+
+  //   & a:nth-last-child(2) {
+  //     grid-column-start: 2;
+  //     grid-column-end: 4;
+  //   }
+
+  //   & a:nth-last-child(1) {
+  //     grid-column-start: 4;
+  //     grid-column-end: 6;
+  //   }
+  // }
+
   @media (max-width: $tablet-size) {
-    display: grid;
-    grid-column-gap: 8px;
-    grid-row-gap: 8px;
-    grid-template-columns: repeat(6, 1fr);
-
-    & a:nth-child(n) {
-      grid-column: span 2;
-    }
-
-    & a:nth-last-child(2) {
-      grid-column-start: 2;
-      grid-column-end: 4;
-    }
-
-    & a:nth-last-child(1) {
-      grid-column-start: 4;
-      grid-column-end: 6;
-    }
+    justify-content: flex-start;
   }
 }
 
@@ -145,37 +152,46 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   gap: 6px;
 
   @media (max-width: $tablet-size) {
-    display: none;
+    // display: none;
   }
+}
+
+.linksRowBlock {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: space-between;
+  gap: 28px;
 }
 
 .mediaMobile {
   display: none;
 
-  @media (max-width: $tablet-size) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 64px;
-    height: 64px;
+  // @media (max-width: $tablet-size) {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   width: 64px;
+  //   height: 64px;
 
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 12px;
-    box-shadow:
-      0 10px 10px 0 rgba(0, 0, 0, 0.1),
-      0 4px 4px 0 rgba(0, 0, 0, 0.05),
-      0 1px 0 0 rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(20px);
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.02),
-      rgba(255, 255, 255, 0.1) 100%
-    );
-  }
+  //   border: 1px solid rgba(255, 255, 255, 0.07);
+  //   border-radius: 12px;
+  //   box-shadow:
+  //     0 10px 10px 0 rgba(0, 0, 0, 0.1),
+  //     0 4px 4px 0 rgba(0, 0, 0, 0.05),
+  //     0 1px 0 0 rgba(0, 0, 0, 0.05);
+  //   backdrop-filter: blur(20px);
+  //   background: linear-gradient(
+  //     180deg,
+  //     rgba(255, 255, 255, 0.02),
+  //     rgba(255, 255, 255, 0.1) 100%
+  //   );
+  // }
 }
 
 .weAcceptBlock {
