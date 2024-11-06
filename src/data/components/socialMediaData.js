@@ -62,7 +62,7 @@ export const socialMediaData = [
     ),
   },
   {
-    name: "Twitter",
+    name: "X.com",
     link: "https://x.com/MusicDex_inc",
     desktopImage: (
       <Image
