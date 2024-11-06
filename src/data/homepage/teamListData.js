@@ -23,10 +23,4 @@ export const teamListData = [
     nameUK: "Анна Техза",
     role: "Marketing",
   },
-  {
-    path: "/team/pavlo.jpg",
-    name: "Pavlo Striletskyi",
-    nameUK: "Павло Стрілецький",
-    role: "Head of Product",
-  },
 ];
