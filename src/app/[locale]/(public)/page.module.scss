@@ -173,6 +173,13 @@
   position: relative;
 }
 
+.howItWorksContainer {
+  gap: 150px;
+  @media (max-width: $desktop-md-size) {
+    gap: 32px;
+  }
+}
+
 .howItWorksBg {
   position: absolute;
   left: 0;

@@ -83,7 +83,7 @@ export const socialMediaData = [
   },
   {
     name: "YouTube",
-    link: "https://www.youtube.com/@MusicDex",
+    link: "https://youtube.com/@musicdex.?si=FXjAQGaWki_HZHQ7",
     desktopImage: (
       <Image
         src={"/icons/social-media/youtube-desktop.svg"}

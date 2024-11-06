@@ -72,7 +72,7 @@ export default function Home() {
       <div className={s.howItWorksWrapper} id={"home-how-it-works"}>
         <div className={s.howItWorksBg} />
         <Section>
-          <div className={s.flowContainer}>
+          <div className={`${s.flowContainer} ${s.howItWorksContainer}`}>
             <ColumnContainer>
               <h3>{t("how_it_works_header")}</h3>
               <p className={s.flowContainer_title}>{t("how_it_works")}</p>
