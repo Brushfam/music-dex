@@ -50,6 +50,7 @@
 }
 
 .teamCard {
+  height: 100%;
   display: flex;
   flex-direction: column;
 
@@ -107,6 +108,7 @@
   }
 
   &_role {
+    margin-top: auto;
     margin-bottom: 18px;
     margin-left: 18px;
     font-size: 16px;
