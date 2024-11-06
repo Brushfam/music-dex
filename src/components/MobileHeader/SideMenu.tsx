@@ -23,7 +23,10 @@ function HeaderSocialLinks() {
           height={24}
         />
       </a>
-      <a href="https://www.youtube.com/@MusicDex" target="_blank">
+      <a
+        href="https://youtube.com/@musicdex.?si=FXjAQGaWki_HZHQ7"
+        target="_blank"
+      >
         <Image
           src="/icons/social-media/youtube-mobile.svg"
           alt="youtube logo"
