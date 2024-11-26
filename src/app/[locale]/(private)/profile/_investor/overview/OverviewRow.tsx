@@ -71,12 +71,30 @@ export function OverviewRow(props: {
               <p className={s.overviewItem_text1}>{t("total_tokens")}</p>
               <p className={s.overviewItem_text2}>{props.totalTokensAmount}</p>
             </div>
-            <Image
-              src={"/profile/overview/total-tokens.svg"}
-              alt={"earned"}
-              height={26}
-              width={23}
-            />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                height: "100%",
+              }}
+            >
+              <Image
+                src={"/profile/overview/arrow-down.svg"}
+                alt={""}
+                height={12}
+                width={22}
+                style={{
+                  marginTop: 21,
+                }}
+              />
+              <Image
+                src={"/profile/overview/total-tokens.svg"}
+                alt={"earned"}
+                height={26}
+                width={23}
+                style={{ marginTop: "auto" }}
+              />
+            </div>
           </div>
           {isDropDownOpen && (
             <div className={s.overviewDropdownWrapper}>
