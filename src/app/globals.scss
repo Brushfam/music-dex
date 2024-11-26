@@ -58,3 +58,13 @@ button {
   position: relative;
   bottom: -20px;
 }
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 8px;
+}

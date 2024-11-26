@@ -259,6 +259,10 @@
       "total_songs": "Total songs invested",
       "invested_amount": "Invested amount",
       "total_tokens": "Total token amount",
+      "total_tokens_dropdown": {
+        "title": "Tokens",
+        "token": "{amount} tokens"
+      },
       "statistics": "Statistics",
       "sample_statistics": "The statistics of your income data will be shown here",
       "payment_history": "Payment History",
@@ -266,7 +270,20 @@
       "empty_history_desc": "Choose a song to invest",
       "suggestions": "Suggestions",
       "invest": "Invest",
-      "another_error": "Something went wrong"
+      "another_error": "Something went wrong",
+
+      "ListOfSongs": {
+        "title": "List of songs",
+        "no_songs": "No songs invested here yet",
+        "invest": "Invest",
+        "header_song": "Song",
+        "header_tokens": "Tokens",
+        "detailed": {
+          "date": "Date -",
+          "purchase": "Last purchase -",
+          "invested": "Invested -"
+        }
+      }
     },
     "Songs": {
       "title": "Invested songs",

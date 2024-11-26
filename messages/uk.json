@@ -259,6 +259,10 @@
       "total_songs": "Кількість пісень",
       "invested_amount": "Інвестиції",
       "total_tokens": "Кількість токенів",
+      "total_tokens_dropdown": {
+        "title": "Токени",
+        "token": "{amount} токени"
+      },
       "statistics": "Статистика",
       "sample_statistics": "Статистика Вашого прибутку буде відображена тут",
       "payment_history": "Історія виплат",
@@ -266,7 +270,20 @@
       "empty_history_desc": "Оберіть пісню для інвестицій",
       "suggestions": "Пропозиції",
       "invest": "Інвестувати",
-      "another_error": "Виникла помилка"
+      "another_error": "Виникла помилка",
+
+      "ListOfSongs": {
+        "title": "Список пісень",
+        "no_songs": "Тут ще немає жодної пісні",
+        "invest": "Інвестувати",
+        "header_song": "Пісня",
+        "header_tokens": "Токени",
+        "detailed": {
+          "date": "Дата -",
+          "purchase": "Остання покупка -",
+          "invested": "Інвестований -"
+        }
+      }
     },
     "Songs": {
       "title": "Інвестовані треки",

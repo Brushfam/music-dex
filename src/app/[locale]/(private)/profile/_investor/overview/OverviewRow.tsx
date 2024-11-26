@@ -1,5 +1,8 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { useState } from "react";
 import s from "./Overview.module.scss";
 
 export function OverviewRow(props: {
@@ -7,6 +10,7 @@ export function OverviewRow(props: {
   totalTokensAmount: number;
 }) {
   const t = useTranslations("ProfileInvestor.Overview");
+  const [isDropDownOpen, setIsDropDownOpen] = useState<boolean>(false);
 
   return (
     <div className={s.overviewRow}>
@@ -51,17 +55,76 @@ export function OverviewRow(props: {
             width={27}
           />
         </div>
-        <div className={s.overviewItem}>
-          <div className={s.overviewItem_column}>
-            <p className={s.overviewItem_text1}>{t("total_tokens")}</p>
-            <p className={s.overviewItem_text2}>{props.totalTokensAmount}</p>
+        <div
+          className={s.overviewDropdownContainer}
+          onClick={() => setIsDropDownOpen((prev) => !prev)}
+        >
+          <div
+            className={s.overviewItem}
+            style={{
+              borderBottom: isDropDownOpen ? "none" : "",
+              borderBottomLeftRadius: isDropDownOpen ? 0 : "",
+              borderBottomRightRadius: isDropDownOpen ? 0 : "",
+            }}
+          >
+            <div className={s.overviewItem_column}>
+              <p className={s.overviewItem_text1}>{t("total_tokens")}</p>
+              <p className={s.overviewItem_text2}>{props.totalTokensAmount}</p>
+            </div>
+            <Image
+              src={"/profile/overview/total-tokens.svg"}
+              alt={"earned"}
+              height={26}
+              width={23}
+            />
           </div>
-          <Image
-            src={"/profile/overview/total-tokens.svg"}
-            alt={"earned"}
-            height={26}
-            width={23}
-          />
+          {isDropDownOpen && (
+            <div className={s.overviewDropdownWrapper}>
+              <svg
+                viewBox="0 0 330 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.5 1.5H256L266.5 12L276 1.5H329.5"
+                  stroke="url(#paint0_linear_165_628)"
+                  stroke-width="2"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_165_628"
+                    x1="1"
+                    y1="0.999842"
+                    x2="330"
+                    y2="0.999804"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#F56121" stop-opacity="0" />
+                    <stop offset="0.799" stop-color="#F56121" />
+                    <stop offset="1" stop-color="#F56121" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              <div className={s.overviewDropdown}>
+                <div className={s.overviewDropdown_row}>
+                  <h3 className={s.overviewDropdown_title}>
+                    {t("total_tokens_dropdown.title")}
+                  </h3>
+                  <p className={s.overviewDropdown_total}>{15}</p>
+                </div>
+                <div className={s.overviewDropdown_line}></div>
+                <div className={s.overviewDropdown_songs}>
+                  <div className={s.overviewDropdown_row}>
+                    <p className={s.overviewDropdown_songTitle}>Song 1</p>
+                    <p className={s.overviewDropdown_songToken}>
+                      {t("total_tokens_dropdown.token", { amount: 5 })}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@
 
 import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 import { ProfileHeader } from "@/app/[locale]/(private)/_components/ProfileHeader/ProfileHeader";
-import { ProjectedEarnings } from "@/app/[locale]/(private)/_components/ProjectedEarnings";
 import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
 import { OverviewRow } from "@/app/[locale]/(private)/profile/_investor/overview/OverviewRow";
 import { SecondBlock } from "@/app/[locale]/(private)/profile/_investor/overview/SecondBlock";
@@ -56,7 +55,6 @@ export function Overview() {
       >
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <p className={s.pageTitle}>{t("title")}</p>
-          <ProjectedEarnings />
         </div>
         <ProfileHeader />
       </div>
