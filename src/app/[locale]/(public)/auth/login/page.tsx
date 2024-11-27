@@ -52,7 +52,7 @@ function Login(props: {
   }, [searchParams, t]);
 
   const actionCodeSettings = {
-    url: "https://musicdex.co/" + currentLocale + "/auth/login",
+    url: "https://musicdex.com.ua/" + currentLocale + "/auth/login",
     handleCodeInApp: true,
   };
 
