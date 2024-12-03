@@ -1,13 +1,12 @@
 import { ActivitiesIcon } from "@/app/[locale]/(private)/_components/Icons/ActivitiesIcon";
-import { NftIcon } from "@/app/[locale]/(private)/_components/Icons/NftIcon";
 import { OverviewIcon } from "@/app/[locale]/(private)/_components/Icons/OverviewIcon";
 import { ProfileIcon } from "@/app/[locale]/(private)/_components/Icons/ProfileIcon";
 import { RoyaltiesIcon } from "@/app/[locale]/(private)/_components/Icons/RoyaltiesIcon";
-import { SongsIcon } from "@/app/[locale]/(private)/_components/Icons/SongsIcon";
 import { ProfilePages } from "@/types/types";
 import { useTranslations } from "next-intl";
 import * as React from "react";
 import { Dispatch, SetStateAction } from "react";
+import { BalanceIcon } from "../Icons/BalanceIcon";
 import s from "./PagesList.module.scss";
 
 export function PageList(props: {
@@ -62,20 +61,18 @@ export function PageList(props: {
         <PageRow page={ProfilePages.Overview} title={t("overview")}>
           <OverviewIcon color={getCurrentColor(ProfilePages.Overview)} />
         </PageRow>
-        <PageRow page={ProfilePages.Songs} title={t("songs")}>
-          <SongsIcon color={getCurrentColor(ProfilePages.Songs)} />
-        </PageRow>
         <PageRow page={ProfilePages.Royalties} title={t("royalties")}>
           <RoyaltiesIcon color={getCurrentColor(ProfilePages.Royalties)} />
         </PageRow>
         <PageRow page={ProfilePages.Activities} title={t("activities")}>
           <ActivitiesIcon color={getCurrentColor(ProfilePages.Activities)} />
         </PageRow>
-        <PageRow page={ProfilePages.NFTs} title={t("nfts")}>
-          <NftIcon color={getCurrentColor(ProfilePages.NFTs)} />
-        </PageRow>
+
         <PageRow page={ProfilePages.Settings} title={t("profile")}>
           <ProfileIcon color={getCurrentColor(ProfilePages.Settings)} />
+        </PageRow>
+        <PageRow page={ProfilePages.BALANCE} title={t("balance")}>
+          <BalanceIcon color={getCurrentColor(ProfilePages.BALANCE)} />
         </PageRow>
       </div>
     );
@@ -86,9 +83,6 @@ export function PageList(props: {
       <div className={s.pagesList}>
         <PageRow page={ProfilePages.Overview} title={t("overview")}>
           <OverviewIcon color={getCurrentColor(ProfilePages.Overview)} />
-        </PageRow>
-        <PageRow page={ProfilePages.Songs} title={t("songs")}>
-          <SongsIcon color={getCurrentColor(ProfilePages.Songs)} />
         </PageRow>
         <PageRow page={ProfilePages.Settings} title={t("profile")}>
           <ProfileIcon color={getCurrentColor(ProfilePages.Settings)} />

@@ -27,6 +27,7 @@ export function ConnectWallet(props: {
   const { disconnect } = useDisconnect();
 
   const { address } = useAccount();
+
   const [prevAddress, setPrevAddress] = useState("");
   const { connect, connectors } = useConnect();
   const [walletName, setWalletName] = useState("Braavos");

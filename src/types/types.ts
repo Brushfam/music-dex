@@ -34,6 +34,7 @@ export enum ProfilePages {
   NFTs,
   Settings,
   FAQ,
+  BALANCE,
 }
 
 export type InvestorInfo = {

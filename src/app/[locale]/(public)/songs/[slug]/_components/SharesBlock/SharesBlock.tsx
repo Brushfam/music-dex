@@ -172,7 +172,18 @@ export function SharesBlock(props: {
         </div>
       </div>
       {currentUser ? (
-        <PaymentButtons />
+        <>
+          <PaymentButtons />
+          <div className={s.balanceContainer}>
+            <p className={s.balanceContainer_title}>Balance status</p>
+            <div className={s.balanceContainer_cryptos}>
+              <div className={s.balanceContainer_cryptoItem}>
+                <p>USDT -</p>
+                <p className={s.balanceContainer_cryptoItem_amount}>1000</p>
+              </div>
+            </div>
+          </div>
+        </>
       ) : (
         <p style={{ color: "white", fontWeight: 600, textAlign: "center" }}>
           {t("please_login_artist")}

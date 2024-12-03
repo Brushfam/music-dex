@@ -1,6 +1,6 @@
 "use client";
 
-import { PageWrapper } from "@/app/[locale]/(private)/profile/PageWrapper";
+import profileStyles from "@/app/[locale]/(private)/profile/Profile.module.scss";
 import s from "@/app/[locale]/(private)/profile/_investor/activities/Activities.module.scss";
 import { ActivitiesHeader } from "@/app/[locale]/(private)/profile/_investor/activities/ActivitiesHeader";
 import { ActivitiesRow } from "@/app/[locale]/(private)/profile/_investor/activities/ActivitiesRow";
@@ -9,6 +9,8 @@ import { getInvestorActivities } from "@/services/users/investors/investors";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { LoadingSpinner } from "../../_components/LoadingSpinner";
+import { ProfileHeader } from "../../_components/ProfileHeader/ProfileHeader";
 
 interface ActivitiesData {
   date: string;
@@ -19,6 +21,39 @@ interface ActivitiesData {
   status: string;
   link: string;
 }
+
+const data = [
+  {
+    dateTime: "18/11/2024 16:20",
+    value: "ETH",
+    name: "Ethereum",
+    amount: "$1000",
+  },
+  {
+    dateTime: "18/11/2024 16:20",
+    value: "ETH",
+    name: "Ethereum",
+    amount: "$1000",
+  },
+  {
+    dateTime: "18/11/2024 16:20",
+    value: "ETH",
+    name: "Ethereum",
+    amount: "$1000",
+  },
+  {
+    dateTime: "18/11/2024 16:20",
+    value: "ETH",
+    name: "Ethereum",
+    amount: "$1000",
+  },
+  {
+    dateTime: "18/11/2024 16:20",
+    value: "ETH",
+    name: "Ethereum",
+    amount: "$1000",
+  },
+];
 
 export default function Activities() {
   const t = useTranslations("ProfileInvestor.Activities");
@@ -90,19 +125,15 @@ export default function Activities() {
     return activitiesList.length ? (
       activitiesList.map((act, index) => {
         return (
-          <div
-            key={index.toString()}
-            style={{ display: "flex", flexDirection: "column", minWidth: 530 }}
-          >
-            <ActivitiesRow
-              lastDate={act.date}
-              song={act.name}
-              tokens={act.tokens}
-              invested={act.amount}
-              status={act.status}
-              songLink={act.link}
-            />
-          </div>
+          <ActivitiesRow
+            key={index}
+            lastDate={act.date}
+            song={act.name}
+            tokens={act.tokens}
+            invested={act.amount}
+            status={act.status}
+            songLink={act.link}
+          />
         );
       })
     ) : (
@@ -111,12 +142,71 @@ export default function Activities() {
   }
 
   return (
-    <PageWrapper title={t("title")} height={"auto"} loading={loading}>
-      <div className={s.activitiesWrapper}>
-        <p className={s.titleBlock_text}>{t("list_of_activities")}</p>
-        {activitiesList.length ? <ActivitiesHeader /> : null}
-        <ActivitiesList />
+    <div className={profileStyles.subpageWrapper}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+        }}
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <p className={profileStyles.pageTitle}>{t("title")}</p>
+        </div>
+        <ProfileHeader />
       </div>
-    </PageWrapper>
+      {loading ? (
+        <LoadingSpinner fullHeight={true} />
+      ) : (
+        <div className={profileStyles.contentWrapper}>
+          <div className={s.inputOutputContainer}>
+            <div className={s.container}>
+              <h2>Input</h2>
+              <div className={s.wrapper}>
+                <div className={s.inputOutputHeader}>
+                  <p>Date / Time</p>
+                  <p>Value</p>
+                  <p className={s.inputOutputHeader_amount}>Amount</p>
+                </div>
+                <div className={s.inputOutputRow}>
+                  <div>18/11/2024 16:20</div>
+                  <div>
+                    <div>ETH</div>
+                    <div className={s.inputOutputRow_value}>Ethereum</div>
+                  </div>
+                  <div className={s.inputOutputRow_amount}>$1000</div>
+                </div>
+              </div>
+            </div>
+            <div className={s.container}>
+              <h2>Output</h2>
+              <div className={s.wrapper}>
+                <div className={s.inputOutputHeader}>
+                  <p>Date / Time</p>
+                  <p>Value</p>
+                  <p className={s.inputOutputHeader_amount}>Amount</p>
+                </div>
+                <div className={s.inputOutputRow}>
+                  <div>18/11/2024 16:20</div>
+                  <div>
+                    <div>ETH</div>
+                    <div className={s.inputOutputRowValue}>Ethereum</div>
+                  </div>
+                  <div className={s.inputOutputRow_amount}>$1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={s.activitiesWrapper}>
+            <p className={s.titleBlock_text}>Recent purchases</p>
+            <div className={s.wrapper}>
+              {activitiesList.length ? <ActivitiesHeader /> : null}
+              <ActivitiesList />
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

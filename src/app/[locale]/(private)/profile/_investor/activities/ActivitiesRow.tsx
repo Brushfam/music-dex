@@ -35,14 +35,11 @@ export function ActivitiesRow(props: {
     <div className={s.songRow}>
       <p className={s.songRow_date}>{props.lastDate}</p>
       <p className={s.songRow_song}>{props.song}</p>
+      <p className={s.songRow_wallet}>Wallet: ****</p>
       <p className={s.songRow_tokens}>{props.tokens}</p>
       <p className={s.songRow_invested}>${props.invested}</p>
       <StatusBlock status={props.status} />
-      <a
-        href={props.songLink}
-        target={"_blank"}
-        style={{ position: "absolute", right: 32 }}
-      >
+      <a href={props.songLink} target={"_blank"} style={{ textAlign: "right" }}>
         <Image
           src={"/icons/arrow-link.svg"}
           alt={"arrow"}

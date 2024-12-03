@@ -12,7 +12,7 @@
 
 .activitiesWrapper {
   @media (max-width: 1200px) {
-    min-width: 724px;
+    // min-width: 724px;
   }
 }
 
@@ -60,141 +60,79 @@
   }
 }
 
+.activitiesWrapper {
+  background-color: rgba(17, 17, 17, 1);
+  padding: 30px 18px;
+  border-radius: 25px;
+  margin-top: 20px;
+}
+
 .songHeader {
-  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr) 10px;
+
   height: 34px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
   align-items: center;
-  padding: 0px 32px 0px 32px;
   border-radius: 8px;
   background: rgb(23, 23, 23);
   margin-top: 24px;
 
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  padding: 0px 32px 0px 32px;
+
   p {
-    position: absolute;
-    color: rgba(255, 255, 255, 0.4);
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
   }
 
-  &_date {
-    left: 32px;
-  }
-
-  &_song {
-    left: 238px;
-  }
-
-  &_tokens {
-    left: 428px;
-  }
-
+  &_tokens,
   &_invested {
-    left: 590px;
-  }
-
-  &_status {
-    left: 800px;
-  }
-
-  @media (max-width: 1380px) {
-    &_date {
-      left: 32px;
-    }
-
-    &_song {
-      left: 200px;
-    }
-
-    &_tokens {
-      left: 340px;
-    }
-
-    &_invested {
-      left: 420px;
-    }
-
-    &_status {
-      left: 600px;
-    }
+    text-align: center;
   }
 }
 
 .songRow {
-  position: relative;
-  height: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr) 10px;
   padding: 8px 32px 8px 32px;
+
+  height: 60px;
   margin-top: 10px;
   border-radius: 10px;
-  background: rgb(29, 29, 29);
 
-  p {
-    position: absolute;
+  > p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     color: rgb(255, 255, 255);
     font-size: 14px;
     font-weight: 500;
     line-height: 17px;
   }
 
-  &_date {
-    left: 32px;
-  }
-
-  &_song {
-    left: 238px;
-  }
-
-  &_tokens {
-    left: 450px;
-  }
-
+  &_tokens,
   &_invested {
-    left: 610px;
-  }
-
-  @media (max-width: 1380px) {
-    &_date {
-      left: 32px;
-    }
-
-    &_song {
-      left: 200px;
-    }
-
-    &_tokens {
-      left: 355px;
-    }
-
-    &_invested {
-      left: 435px;
-    }
+    text-align: center;
   }
 }
 
 @mixin status {
-  position: absolute;
-  left: 782px;
   width: 90px;
   height: 29px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 6px 8px 6px 8px;
+  padding: 6px 8px;
   border-radius: 6px;
   font-size: 14px;
   font-weight: 400;
-
-  @media (max-width: 1380px) {
-    left: 580px;
-  }
 }
 
 .waiting {
@@ -219,4 +157,90 @@
   p {
     color: rgba(255, 255, 255, 0.4);
   }
+}
+
+.container {
+  background-color: rgba(17, 17, 17, 1);
+  padding: 30px 18px;
+  border-radius: 25px;
+  width: 100%;
+
+  // @media (max-width: 1200px) {
+  // }
+}
+
+.inputOutputContainer {
+  display: flex;
+  // grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
+
+  h2 {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 120%;
+  }
+
+  .inputOutputHeader {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+
+    height: 34px;
+    align-items: center;
+    border-radius: 8px;
+    background: rgb(23, 23, 23);
+    margin-top: 24px;
+
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+
+    p {
+      padding-left: 32px;
+    }
+
+    &_amount {
+      text-align: center;
+      padding-left: 0;
+    }
+  }
+
+  .inputOutputRow {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+
+    height: 60px;
+    margin-top: 10px;
+    border-radius: 10px;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 26px;
+      color: rgb(255, 255, 255);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 17px;
+    }
+
+    &_value {
+      color: rgba(255, 255, 255, 0.4);
+    }
+    &_amount {
+      text-align: center;
+      padding-left: 0;
+    }
+  }
+}
+
+.wrapper {
+  overflow: hidden;
 }

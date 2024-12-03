@@ -26,6 +26,7 @@ export function Button(props: {
   target?: "_self" | "_blank" | "_parent" | "_top";
   action?: () => void;
   fullLength?: boolean;
+  between?: boolean;
 }) {
   const { Link: LocalLink } = createSharedPathnamesNavigation({
     locales: ["en", "uk"],
@@ -61,7 +62,14 @@ export function Button(props: {
     <button
       type={props.type ?? "button"}
       className={colors[props.color]}
-      style={props.fullLength ? { width: "100%" } : {}}
+      style={
+        props.fullLength
+          ? {
+              width: "100%",
+              justifyContent: props.between ? "space-between" : "",
+            }
+          : {}
+      }
       onClick={props.action}
     >
       <Content />

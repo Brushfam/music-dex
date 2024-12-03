@@ -131,7 +131,7 @@ export function OverviewRow(props: {
                   </h3>
                   <p className={s.overviewDropdown_total}>{15}</p>
                 </div>
-                <div className={s.overviewDropdown_line}></div>
+                <div className={"line"}></div>
                 <div className={s.overviewDropdown_songs}>
                   <div className={s.overviewDropdown_row}>
                     <p className={s.overviewDropdown_songTitle}>Song 1</p>
