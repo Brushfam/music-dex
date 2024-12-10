@@ -1,3 +1,4 @@
+import { SolanaWalletProvider } from "@/providers/SolanaProvider";
 import { StarknetProvider } from "@/providers/StarknetProvider";
 import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
@@ -32,8 +33,10 @@ export default function PrivateRootLayout({
       <body className={inter.className} suppressHydrationWarning={true}>
         <NextIntlClientProvider messages={messages}>
           <StarknetProvider>
-            <Toaster richColors />
-            {children}
+            <SolanaWalletProvider>
+              <Toaster richColors />
+              {children}
+            </SolanaWalletProvider>
           </StarknetProvider>
         </NextIntlClientProvider>
       </body>

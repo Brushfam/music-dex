@@ -15,10 +15,8 @@ export function ConnectedWallets(props: {
   }
 
   const vocabulary: { [key: string]: string } = {
+    "Argent X": "/logos/Argent.png",
     Braavos: "/logos/Braavos.svg",
-    "Argent X": "/logos/Argent-X.svg",
-    "Argent mobile": "/logos/Argent.png",
-    internal: "/profile/icons/internal-wallet.png",
   };
 
   function getImagePath(input: string): string {
@@ -38,9 +36,8 @@ export function ConnectedWallets(props: {
   }
 
   function getWalletName(name: string) {
-    return name === "internal" ? "internal" : name.replace(/"/g, "");
+    return name.replace(/"/g, "");
   }
-
   return (
     <div className={s.walletList}>
       <p className={s.title}>{t("connected_wallets")}</p>

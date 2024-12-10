@@ -1,0 +1,49 @@
+@import "../../../../../constants/constants";
+// $mobile-size: 480px;
+// $tablet-size: 800px;
+// $desktop-md-size: 1040px;
+// $desktop-size: 1440px;
+.btcList {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+
+  @media (max-width: $desktop-size) {
+    gap: 40px;
+  }
+
+  @media (max-width: $tablet-size) {
+    display: none;
+  }
+}
+
+.btcList_mobile {
+  width: 100%;
+  display: none;
+  @media (max-width: $tablet-size) {
+    display: block;
+  }
+}
+
+.cardWrapper {
+  background: #222222;
+  border-radius: 20px;
+  padding: 30px 20px;
+  width: calc(100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 28px;
+
+  @media (max-width: $desktop-size) {
+    gap: 10px;
+    padding: 22px 12px;
+    font-size: 22px;
+  }
+  @media (max-width: $desktop-md-size) {
+    gap: 10px;
+    font-size: 16px;
+    padding: 20px 15px;
+  }
+}

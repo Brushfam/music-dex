@@ -25,8 +25,6 @@ export function InfoForm(props: {
     profiles[i] = props.investor.profiles[i];
   }
 
-  console.log(props.investor);
-
   const [formData, setFormData] = useState({
     firstName: props.investor.firstName || "",
     lastName: props.investor.lastName || "",

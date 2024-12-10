@@ -23,7 +23,8 @@
 }
 
 .overviewItem {
-  width: 300px;
+  width: 264px;
+
   height: 128px;
   display: flex;
   flex-direction: row;
@@ -36,8 +37,8 @@
   background: rgb(17, 17, 17);
   border: 1px solid rgba(246, 96, 31, 0.5);
 
-  @media (max-width: 500px) {
-    width: 320px;
+  @media (max-width: 700px) {
+    width: 100%;
   }
 
   &_column {
@@ -66,13 +67,13 @@
 }
 
 .transactionsBlock {
+  width: 100%;
   height: 290px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 24px 25px 24px 25px;
-  min-width: 620px;
 
   border-radius: 14px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.16);
@@ -96,6 +97,7 @@
 }
 
 .royaltiesHistory {
+  width: 100%;
   height: 280px;
   display: flex;
   flex-direction: column;
@@ -103,7 +105,6 @@
   border-radius: 14px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.16);
   background: rgb(17, 17, 17);
-  min-width: 530px;
 
   &_song {
     width: 100%;
