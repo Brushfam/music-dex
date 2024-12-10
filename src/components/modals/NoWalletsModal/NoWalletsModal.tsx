@@ -12,6 +12,8 @@ export function NoWalletsModal() {
   const noWalletsModal = useUserStore((state) => state.noWalletsModal);
   const setNoWalletsModal = useUserStore((state) => state.setNoWalletsModal);
 
+  console.log(noWalletsModal);
+  
   return noWalletsModal ? (
     <div className={s.overlay}>
       <div className={s.baseModal}>

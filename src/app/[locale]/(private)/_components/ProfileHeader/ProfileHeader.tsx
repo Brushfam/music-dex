@@ -4,8 +4,9 @@ import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { useUserStore } from "@/store/user";
 import { signOut } from "@firebase/auth";
 import { useTranslations } from "next-intl";
+import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useLocale } from "use-intl";
@@ -35,12 +36,32 @@ export function ProfileHeader() {
       });
   }
 
+  function LangSwitcher() {
+    const pathname = usePathname();
+    const currentLocale = useLocale();
+    const { Link: LocalLink } = createSharedPathnamesNavigation({
+      locales: ["en", "uk"],
+    });
+
+    return (
+      <LocalLink
+        href={pathname.substring(3) || "/"}
+        locale={currentLocale == "en" ? "uk" : "en"}
+        className={s.modalButton}
+        style={{ minWidth: 0 }}
+      >
+        <p>{currentLocale.toUpperCase()}</p>
+      </LocalLink>
+    );
+  }
   function ModalMenu() {
     return modalOpen ? (
       <div className={s.modal}>
         <a href={"/" + currentLocale} className={s.modalButton}>
           MusicDex
         </a>
+        <div className={s.line}></div>
+        <LangSwitcher />
         <div className={s.line}></div>
         <div
           className={s.modalButton}

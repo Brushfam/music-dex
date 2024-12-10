@@ -1,6 +1,6 @@
 "use client";
 
-import { sampleRoyaltiesData } from "@/data/profile/sampleData";
+import { useEffect, useState } from "react";
 import {
   CartesianGrid,
   Line,
@@ -8,8 +8,33 @@ import {
   ResponsiveContainer,
   YAxis,
 } from "recharts";
+const url = process.env.NEXT_PUBLIC_SERVERTEST_URL;
 
 export function SampleRoyaltiesChart() {
+  const [sampleRoyaltiesData, setSampleRoyaltiesData] = useState([]);
+
+  useEffect(() => {
+    const fetchRoyaltiesData = async () => {
+      try {
+        const response = await fetch(url + "/users/royalties/statistics");
+        if (response.ok) {
+          const data = await response.json();
+          const transformedData = data.map((item: any) => ({
+            name: item.month,
+            uv: parseFloat(item.amount),
+          }));
+          setSampleRoyaltiesData(transformedData);
+        } else {
+          console.error("Failed to fetch royalties:", response.status);
+        }
+      } catch (error) {
+        console.error("Error fetching royalties data:", error);
+      }
+    };
+
+    fetchRoyaltiesData();
+  }, []);
+
   return (
     <ResponsiveContainer width="100%" height={180}>
       <LineChart
@@ -28,7 +53,7 @@ export function SampleRoyaltiesChart() {
             fontSize: 14,
             fontWeight: 400,
           }}
-          domain={[0, 80]}
+          domain={[0, 80]} // Убедитесь, что это значение подходит для вашего диапазона данных
           axisLine={false}
         />
         <Line

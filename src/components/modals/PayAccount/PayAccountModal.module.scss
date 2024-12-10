@@ -1,0 +1,140 @@
+.replenishContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 26px;
+
+  .amountContainer {
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    h3 {
+      font-size: 18px;
+      color: white;
+    }
+
+    .amountInput {
+      display: flex;
+      gap: 11px;
+      align-items: center;
+      height: 35px;
+
+      button {
+        font-size: 24px;
+        background-color: transparent;
+        outline: none;
+        border: none;
+      }
+
+      .amount {
+        font-size: 20px;
+        color: white;
+        padding: 5px 0;
+        width: 100%;
+        border-bottom: 1px solid white;
+        text-align: center;
+      }
+    }
+    .sliderContainer {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      span {
+        font-size: 10px;
+        color: #535353;
+        text-wrap: nowrap;
+      }
+    }
+  }
+
+  .currencyContainer {
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    h3 {
+      font-size: 18px;
+    }
+    span {
+      width: 100%;
+      font-size: 14px;
+      text-align: left;
+    }
+  }
+}
+.balance {
+  margin-top: 30px;
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  &_item {
+    color: white;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    p {
+      margin-top: 10px;
+    }
+    span {
+      color: #f85f30;
+    }
+  }
+  &_line {
+    height: 75px;
+    width: 0.1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: 0.1rem solid;
+    border-image: linear-gradient(
+        180deg,
+        rgb(35, 35, 32) 40%,
+        #f85f30 50%,
+        rgb(35, 35, 35) 58%
+      )
+      30;
+  }
+  &_container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.slider {
+  width: 100%;
+  margin: 10px 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to right, #ff4500, #444);
+  height: 2px;
+  border-radius: 5px;
+  outline: none;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff4500;
+    cursor: pointer;
+  }
+
+  &::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff4500;
+    cursor: pointer;
+  }
+}
+
+.replenishBtnGroup {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}

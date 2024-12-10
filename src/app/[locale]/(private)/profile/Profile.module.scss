@@ -21,10 +21,15 @@
 
 .subpageWrapper {
   display: flex;
+  width: 100%;
   flex-direction: column;
   margin-top: 50px;
   margin-right: 36px;
   flex-grow: 1;
+  &_tabs {
+    display: flex;
+    gap: 60px;
+  }
 
   @media (max-width: 1200px) {
     margin: 0;
@@ -63,9 +68,24 @@
 }
 
 .pageTitle {
-  color: rgb(255, 255, 255);
   font-size: 26px;
   font-weight: 500;
+  transition: 0.5s;
+  pointer-events: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+
+  &.active {
+    pointer-events: all;
+
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: underline;
+    color: #888888;
+    &:hover {
+      color: rgb(255, 255, 255);
+    }
+  }
 }
 
 .secondArtistOverviewBlock {

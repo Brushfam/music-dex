@@ -1,3 +1,4 @@
+import { PublicKey } from "@solana/web3.js";
 import axios from "axios";
 
 export function ifUserHasWallets(jwt: string) {
@@ -21,7 +22,11 @@ export function getUserWallets(jwt: string) {
   });
 }
 
-export function addUserWallet(jwt: string, address: string, name: string) {
+export function addUserWallet(
+  jwt: string,
+  address: string | PublicKey,
+  name: string
+) {
   return axios.post(
     process.env.NEXT_PUBLIC_SERVER_URL + "/users/wallets",
     {

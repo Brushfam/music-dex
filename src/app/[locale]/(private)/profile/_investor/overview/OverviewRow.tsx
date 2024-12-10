@@ -11,7 +11,7 @@ export function OverviewRow(props: {
 }) {
   const t = useTranslations("ProfileInvestor.Overview");
   const [isDropDownOpen, setIsDropDownOpen] = useState<boolean>(false);
-
+  console.log(props.totalInvestedAmount);
   return (
     <div className={s.overviewRow}>
       <div className={s.overviewSubRow}>

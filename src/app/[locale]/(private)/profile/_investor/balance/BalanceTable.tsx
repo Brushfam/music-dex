@@ -1,91 +1,111 @@
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import s from "./Balance.module.scss";
+const url = process.env.NEXT_PUBLIC_SERVERTEST_URL;
 
 export const BalanceTable = () => {
-  const data = [
-    {
-      token: "ETH",
-      price: "$2,456.02",
-      amount: "0.0032456",
-      usdValue: "$7.0895",
-    },
-    {
-      token: "ETH",
-      price: "$2,456.02",
-      amount: "0.0032456",
-      usdValue: "$7.0895",
-    },
-    {
-      token: "ETH",
-      price: "$2,456.02",
-      amount: "0.0032456",
-      usdValue: "$7.0895",
-    },
-    {
-      token: "ETH",
-      price: "$2,456.02",
-      amount: "0.0032456",
-      usdValue: "$7.0895",
-    },
-    {
-      token: "ETH",
-      price: "$2,456.02",
-      amount: "0.0032456",
-      usdValue: "$7.0895",
-    },
-    {
-      token: "ETH",
-      price: "$2,456.02",
-      amount: "0.0032456",
-      usdValue: "$7.0895",
-    },
-  ];
+  const t = useTranslations("ProfileInvestor.Balance");
+
+  const [data, setData] = useState<any[]>([]);
+  const [sortOrder, setSortOrder] = useState<string>("asc");
+  const [sortedData, setSortedData] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchBalances = async () => {
+      try {
+        firebaseAuth.onAuthStateChanged(async (user) => {
+          if (user) {
+            const token = await user.getIdToken();
+            const response = await fetch(url + "/users/balances", {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            });
+
+            const data = await response.json();
+            setData(data);
+            setSortedData(data);
+          } else {
+            console.error("User is not authenticated");
+          }
+        });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchBalances();
+  }, []);
+
+  useEffect(() => {
+    const sorted = [...data].sort((a, b) => {
+      if (sortOrder === "asc") {
+        return parseFloat(a.price) - parseFloat(b.price);
+      } else {
+        return parseFloat(b.price) - parseFloat(a.price);
+      }
+    });
+    setSortedData(sorted);
+  }, [sortOrder, data]);
+
+  const calculateUsdValue = (balance: string, price: string) => {
+    return (parseFloat(balance) * parseFloat(price)).toFixed(2);
+  };
   return (
-    <div className={s.balanceSection}>
-      <div className="line"></div>
-      <div className={s.tableFlexContainer}>
-        <div className={s.tableContainer}>
-          <table className={s.table}>
-            <thead>
-              <tr>
-                <th>Token</th>
-                <th>Price</th>
-                <th>Amount</th>
-                <th>USD Value</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((row, index) => (
-                <tr key={index}>
-                  <td>
-                    <Image
-                      src="/profile/balance/eth.png"
-                      alt="ETH Icon"
-                      className={s.icon}
-                      width={25}
-                      height={25}
-                    />
-                    {row.token}
-                  </td>
-                  <td className={s.price}>{row.price}</td>
-                  <td>{row.amount}</td>
-                  <td className={s.usdValue}>{row.usdValue}</td>
+    sortedData.length > 0 && (
+      <div className={s.balanceSection}>
+        <div className="line"></div>
+        <div className={s.tableFlexContainer}>
+          <div className={s.tableContainer}>
+            <table className={s.table}>
+              <thead>
+                <tr>
+                  <th>{t("token")}</th>
+                  <th>{t("price")}</th>
+                  <th>{t("amount")}</th>
+                  <th>{t("value")}</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className={s.sortContainer}>
-          <button>
-            <Image
-              src={"/profile/balance/sort-icon.svg"}
-              alt=""
-              width={20}
-              height={20}
-            />
-          </button>
+              </thead>
+              <tbody>
+                {sortedData.map((row, index) => (
+                  <tr key={index}>
+                    <td>
+                      <Image
+                        src={`/profile/balance/${row.currency.symbol.toLowerCase()}.png`}
+                        alt={`${row.currency.symbol} Icon`}
+                        className={s.icon}
+                        width={25}
+                        height={25}
+                      />
+                      {row.currency.symbol}
+                    </td>
+                    <td className={s.price}>{row.price}</td>
+                    <td>{row.balance}</td>
+                    <td className={s.usdValue}>
+                      {calculateUsdValue(row.balance, row.price)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className={s.sortContainer}>
+            <button
+              onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+            >
+              <Image
+                src={"/profile/balance/sort-icon.svg"}
+                alt="Sort Icon"
+                width={20}
+                height={20}
+              />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 };

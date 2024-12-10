@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  investorStatisticsDataEN,
-  investorStatisticsDataUK,
-} from "@/data/profile/sampleData";
+import { useEffect, useState } from "react";
 import {
   Area,
   AreaChart,
@@ -15,14 +12,33 @@ import {
 } from "recharts";
 import { ValueType } from "recharts/types/component/DefaultTooltipContent";
 import { useLocale } from "use-intl";
+const url = process.env.NEXT_PUBLIC_SERVERTEST_URL;
 
 export function SampleStatisticsChart() {
   const currentLocale = useLocale();
-  const data =
-    currentLocale === "en"
-      ? investorStatisticsDataEN
-      : investorStatisticsDataUK;
+  const [data, setData] = useState([]);
 
+  useEffect(() => {
+    const fetchRoyaltiesData = async () => {
+      try {
+        const response = await fetch(url + "/users/royalties/statistics");
+        if (response.ok) {
+          const data = await response.json();
+          const transformedData = data.map((item: any) => ({
+            name: item.month,
+            uv: parseFloat(item.amount),
+          }));
+          setData(transformedData);
+        } else {
+          console.error("Failed to fetch royalties:", response.status);
+        }
+      } catch (error) {
+        console.error("Error fetching royalties data:", error);
+      }
+    };
+
+    fetchRoyaltiesData();
+  }, []);
   return (
     <ResponsiveContainer height={200}>
       <AreaChart

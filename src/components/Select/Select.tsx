@@ -4,9 +4,10 @@ import { CSSProperties, FC, useEffect, useState } from "react";
 import styles from "./Select.module.scss";
 
 interface SelectOption {
-  image?: string;
   value: string;
   label: string;
+  image: string;
+  contractAddress: `0x${string}`;
 }
 
 export interface SelectProps {
@@ -105,7 +106,7 @@ export const Select: FC<SelectProps> = ({
             <path
               d="M0.5 1.5H256L266.5 12L276 1.5H329.5"
               stroke="url(#paint0_linear_165_628)"
-              stroke-width="2"
+              strokeWidth="2"
             />
             <defs>
               <linearGradient
@@ -116,15 +117,18 @@ export const Select: FC<SelectProps> = ({
                 y2="0.999804"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#F56121" stop-opacity="0" />
-                <stop offset="0.799" stop-color="#F56121" />
-                <stop offset="1" stop-color="#F56121" stop-opacity="0" />
+                <stop stopColor="#F56121" stopOpacity="0" />
+                <stop offset="0.799" stopColor="#F56121" />
+                <stop offset="1" stopColor="#F56121" stopOpacity="0" />
               </linearGradient>
             </defs>
           </svg>
 
           {options.map((option) => (
-            <div key={option.value} className={styles.optionContainer}>
+            <div
+              key={option.value}
+              className={`${styles.optionContainer} ${option.value === value && styles.active} `}
+            >
               <div
                 className={styles.option}
                 onClick={() => {

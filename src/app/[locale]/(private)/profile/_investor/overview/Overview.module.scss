@@ -65,6 +65,9 @@
     font-size: 32px;
     font-weight: 600;
   }
+  @media (max-width: 616px) {
+    width: 207px;
+  }
 
   @media (max-width: 500px) {
     width: 100%;

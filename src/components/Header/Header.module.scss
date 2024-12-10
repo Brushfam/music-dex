@@ -18,6 +18,9 @@
     width: 141px;
     height: 32px;
     margin-right: 60px;
+    @media (max-width: $desktop-size) {
+      margin-right: 20px;
+    }
 
     @media (max-width: $mobile-size) {
       width: 127px;
@@ -33,7 +36,7 @@
     width: 1376px;
 
     @media (max-width: $desktop-size) {
-      width: 88%;
+      width: 92%;
     }
 
     @media (max-width: $mobile-size) {
@@ -59,6 +62,10 @@
     align-items: center;
     gap: 15px;
     margin-right: 20px;
+    @media (max-width: $desktop-size) {
+      gap: 10px;
+      margin-right: 10px;
+    }
     a {
       display: flex;
       align-items: center;
@@ -73,7 +80,10 @@
 .menuWrapper {
   display: flex;
   flex-direction: row;
-  gap: 30px;
+  @media (max-width: $desktop-size) {
+    gap: 0;
+  }
+  gap: 34px;
   align-items: center;
 }
 
@@ -82,7 +92,10 @@
   flex-direction: row;
   gap: 24px;
   align-items: center;
-
+  @media (max-width: $desktop-size) {
+    gap: 10px;
+    font-size: 10px;
+  }
   a {
     color: rgb(255, 255, 255);
     font-size: 14px;

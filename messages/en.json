@@ -317,9 +317,16 @@
       "song": "Song",
       "activity": "Activity",
       "tokens": "Tokens",
+      "paymentMethod": "Payment method",
       "invested": "Invested",
       "status": "Status",
-      "loading": "Loading..."
+      "loading": "Loading...",
+      "input": "Input",
+      "dateTime": "Date / Time",
+      "value": "Value",
+      "amount": "Amount",
+      "output": "Output",
+      "recentPurchases": "Recent purchases"
     },
     "NFTs": {
       "title": "NFT",
@@ -366,6 +373,28 @@
       "cancel": "Cancel",
       "saving": "Saving...",
       "save": "Save Changes"
+    },
+    "Balance": {
+      "title": "Balance",
+      "topUp": "Top up your balance",
+      "enter": "Enter the top-up amount",
+      "withdraw": "Withdraw",
+      "token": "Token",
+      "price": "Price",
+      "amount": "Amount",
+      "value": "USD Value",
+      "connectedWallet": "With connected wallet",
+      "whitepay": "Whitepay",
+      "enterAmount": "Enter Amount",
+      "currency": "Currency",
+      "min": "min.",
+      "max": "max.",
+      "back": "Back",
+      "replenish": "Replenish",
+      "wallets": "Wallets",
+      "failed": "Transaction failed.",
+      "successful": "Transaction successful.",
+      "errorConnect": "Please connect your wallet first."
     }
   },
 
@@ -427,6 +456,7 @@
     "tokens": "Tokens",
     "min": "min.",
     "max": "max.",
+    "balanceStatus": "Balance status",
     "please_login": "Please log in to buy tokens.",
     "please_login_artist": "Please log in as investor to buy tokens.",
     "sign_agreement": "Agreement",
@@ -436,7 +466,7 @@
     "donate": "Donate to the artist",
     "donate_crypto": "By Crypto",
     "ByCrypto": {
-      "default": "Purchase by Crypto",
+      "default": "Invest",
       "error": "Something went wrong."
     },
     "ApprovePurchaseModal": {
@@ -451,6 +481,29 @@
       "content": "To make a purchase, you need a crypto wallet. In which your tokens will be stored. And also confirm your contact details. You can connect an existing wallet or automatically create an internal wallet in the \"My Profile\" section.",
       "close": "Close",
       "ok": "Profile"
+    },
+    "pay_with_account": "Top up",
+
+    "PayAccount": {
+      "title": "Balance",
+      "topUp": "Top up your balance",
+      "withdraw": "Withdraw",
+      "token": "Token",
+      "price": "Price",
+      "amount": "Amount",
+      "value": "USD Value",
+      "connectedWallet": "With connected wallet",
+      "whitepay": "Whitepay",
+      "enterAmount": "Enter Amount",
+      "currency": "Currency",
+      "min": "min.",
+      "max": "max.",
+      "back": "Back",
+      "replenish": "Replenish",
+      "wallets": "Wallets",
+      "payWithAccount": "Pay With Account",
+      "balancebyCriptio": "Balance by crypto",
+      "balance": "Balance"
     }
   },
 

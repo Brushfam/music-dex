@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/Button/Button";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useCallback, useState } from "react";
@@ -76,12 +75,6 @@ export function ListOfSongs() {
         }}
       >
         <p className={s.title}>{t("title")}</p>
-        <Button
-          title={t("invest")}
-          color={"main"}
-          arrow={false}
-          path={"/songs"}
-        />
       </div>
 
       <div className={s.listOfSongs_songList}>

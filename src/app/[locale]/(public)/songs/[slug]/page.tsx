@@ -4,6 +4,7 @@ import cs from "@/app/commonStyles.module.scss";
 import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import { ApprovePurchaseModal } from "@/components/modals/ApprovePurchaseModal/ApprovePurchaseModal";
 import { NoWalletsModal } from "@/components/modals/NoWalletsModal/NoWalletsModal";
+import { PayAccountModal } from "@/components/modals/PayAccount/PayAccountModal";
 import { getSongMainData } from "@/services/songs";
 
 async function fetchMainSongData(slug: string) {
@@ -27,6 +28,7 @@ export default async function PageTemplate({
     <div className={cs.main}>
       <ApprovePurchaseModal />
       <NoWalletsModal />
+      <PayAccountModal />
       <MainBlock songData={songMainData} slug={params.slug} />
       <SubpagesBlock
         slug={params.slug}

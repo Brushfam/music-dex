@@ -2,13 +2,13 @@
 
 import { ByCrypto } from "@/app/[locale]/(public)/songs/[slug]/_components/PaymentMethods/ByCrypto";
 import { Spinner } from "@/components/Spinner/Spinner";
+import { Button } from "@/components/ui/Button/Button";
 import { computeTokenMinAmount, roundToTwo } from "@/services/helpers";
 import { getSongAvailableTokens } from "@/services/songs";
 import { useUserStore } from "@/store/user";
-import { Tooltip } from "@mui/material";
 import Slider from "@mui/material/Slider";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import s from "./SharesBlock.module.scss";
 
@@ -27,8 +27,10 @@ export function SharesBlock(props: {
   slug: string;
 }) {
   const t = useTranslations("SharesBlock");
-  const price = roundToTwo(props.price / 10); // price for 0.1 token
-  const minTokensForBuy = computeTokenMinAmount(price); // limited by whitepay provider
+  const price = roundToTwo(props.price / 10);
+  const minTokensForBuy = computeTokenMinAmount(price);
+  const currentLocale = useLocale();
+  const setPayAccountModal = useUserStore((state) => state.setPayAccountModal);
 
   const currentUser = useUserStore((state) => state.currentUserEmail);
   const [prevAmount, setPrevAmount] = useState(price * minTokensForBuy);
@@ -121,7 +123,14 @@ export function SharesBlock(props: {
 
   function PaymentButtons() {
     return (
-      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 12,
+          width: "100%",
+        }}
+      >
         <ByCrypto
           user={currentUser}
           tokensToPay={currentAmount}
@@ -129,11 +138,6 @@ export function SharesBlock(props: {
           songId={props.songId}
           slug={props.slug}
         />
-        <Tooltip title={t("fiat_description")} enterTouchDelay={0}>
-          <div className={s.disabledFiat}>
-            <p>{t("fiat_title")}</p>
-          </div>
-        </Tooltip>
       </div>
     );
   }
@@ -175,13 +179,19 @@ export function SharesBlock(props: {
         <>
           <PaymentButtons />
           <div className={s.balanceContainer}>
-            <p className={s.balanceContainer_title}>Balance status</p>
             <div className={s.balanceContainer_cryptos}>
+              <p className={s.balanceContainer_title}>{t("balanceStatus")}</p>
               <div className={s.balanceContainer_cryptoItem}>
                 <p>USDT -</p>
                 <p className={s.balanceContainer_cryptoItem_amount}>1000</p>
               </div>
             </div>
+            <Button
+              title={t("pay_with_account")}
+              color={"main"}
+              arrow={true}
+              path={"/profile"}
+            />
           </div>
         </>
       ) : (

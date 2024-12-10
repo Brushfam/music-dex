@@ -99,7 +99,18 @@ export default function Activities() {
                 link: data[i].order_url,
               });
             }
-            setActivitiesList(actList);
+            setActivitiesList([
+              {
+                date: "2000-10-10",
+                name: "test",
+                amount: 200,
+                tokens: "sadasdas",
+                currency: "22ds",
+                status: "pending",
+                link: "dsds",
+              },
+            ]);
+            // setActivitiesList(actList);
           })
           .catch((error) => {
             console.log(error);
@@ -162,12 +173,12 @@ export default function Activities() {
         <div className={profileStyles.contentWrapper}>
           <div className={s.inputOutputContainer}>
             <div className={s.container}>
-              <h2>Input</h2>
+              <h2>{t("input")}</h2>
               <div className={s.wrapper}>
                 <div className={s.inputOutputHeader}>
-                  <p>Date / Time</p>
-                  <p>Value</p>
-                  <p className={s.inputOutputHeader_amount}>Amount</p>
+                  <p>{t("dateTime")}</p>
+                  <p>{t("value")}</p>
+                  <p className={s.inputOutputHeader_amount}>{t("amount")}</p>
                 </div>
                 <div className={s.inputOutputRow}>
                   <div>18/11/2024 16:20</div>
@@ -180,12 +191,12 @@ export default function Activities() {
               </div>
             </div>
             <div className={s.container}>
-              <h2>Output</h2>
+              <h2>{t("output")}</h2>
               <div className={s.wrapper}>
                 <div className={s.inputOutputHeader}>
-                  <p>Date / Time</p>
-                  <p>Value</p>
-                  <p className={s.inputOutputHeader_amount}>Amount</p>
+                  <p>{t("dateTime")}</p>
+                  <p>{t("value")}</p>
+                  <p className={s.inputOutputHeader_amount}>{t("amount")}</p>
                 </div>
                 <div className={s.inputOutputRow}>
                   <div>18/11/2024 16:20</div>
@@ -199,7 +210,7 @@ export default function Activities() {
             </div>
           </div>
           <div className={s.activitiesWrapper}>
-            <p className={s.titleBlock_text}>Recent purchases</p>
+            <p className={s.titleBlock_text}>{t("recentPurchases")}</p>
             <div className={s.wrapper}>
               {activitiesList.length ? <ActivitiesHeader /> : null}
               <ActivitiesList />
