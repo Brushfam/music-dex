@@ -1,25 +1,25 @@
 import { Select } from "@/components/Select/Select";
 import { Button } from "@/components/ui/Button/Button";
-import { TopUpStepEnum, useBalanceStore } from "@/store/balance";
-
-import { useTranslations } from "next-intl";
-import { ChangeEventHandler, useCallback, useEffect, useState } from "react";
-import styles from "./Balance.module.scss";
-import { Popup } from "./Popup";
-
-import getTokens from "@/utils/getTokens";
 
 import { useWallet } from "@/providers/SolanaProvider";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { transactionSend } from "@/services/users/investors/wallets";
+import { TopUpStepEnum, useBalanceStore } from "@/store/balance";
+
+import getTokens from "@/utils/getTokens";
 import {
   useAccount,
   useBalance,
   useContract,
   useSendTransaction,
 } from "@starknet-react/core";
+
+import { useTranslations } from "next-intl";
+import { ChangeEventHandler, useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
 import type { Abi } from "starknet";
+import styles from "./Balance.module.scss";
+import { Popup } from "./Popup";
 
 const { tokenOptions } = getTokens();
 
@@ -232,8 +232,6 @@ export function ReplenishPopup() {
                 });
             }
           });
-
-      
         } catch (err: any) {
           toast.error(t(`failed`));
           setTopUpStep(null);
@@ -289,7 +287,14 @@ export function ReplenishPopup() {
               <h3>{t("currency")}</h3>
               <Select
                 value={token.value}
-                onChange={(option) => setToken(option)}
+                onChange={(option) =>
+                  setToken({
+                    contractAddress: option.contractAddress!,
+                    value: option.value,
+                    label: option.label,
+                    image: option.image,
+                  })
+                }
                 options={filteredTokens}
               />
             </div>

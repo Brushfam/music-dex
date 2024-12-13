@@ -16,9 +16,9 @@ export const BalanceTable = ({
   useEffect(() => {
     const sorted = [...balanceList].sort((a, b) => {
       if (sortOrder === "asc") {
-        return parseFloat(a.price!) - parseFloat(b.price!);
+        return parseFloat(a.price) - parseFloat(b.price);
       } else {
-        return parseFloat(b.price!) - parseFloat(a.price!);
+        return parseFloat(b.price) - parseFloat(a.price);
       }
     });
     setSortedData(sorted);

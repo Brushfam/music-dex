@@ -8,6 +8,7 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { toast } from "sonner";
 import "./WithdrawPopup.scss";
+
 const { tokenOptions } = getTokens();
 
 const WithdrawPopup = () => {
@@ -97,7 +98,14 @@ const WithdrawPopup = () => {
 
               <Select
                 value={token.value}
-                onChange={(option) => setToken(option)}
+                onChange={(option) =>
+                  setToken({
+                    contractAddress: option.contractAddress!,
+                    value: option.value,
+                    label: option.label,
+                    image: option.image,
+                  })
+                }
                 options={tokenOptions}
                 className="select"
               />
