@@ -28,7 +28,7 @@ export default async function PageTemplate({
     <div className={cs.main}>
       <ApprovePurchaseModal />
       <NoWalletsModal />
-      <PayAccountModal />
+      <PayAccountModal songId={songMainData.song_id} />
       <MainBlock songData={songMainData} slug={params.slug} />
       <SubpagesBlock
         slug={params.slug}

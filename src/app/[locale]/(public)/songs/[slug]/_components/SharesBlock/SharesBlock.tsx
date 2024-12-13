@@ -3,8 +3,10 @@
 import { ByCrypto } from "@/app/[locale]/(public)/songs/[slug]/_components/PaymentMethods/ByCrypto";
 import { Spinner } from "@/components/Spinner/Spinner";
 import { Button } from "@/components/ui/Button/Button";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { computeTokenMinAmount, roundToTwo } from "@/services/helpers";
 import { getSongAvailableTokens } from "@/services/songs";
+import { getBalances } from "@/services/users/users";
 import { useUserStore } from "@/store/user";
 import Slider from "@mui/material/Slider";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -36,6 +38,8 @@ export function SharesBlock(props: {
   const [prevAmount, setPrevAmount] = useState(price * minTokensForBuy);
   const [currentAmount, setCurrentAmount] = useState(price * minTokensForBuy);
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);
+  const [loading, setLoading] = useState(false);
+  const { balances, setBalances } = useUserStore();
 
   useEffect(() => {
     getSongAvailableTokens(props.slug).then((res) => {
@@ -45,6 +49,32 @@ export function SharesBlock(props: {
       setTotalAmount(balance);
     });
   }, [props.slug, props.songId]);
+
+  useEffect(() => {
+    function computeInvestedAmount(tokenAmount: number, tokenPrice: number) {
+      const floatAmount = tokenAmount * tokenPrice;
+      return parseFloat(floatAmount.toFixed(2));
+    }
+
+    firebaseAuth.onAuthStateChanged(async (user) => {
+      if (user) {
+        try {
+          setLoading(true);
+          const token = await user.getIdToken();
+
+          const balancesRes = await getBalances(token);
+
+          setBalances(balancesRes.data);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        console.log("No user logged in");
+      }
+    });
+  }, [setBalances]);
 
   function getMaxPrice() {
     if (!totalAmount) return 0;
@@ -178,21 +208,27 @@ export function SharesBlock(props: {
       {currentUser ? (
         <>
           <PaymentButtons />
-          <div className={s.balanceContainer}>
-            <div className={s.balanceContainer_cryptos}>
-              <p className={s.balanceContainer_title}>{t("balanceStatus")}</p>
-              <div className={s.balanceContainer_cryptoItem}>
-                <p>USDT -</p>
-                <p className={s.balanceContainer_cryptoItem_amount}>1000</p>
+          {balances.length && (
+            <div className={s.balanceContainer}>
+              <div className={s.balanceContainer_cryptos}>
+                <p className={s.balanceContainer_title}>{t("balanceStatus")}</p>
+                {balances.map((item, index) => (
+                  <div key={index} className={s.balanceContainer_cryptoItem}>
+                    <p>{item.currency.symbol} -</p>
+                    <p className={s.balanceContainer_cryptoItem_amount}>
+                      {item.balance}
+                    </p>
+                  </div>
+                ))}
               </div>
+              <Button
+                title={t("pay_with_account")}
+                color={"main"}
+                arrow={true}
+                path={"/profile"}
+              />
             </div>
-            <Button
-              title={t("pay_with_account")}
-              color={"main"}
-              arrow={true}
-              path={"/profile"}
-            />
-          </div>
+          )}
         </>
       ) : (
         <p style={{ color: "white", fontWeight: 600, textAlign: "center" }}>

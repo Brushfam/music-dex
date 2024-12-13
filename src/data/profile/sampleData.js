@@ -22,12 +22,6 @@ export const investorStatisticsDataUK = [
   { name: "Жов", uv: 27 },
 ];
 
-
-
-
-
-
-
 export const sampleRoyaltiesData = [
   { name: "Лют", uv: 0 },
   { name: "Бер", uv: 60 },

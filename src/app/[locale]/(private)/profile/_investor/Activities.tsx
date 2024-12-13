@@ -5,7 +5,13 @@ import s from "@/app/[locale]/(private)/profile/_investor/activities/Activities.
 import { ActivitiesHeader } from "@/app/[locale]/(private)/profile/_investor/activities/ActivitiesHeader";
 import { ActivitiesRow } from "@/app/[locale]/(private)/profile/_investor/activities/ActivitiesRow";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
-import { getInvestorActivities } from "@/services/users/investors/investors";
+import {
+  getInvoices,
+  getReplenishments,
+  getWithdrawals,
+} from "@/services/users/users";
+import { IInvoice, ITransaction } from "@/types/types";
+import dayjs from "dayjs";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -60,6 +66,11 @@ export default function Activities() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [activitiesList, setActivitiesList] = useState<ActivitiesData[]>([]);
+  const [replenishmentsList, setReplenishmentsList] = useState<ITransaction[]>(
+    []
+  );
+  const [withdrawalsList, setWithdrawalsList] = useState<ITransaction[]>([]);
+  const [invoicesList, setInvoicesList] = useState<IInvoice[]>([]);
 
   function formatDate(date: string) {
     const timestamp = new Date(date);
@@ -74,50 +85,24 @@ export default function Activities() {
 
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
-        const token = await user.getIdToken();
-        getInvestorActivities(token)
-          .then((res) => {
-            const data = res.data.purchaseHistory;
-            let actList: ActivitiesData[] = [];
-            for (let i = 0; i < data.length; ++i) {
-              const tokenAmount = Number(data[i].token_amount);
-              const isDeclined = data[i].payment_status === "DECLINED";
-              const amount = isDeclined
-                ? "-"
-                : computeInvestedAmount(
-                    tokenAmount,
-                    Number(data[i].token_price)
-                  );
-              const tokens = isDeclined ? "-" : tokenAmount;
-              actList.push({
-                date: formatDate(data[i].purchase_timestamp),
-                name: data[i].song_name,
-                amount: amount,
-                tokens: tokens,
-                currency: data[i].currency,
-                status: data[i].payment_status,
-                link: data[i].order_url,
-              });
-            }
-            setActivitiesList([
-              {
-                date: "2000-10-10",
-                name: "test",
-                amount: 200,
-                tokens: "sadasdas",
-                currency: "22ds",
-                status: "pending",
-                link: "dsds",
-              },
+        try {
+          setLoading(true);
+          const token = await user.getIdToken();
+          const [replenishmentsRes, withdrawalsRes, invoicesRes] =
+            await Promise.all([
+              getReplenishments(token),
+              getWithdrawals(token),
+              getInvoices(token),
             ]);
-            // setActivitiesList(actList);
-          })
-          .catch((error) => {
-            console.log(error);
-          })
-          .finally(() => {
-            setLoading(false);
-          });
+
+          setReplenishmentsList(replenishmentsRes.data);
+          setWithdrawalsList(withdrawalsRes.data);
+          setInvoicesList(invoicesRes.data);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
+        }
       } else {
         router.replace("/en/auth/login?expired-session=true");
       }
@@ -132,18 +117,18 @@ export default function Activities() {
     );
   }
 
+  console.log(invoicesList);
+
   function ActivitiesList() {
-    return activitiesList.length ? (
-      activitiesList.map((act, index) => {
+    return invoicesList.length ? (
+      invoicesList.map((act, index) => {
         return (
           <ActivitiesRow
             key={index}
-            lastDate={act.date}
-            song={act.name}
-            tokens={act.tokens}
-            invested={act.amount}
-            status={act.status}
-            songLink={act.link}
+            lastDate={dayjs(act.purchase_timestamp).format("DD/MM/YYYY HH:mm")}
+            song={act.song?.title}
+            tokens={act.token_amount}
+            invested={Number(act.token_amount) * Number(act.token_price)}
           />
         );
       })
@@ -180,14 +165,26 @@ export default function Activities() {
                   <p>{t("value")}</p>
                   <p className={s.inputOutputHeader_amount}>{t("amount")}</p>
                 </div>
-                <div className={s.inputOutputRow}>
-                  <div>18/11/2024 16:20</div>
-                  <div>
-                    <div>ETH</div>
-                    <div className={s.inputOutputRow_value}>Ethereum</div>
-                  </div>
-                  <div className={s.inputOutputRow_amount}>$1000</div>
-                </div>
+                {replenishmentsList.map((replenishment, index) => {
+                  return (
+                    <div className={s.inputOutputRow} key={index}>
+                      <div>
+                        {dayjs(replenishment.created_at).format(
+                          "DD/MM/YYYY HH:mm"
+                        )}
+                      </div>
+                      <div>
+                        <div>{replenishment.currency.symbol}</div>
+                        <div className={s.inputOutputRow_value}>
+                          {replenishment.currency.name}
+                        </div>
+                      </div>
+                      <div className={s.inputOutputRow_amount}>
+                        {replenishment.amount}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <div className={s.container}>
@@ -198,21 +195,34 @@ export default function Activities() {
                   <p>{t("value")}</p>
                   <p className={s.inputOutputHeader_amount}>{t("amount")}</p>
                 </div>
-                <div className={s.inputOutputRow}>
-                  <div>18/11/2024 16:20</div>
-                  <div>
-                    <div>ETH</div>
-                    <div className={s.inputOutputRowValue}>Ethereum</div>
-                  </div>
-                  <div className={s.inputOutputRow_amount}>$1000</div>
-                </div>
+
+                {withdrawalsList.map((withdrawal, index) => {
+                  return (
+                    <div className={s.inputOutputRow} key={index}>
+                      <div>
+                        {dayjs(withdrawal.created_at).format(
+                          "DD/MM/YYYY HH:mm"
+                        )}
+                      </div>
+                      <div>
+                        <div>{withdrawal.currency.symbol}</div>
+                        <div className={s.inputOutputRow_value}>
+                          {withdrawal.currency.name}
+                        </div>
+                      </div>
+                      <div className={s.inputOutputRow_amount}>
+                        {withdrawal.amount}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
           <div className={s.activitiesWrapper}>
             <p className={s.titleBlock_text}>{t("recentPurchases")}</p>
             <div className={s.wrapper}>
-              {activitiesList.length ? <ActivitiesHeader /> : null}
+              {invoicesList.length ? <ActivitiesHeader /> : null}
               <ActivitiesList />
             </div>
           </div>

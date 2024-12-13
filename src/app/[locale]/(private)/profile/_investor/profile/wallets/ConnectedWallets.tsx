@@ -8,6 +8,7 @@ export function ConnectedWallets(props: {
   wallets: Wallet[];
   primaryWallet: string;
   updatePrimaryWallet: (newPrimaryWallet: Wallet) => Promise<void>;
+  deleteWallet: (wallet: Wallet) => Promise<void>;
 }) {
   const t = useTranslations("ProfileInvestor.Profile");
   if (props.wallets.length === 0) {
@@ -63,6 +64,20 @@ export function ConnectedWallets(props: {
                 {formatBlockchainAddress(wallet.address)}
               </p>
             ) : null}
+          </div>
+          <div style={{ marginLeft: "auto" }}>
+            {isPrimary(wallet) ? (
+              <input type="radio" checked={true} />
+            ) : (
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  props.deleteWallet(wallet);
+                }}
+              >
+                {t("delete")}
+              </div>
+            )}
           </div>
         </div>
       ))}

@@ -1,15 +1,22 @@
-import { useTranslations } from "next-intl";
+import { ISongData } from "@/types/types";
+import dayjs from "dayjs";
+import "dayjs/locale/en";
+import "dayjs/locale/uk";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { useCallback, useState } from "react";
 import s from "./Overview.module.scss";
 
-interface SongItemProps {
-  title: string;
-  artist: string;
-  tokens: number;
-}
-function SongItem({ title, artist, tokens }: SongItemProps) {
+function SongItem({
+  name,
+  artist,
+  tokens,
+  last_purchase,
+  invested,
+  date,
+}: ISongData) {
   const t = useTranslations("ProfileInvestor.Overview.ListOfSongs");
+  const locale = useLocale();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -17,12 +24,14 @@ function SongItem({ title, artist, tokens }: SongItemProps) {
     setIsOpen((prev) => !prev);
   }, []);
 
+  dayjs.locale(locale);
+
   return (
     <div className={s.songItem} onClick={handleToggle}>
       <div className={s.tableRow}>
         <div className={s.song}>
           <div className={s.artist}>{artist}</div>
-          <div className={s.title}>{title}</div>
+          <div className={s.title}>{name}</div>
         </div>
         <div className={s.tokens}>{tokens}</div>
         <div className={s.action}>
@@ -38,15 +47,19 @@ function SongItem({ title, artist, tokens }: SongItemProps) {
         <div className={s.songDetailed}>
           <div className={s.songDetailedRow}>
             <div className={s.songDetailedLeft}>{t("detailed.date")}</div>
-            <div className={s.songDetailedRight}>December 21, 2024</div>
+            <div className={s.songDetailedRight}>
+              {dayjs(date).format("MMMM DD, YYYY")}
+            </div>
           </div>
           <div className={s.songDetailedRow}>
             <div className={s.songDetailedLeft}>{t("detailed.purchase")}</div>
-            <div className={s.songDetailedRight}>10.01.2024</div>
+            <div className={s.songDetailedRight}>
+              {dayjs(last_purchase).format("DD.MM.YYYY")}
+            </div>
           </div>
           <div className={s.songDetailedRow}>
             <div className={s.songDetailedLeft}>{t("detailed.invested")}</div>
-            <div className={s.songDetailedRight}>$40</div>
+            <div className={s.songDetailedRight}>${invested}</div>
           </div>
         </div>
       )}
@@ -54,13 +67,8 @@ function SongItem({ title, artist, tokens }: SongItemProps) {
   );
 }
 
-export function ListOfSongs() {
+export function ListOfSongs({ songs }: { songs: ISongData[] }) {
   const t = useTranslations("ProfileInvestor.Overview.ListOfSongs");
-  const songs = [
-    { artist: "Lana Del Rey", title: "West Coast", tokens: 1.2 },
-    { artist: "Lana Del Rey", title: "West Coast", tokens: 1.2 },
-    { artist: "Lana Del Rey", title: "West Coast", tokens: 1.2 },
-  ];
 
   return (
     <div className={s.listOfSongs}>

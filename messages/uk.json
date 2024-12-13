@@ -284,6 +284,12 @@
           "purchase": "Остання покупка -",
           "invested": "Інвестований -"
         }
+      },
+      "payment_history_table": {
+        "date": "Дата",
+        "song": "Трек",
+        "usdt": "USDT",
+        "amount": "Сума"
       }
     },
     "Songs": {
@@ -307,7 +313,14 @@
       "empty_history_desc": "Оберіть пісню для інвестицій",
       "future_payouts": "Наступні виплати",
       "empty_payouts_title": "Ваші наступні виплати будуть відображені тут",
-      "empty_payouts_desc": "Оберіть пісню з каталогу щоб інвестувати та отримувати роялті"
+      "empty_payouts_desc": "Оберіть пісню з каталогу щоб інвестувати та отримувати роялті",
+      "another_error": "Виникла помилка",
+      "payment_history_table": {
+        "date": "Дата",
+        "song": "Трек",
+        "usdt": "USDT",
+        "amount": "Сума"
+      }
     },
     "Activities": {
       "title": "Активність",
@@ -372,7 +385,8 @@
       "social_media": "Соц мережі",
       "cancel": "Відміна",
       "saving": "Збереження...",
-      "save": "Зберегти"
+      "save": "Зберегти",
+      "delete": "Видалити"
     },
     "Balance": {
       "title": "Баланс",

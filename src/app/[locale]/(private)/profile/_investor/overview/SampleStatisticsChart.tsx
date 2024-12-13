@@ -1,5 +1,9 @@
 "use client";
 
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { getUserRoyaltiesStatistics } from "@/services/users/users";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   Area,
@@ -11,34 +15,65 @@ import {
   YAxis,
 } from "recharts";
 import { ValueType } from "recharts/types/component/DefaultTooltipContent";
+import { toast } from "sonner";
 import { useLocale } from "use-intl";
+
+const monthsNames = [
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+  "Jan",
+];
+
 const url = process.env.NEXT_PUBLIC_SERVERTEST_URL;
 
 export function SampleStatisticsChart() {
+  const t = useTranslations("ProfileInvestor.Overview");
   const currentLocale = useLocale();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<{ name: string; uv: number }[]>([]);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
-    const fetchRoyaltiesData = async () => {
-      try {
-        const response = await fetch(url + "/users/royalties/statistics");
-        if (response.ok) {
-          const data = await response.json();
-          const transformedData = data.map((item: any) => ({
-            name: item.month,
-            uv: parseFloat(item.amount),
-          }));
-          setData(transformedData);
-        } else {
-          console.error("Failed to fetch royalties:", response.status);
-        }
-      } catch (error) {
-        console.error("Error fetching royalties data:", error);
-      }
-    };
+    firebaseAuth.onAuthStateChanged(async (user) => {
+      if (user) {
+        try {
+          setLoading(true);
 
-    fetchRoyaltiesData();
-  }, []);
+          const token = await user.getIdToken();
+
+          const res = await getUserRoyaltiesStatistics(token);
+
+          setData(
+            monthsNames.map((month) => {
+              const item = res.data.find((i: any) => i.month === month);
+              if (item) {
+                return { name: month, uv: item.amount };
+              }
+              return { name: month, uv: 0 };
+            })
+          );
+        } catch (e) {
+          console.log(e);
+          toast.error(t("another_error"));
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        router.replace("/en/auth/login?expired-session=true");
+      }
+    });
+  }, [router, t]);
+
+  console.log(data);
   return (
     <ResponsiveContainer height={200}>
       <AreaChart
