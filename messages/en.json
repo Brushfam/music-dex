@@ -394,7 +394,15 @@
       "wallets": "Wallets",
       "failed": "Transaction failed.",
       "successful": "Transaction successful.",
-      "errorConnect": "Please connect your wallet first."
+      "errorConnect": "Please connect your wallet first.",
+
+      "send": "Send USDT",
+      "address": "Address",
+      "pasteAddress": "Paste Address",
+      "withdrawAmount": "Withdrawal Amount",
+      "network": "Network",
+      "notBalance": "Not enough balance",
+      "available":"Available"
     }
   },
 

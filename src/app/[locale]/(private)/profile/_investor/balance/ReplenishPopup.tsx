@@ -9,24 +9,20 @@ import { Popup } from "./Popup";
 
 import getTokens from "@/utils/getTokens";
 
+import { useWallet } from "@/providers/SolanaProvider";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { transactionSend } from "@/services/users/investors/wallets";
 import {
   useAccount,
+  useBalance,
   useContract,
   useSendTransaction,
 } from "@starknet-react/core";
 import { toast } from "sonner";
 import type { Abi } from "starknet";
 
-const { tokenOptions, recipientAddress } = getTokens();
+const { tokenOptions } = getTokens();
 
-const convertUsdToStrk = (
-  usdAmount: number,
-  decimals: number,
-  exchangeRate: number
-) => {
-  const tokenAmount = (usdAmount * exchangeRate * 10 ** decimals).toFixed(0);
-  return tokenAmount; // Преобразуем строку в BigInt
-};
 const abi = [
   {
     type: "function",
@@ -56,24 +52,45 @@ const abi = [
       },
     ],
   },
+  {
+    type: "function",
+    name: "balanceOf",
+    inputs: [{ name: "account", type: "address" }],
+    outputs: [{ name: "balance", type: "uint256" }],
+    state_mutability: "view",
+  },
 ] as const satisfies Abi;
 
 export function ReplenishPopup() {
   const t = useTranslations("ProfileInvestor.Balance");
-  const { account } = useAccount();
+  const { sendTransaction, isWalConnected, getUserBalance } = useWallet();
+  const { address } = useAccount();
+  let filteredTokens = tokenOptions.filter((item) => {
+    if (isWalConnected && item.label === "SOL") {
+      return item;
+    } else if (
+      !isWalConnected &&
+      item.label !== "SOL" &&
+      item.label !== "USDT - TRC20"
+    ) {
+      return item;
+    }
+  });
 
   const { setTopUpStep, method } = useBalanceStore();
 
-  const [amount, setAmount] = useState(1);
-  const [tokenAmount, setTokenAmount] = useState(0);
-  const [token, setToken] = useState(tokenOptions[0]);
+  const [slider, setSlider] = useState(1);
+  const [amount, setAmount] = useState(0);
+  const [amountToken, setAmountToken] = useState(0);
+  const [token, setToken] = useState(filteredTokens[0]);
+  const [amountW, setAmountW] = useState(1);
 
   const handleDecrease = () => {
-    if (amount > 10) setAmount(amount - 1);
+    if (amountW > 1) setAmountW(amountW - 1);
   };
 
   const handleIncrease = () => {
-    if (amount < 1000) setAmount(amount + 1);
+    if (amountW < 1000) setAmountW(amountW + 1);
   };
   const handleSliderChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
     (e) => {
@@ -83,19 +100,73 @@ export function ReplenishPopup() {
         return;
       }
 
-      setAmount(value);
+      setAmountW(value);
     },
     []
   );
+
+  const handleSliderChangeCry = useCallback<
+    ChangeEventHandler<HTMLInputElement>
+  >(
+    (e) => {
+      const value = Number(e.target.value);
+
+      if (!value) {
+        return;
+      }
+      const newAmount =
+        Math.round(((Number(amount) * value) / 100) * 100000) / 100000;
+      setSlider(value);
+      setAmountToken(newAmount);
+    },
+    [amount]
+  );
+
+  const [balanceSol, setBalanceSol] = useState<number | null>(null);
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const userBalance = await getUserBalance();
+      setBalanceSol(userBalance);
+    };
+
+    fetchBalance();
+  }, [getUserBalance]);
+
+  const { data: balanceSrtk } = useBalance({
+    address: address,
+    token: token.contractAddress,
+  });
+
+  useEffect(() => {
+    if (token.value === "SOL") {
+      setAmount(balanceSol!);
+      setAmountToken(
+        Math.round(((balanceSol! * slider) / 100) * 100000) / 100000
+      );
+    } else if (token.value === "STRK" || token.value === "ETH") {
+      setAmount(balanceSrtk?.formatted ? +balanceSrtk?.formatted : 0);
+      setAmountToken(
+        balanceSrtk?.formatted
+          ? Math.round(
+              ((Number(balanceSrtk.formatted) * slider) / 100) * 100000
+            ) / 100000
+          : 0
+      );
+    } else {
+      setAmount(0);
+    }
+  }, [balanceSol, balanceSrtk?.formatted, token.value]);
+
   const { contract } = useContract({
     abi,
     address: token.contractAddress,
   });
-  const { address } = useAccount();
+
   const [decimals, setDecimals] = useState<number>(18);
   useEffect(() => {
     const fetchDecimals = async () => {
-      if (contract) {
+      if (contract && !isWalConnected) {
         try {
           const result = await contract.call("decimals");
           setDecimals(Number(result.decimals));
@@ -105,78 +176,144 @@ export function ReplenishPopup() {
       }
     };
     fetchDecimals();
-  }, [contract]);
+  }, [contract, isWalConnected]);
 
+  type Call = {
+    contractAddress: string;
+    entrypoint: string;
+    calldata: (string | number)[];
+  };
   const { sendAsync, error, data, variables } = useSendTransaction({
     calls:
-      contract && address
-        ? [
+      !isWalConnected && contract && address
+        ? ([
             {
               contractAddress: token.contractAddress,
               entrypoint: "transfer",
-              calldata: [recipientAddress, amount * 10 ** decimals, "0"],
+              calldata: [
+                process.env.NEXT_PUBLIC_STRK_ADDRES,
+                amountToken * 10 ** decimals,
+                "0",
+              ],
             },
-          ]
+          ] as Call[])
         : undefined,
   });
 
   const handleClick = async () => {
-    console.log(decimals);
-
     if (method === "wallet") {
-      try {
-        const txResponse = await sendAsync();
+      if (isWalConnected) {
+        sendTransaction(amountToken);
+      } else {
+        try {
+          const txResponse = await sendAsync();
+          if (error) {
+            throw new Error(error.message);
+          }
 
-        console.log(data);
-        console.log(variables);
+          firebaseAuth.onAuthStateChanged(async (user) => {
+            if (user) {
+              const userToken = await user.getIdToken();
+              transactionSend(userToken, {
+                method: "wallet",
+                amount: amountToken,
+                currency: token.label,
+                txHash: txResponse.transaction_hash,
+                fromAddress: address,
+              })
+                .then(() => {
+                  toast.success(t("successful"));
+                })
+                .catch((error) => {
+                  toast.error(t(`failed`));
+                })
+                .finally(() => {
+                  setTopUpStep(null);
+                });
+            }
+          });
 
-        if (error) {
-          throw new Error(error.message);
+      
+        } catch (err: any) {
+          toast.error(t(`failed`));
+          setTopUpStep(null);
         }
-
-        console.log("Transaction successful:", txResponse);
-        console.log(txResponse.transaction_hash);
-        toast.success(t("successful"));
-        setTopUpStep(null);
-      } catch (err: any) {
-        toast.error(t(`failed`));
-        setTopUpStep(null);
       }
     } else {
-      console.log("whitepay");
+      firebaseAuth.onAuthStateChanged(async (user) => {
+        if (user) {
+          const userToken = await user.getIdToken();
+          transactionSend(userToken, {
+            method: "whitepay",
+            amount: amountW,
+            currency: "USDT",
+          })
+            .then((res) => {
+              window.open(res.data.orderUrl, "_blank");
+            })
+            .catch((error) => {
+              toast.error(t(`failed`));
+            })
+            .finally(() => {
+              setTopUpStep(null);
+            });
+        }
+      });
     }
   };
   return (
     <Popup title={t("enter")}>
       <div className={styles.replenishContainer}>
-        <div className={styles.amountContainer}>
-          <h3>{t("enterAmount")}</h3>
-          <div className={styles.amountInput}>
-            <button onClick={handleDecrease}>-</button>
-            <span className={styles.amount}>{amount}</span>
-            <button onClick={handleIncrease}>+</button>
-          </div>
-          <div className={styles.sliderContainer}>
-            <span>1 {t("min")}</span>
-            <input
-              type="range"
-              min="1"
-              max="100"
-              value={amount}
-              onChange={handleSliderChange}
-              className={styles.slider}
-            />
-            <span>100 {t("max")}</span>
-          </div>
-        </div>
-        {method === "wallet" && (
-          <div className={styles.currencyContainer}>
-            <h3>{t("currency")}</h3>
-            <Select
-              value={token.value}
-              onChange={(option) => setToken(option)}
-              options={tokenOptions}
-            />
+        {method === "wallet" ? (
+          <>
+            <div className={styles.amountContainer}>
+              <h3>{t("enterAmount")}</h3>
+              <div className={styles.amountInput}>
+                <span className={styles.amount}>{amountToken}</span>
+              </div>
+              <div className={styles.sliderContainer}>
+                <span>1 %</span>
+                <input
+                  type="range"
+                  min="1"
+                  max="100"
+                  value={slider}
+                  onChange={handleSliderChangeCry}
+                  className={styles.slider}
+                />
+                <span>100 %</span>
+              </div>
+            </div>
+
+            <div className={styles.currencyContainer}>
+              <h3>{t("currency")}</h3>
+              <Select
+                value={token.value}
+                onChange={(option) => setToken(option)}
+                options={filteredTokens}
+              />
+            </div>
+          </>
+        ) : (
+          <div className={styles.amountContainer}>
+            <h3>{t("enterAmount")}</h3>
+            <div className={styles.amountInput}>
+              <button onClick={handleDecrease}>-</button>
+              <span className={styles.amount}>${amountW}</span>
+              <button onClick={handleIncrease}>+</button>
+            </div>
+            <div className={styles.sliderContainer}>
+              <span>1 {t("min")}</span>
+              <input
+                type="range"
+                min="1"
+                max="1000"
+                value={amountW}
+                onChange={handleSliderChange}
+                className={styles.slider}
+              />
+              <span>1000 {t("max")}</span>
+            </div>
           </div>
         )}
       </div>

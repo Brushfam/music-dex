@@ -1,47 +1,20 @@
-import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { BalanceType } from "@/types/types";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import s from "./Balance.module.scss";
-const url = process.env.NEXT_PUBLIC_SERVERTEST_URL;
 
-export const BalanceTable = () => {
+export const BalanceTable = ({
+  balanceList,
+}: {
+  balanceList: BalanceType[];
+}) => {
   const t = useTranslations("ProfileInvestor.Balance");
-
-  const [data, setData] = useState<any[]>([]);
   const [sortOrder, setSortOrder] = useState<string>("asc");
   const [sortedData, setSortedData] = useState<any[]>([]);
-
+  console.log(balanceList);
   useEffect(() => {
-    const fetchBalances = async () => {
-      try {
-        firebaseAuth.onAuthStateChanged(async (user) => {
-          if (user) {
-            const token = await user.getIdToken();
-            const response = await fetch(url + "/users/balances", {
-              method: "GET",
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            });
-
-            const data = await response.json();
-            setData(data);
-            setSortedData(data);
-          } else {
-            console.error("User is not authenticated");
-          }
-        });
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchBalances();
-  }, []);
-
-  useEffect(() => {
-    const sorted = [...data].sort((a, b) => {
+    const sorted = [...balanceList].sort((a, b) => {
       if (sortOrder === "asc") {
         return parseFloat(a.price) - parseFloat(b.price);
       } else {
@@ -49,10 +22,10 @@ export const BalanceTable = () => {
       }
     });
     setSortedData(sorted);
-  }, [sortOrder, data]);
+  }, [sortOrder, balanceList]);
 
   const calculateUsdValue = (balance: string, price: string) => {
-    return (parseFloat(balance) * parseFloat(price)).toFixed(2);
+    return (parseFloat(balance) * parseFloat(price)).toFixed(5);
   };
   return (
     sortedData.length > 0 && (

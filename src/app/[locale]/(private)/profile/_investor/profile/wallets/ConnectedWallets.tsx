@@ -21,10 +21,11 @@ export function ConnectedWallets(props: {
 
   function getImagePath(input: string): string {
     const sanitizedInput = input.replace(/"/g, "");
+
     if (vocabulary.hasOwnProperty(sanitizedInput)) {
       return vocabulary[sanitizedInput];
     } else {
-      return "/logos/Braavos.svg";
+      return "/logos/solana.png";
     }
   }
 

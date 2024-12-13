@@ -77,7 +77,7 @@ export const Select: FC<SelectProps> = ({
   }, [value, onChange, options]);
 
   return (
-    <div className={styles.selectContainer}>
+    <div className={`${styles.selectContainer} ${className}`}>
       <div
         className={styles.select}
         onClick={handleToggleSelect}

@@ -88,3 +88,23 @@ export type ArtistSong = {
   totalInvested: number;
   statistics: ArtistSongsStatistics[];
 };
+
+export type BalanceType = {
+  transaction_id: number;
+  investor_id: number;
+  currency_id: number;
+  transaction_type: "string";
+  amount: string;
+  status: string;
+  from_address: string;
+  to_address: string;
+  transaction_hash: string;
+  created_at: string;
+  updated_at: string;
+  order_url: string;
+  currency: {
+    name: string;
+    symbol: string;
+    currency_id: number;
+  };
+};

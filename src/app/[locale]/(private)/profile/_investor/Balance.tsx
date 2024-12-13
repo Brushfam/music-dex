@@ -2,9 +2,10 @@ import s from "@/app/[locale]/(private)/profile/Profile.module.scss";
 import { useWallet } from "@/providers/SolanaProvider";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { parseWalletListResponse } from "@/services/helpers";
+import { getBalance } from "@/services/users/investors/investors";
 import { getUserWallets } from "@/services/users/investors/wallets";
-import { Wallet } from "@/types/types";
-import { useAccount, useConnect } from "@starknet-react/core";
+import { BalanceType, Wallet } from "@/types/types";
+import { useConnect } from "@starknet-react/core";
 import { AxiosError } from "axios";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
@@ -18,14 +19,38 @@ import Popups from "./balance/Popups";
 import { WalletList } from "./profile/wallets/WalletList";
 
 export const Balance = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [loadingBalance, setLoadingBalance] = useState(true);
   const t = useTranslations("ProfileInvestor.Balance");
   const [currentTab, setCurrentTab] = useState("balance");
-  const { connectWallet, account } = useWallet();
+  const { connectWallet, account, setIsWalConnected } = useWallet();
   const router = useRouter();
   const [connectedWallets, setConnectedWallets] = useState<Wallet[]>([]);
   const [primaryWallet, setPrimaryWallet] = useState("");
-  console.log(account);
+  const [balanceList, setBalanceList] = useState<BalanceType[]>([]);
+  console.log(balanceList);
+  let mainBalance = balanceList.reduce((prev, item) => {
+    return prev + parseFloat(item.balance) * parseFloat(item.price);
+  }, 0);
+  useEffect(() => {
+    firebaseAuth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const token = await user.getIdToken();
+        getBalance(token)
+          .then((res) => {
+            setBalanceList(res.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+          .finally(() => {
+            setLoadingBalance(false);
+          });
+      } else {
+        router.replace("/en/auth/login?expired-session=true");
+      }
+    });
+  }, [router]);
 
   useEffect(() => {
     function setUserWallets() {
@@ -68,7 +93,6 @@ export const Balance = () => {
   }, [router, t]);
 
   const { connect, connectors } = useConnect();
-  const { address } = useAccount();
   useEffect(() => {
     const wallet = connectedWallets.find(
       (wallet) => wallet.address === primaryWallet
@@ -83,6 +107,7 @@ export const Balance = () => {
     if (name === "Solana") {
       connectWallet();
     } else {
+      setIsWalConnected(false);
       connectors.some((connector) => {
         if (connector.available()) {
           if (connector.name === name) {
@@ -130,14 +155,21 @@ export const Balance = () => {
             </p>
           </div>
         </div>
-        <ProfileHeader />
+
+        <div className={s.profile}>
+          <div className={s.balance}>
+            <h2>Balance:</h2>
+            <p>{mainBalance}$</p>
+          </div>
+          <ProfileHeader />
+        </div>
       </div>
-      {loading ? (
+      {loading || loadingBalance ? (
         <LoadingSpinner fullHeight={true} />
       ) : currentTab === "balance" ? (
         <div className={s.contentWrapper}>
-          <HeaderButtons />
-          <BalanceTable />
+          <HeaderButtons balanceList={balanceList} />
+          <BalanceTable balanceList={balanceList} />
           <Popups />
         </div>
       ) : (

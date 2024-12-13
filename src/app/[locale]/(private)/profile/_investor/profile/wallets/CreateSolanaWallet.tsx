@@ -31,19 +31,17 @@ export function CreateSolanaWallet({
 
   useEffect(() => {
     // setMounted(true);
-    console.log(account);
 
     if (!account) {
       return;
     }
 
-    console.log(connectedWallets);
-    console.log(account!.toString());
+ 
+    
     const wallet = connectedWallets.find(
       (wall: any) =>
         wall.address === account!.toString() && wall.name === walletName
     );
-    console.log(wallet);
     if (wallet) {
       return;
     }
