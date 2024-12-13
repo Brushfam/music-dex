@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button/Button";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { fetchInvoice, getBalances } from "@/services/users/users";
 import { useUserStore } from "@/store/user";
+import getTokens from "@/utils/getTokens";
 import _ from "lodash";
 import { useTranslations } from "next-intl";
 import {

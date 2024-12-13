@@ -93,5 +93,5 @@ input[type="number"] {
 }
 
 input[type="radio"] {
-  accent-color: #F6601F;
+  accent-color: ;
 }

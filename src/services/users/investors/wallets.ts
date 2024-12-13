@@ -82,3 +82,43 @@ export function createInternalWallet(jwt: string) {
     }
   );
 }
+
+type sendTransactionProps = {
+  method: "wallet" | "whitepay";
+  amount: number;
+  currency: string;
+  txHash?: string;
+  fromAddress?: string;
+};
+
+export function transactionSend(jwt: string, info: sendTransactionProps) {
+  return axios.post(
+    process.env.NEXT_PUBLIC_SERVER_URL + "/users/replenishments",
+    info,
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer: " + jwt,
+      },
+    }
+  );
+}
+
+type withdrwFetchProps = {
+  amount: string;
+  currency: string;
+  address?: string;
+};
+
+export function withdrwFetch(jwt: string, info: withdrwFetchProps) {
+  return axios.post(
+    process.env.NEXT_PUBLIC_SERVER_URL + "/users/withdrawals",
+    info,
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer: " + jwt,
+      },
+    }
+  );
+}

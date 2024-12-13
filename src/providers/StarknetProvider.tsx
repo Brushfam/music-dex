@@ -48,8 +48,6 @@ export function StarknetProvider({ children }: { children: React.ReactNode }) {
     order: "alphabetical",
   });
 
-  console.log(connectors);
-
   return (
     <StarknetConfig
       chains={[mainnet, sepolia]}

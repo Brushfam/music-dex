@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button/Button";
+import { useWallet } from "@/providers/SolanaProvider";
 import {
   TopUpMethodEnum,
   TopUpStepEnum,
@@ -14,11 +15,11 @@ import { Popup } from "./Popup";
 export function TopUpPopup() {
   const { setTopUpMethod, setTopUpStep } = useBalanceStore();
   const t = useTranslations("ProfileInvestor.Balance");
-
+  const { isWalConnected } = useWallet();
   const { isConnected } = useAccount();
 
   const handleWalletClick = useCallback(() => {
-    if (!isConnected) {
+    if (!isConnected && !isWalConnected) {
       toast.error(t(`errorConnect`));
       setTopUpStep(null);
       return;

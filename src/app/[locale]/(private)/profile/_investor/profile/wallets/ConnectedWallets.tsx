@@ -1,5 +1,6 @@
 import { formatBlockchainAddress } from "@/services/helpers";
 import { Wallet } from "@/types/types";
+import { useConnect } from "@starknet-react/core";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import s from "./Wallets.module.scss";
@@ -11,6 +12,7 @@ export function ConnectedWallets(props: {
   deleteWallet: (wallet: Wallet) => Promise<void>;
 }) {
   const t = useTranslations("ProfileInvestor.Profile");
+  const { connect, connectors } = useConnect();
   if (props.wallets.length === 0) {
     return null;
   }
@@ -22,10 +24,11 @@ export function ConnectedWallets(props: {
 
   function getImagePath(input: string): string {
     const sanitizedInput = input.replace(/"/g, "");
+
     if (vocabulary.hasOwnProperty(sanitizedInput)) {
       return vocabulary[sanitizedInput];
     } else {
-      return "/logos/Braavos.svg";
+      return "/logos/solana.png";
     }
   }
 
@@ -39,6 +42,7 @@ export function ConnectedWallets(props: {
   function getWalletName(name: string) {
     return name.replace(/"/g, "");
   }
+
   return (
     <div className={s.walletList}>
       <p className={s.title}>{t("connected_wallets")}</p>
@@ -72,7 +76,18 @@ export function ConnectedWallets(props: {
               <div
                 onClick={(e) => {
                   e.stopPropagation();
-                  props.deleteWallet(wallet);
+                  const connector = connectors?.find((connector) => {
+                    if (connector.available()) {
+                      return connect.name === wallet.name;
+                    }
+                  });
+
+                  props.deleteWallet(wallet).then(() => {
+                    connector?.disconnect();
+                  });
+                }}
+                style={{
+                  height: "100%",
                 }}
               >
                 {t("delete")}

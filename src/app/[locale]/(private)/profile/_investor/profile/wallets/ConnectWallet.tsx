@@ -1,6 +1,7 @@
 "use client";
 
 import { CreateSolanaWallet } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/CreateSolanaWallet";
+import { useWallet } from "@/providers/SolanaProvider";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { addUserWallet } from "@/services/users/investors/wallets";
 import { Wallet } from "@/types/types";
@@ -27,6 +28,7 @@ export function ConnectWallet(props: {
   const [mounted, setMounted] = useState(false);
   const { disconnect } = useDisconnect();
   const { address } = useAccount();
+  const { setIsWalConnected } = useWallet();
 
   const [prevAddress, setPrevAddress] = useState("");
   const { connect, connectors } = useConnect();
@@ -61,6 +63,7 @@ export function ConnectWallet(props: {
               let newArray = [...props.connectedWallets];
               newArray.unshift({ name: walletName, address: address });
               props.setConnectedWallets(newArray);
+              setIsWalConnected(false);
               props.setPrimaryWallet(walletName);
               toast.success(t("Toast.wallet_connected"));
             })
