@@ -1,24 +1,28 @@
 "use client";
 
+import { ISongData } from "@/types/types";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
 import s from "./Overview.module.scss";
 
 export function OverviewRow(props: {
+  totalEarnings: number;
   totalInvestedAmount: number;
   totalTokensAmount: number;
+  songs: ISongData[];
 }) {
   const t = useTranslations("ProfileInvestor.Overview");
   const [isDropDownOpen, setIsDropDownOpen] = useState<boolean>(false);
   console.log(props.totalInvestedAmount);
+
   return (
     <div className={s.overviewRow}>
       <div className={s.overviewSubRow}>
         <div className={s.overviewItem}>
           <div className={s.overviewItem_column}>
             <p className={s.overviewItem_text1}>{t("earned")}</p>
-            <p className={s.overviewItem_text2}>$0.00</p>
+            <p className={s.overviewItem_text2}>${props.totalEarnings}</p>
           </div>
           <Image
             src={"/profile/overview/earned.svg"}
@@ -30,9 +34,7 @@ export function OverviewRow(props: {
         <div className={s.overviewItem}>
           <div className={s.overviewItem_column}>
             <p className={s.overviewItem_text1}>{t("total_songs")}</p>
-            <p className={s.overviewItem_text2}>
-              {props.totalInvestedAmount ? "1" : "0"}
-            </p>
+            <p className={s.overviewItem_text2}>{props.songs.length}</p>
           </div>
           <Image
             src={"/profile/overview/total-songs.svg"}
@@ -129,16 +131,35 @@ export function OverviewRow(props: {
                   <h3 className={s.overviewDropdown_title}>
                     {t("total_tokens_dropdown.title")}
                   </h3>
-                  <p className={s.overviewDropdown_total}>{15}</p>
+                  <p className={s.overviewDropdown_total}>
+                    {props.totalTokensAmount}
+                  </p>
                 </div>
                 <div className={"line"}></div>
                 <div className={s.overviewDropdown_songs}>
-                  <div className={s.overviewDropdown_row}>
-                    <p className={s.overviewDropdown_songTitle}>Song 1</p>
-                    <p className={s.overviewDropdown_songToken}>
-                      {t("total_tokens_dropdown.token", { amount: 5 })}
-                    </p>
-                  </div>
+                  {props?.songs?.map((song, i) => {
+                    return (
+                      <div
+                        key={i.toString()}
+                        className={s.overviewDropdown_row}
+                      >
+                        <p className={s.overviewDropdown_songTitle}>
+                          {song.name}
+                        </p>
+                        <p className={s.overviewDropdown_songToken}>
+                          {t("total_tokens_dropdown.token", {
+                            amount: song.tokens,
+                          })}
+                        </p>
+                      </div>
+                    );
+                  })}
+                  {/*<div className={s.overviewDropdown_row}>*/}
+                  {/*  <p className={s.overviewDropdown_songTitle}>Song 1</p>*/}
+                  {/*  <p className={s.overviewDropdown_songToken}>*/}
+                  {/*    {t("total_tokens_dropdown.token", { amount: 5 })}*/}
+                  {/*  </p>*/}
+                  {/*</div>*/}
                 </div>
               </div>
             </div>

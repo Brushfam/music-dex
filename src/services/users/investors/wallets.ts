@@ -57,6 +57,19 @@ export function updatePrimaryWallet(jwt: string, primaryAddress: string) {
   );
 }
 
+export function deleteWallet(
+  jwt: string,
+  data: { address: string; name: string }
+) {
+  return axios.delete(process.env.NEXT_PUBLIC_SERVER_URL + "/users/wallets", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+    data,
+  });
+}
+
 export function createInternalWallet(jwt: string) {
   return axios.post(
     process.env.NEXT_PUBLIC_SERVER_URL + "/users/wallets/internal",

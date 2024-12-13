@@ -7,7 +7,7 @@ interface SelectOption {
   value: string;
   label: string;
   image: string;
-  contractAddress: `0x${string}`;
+  contractAddress?: `0x${string}`;
 }
 
 export interface SelectProps {

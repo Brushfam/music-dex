@@ -8,10 +8,8 @@ export function ActivitiesHeader() {
     <div className={s.songHeader}>
       <p className={s.songHeader_date}>{t("date")}</p>
       <p className={s.songHeader_song}>{t("song")}</p>
-      <p className={s.songHeader_wallet}>{t("paymentMethod")}</p>
       <p className={s.songHeader_tokens}>{t("tokens")}</p>
       <p className={s.songHeader_invested}>{t("amount")}</p>
-      <p className={s.songHeader_status}>{t("status")}</p>
     </div>
   );
 }

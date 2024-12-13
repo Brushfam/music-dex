@@ -11,20 +11,20 @@ type tokenOptions = {
 };
 const tokenOptions = [
   {
-    value: "usdt",
+    value: "USDT",
     label: "USDT",
     image: "/profile/balance/tether.png",
     contractAddress: "ust",
   },
   {
-    value: "eth",
+    value: "ETH",
     label: "ETH",
     image: "/profile/balance/eth.png",
     contractAddress:
       "0x049D36570D4e46f48e99674bd3fcc84644DdD6b96F7C741B1562B82f9e004dC7",
   },
   {
-    value: "strk",
+    value: "STRK",
     label: "STRK",
     image: "/profile/balance/tether.png",
     contractAddress:

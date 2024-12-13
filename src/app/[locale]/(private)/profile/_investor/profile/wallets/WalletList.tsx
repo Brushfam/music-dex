@@ -6,6 +6,7 @@ import { ConnectedWallets } from "@/app/[locale]/(private)/profile/_investor/pro
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { parseWalletListResponse } from "@/services/helpers";
 import {
+  deleteWallet,
   getUserWallets,
   updatePrimaryWallet,
 } from "@/services/users/investors/wallets";
@@ -85,6 +86,25 @@ export function WalletList({
     });
   };
 
+  const handleDeleteWallet = async (wallet: Wallet) => {
+    firebaseAuth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const token = await user.getIdToken();
+        deleteWallet(token, wallet)
+          .then(() => {
+            setConnectedWallets((prev) =>
+              prev.filter((w) => w.address !== wallet.address)
+            );
+          })
+          .catch((error) => {
+            console.error("Failed to set primary wallet:", error);
+          });
+      } else {
+        router.replace("/en/auth/login?expired-session=true");
+      }
+    });
+  };
+
   // const handleCreateInternalWallet = async () => {
   //   firebaseAuth.onAuthStateChanged(async (user) => {
   //     if (user) {
@@ -126,6 +146,7 @@ export function WalletList({
         wallets={connectedWallets}
         primaryWallet={primaryWallet}
         updatePrimaryWallet={handleUpdatePrimaryWallet}
+        deleteWallet={handleDeleteWallet}
       />
       {showConnectWallet() ? (
         <ConnectWallet

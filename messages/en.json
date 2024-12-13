@@ -284,6 +284,13 @@
           "purchase": "Last purchase -",
           "invested": "Invested -"
         }
+      },
+
+      "payment_history_table": {
+        "date": "Date",
+        "song": "Song",
+        "usdt": "USDT",
+        "amount": "Amount"
       }
     },
     "Songs": {
@@ -307,7 +314,15 @@
       "empty_history_desc": "Choose a song to invest",
       "future_payouts": "Future payouts",
       "empty_payouts_title": "Your future payouts will be listed here",
-      "empty_payouts_desc": "Choose a song from the catalog to invest and receive income"
+      "empty_payouts_desc": "Choose a song from the catalog to invest and receive income",
+      "another_error": "Something went wrong",
+      "payment_history_table": {
+        "date": "Date",
+        "song": "Song",
+        "usdt": "USDT",
+        "amount": "Amount"
+      }
+
     },
     "Activities": {
       "title": "Activities",
@@ -372,7 +387,8 @@
       "social_media": "Social Media",
       "cancel": "Cancel",
       "saving": "Saving...",
-      "save": "Save Changes"
+      "save": "Save Changes",
+      "delete": "Remove"
     },
     "Balance": {
       "title": "Balance",
