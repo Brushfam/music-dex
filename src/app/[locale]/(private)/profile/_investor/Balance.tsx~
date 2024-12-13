@@ -30,7 +30,7 @@ export const Balance = () => {
   const [balanceList, setBalanceList] = useState<BalanceType[]>([]);
   console.log(balanceList);
   let mainBalance = balanceList.reduce((prev, item) => {
-    return prev + parseFloat(item?.balance!) * parseFloat(item?.price!);
+    return prev + parseFloat(item.balance) * parseFloat(item.price);
   }, 0);
   useEffect(() => {
     firebaseAuth.onAuthStateChanged(async (user) => {

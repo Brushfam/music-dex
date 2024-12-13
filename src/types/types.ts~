@@ -201,5 +201,4 @@ export type BalanceType = {
     currency_id: number;
   };
   balance?: string;
-  price?: string;
 };
