@@ -159,64 +159,76 @@ export default function Activities() {
           <div className={s.inputOutputContainer}>
             <div className={s.container}>
               <h2>{t("input")}</h2>
-              <div className={s.wrapper}>
-                <div className={s.inputOutputHeader}>
-                  <p>{t("dateTime")}</p>
-                  <p>{t("value")}</p>
-                  <p className={s.inputOutputHeader_amount}>{t("amount")}</p>
-                </div>
-                {replenishmentsList.map((replenishment, index) => {
-                  return (
-                    <div className={s.inputOutputRow} key={index}>
-                      <div>
-                        {dayjs(replenishment.created_at).format(
-                          "DD/MM/YYYY HH:mm"
-                        )}
-                      </div>
-                      <div>
-                        <div>{replenishment.currency.symbol}</div>
-                        <div className={s.inputOutputRow_value}>
-                          {replenishment.currency.name}
+              {replenishmentsList.length > 0 ? (
+                <div className={s.wrapper}>
+                  <div className={s.inputOutputHeader}>
+                    <p>{t("dateTime")}</p>
+                    <p>{t("value")}</p>
+                    <p className={s.inputOutputHeader_amount}>{t("amount")}</p>
+                  </div>
+                  {replenishmentsList.map((replenishment, index) => {
+                    return (
+                      <div className={s.inputOutputRow} key={index}>
+                        <div>
+                          {dayjs(replenishment.created_at).format(
+                            "DD/MM/YYYY HH:mm"
+                          )}
+                        </div>
+                        <div>
+                          <div>{replenishment.currency.symbol}</div>
+                          <div className={s.inputOutputRow_value}>
+                            {replenishment.currency.name}
+                          </div>
+                        </div>
+                        <div className={s.inputOutputRow_amount}>
+                          {replenishment.amount}
                         </div>
                       </div>
-                      <div className={s.inputOutputRow_amount}>
-                        {replenishment.amount}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className={s.noSongBlock}>
+                  <p className={s.noSongBlock_title}>{t("no_input")}</p>
+                </div>
+              )}
             </div>
             <div className={s.container}>
               <h2>{t("output")}</h2>
-              <div className={s.wrapper}>
-                <div className={s.inputOutputHeader}>
-                  <p>{t("dateTime")}</p>
-                  <p>{t("value")}</p>
-                  <p className={s.inputOutputHeader_amount}>{t("amount")}</p>
-                </div>
+              {withdrawalsList.length > 0 ? (
+                <div className={s.wrapper}>
+                  <div className={s.inputOutputHeader}>
+                    <p>{t("dateTime")}</p>
+                    <p>{t("value")}</p>
+                    <p className={s.inputOutputHeader_amount}>{t("amount")}</p>
+                  </div>
 
-                {withdrawalsList.map((withdrawal, index) => {
-                  return (
-                    <div className={s.inputOutputRow} key={index}>
-                      <div>
-                        {dayjs(withdrawal.created_at).format(
-                          "DD/MM/YYYY HH:mm"
-                        )}
-                      </div>
-                      <div>
-                        <div>{withdrawal.currency.symbol}</div>
-                        <div className={s.inputOutputRow_value}>
-                          {withdrawal.currency.name}
+                  {withdrawalsList.map((withdrawal, index) => {
+                    return (
+                      <div className={s.inputOutputRow} key={index}>
+                        <div>
+                          {dayjs(withdrawal.created_at).format(
+                            "DD/MM/YYYY HH:mm"
+                          )}
+                        </div>
+                        <div>
+                          <div>{withdrawal.currency.symbol}</div>
+                          <div className={s.inputOutputRow_value}>
+                            {withdrawal.currency.name}
+                          </div>
+                        </div>
+                        <div className={s.inputOutputRow_amount}>
+                          {withdrawal.amount}
                         </div>
                       </div>
-                      <div className={s.inputOutputRow_amount}>
-                        {withdrawal.amount}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className={s.noSongBlock}>
+                  <p className={s.noSongBlock_title}>{t("no_output")}</p>
+                </div>
+              )}
             </div>
           </div>
           <div className={s.activitiesWrapper}>

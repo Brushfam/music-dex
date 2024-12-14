@@ -203,3 +203,17 @@ export type BalanceType = {
   balance?: string;
   price?: string;
 };
+
+export interface ICatalogData {
+  country: string;
+  cover: string;
+  cover_to_top: boolean;
+  genre: string;
+  listening_date: string;
+  price: string;
+  release_date: string;
+  rightsholder: string;
+  slug: string;
+  song_name: string;
+  total_supply: number;
+}

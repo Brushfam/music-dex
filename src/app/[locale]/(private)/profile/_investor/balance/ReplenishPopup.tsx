@@ -61,7 +61,11 @@ const abi = [
   },
 ] as const satisfies Abi;
 
-export function ReplenishPopup() {
+export function ReplenishPopup({
+  handleGetBalances,
+}: {
+  handleGetBalances: () => void;
+}) {
   const t = useTranslations("ProfileInvestor.Balance");
   const { sendTransaction, isWalConnected, getUserBalance } = useWallet();
   const { address } = useAccount();
@@ -203,7 +207,9 @@ export function ReplenishPopup() {
   const handleClick = async () => {
     if (method === "wallet") {
       if (isWalConnected) {
-        sendTransaction(amountToken);
+        sendTransaction(amountToken).then(() => {
+          handleGetBalances();
+        });
       } else {
         try {
           const txResponse = await sendAsync();
@@ -223,6 +229,7 @@ export function ReplenishPopup() {
               })
                 .then(() => {
                   toast.success(t("successful"));
+                  handleGetBalances();
                 })
                 .catch((error) => {
                   toast.error(t(`failed`));

@@ -327,6 +327,8 @@
     "Activities": {
       "title": "Activities",
       "no_activities": "No activities songs here yet",
+      "no_input": "No input here yet",
+      "no_output": "No output here yet",
       "list_of_activities": "List of activities",
       "date": "Date",
       "song": "Song",
@@ -418,7 +420,8 @@
       "withdrawAmount": "Withdrawal Amount",
       "network": "Network",
       "notBalance": "Not enough balance",
-      "available":"Available"
+      "available":"Available",
+      "no_balance": "No balance here yet"
     }
   },
 
@@ -527,7 +530,8 @@
       "wallets": "Wallets",
       "payWithAccount": "Pay With Account",
       "balancebyCriptio": "Balance by crypto",
-      "balance": "Balance"
+      "balance": "Balance",
+      "successful": "Invested successfully"
     }
   },
 

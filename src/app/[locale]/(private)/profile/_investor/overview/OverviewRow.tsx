@@ -22,7 +22,7 @@ export function OverviewRow(props: {
         <div className={s.overviewItem}>
           <div className={s.overviewItem_column}>
             <p className={s.overviewItem_text1}>{t("earned")}</p>
-            <p className={s.overviewItem_text2}>${props.totalEarnings}</p>
+            <p className={s.overviewItem_text2}>${props.totalEarnings || 0}</p>
           </div>
           <Image
             src={"/profile/overview/earned.svg"}
@@ -34,7 +34,7 @@ export function OverviewRow(props: {
         <div className={s.overviewItem}>
           <div className={s.overviewItem_column}>
             <p className={s.overviewItem_text1}>{t("total_songs")}</p>
-            <p className={s.overviewItem_text2}>{props.songs.length}</p>
+            <p className={s.overviewItem_text2}>{props.songs.length || 0}</p>
           </div>
           <Image
             src={"/profile/overview/total-songs.svg"}
@@ -48,7 +48,9 @@ export function OverviewRow(props: {
         <div className={s.overviewItem}>
           <div className={s.overviewItem_column}>
             <p className={s.overviewItem_text1}>{t("invested_amount")}</p>
-            <p className={s.overviewItem_text2}>${props.totalInvestedAmount}</p>
+            <p className={s.overviewItem_text2}>
+              ${props.totalInvestedAmount || 0}
+            </p>
           </div>
           <Image
             src={"/profile/overview/total-invested.svg"}

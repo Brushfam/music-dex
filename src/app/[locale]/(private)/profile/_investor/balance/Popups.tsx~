@@ -12,7 +12,7 @@ const Popups = ({ handleGetBalances }: { handleGetBalances: () => void }) => {
     case TopUpStepEnum.REPLENISH:
       return <ReplenishPopup handleGetBalances={handleGetBalances} />;
     case TopUpStepEnum.WITHDRAW:
-      return <WithdrawPopup handleGetBalances={handleGetBalances} />;
+      return <WithdrawPopup />;
 
     default:
       return null;

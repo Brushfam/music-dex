@@ -26,58 +26,69 @@ export const BalanceTable = ({
   const calculateUsdValue = (balance: string, price: string) => {
     return (parseFloat(balance) * parseFloat(price)).toFixed(5);
   };
-  return (
-    sortedData.length > 0 && (
-      <div className={s.balanceSection}>
-        <div className="line"></div>
-        <div className={s.tableFlexContainer}>
-          <div className={s.tableContainer}>
-            <table className={s.table}>
-              <thead>
-                <tr>
-                  <th>{t("token")}</th>
-                  <th>{t("price")}</th>
-                  <th>{t("amount")}</th>
-                  <th>{t("value")}</th>
+  return sortedData.length > 0 ? (
+    <div className={s.balanceSection}>
+      <div className="line"></div>
+      <div className={s.tableFlexContainer}>
+        <div className={s.tableContainer}>
+          <table className={s.table}>
+            <thead>
+              <tr>
+                <th>{t("token")}</th>
+                <th>{t("price")}</th>
+                <th>{t("amount")}</th>
+                <th>{t("value")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sortedData.map((row, index) => (
+                <tr key={index}>
+                  <td>
+                    <Image
+                      src={`/profile/balance/${row.currency.symbol.toLowerCase()}.png`}
+                      alt={`${row.currency.symbol} Icon`}
+                      className={s.icon}
+                      width={25}
+                      height={25}
+                    />
+                    {row.currency.symbol}
+                  </td>
+                  <td className={s.price}>{row.price}</td>
+                  <td>{row.balance}</td>
+                  <td className={s.usdValue}>
+                    {calculateUsdValue(row.balance, row.price)}
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {sortedData.map((row, index) => (
-                  <tr key={index}>
-                    <td>
-                      <Image
-                        src={`/profile/balance/${row.currency.symbol.toLowerCase()}.png`}
-                        alt={`${row.currency.symbol} Icon`}
-                        className={s.icon}
-                        width={25}
-                        height={25}
-                      />
-                      {row.currency.symbol}
-                    </td>
-                    <td className={s.price}>{row.price}</td>
-                    <td>{row.balance}</td>
-                    <td className={s.usdValue}>
-                      {calculateUsdValue(row.balance, row.price)}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className={s.sortContainer}>
-            <button
-              onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
-            >
-              <Image
-                src={"/profile/balance/sort-icon.svg"}
-                alt="Sort Icon"
-                width={20}
-                height={20}
-              />
-            </button>
-          </div>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className={s.sortContainer}>
+          <button
+            onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+          >
+            <Image
+              src={"/profile/balance/sort-icon.svg"}
+              alt="Sort Icon"
+              width={20}
+              height={20}
+            />
+          </button>
         </div>
       </div>
-    )
+    </div>
+  ) : (
+    <div
+      style={{
+        width: "100%",
+        height: "300px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontSize: "20px",
+      }}
+    >
+      {t("no_balance")}
+    </div>
   );
 };

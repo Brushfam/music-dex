@@ -59,7 +59,7 @@ export function SuggestedSongs(props: { songs: ISongData[] }) {
           path={"/songs"}
         />
       </div>
-      <div className={s.suggestedSongs_list}>
+      <div>
         {loading ? (
           <p>Loading...</p>
         ) : (

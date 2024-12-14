@@ -91,14 +91,20 @@ export function ConnectedWallets(props: {
                       return connect.name === wallet.name;
                     }
                   });
+                  const name = wallet.name.replace(/"/g, "");
 
-                  props.deleteWallet(wallet).then(() => {
-                    if (wallet.name === "Solana") {
-                      disconnectWallet();
-                    } else {
-                      connector?.disconnect();
-                    }
-                  });
+                  props
+                    .deleteWallet({
+                      name,
+                      address: wallet.address,
+                    })
+                    .then(() => {
+                      if (wallet.name === "Solana") {
+                        disconnectWallet();
+                      } else {
+                        connector?.disconnect();
+                      }
+                    });
                 }}
                 style={{
                   height: "100%",

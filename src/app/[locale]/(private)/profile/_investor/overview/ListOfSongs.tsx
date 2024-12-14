@@ -85,16 +85,38 @@ export function ListOfSongs({ songs }: { songs: ISongData[] }) {
         <p className={s.title}>{t("title")}</p>
       </div>
 
-      <div className={s.listOfSongs_songList}>
-        <div className={s.tableHeader}>
-          <div className={s.song}>{t("header_song")}</div>
-          <div className={s.tokens}>{t("header_tokens")}</div>
-          <div className={s.action}></div>
+      {songs.length === 0 ? (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <Image
+            src={"/profile/empty-list/payment-history.svg"}
+            alt={"icon"}
+            width={38}
+            height={48}
+            style={{ marginBottom: 4 }}
+          />
+          <p className={s.text1}>{t("no_songs")}</p>
         </div>
-        {songs.map((song, index) => (
-          <SongItem key={index} {...song} />
-        ))}
-      </div>
+      ) : (
+        <div className={s.listOfSongs_songList}>
+          <div className={s.tableHeader}>
+            <div className={s.song}>{t("header_song")}</div>
+            <div className={s.tokens}>{t("header_tokens")}</div>
+            <div className={s.action}></div>
+          </div>
+          {songs.map((song, index) => (
+            <SongItem key={index} {...song} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

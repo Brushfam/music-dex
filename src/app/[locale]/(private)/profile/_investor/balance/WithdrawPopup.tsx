@@ -11,7 +11,11 @@ import "./WithdrawPopup.scss";
 
 const { tokenOptions } = getTokens();
 
-const WithdrawPopup = () => {
+const WithdrawPopup = ({
+  handleGetBalances,
+}: {
+  handleGetBalances: () => void;
+}) => {
   const t = useTranslations("ProfileInvestor.Balance");
 
   const { setTopUpStep, balanceList } = useBalanceStore();
@@ -51,6 +55,7 @@ const WithdrawPopup = () => {
         })
           .then((res) => {
             toast.success(t(`successful`));
+            handleGetBalances();
           })
           .catch((error) => {
             if (error.response.data === "Not enough balance") {

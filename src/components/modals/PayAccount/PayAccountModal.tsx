@@ -15,6 +15,7 @@ import {
   useMemo,
   useState,
 } from "react";
+import { toast } from "sonner";
 import styles from "./PayAccountModal.module.scss";
 
 const currencyImages: Record<string, string> = {
@@ -77,6 +78,7 @@ export function PayAccountModal({ songId }: { songId: number }) {
     setBalances(balancesRes.data);
 
     setPayAccountModal("");
+    toast.success(t("successful"));
   };
 
   useEffect(() => {

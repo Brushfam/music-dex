@@ -31,7 +31,7 @@ export function SecondBlock({ songs }: SecondBlockProps) {
         }}
       >
         <ListOfSongs songs={songs} />
-        <SuggestedSongs />
+        <SuggestedSongs songs={songs} />
       </div>
     </div>
   );

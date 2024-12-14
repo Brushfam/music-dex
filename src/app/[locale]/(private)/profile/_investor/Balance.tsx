@@ -9,7 +9,7 @@ import { useConnect } from "@starknet-react/core";
 import { AxiosError } from "axios";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { LoadingSpinner } from "../../_components/LoadingSpinner";
 import { ProfileHeader } from "../../_components/ProfileHeader/ProfileHeader";
@@ -31,7 +31,8 @@ export const Balance = () => {
   let mainBalance = balanceList.reduce((prev, item) => {
     return prev + parseFloat(item?.balance!) * parseFloat(item?.price!);
   }, 0);
-  useEffect(() => {
+
+  const handleGetBalances = useCallback(() => {
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
         const token = await user.getIdToken();
@@ -50,6 +51,10 @@ export const Balance = () => {
       }
     });
   }, [router]);
+
+  useEffect(() => {
+    handleGetBalances();
+  }, [handleGetBalances]);
 
   useEffect(() => {
     function setUserWallets() {
@@ -169,7 +174,7 @@ export const Balance = () => {
         <div className={s.contentWrapper}>
           <HeaderButtons balanceList={balanceList} />
           <BalanceTable balanceList={balanceList} />
-          <Popups />
+          <Popups handleGetBalances={handleGetBalances} />
         </div>
       ) : (
         <div className={s.subpage}>
