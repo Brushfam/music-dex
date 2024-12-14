@@ -28,7 +28,6 @@ export const Balance = () => {
   const [connectedWallets, setConnectedWallets] = useState<Wallet[]>([]);
   const [primaryWallet, setPrimaryWallet] = useState("");
   const [balanceList, setBalanceList] = useState<BalanceType[]>([]);
-  console.log(balanceList);
   let mainBalance = balanceList.reduce((prev, item) => {
     return prev + parseFloat(item?.balance!) * parseFloat(item?.price!);
   }, 0);
@@ -175,6 +174,8 @@ export const Balance = () => {
       ) : (
         <div className={s.subpage}>
           <WalletList
+            connectedWallets={connectedWallets}
+            setConnectedWallets={setConnectedWallets}
             primaryWallet={primaryWallet}
             setPrimaryWallet={setPrimaryWallet}
           />

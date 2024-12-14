@@ -21,14 +21,16 @@ import s from "../wallets/Wallets.module.scss";
 export function WalletList({
   primaryWallet,
   setPrimaryWallet,
+  connectedWallets,
+  setConnectedWallets,
 }: {
   primaryWallet: string;
   setPrimaryWallet: Dispatch<SetStateAction<string>>;
+  connectedWallets: any;
+  setConnectedWallets: any;
 }) {
   const t = useTranslations("ProfileInvestor.Profile");
   const router = useRouter();
-  const [connectedWallets, setConnectedWallets] = useState<Wallet[]>([]);
-  // const [hasInternalWallet, setHasInternalWallet] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -67,7 +69,7 @@ export function WalletList({
     }
 
     fetchWallets();
-  }, [router, setPrimaryWallet, t]);
+  }, [router, setPrimaryWallet, t, setConnectedWallets]);
 
   const handleUpdatePrimaryWallet = async (newPrimaryWallet: Wallet) => {
     firebaseAuth.onAuthStateChanged(async (user) => {
@@ -92,8 +94,8 @@ export function WalletList({
         const token = await user.getIdToken();
         deleteWallet(token, wallet)
           .then(() => {
-            setConnectedWallets((prev) =>
-              prev.filter((w) => w.address !== wallet.address)
+            setConnectedWallets((prev: any) =>
+              prev.filter((w: any) => w.address !== wallet.address)
             );
           })
           .catch((error) => {
@@ -105,39 +107,6 @@ export function WalletList({
     });
   };
 
-  // const handleCreateInternalWallet = async () => {
-  //   firebaseAuth.onAuthStateChanged(async (user) => {
-  //     if (user) {
-  //       const token = await user.getIdToken();
-  //       createInternalWallet(token)
-  //         .then(() => {
-  //           setHasInternalWallet(true);
-  //           let newArray = [...connectedWallets];
-  //           newArray.unshift({
-  //             name: "internal",
-  //             address: "internal",
-  //           });
-  //           setConnectedWallets(newArray);
-  //           setPrimaryWallet("internal");
-  //           handleUpdatePrimaryWallet({
-  //             name: "internal",
-  //             address: "internal",
-  //           });
-  //           toast.success(t("Toast.internal_created"));
-  //         })
-  //         .catch((error) => {
-  //           console.log(error);
-  //           toast.error(t("Toast.internal_created"));
-  //         });
-  //     } else {
-  //       router.replace("/en/auth/login?expired-session=true");
-  //     }
-  //   });
-  // };
-
-  function showConnectWallet(): boolean {
-    return connectedWallets.length <= 32;
-  }
   return loading ? (
     <LoadingSpinner fullHeight={true} />
   ) : (
@@ -148,17 +117,11 @@ export function WalletList({
         updatePrimaryWallet={handleUpdatePrimaryWallet}
         deleteWallet={handleDeleteWallet}
       />
-      {showConnectWallet() ? (
-        <ConnectWallet
-          connectedWallets={connectedWallets}
-          setConnectedWallets={setConnectedWallets}
-          setPrimaryWallet={setPrimaryWallet}
-        />
-      ) : null}
-
-      {/* {!hasInternalWallet && (
-        <CreateInternalWallet createWallet={handleCreateInternalWallet} />
-      )} */}
+      <ConnectWallet
+        connectedWallets={connectedWallets}
+        setConnectedWallets={setConnectedWallets}
+        setPrimaryWallet={setPrimaryWallet}
+      />
     </div>
   );
 }

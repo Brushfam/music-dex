@@ -12,7 +12,6 @@ export const BalanceTable = ({
   const t = useTranslations("ProfileInvestor.Balance");
   const [sortOrder, setSortOrder] = useState<string>("asc");
   const [sortedData, setSortedData] = useState<any[]>([]);
-  console.log(balanceList);
   useEffect(() => {
     const sorted = [...balanceList].sort((a, b) => {
       if (sortOrder === "asc") {
