@@ -1,3 +1,4 @@
+import { useWallet } from "@/providers/SolanaProvider";
 import { formatBlockchainAddress } from "@/services/helpers";
 import { Wallet } from "@/types/types";
 import { useConnect } from "@starknet-react/core";
@@ -13,6 +14,7 @@ export function ConnectedWallets(props: {
 }) {
   const t = useTranslations("ProfileInvestor.Profile");
   const { connect, connectors } = useConnect();
+  const { disconnectWallet } = useWallet();
   if (props.wallets.length === 0) {
     return null;
   }
@@ -69,13 +71,21 @@ export function ConnectedWallets(props: {
               </p>
             ) : null}
           </div>
-          <div style={{ marginLeft: "auto" }}>
+          <div
+            style={{
+              marginLeft: "auto",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
             {isPrimary(wallet) ? (
-              <input type="radio" checked={true} />
+              <input type="radio" onChange={() => null} checked={true} />
             ) : (
               <div
                 onClick={(e) => {
                   e.stopPropagation();
+
                   const connector = connectors?.find((connector) => {
                     if (connector.available()) {
                       return connect.name === wallet.name;
@@ -83,11 +93,17 @@ export function ConnectedWallets(props: {
                   });
 
                   props.deleteWallet(wallet).then(() => {
-                    connector?.disconnect();
+                    if (wallet.name === "Solana") {
+                      disconnectWallet();
+                    } else {
+                      connector?.disconnect();
+                    }
                   });
                 }}
                 style={{
                   height: "100%",
+                  display: "flex",
+                  alignItems: "center",
                 }}
               >
                 {t("delete")}
