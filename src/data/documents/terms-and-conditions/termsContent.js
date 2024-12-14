@@ -695,10 +695,10 @@ export const pointsEN = [
             We care about data privacy and security. Please review our privacy
             policy at:{" "}
             <a
-              href={"https://musicdex.co/documents/privacy-policy"}
+              href={"https://musicdex.com.ua/documents/privacy-policy"}
               style={{ color: "white" }}
             >
-              https://musicdex.co/documents/privacy-policy
+              https://musicdex.com.ua/documents/privacy-policy
             </a>
             . By using the Services, you agree to be bound by our Privacy
             Policy. Please note that MusicDex services are provided from
@@ -1554,10 +1554,10 @@ export const pointsUA = [
             Ми дбаємо про конфіденційність і безпеку даних. Перегляньте нашу
             політику конфіденційності за адресою:{" "}
             <a
-              href={"https://musicdex.co/documents/privacy-policy"}
+              href={"https://musicdex.com.ua/documents/privacy-policy"}
               style={{ color: "white" }}
             >
-              https://musicdex.co/documents/privacy-policy
+              https://musicdex.com.ua/documents/privacy-policy
             </a>
             . Користуючись Послугами, ви погоджуєтеся дотримуватися нашої
             Політики конфіденційності. Зверніть увагу, що послуги MusicDex
