@@ -28,39 +28,6 @@ interface ActivitiesData {
   link: string;
 }
 
-const data = [
-  {
-    dateTime: "18/11/2024 16:20",
-    value: "ETH",
-    name: "Ethereum",
-    amount: "$1000",
-  },
-  {
-    dateTime: "18/11/2024 16:20",
-    value: "ETH",
-    name: "Ethereum",
-    amount: "$1000",
-  },
-  {
-    dateTime: "18/11/2024 16:20",
-    value: "ETH",
-    name: "Ethereum",
-    amount: "$1000",
-  },
-  {
-    dateTime: "18/11/2024 16:20",
-    value: "ETH",
-    name: "Ethereum",
-    amount: "$1000",
-  },
-  {
-    dateTime: "18/11/2024 16:20",
-    value: "ETH",
-    name: "Ethereum",
-    amount: "$1000",
-  },
-];
-
 export default function Activities() {
   const t = useTranslations("ProfileInvestor.Activities");
   const router = useRouter();
@@ -117,11 +84,10 @@ export default function Activities() {
     );
   }
 
-  console.log(invoicesList);
-
   function ActivitiesList() {
     return invoicesList.length ? (
       invoicesList.map((act, index) => {
+
         return (
           <ActivitiesRow
             key={index}
@@ -129,6 +95,7 @@ export default function Activities() {
             song={act.song?.title}
             tokens={act.token_amount}
             invested={Number(act.token_amount) * Number(act.token_price)}
+            status={act.payment_status}
           />
         );
       })

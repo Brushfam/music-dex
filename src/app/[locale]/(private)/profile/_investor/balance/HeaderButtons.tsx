@@ -3,8 +3,8 @@ import { TopUpStepEnum, useBalanceStore } from "@/store/balance";
 import { useTranslations } from "next-intl";
 import s from "./Balance.module.scss";
 
-export const HeaderButtons = ({ balanceList }: any) => {
-  const { setTopUpStep, setBalanceList } = useBalanceStore();
+export const HeaderButtons = ({ balanceList ,investBalance}: any) => {
+  const { setTopUpStep, setBalanceList,setInvestBalance } = useBalanceStore();
   const t = useTranslations("ProfileInvestor.Balance");
 
   return (
@@ -19,7 +19,7 @@ export const HeaderButtons = ({ balanceList }: any) => {
         action={() => {
           setTopUpStep(TopUpStepEnum.WITHDRAW);
           setBalanceList(balanceList);
-          balanceList;
+          setInvestBalance(investBalance);
         }}
         color="grey"
         arrow={true}

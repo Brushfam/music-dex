@@ -1,14 +1,18 @@
 "use client";
-
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { transactionSend } from "@/services/users/investors/wallets";
 import { useBalanceStore } from "@/store/balance";
 import {
+  createTransferInstruction,
+  getAssociatedTokenAddress,
+  TOKEN_PROGRAM_ID,
+} from "@solana/spl-token";
+import {
+  clusterApiUrl,
   Connection,
   PublicKey,
   SystemProgram,
   Transaction,
-  clusterApiUrl,
 } from "@solana/web3.js";
 import { useTranslations } from "next-intl";
 import React, { createContext, useContext, useEffect, useState } from "react";
@@ -22,6 +26,7 @@ interface SolanaWalletContextType {
   connectWallet: () => Promise<void>;
   disconnectWallet: () => void;
   sendTransaction: (amount: number) => Promise<void>;
+  sendUSDCTransaction: (amount: number) => Promise<void>;
   getUserBalance: () => Promise<number | null>;
   account: PublicKey | null;
   isWalletConnected: boolean;
@@ -140,6 +145,65 @@ export const SolanaWalletProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
+  const usdcMintAddress = new PublicKey(
+    "BJE5MMbqXjVwjAF7oxwPYXnTXDyspzZyt4vwenNw5ruG"
+  );
+  const sendUSDCTransaction = async (amount: number) => {
+    const connection = provider;
+
+    if (!connection) {
+      toast.error(t(`failed`));
+      return;
+    }
+
+    try {
+      const senderTokenAccount = await getAssociatedTokenAddress(
+        usdcMintAddress,
+        account!
+      );
+      const recipientPublicKey = new PublicKey(solAddress);
+      const recipientTokenAccount = await getAssociatedTokenAddress(
+        usdcMintAddress,
+        recipientPublicKey
+      );
+
+      const transferInstruction = createTransferInstruction(
+        senderTokenAccount,
+        recipientTokenAccount,
+        account!,
+        amount * 10 ** 6,
+        [],
+        TOKEN_PROGRAM_ID
+      );
+
+      const transaction = new Transaction().add(transferInstruction);
+
+      const { blockhash, lastValidBlockHeight } =
+        await connection.getLatestBlockhash();
+      transaction.recentBlockhash = blockhash;
+      transaction.feePayer = account!;
+
+      const signedTransaction = await wallet.signTransaction(transaction); // замените `wallet.signTransaction` на свой метод
+
+      const txId = await connection.sendRawTransaction(
+        signedTransaction.serialize(),
+        {
+          skipPreflight: false,
+        }
+      );
+
+      await connection.confirmTransaction({
+        blockhash,
+        lastValidBlockHeight,
+        signature: txId,
+      });
+
+      console.log("Транзакция успешно отправлена:", txId);
+    } catch {
+      toast.error(t(`failed`));
+    }
+  };
+
   const getUserBalance = async (): Promise<number | null> => {
     if (account && provider) {
       try {
@@ -157,6 +221,7 @@ export const SolanaWalletProvider: React.FC<{ children: React.ReactNode }> = ({
     connectWallet,
     disconnectWallet,
     sendTransaction,
+    sendUSDCTransaction,
     getUserBalance,
     account,
     isWalletConnected,

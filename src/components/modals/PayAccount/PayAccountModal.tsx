@@ -25,23 +25,27 @@ const currencyImages: Record<string, string> = {
   SOL: "/profile/balance/sol.png",
 };
 
-export function PayAccountModal({ songId }: { songId: number }) {
+export function PayAccountModal({
+  songId,
+  songToken,
+}: {
+  songId: number;
+  songToken: number;
+}) {
   const t = useTranslations("SharesBlock.PayAccount");
   const payAccountModal = useUserStore((state) => state.payAccountModal);
   const setPayAccountModal = useUserStore((state) => state.setPayAccountModal);
   const { balances, setBalances } = useUserStore();
   const [jwt, setJwt] = useState("");
-
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState<number | string>(0);
   const [value, setValue] = useState(0);
 
   const [token, setToken] = useState(balances[0]?.currency?.symbol);
-
   const currentBalance = useMemo(
     () => balances.find((balance) => balance.currency.symbol === token),
     [balances, token]
   );
-
+  console.log(currentBalance);
   const handleSliderChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
     (e) => {
       const value = Number(e.target.value);
@@ -63,22 +67,24 @@ export function PayAccountModal({ songId }: { songId: number }) {
   );
 
   const handleReplenish = async () => {
-    if (Number(currentBalance?.balance) < 0) {
+    if (Number(currentBalance?.balance) < +amount) {
+      toast.error(t("no_balance"));
       return;
     }
-
-    await fetchInvoice(jwt, {
-      song_id: songId,
-      amount: +amount,
-      currency: token,
-    });
-
-    const balancesRes = await getBalances(jwt);
-
-    setBalances(balancesRes.data);
-
-    setPayAccountModal("");
-    toast.success(t("successful"));
+    try {
+      await fetchInvoice(jwt, {
+        song_id: songId,
+        amount: ((+currentBalance?.price! * +amount) / songToken).toFixed(2),
+        currency: token,
+      });
+      const balancesRes = await getBalances(jwt);
+      setBalances(balancesRes.data);
+      setPayAccountModal("");
+      toast.success(t("successful"));
+    } catch {
+      setPayAccountModal("");
+      toast.error(t("failed"));
+    }
   };
 
   useEffect(() => {
@@ -101,7 +107,18 @@ export function PayAccountModal({ songId }: { songId: number }) {
           <h3>{t("enterAmount")}</h3>
 
           <div className={styles.amountInput}>
-            <span className={styles.amount}>{amount}</span>
+            <input
+              value={amount}
+              onChange={(e) => {
+                if (/^\d*\.?\d*$/.test(e.target.value)) {
+                  setAmount(e.target.value);
+
+                  setValue((+e.target.value / +currentBalance?.balance!) * 100);
+                }
+              }}
+              type="text"
+              className={styles.amount}
+            />
           </div>
 
           <div className={styles.sliderContainer}>
@@ -132,7 +149,8 @@ export function PayAccountModal({ songId }: { songId: number }) {
             }))}
           />
           <span>
-            {t("balance")}:{_.round(+currentBalance?.balance!, 9)}
+            {t("token")}:
+            {((+currentBalance?.price! * +amount) / songToken).toFixed(2)}
           </span>
         </div>
       </div>

@@ -5,6 +5,7 @@ export function ActivitiesRow(props: {
   song: string;
   tokens: number | string;
   invested: number | string;
+  status: string;
 }) {
   function StatusBlock(props: { status: string }) {
     if (props.status === "WAITING") {
@@ -34,6 +35,7 @@ export function ActivitiesRow(props: {
       <p className={s.songRow_song}>{props.song}</p>
       <p className={s.songRow_tokens}>{props.tokens}</p>
       <p className={s.songRow_invested}>${Number(props.invested).toFixed(2)}</p>
+      <p className={s.songRow_invested}>{StatusBlock({ status: props.status })}</p>
     </div>
   );
 }

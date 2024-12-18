@@ -67,10 +67,15 @@ export function ReplenishPopup({
   handleGetBalances: () => void;
 }) {
   const t = useTranslations("ProfileInvestor.Balance");
-  const { sendTransaction, isWalConnected, getUserBalance } = useWallet();
+  const {
+    sendTransaction,
+    sendUSDCTransaction,
+    isWalConnected,
+    getUserBalance,
+  } = useWallet();
   const { address } = useAccount();
   let filteredTokens = tokenOptions.filter((item) => {
-    if (isWalConnected && item.label === "SOL") {
+    if (isWalConnected && (item.label === "SOL" || item.label === "USDC")) {
       return item;
     } else if (
       !isWalConnected &&
@@ -85,16 +90,16 @@ export function ReplenishPopup({
 
   const [slider, setSlider] = useState(1);
   const [amount, setAmount] = useState(0);
-  const [amountToken, setAmountToken] = useState(0);
+  const [amountToken, setAmountToken] = useState<number | string>(0);
   const [token, setToken] = useState(filteredTokens[0]);
-  const [amountW, setAmountW] = useState(1);
+  const [amountW, setAmountW] = useState<number | string>(1);
 
   const handleDecrease = () => {
-    if (amountW > 1) setAmountW(amountW - 1);
+    if (+amountW > 5) setAmountW(+amountW - 1);
   };
 
   const handleIncrease = () => {
-    if (amountW < 1000) setAmountW(amountW + 1);
+    if (+amountW < 500) setAmountW(+amountW + 1);
   };
   const handleSliderChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
     (e) => {
@@ -196,7 +201,7 @@ export function ReplenishPopup({
               entrypoint: "transfer",
               calldata: [
                 process.env.NEXT_PUBLIC_STRK_ADDRES,
-                amountToken * 10 ** decimals,
+                +amountToken * 10 ** decimals,
                 "0",
               ],
             },
@@ -207,9 +212,15 @@ export function ReplenishPopup({
   const handleClick = async () => {
     if (method === "wallet") {
       if (isWalConnected) {
-        sendTransaction(amountToken).then(() => {
-          handleGetBalances();
-        });
+        if (token.label === "USDC") {
+          sendUSDCTransaction(+amount).then(() => {
+            handleGetBalances();
+          });
+        } else {
+          sendTransaction(+amountToken).then(() => {
+            handleGetBalances();
+          });
+        }
       } else {
         try {
           const txResponse = await sendAsync();
@@ -222,7 +233,7 @@ export function ReplenishPopup({
               const userToken = await user.getIdToken();
               transactionSend(userToken, {
                 method: "wallet",
-                amount: amountToken,
+                amount: +amountToken,
                 currency: token.label,
                 txHash: txResponse.transaction_hash,
                 fromAddress: address,
@@ -250,7 +261,7 @@ export function ReplenishPopup({
           const userToken = await user.getIdToken();
           transactionSend(userToken, {
             method: "whitepay",
-            amount: amountW,
+            amount: +amountW,
             currency: "USDT",
           })
             .then((res) => {
@@ -274,7 +285,29 @@ export function ReplenishPopup({
             <div className={styles.amountContainer}>
               <h3>{t("enterAmount")}</h3>
               <div className={styles.amountInput}>
-                <span className={styles.amount}>{amountToken}</span>
+                <input
+                  value={amountToken}
+                  onChange={(e) => {
+                    if (/^\d*\.?\d*$/.test(e.target.value)) {
+                      setAmountToken(e.target.value);
+
+                      if (token.value === "SOL") {
+                        setSlider((+e.target.value / balanceSol!) * 100);
+                      } else if (
+                        token.value === "STRK" ||
+                        token.value === "ETH"
+                      ) {
+                        setSlider(
+                          (+e.target.value / +balanceSrtk?.formatted!) * 100
+                        );
+                      } else {
+                        setAmount(0);
+                      }
+                    }
+                  }}
+                  type="text"
+                  className={styles.amount}
+                />
               </div>
               <div className={styles.sliderContainer}>
                 <span>1 %</span>
@@ -311,7 +344,20 @@ export function ReplenishPopup({
             <h3>{t("enterAmount")}</h3>
             <div className={styles.amountInput}>
               <button onClick={handleDecrease}>-</button>
-              <span className={styles.amount}>${amountW}</span>
+
+              <input
+                value={amountW}
+                onChange={(e) => {
+                  if (/^\d*\.?\d*$/.test(e.target.value)) {
+                    let sum = +e.target.value;
+                    if (sum >= 5 && sum < 500) {
+                      setAmountW(e.target.value);
+                    }
+                  }
+                }}
+                type="text"
+                className={styles.amount}
+              />
               <button onClick={handleIncrease}>+</button>
             </div>
             <div className={styles.sliderContainer}>
@@ -319,12 +365,12 @@ export function ReplenishPopup({
               <input
                 type="range"
                 min="1"
-                max="1000"
+                max="500"
                 value={amountW}
                 onChange={handleSliderChange}
                 className={styles.slider}
               />
-              <span>1000 {t("max")}</span>
+              <span>500 {t("max")}</span>
             </div>
           </div>
         )}
@@ -347,67 +393,3 @@ export function ReplenishPopup({
     </Popup>
   );
 }
-
-// const handleClick = async () => {
-//   const contractAddress =
-//     "0x04718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d";
-
-//   const { abi } = await provider.getClassAt(contractAddress, "latest");
-//   if (!abi) {
-//     throw new Error("Failed to retrieve ABI.");
-//   }
-//   console.log(abi);
-
-//   const contract = new Contract(
-//     [
-//       {
-//         name: "transfer",
-//         type: "function",
-//         inputs: [
-//           { name: "to", type: "address" },
-//           { name: "amount", type: "uint256" },
-//         ],
-//         outputs: [{ name: "success", type: "bool" }],
-//       },
-//     ],
-//     contractAddress,
-//     provider
-//   );
-//   contract.connect(account!);
-
-//   const calldata = [
-//     BigInt(
-//       "0x04718f5a0Fc34cC1AF16A1cdee98fFB20C31f5cD61D6Ab07201858f4287c938D"
-//     ).toString(),
-//     BigInt(12).toString(),
-//   ];
-
-//   try {
-//     const ex = await account?.execute({
-//       contractAddress,
-//       entrypoint: "transfer",
-//       calldata,
-//     });
-//     if (!ex) {
-//       return;
-//     }
-
-//     const res = await provider.waitForTransaction(ex.transaction_hash);
-//     console.log("Transaction successful:", res);
-//   } catch (err) {
-//     toast.error("Transaction failed.");
-//     setTopUpStep(null);
-//   }
-// };
-
-// const { sendAsync, error, data, variables } = useSendTransaction({
-//   calls:
-//     contract && address
-//       ? [
-//           contract.populate("transfer", [
-//             recipientAddress,
-//             BigInt(amount) * BigInt(10 ** 18),
-//           ]),
-//         ]
-//       : undefined,
-// });
