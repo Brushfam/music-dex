@@ -29,14 +29,11 @@ const WithdrawPopup = ({
   ];
   const { setTopUpStep, balanceList, investBalance } = useBalanceStore();
   const [token, setToken] = useState(tokenArr[0]);
-  console.log(investBalance);
-  console.log();
   let amountToken =
-    token.label === "INVESTMENT"
+    token.value === "INVESTMENT"
       ? investBalance?.balance || 0
       : balanceList.find((item) => item.currency.symbol === token.value)
           ?.balance || 0;
-
   const [address, setAddres] = useState("");
   const [amount, setAmount] = useState("");
   const [error, setError] = useState<null | string>(null);
@@ -145,7 +142,8 @@ const WithdrawPopup = ({
             <div className="available">
               <p>{t("available")} </p>
               <p>
-                {amountToken} {token.value}
+                {(+amountToken).toFixed()}{" "}
+                {token.value === "INVESTMENT" ? "$" : token.value}
               </p>
             </div>
             <div className="sendBlock">

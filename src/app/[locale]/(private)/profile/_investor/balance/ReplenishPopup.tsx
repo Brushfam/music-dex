@@ -72,6 +72,7 @@ export function ReplenishPopup({
     sendUSDCTransaction,
     isWalConnected,
     getUserBalance,
+    getUserUSDCBalance,
   } = useWallet();
   const { address } = useAccount();
   let filteredTokens = tokenOptions.filter((item) => {
@@ -80,7 +81,8 @@ export function ReplenishPopup({
     } else if (
       !isWalConnected &&
       item.label !== "SOL" &&
-      item.label !== "USDT - TRC20"
+      item.label !== "USDT - TRC20" &&
+      item.label !== "USDC"
     ) {
       return item;
     }
@@ -92,14 +94,14 @@ export function ReplenishPopup({
   const [amount, setAmount] = useState(0);
   const [amountToken, setAmountToken] = useState<number | string>(0);
   const [token, setToken] = useState(filteredTokens[0]);
-  const [amountW, setAmountW] = useState<number | string>(1);
+  const [amountW, setAmountW] = useState<number | string>(5);
 
   const handleDecrease = () => {
     if (+amountW > 5) setAmountW(+amountW - 1);
   };
 
   const handleIncrease = () => {
-    if (+amountW < 500) setAmountW(+amountW + 1);
+    if (+amountW < 10000) setAmountW(+amountW + 1);
   };
   const handleSliderChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
     (e) => {
@@ -135,12 +137,18 @@ export function ReplenishPopup({
 
   useEffect(() => {
     const fetchBalance = async () => {
-      const userBalance = await getUserBalance();
-      setBalanceSol(userBalance);
+      if (token.value === "SOL") {
+        const userBalance = await getUserBalance();
+        setBalanceSol(userBalance);
+      } else {
+        const userBalance = await getUserUSDCBalance();
+        console.log(userBalance);
+        setBalanceSol(userBalance);
+      }
     };
 
     fetchBalance();
-  }, [getUserBalance]);
+  }, [getUserBalance, getUserUSDCBalance, token.value]);
 
   const { data: balanceSrtk } = useBalance({
     address: address,
@@ -148,7 +156,7 @@ export function ReplenishPopup({
   });
 
   useEffect(() => {
-    if (token.value === "SOL") {
+    if (token.value === "SOL" || token.value === "USDC") {
       setAmount(balanceSol!);
       setAmountToken(
         Math.round(((balanceSol! * slider) / 100) * 100000) / 100000
@@ -213,7 +221,7 @@ export function ReplenishPopup({
     if (method === "wallet") {
       if (isWalConnected) {
         if (token.label === "USDC") {
-          sendUSDCTransaction(+amount).then(() => {
+          sendUSDCTransaction(+amountToken).then(() => {
             handleGetBalances();
           });
         } else {
@@ -361,16 +369,16 @@ export function ReplenishPopup({
               <button onClick={handleIncrease}>+</button>
             </div>
             <div className={styles.sliderContainer}>
-              <span>1 {t("min")}</span>
+              <span>5 {t("min")}</span>
               <input
                 type="range"
-                min="1"
-                max="500"
+                min="5"
+                max="10000"
                 value={amountW}
                 onChange={handleSliderChange}
                 className={styles.slider}
               />
-              <span>500 {t("max")}</span>
+              <span>10 000 {t("max")}</span>
             </div>
           </div>
         )}
