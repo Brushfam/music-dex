@@ -23,12 +23,14 @@ export default async function PageTemplate({
   params: { slug: string };
 }) {
   const songMainData = await fetchMainSongData(params.slug);
-
   return (
     <div className={cs.main}>
       <ApprovePurchaseModal />
       <NoWalletsModal />
-      <PayAccountModal songId={songMainData.song_id} />
+      <PayAccountModal
+        songToken={+songMainData.price || 1}
+        songId={songMainData.song_id}
+      />
       <MainBlock songData={songMainData} slug={params.slug} />
       <SubpagesBlock
         slug={params.slug}

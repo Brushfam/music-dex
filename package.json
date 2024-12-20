@@ -16,6 +16,7 @@
     "@formspree/react": "^2.5.1",
     "@mui/material": "^5.15.10",
     "@mui/styles": "^5.15.21",
+    "@solana/spl-token": "^0.4.9",
     "@solana/web3.js": "^1.95.8",
     "@starknet-react/chains": "^0.1.7",
     "@starknet-react/core": "^3.6.2",

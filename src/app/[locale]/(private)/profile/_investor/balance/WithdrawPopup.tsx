@@ -17,14 +17,23 @@ const WithdrawPopup = ({
   handleGetBalances: () => void;
 }) => {
   const t = useTranslations("ProfileInvestor.Balance");
-
-  const { setTopUpStep, balanceList } = useBalanceStore();
-  const [token, setToken] = useState(tokenOptions[0]);
-
+  let tokenArr = [
+    ...tokenOptions,
+    {
+      value: "INVESTMENT",
+      label: "Investment",
+      image: "/profile/balance/eth.png",
+      contractAddress:
+        "0x049D36570D4e46f48e99674bd3fcc84644DdD6b96F7C741B1562B82f9e004dC7",
+    },
+  ];
+  const { setTopUpStep, balanceList, investBalance } = useBalanceStore();
+  const [token, setToken] = useState(tokenArr[0]);
   let amountToken =
-    balanceList.find((item) => item.currency.symbol === token.value)?.balance ||
-    0;
-
+    token.value === "INVESTMENT"
+      ? investBalance?.balance || 0
+      : balanceList.find((item) => item.currency.symbol === token.value)
+          ?.balance || 0;
   const [address, setAddres] = useState("");
   const [amount, setAmount] = useState("");
   const [error, setError] = useState<null | string>(null);
@@ -111,7 +120,7 @@ const WithdrawPopup = ({
                     image: option.image,
                   })
                 }
-                options={tokenOptions}
+                options={tokenArr}
                 className="select"
               />
             </div>
@@ -133,7 +142,8 @@ const WithdrawPopup = ({
             <div className="available">
               <p>{t("available")} </p>
               <p>
-                {amountToken} {token.value}
+                {(+amountToken).toFixed()}{" "}
+                {token.value === "INVESTMENT" ? "$" : token.value}
               </p>
             </div>
             <div className="sendBlock">

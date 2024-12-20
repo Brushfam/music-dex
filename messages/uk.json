@@ -418,7 +418,9 @@
       "network": "Мережа",
       "notBalance": "Недостатньо балансу",
       "available": "Доступно",
-      "no_balance": "Немає балансу"
+      "no_balance": "Немає балансу",
+      "balance": "Баланс",
+      "investmentAccount": "Інвестиційний баланс"
     }
   },
 
@@ -526,8 +528,9 @@
       "wallets": "Гаманці",
       "payWithAccount": "Оплата з рахунку",
       "balancebyCriptio": "Баланс за крипто",
-      "balance": "Баланс",
-      "successful": "Вдало інвестовано"
+      "successful": "Вдало інвестовано",
+      "failed": "Транзакция не удалась.",
+      "no_balance": "Немає балансу"
     }
   },
 

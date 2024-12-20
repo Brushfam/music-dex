@@ -322,7 +322,6 @@
         "usdt": "USDT",
         "amount": "Amount"
       }
-
     },
     "Activities": {
       "title": "Activities",
@@ -420,8 +419,10 @@
       "withdrawAmount": "Withdrawal Amount",
       "network": "Network",
       "notBalance": "Not enough balance",
-      "available":"Available",
-      "no_balance": "No balance here yet"
+      "available": "Available",
+      "no_balance": "No balance here yet",
+      "balance": "Balance",
+      "investmentAccount": "Investment balance"
     }
   },
 
@@ -530,8 +531,9 @@
       "wallets": "Wallets",
       "payWithAccount": "Pay With Account",
       "balancebyCriptio": "Balance by crypto",
-      "balance": "Balance",
-      "successful": "Invested successfully"
+      "successful": "Invested successfully",
+      "failed": "Transaction failed.",
+      "no_balance": "No balance here yet"
     }
   },
 

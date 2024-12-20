@@ -22,6 +22,13 @@ const tokenOptions = [
       "0x049D36570D4e46f48e99674bd3fcc84644DdD6b96F7C741B1562B82f9e004dC7",
   },
   {
+    value: "USDC",
+    label: "USDC",
+    image: "/profile/balance/usdc.png",
+    contractAddress:
+      "0x049D36570D4e46f48e99674bd3fcc84644DdD6b96F7C741B1562B82f9e004dC7",
+  },
+  {
     value: "STRK",
     label: "STRK",
     image: "/profile/balance/strk.png",

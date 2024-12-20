@@ -43,3 +43,15 @@ export function getBalance(jwt: string) {
     },
   });
 }
+
+export function getInvestBalance(jwt: string) {
+  return axios.get(
+    process.env.NEXT_PUBLIC_SERVER_URL + "/users/balances/investment",
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer: " + jwt,
+      },
+    }
+  );
+}
