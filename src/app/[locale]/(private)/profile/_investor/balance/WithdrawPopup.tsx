@@ -142,7 +142,7 @@ const WithdrawPopup = ({
             <div className="available">
               <p>{t("available")} </p>
               <p>
-                {(+amountToken).toFixed()}{" "}
+                {(+amountToken).toFixed(2)}{" "}
                 {token.value === "INVESTMENT" ? "$" : token.value}
               </p>
             </div>
