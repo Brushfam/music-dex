@@ -120,7 +120,7 @@ const WithdrawPopup = ({
                     image: option.image,
                   })
                 }
-                options={tokenArr as any}
+                options={tokenArr}
                 className="select"
               />
             </div>

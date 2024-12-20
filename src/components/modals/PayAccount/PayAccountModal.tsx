@@ -74,7 +74,7 @@ export function PayAccountModal({
     try {
       await fetchInvoice(jwt, {
         song_id: songId,
-        amount: ((+currentBalance?.price! * +amount) / songToken).toFixed(2),
+        amount: +((+currentBalance?.price! * +amount) / songToken).toFixed(2),
         currency: token,
       });
       const balancesRes = await getBalances(jwt);

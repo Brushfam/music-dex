@@ -15,7 +15,7 @@ interface State {
   topUpStep: TopUpStepEnum | null;
   method: TopUpMethodEnum | null;
   balanceList: any[];
-  investBalance: any;
+  investBalance: {};
 }
 
 interface Actions {
