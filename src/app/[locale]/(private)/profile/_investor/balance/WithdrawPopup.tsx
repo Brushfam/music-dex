@@ -120,7 +120,7 @@ const WithdrawPopup = ({
                     image: option.image,
                   })
                 }
-                options={tokenArr}
+                options={tokenArr as any}
                 className="select"
               />
             </div>
@@ -142,7 +142,7 @@ const WithdrawPopup = ({
             <div className="available">
               <p>{t("available")} </p>
               <p>
-                {(+amountToken).toFixed()}{" "}
+                {(+amountToken).toFixed(2)}{" "}
                 {token.value === "INVESTMENT" ? "$" : token.value}
               </p>
             </div>
