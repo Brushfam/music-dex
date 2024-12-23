@@ -17,6 +17,7 @@ import {
 import { useTranslations } from "next-intl";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
+
 const solAddress = process.env.NEXT_PUBLIC_SOL_ADDRES;
 const USDC_MINT_ADDRESS = new PublicKey(
   "Gh9ZwEmdLJ8DscKNTkTqPbNwLNNBjuSzaG9Vp2KGtKJr"
@@ -59,7 +60,7 @@ export const SolanaWalletProvider: React.FC<{ children: React.ReactNode }> = ({
   const { setTopUpStep } = useBalanceStore();
 
   useEffect(() => {
-    const solanaConnection = new Connection(clusterApiUrl("devnet"));
+    const solanaConnection = new Connection(clusterApiUrl("mainnet-beta"));
     setProvider(solanaConnection);
     if (window.solana && window.solana.isPhantom) {
       setWallet(window.solana);
