@@ -29,17 +29,16 @@
 //   );
 // }
 "use client";
-import React from "react";
-
-import { mainnet, sepolia } from "@starknet-react/chains";
+import { mainnet } from "@starknet-react/chains";
 import {
-  StarknetConfig,
   argent,
   braavos,
   publicProvider,
+  StarknetConfig,
   useInjectedConnectors,
   voyager,
 } from "@starknet-react/core";
+import React from "react";
 
 export function StarknetProvider({ children }: { children: React.ReactNode }) {
   const { connectors } = useInjectedConnectors({
@@ -50,7 +49,7 @@ export function StarknetProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <StarknetConfig
-      chains={[mainnet, sepolia]}
+      chains={[mainnet]}
       provider={publicProvider()}
       connectors={connectors}
       explorer={voyager}
