@@ -20,7 +20,7 @@ import { toast } from "sonner";
 
 const solAddress = process.env.NEXT_PUBLIC_SOL_ADDRES;
 const USDC_MINT_ADDRESS = new PublicKey(
-  "Gh9ZwEmdLJ8DscKNTkTqPbNwLNNBjuSzaG9Vp2KGtKJr"
+  "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
 );
 if (!solAddress) {
   throw new Error("Solana address not provided in environment variables");
@@ -276,7 +276,7 @@ export const SolanaWalletProvider: React.FC<{ children: React.ReactNode }> = ({
     if (account && provider) {
       try {
         const balance = await provider.getBalance(account);
-        return balance / 1_000_000_000; // Перевод из лампортов в SOL
+        return balance / 1_000_000_000;
       } catch (error) {
         console.error("Failed to fetch user balance:", error);
         return null;

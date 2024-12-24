@@ -25,8 +25,7 @@ const tokenOptions = [
     value: "USDC",
     label: "USDC",
     image: "/profile/balance/usdc.png",
-    contractAddress:
-      "0x049D36570D4e46f48e99674bd3fcc84644DdD6b96F7C741B1562B82f9e004dC7",
+    contractAddress: "FSxJ85FXVsXSr51SeWf9ciJWTcRnqKFSmBgRDeL3KyWw",
   },
   {
     value: "STRK",
@@ -40,7 +39,7 @@ const tokenOptions = [
     label: "ETH",
     image: "/profile/balance/eth.png",
     contractAddress:
-      "0x049D36570D4e46f48e99674bd3fcc84644DdD6b96F7C741B1562B82f9e004dC7",
+      "0x049d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7",
   },
 ] as tokenOptions[];
 
