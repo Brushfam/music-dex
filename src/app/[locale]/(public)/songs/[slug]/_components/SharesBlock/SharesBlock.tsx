@@ -2,13 +2,15 @@
 
 import { ByCrypto } from "@/app/[locale]/(public)/songs/[slug]/_components/PaymentMethods/ByCrypto";
 import { Spinner } from "@/components/Spinner/Spinner";
+import { Button } from "@/components/ui/Button/Button";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { computeTokenMinAmount, roundToTwo } from "@/services/helpers";
 import { getSongAvailableTokens } from "@/services/songs";
+import { getBalances } from "@/services/users/users";
 import { useUserStore } from "@/store/user";
-import { Tooltip } from "@mui/material";
 import Slider from "@mui/material/Slider";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import s from "./SharesBlock.module.scss";
 
@@ -27,13 +29,17 @@ export function SharesBlock(props: {
   slug: string;
 }) {
   const t = useTranslations("SharesBlock");
-  const price = roundToTwo(props.price / 10); // price for 0.1 token
-  const minTokensForBuy = computeTokenMinAmount(price); // limited by whitepay provider
+  const price = roundToTwo(props.price / 10);
+  const minTokensForBuy = computeTokenMinAmount(price);
+  const currentLocale = useLocale();
+  const setPayAccountModal = useUserStore((state) => state.setPayAccountModal);
 
   const currentUser = useUserStore((state) => state.currentUserEmail);
   const [prevAmount, setPrevAmount] = useState(price * minTokensForBuy);
   const [currentAmount, setCurrentAmount] = useState(price * minTokensForBuy);
   const [totalAmount, setTotalAmount] = useState<undefined | number>(undefined);
+  const [loading, setLoading] = useState(false);
+  const { balances, setBalances } = useUserStore();
 
   useEffect(() => {
     getSongAvailableTokens(props.slug).then((res) => {
@@ -43,6 +49,32 @@ export function SharesBlock(props: {
       setTotalAmount(balance);
     });
   }, [props.slug, props.songId]);
+
+  useEffect(() => {
+    function computeInvestedAmount(tokenAmount: number, tokenPrice: number) {
+      const floatAmount = tokenAmount * tokenPrice;
+      return parseFloat(floatAmount.toFixed(2));
+    }
+
+    firebaseAuth.onAuthStateChanged(async (user) => {
+      if (user) {
+        try {
+          setLoading(true);
+          const token = await user.getIdToken();
+
+          const balancesRes = await getBalances(token);
+
+          setBalances(balancesRes.data);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        console.log("No user logged in");
+      }
+    });
+  }, [setBalances]);
 
   function getMaxPrice() {
     if (!totalAmount) return 0;
@@ -121,7 +153,14 @@ export function SharesBlock(props: {
 
   function PaymentButtons() {
     return (
-      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 12,
+          width: "100%",
+        }}
+      >
         <ByCrypto
           user={currentUser}
           tokensToPay={currentAmount}
@@ -129,11 +168,6 @@ export function SharesBlock(props: {
           songId={props.songId}
           slug={props.slug}
         />
-        <Tooltip title={t("fiat_description")} enterTouchDelay={0}>
-          <div className={s.disabledFiat}>
-            <p>{t("fiat_title")}</p>
-          </div>
-        </Tooltip>
       </div>
     );
   }
@@ -172,7 +206,30 @@ export function SharesBlock(props: {
         </div>
       </div>
       {currentUser ? (
-        <PaymentButtons />
+        <>
+          <PaymentButtons />
+          {balances.length && (
+            <div className={s.balanceContainer}>
+              <div className={s.balanceContainer_cryptos}>
+                <p className={s.balanceContainer_title}>{t("balanceStatus")}</p>
+                {balances.map((item, index) => (
+                  <div key={index} className={s.balanceContainer_cryptoItem}>
+                    <p>{item.currency.symbol} -</p>
+                    <p className={s.balanceContainer_cryptoItem_amount}>
+                      {item.balance}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <Button
+                title={t("pay_with_account")}
+                color={"main"}
+                arrow={true}
+                path={"/profile"}
+              />
+            </div>
+          )}
+        </>
       ) : (
         <p style={{ color: "white", fontWeight: 600, textAlign: "center" }}>
           {t("please_login_artist")}

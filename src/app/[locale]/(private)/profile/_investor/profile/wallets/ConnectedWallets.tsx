@@ -1,5 +1,7 @@
+import { useWallet } from "@/providers/SolanaProvider";
 import { formatBlockchainAddress } from "@/services/helpers";
 import { Wallet } from "@/types/types";
+import { useConnect } from "@starknet-react/core";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import s from "./Wallets.module.scss";
@@ -8,25 +10,27 @@ export function ConnectedWallets(props: {
   wallets: Wallet[];
   primaryWallet: string;
   updatePrimaryWallet: (newPrimaryWallet: Wallet) => Promise<void>;
+  deleteWallet: (wallet: Wallet) => Promise<void>;
 }) {
   const t = useTranslations("ProfileInvestor.Profile");
+  const { connect, connectors } = useConnect();
+  const { disconnectWallet } = useWallet();
   if (props.wallets.length === 0) {
     return null;
   }
 
   const vocabulary: { [key: string]: string } = {
+    "Argent X": "/logos/Argent.png",
     Braavos: "/logos/Braavos.svg",
-    "Argent X": "/logos/Argent-X.svg",
-    "Argent mobile": "/logos/Argent.png",
-    internal: "/profile/icons/internal-wallet.png",
   };
 
   function getImagePath(input: string): string {
     const sanitizedInput = input.replace(/"/g, "");
+
     if (vocabulary.hasOwnProperty(sanitizedInput)) {
       return vocabulary[sanitizedInput];
     } else {
-      return "/logos/Braavos.svg";
+      return "/logos/solana.png";
     }
   }
 
@@ -38,7 +42,7 @@ export function ConnectedWallets(props: {
   }
 
   function getWalletName(name: string) {
-    return name === "internal" ? "internal" : name.replace(/"/g, "");
+    return name.replace(/"/g, "");
   }
 
   return (
@@ -66,6 +70,51 @@ export function ConnectedWallets(props: {
                 {formatBlockchainAddress(wallet.address)}
               </p>
             ) : null}
+          </div>
+          <div
+            style={{
+              marginLeft: "auto",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            {isPrimary(wallet) ? (
+              <input type="radio" onChange={() => null} checked={true} />
+            ) : (
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+
+                  const connector = connectors?.find((connector) => {
+                    if (connector.available()) {
+                      return connect.name === wallet.name;
+                    }
+                  });
+                  const name = wallet.name.replace(/"/g, "");
+
+                  props
+                    .deleteWallet({
+                      name,
+                      address: wallet.address,
+                    })
+                    .then(() => {
+                      if (wallet.name === "Solana") {
+                        disconnectWallet();
+                      } else {
+                        connector?.disconnect();
+                      }
+                    });
+                }}
+                style={{
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                {t("delete")}
+              </div>
+            )}
           </div>
         </div>
       ))}

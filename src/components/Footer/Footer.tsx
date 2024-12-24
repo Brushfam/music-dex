@@ -70,19 +70,6 @@ export function Footer() {
             musicdex.inc@gmail.com
           </a>
         </div>
-        <div className={s.emailBlock}>
-          <p>{t("support_email")}</p>
-          <a
-            href={"mailto:support@musicdex.co"}
-            target="_blank"
-            style={{ textDecoration: "underline" }}
-            onClick={() => {
-              handleContactPixelEvent("support@musicdex.co");
-            }}
-          >
-            support@musicdex.co
-          </a>
-        </div>
       </div>
     );
   }

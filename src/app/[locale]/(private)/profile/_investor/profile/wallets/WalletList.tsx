@@ -3,11 +3,10 @@
 import { LoadingSpinner } from "@/app/[locale]/(private)/_components/LoadingSpinner";
 import { ConnectWallet } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/ConnectWallet";
 import { ConnectedWallets } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/ConnectedWallets";
-import { CreateInternalWallet } from "@/app/[locale]/(private)/profile/_investor/profile/wallets/CreateInternalWallet";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { parseWalletListResponse } from "@/services/helpers";
 import {
-  createInternalWallet,
+  deleteWallet,
   getUserWallets,
   updatePrimaryWallet,
 } from "@/services/users/investors/wallets";
@@ -15,16 +14,23 @@ import { Wallet } from "@/types/types";
 import { AxiosError } from "axios";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { toast } from "sonner";
 import s from "../wallets/Wallets.module.scss";
 
-export function WalletList() {
+export function WalletList({
+  primaryWallet,
+  setPrimaryWallet,
+  connectedWallets,
+  setConnectedWallets,
+}: {
+  primaryWallet: string;
+  setPrimaryWallet: Dispatch<SetStateAction<string>>;
+  connectedWallets: any;
+  setConnectedWallets: any;
+}) {
   const t = useTranslations("ProfileInvestor.Profile");
   const router = useRouter();
-  const [connectedWallets, setConnectedWallets] = useState<Wallet[]>([]);
-  const [hasInternalWallet, setHasInternalWallet] = useState(false);
-  const [primaryWallet, setPrimaryWallet] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,14 +43,6 @@ export function WalletList() {
             ? parseWalletListResponse(response.data.connectedWallets)
             : [];
           setConnectedWallets(connectedWallets);
-
-          // Check if any wallet has the type "internal"
-          const internalWalletExists = connectedWallets.some(
-            (wallet: Wallet) => wallet.name === "internal"
-          );
-          setHasInternalWallet(internalWalletExists);
-
-          // Setting primary wallet
           const primary = response.data.primaryWallet;
           if (primary) {
             setPrimaryWallet(primary);
@@ -71,7 +69,7 @@ export function WalletList() {
     }
 
     fetchWallets();
-  }, [router, t]);
+  }, [router, setPrimaryWallet, t, setConnectedWallets]);
 
   const handleUpdatePrimaryWallet = async (newPrimaryWallet: Wallet) => {
     firebaseAuth.onAuthStateChanged(async (user) => {
@@ -90,39 +88,24 @@ export function WalletList() {
     });
   };
 
-  const handleCreateInternalWallet = async () => {
+  const handleDeleteWallet = async (wallet: Wallet) => {
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
         const token = await user.getIdToken();
-        createInternalWallet(token)
+        deleteWallet(token, wallet)
           .then(() => {
-            setHasInternalWallet(true);
-            let newArray = [...connectedWallets];
-            newArray.unshift({
-              name: "internal",
-              address: "internal",
-            });
-            setConnectedWallets(newArray);
-            setPrimaryWallet("internal");
-            handleUpdatePrimaryWallet({
-              name: "internal",
-              address: "internal",
-            });
-            toast.success(t("Toast.internal_created"));
+            setConnectedWallets((prev: any) =>
+              prev.filter((w: any) => w.address !== wallet.address)
+            );
           })
           .catch((error) => {
-            console.log(error);
-            toast.error(t("Toast.internal_created"));
+            console.error("Failed to set primary wallet:", error);
           });
       } else {
         router.replace("/en/auth/login?expired-session=true");
       }
     });
   };
-
-  function showConnectWallet(): boolean {
-    return connectedWallets.length <= 2;
-  }
 
   return loading ? (
     <LoadingSpinner fullHeight={true} />
@@ -132,17 +115,13 @@ export function WalletList() {
         wallets={connectedWallets}
         primaryWallet={primaryWallet}
         updatePrimaryWallet={handleUpdatePrimaryWallet}
+        deleteWallet={handleDeleteWallet}
       />
-      {showConnectWallet() ? (
-        <ConnectWallet
-          connectedWallets={connectedWallets}
-          setConnectedWallets={setConnectedWallets}
-          setPrimaryWallet={setPrimaryWallet}
-        />
-      ) : null}
-      {!hasInternalWallet && (
-        <CreateInternalWallet createWallet={handleCreateInternalWallet} />
-      )}
+      <ConnectWallet
+        connectedWallets={connectedWallets}
+        setConnectedWallets={setConnectedWallets}
+        setPrimaryWallet={setPrimaryWallet}
+      />
     </div>
   );
 }

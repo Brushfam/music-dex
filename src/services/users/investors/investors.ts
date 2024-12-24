@@ -34,3 +34,24 @@ export function getNFTs(jwt: string) {
     },
   });
 }
+
+export function getBalance(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/balances", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+  });
+}
+
+export function getInvestBalance(jwt: string) {
+  return axios.get(
+    process.env.NEXT_PUBLIC_SERVER_URL + "/users/balances/investment",
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer: " + jwt,
+      },
+    }
+  );
+}

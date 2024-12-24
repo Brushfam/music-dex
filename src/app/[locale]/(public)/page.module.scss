@@ -156,6 +156,20 @@
   }
 }
 
+.btcWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+
+  @media (max-width: 1140px) {
+    align-items: center;
+    h3 {
+      text-align: center;
+    }
+  }
+}
+
 @mixin wrappers {
   display: flex;
   flex-direction: column;

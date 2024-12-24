@@ -1,9 +1,10 @@
 "use client";
 
-import {
-  investorStatisticsDataEN,
-  investorStatisticsDataUK,
-} from "@/data/profile/sampleData";
+import { firebaseAuth } from "@/services/auth/firebaseConfig";
+import { getUserRoyaltiesStatistics } from "@/services/users/users";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import {
   Area,
   AreaChart,
@@ -14,15 +15,65 @@ import {
   YAxis,
 } from "recharts";
 import { ValueType } from "recharts/types/component/DefaultTooltipContent";
+import { toast } from "sonner";
 import { useLocale } from "use-intl";
 
-export function SampleStatisticsChart() {
-  const currentLocale = useLocale();
-  const data =
-    currentLocale === "en"
-      ? investorStatisticsDataEN
-      : investorStatisticsDataUK;
+const monthsNames = [
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+  "Jan",
+];
 
+const url = process.env.NEXT_PUBLIC_SERVERTEST_URL;
+
+export function SampleStatisticsChart() {
+  const t = useTranslations("ProfileInvestor.Overview");
+  const currentLocale = useLocale();
+  const [data, setData] = useState<{ name: string; uv: number }[]>([]);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    firebaseAuth.onAuthStateChanged(async (user) => {
+      if (user) {
+        try {
+          setLoading(true);
+
+          const token = await user.getIdToken();
+
+          const res = await getUserRoyaltiesStatistics(token);
+
+          setData(
+            monthsNames.map((month) => {
+              const item = res.data.find((i: any) => i.month === month);
+              if (item) {
+                return { name: month, uv: item.amount };
+              }
+              return { name: month, uv: 0 };
+            })
+          );
+        } catch (e) {
+          console.log(e);
+          toast.error(t("another_error"));
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        router.replace("/en/auth/login?expired-session=true");
+      }
+    });
+  }, [router, t]);
+
+  console.log(data);
   return (
     <ResponsiveContainer height={200}>
       <AreaChart

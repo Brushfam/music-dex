@@ -9,8 +9,8 @@ export function ActivitiesHeader() {
       <p className={s.songHeader_date}>{t("date")}</p>
       <p className={s.songHeader_song}>{t("song")}</p>
       <p className={s.songHeader_tokens}>{t("tokens")}</p>
-      <p className={s.songHeader_invested}>{t("invested")}</p>
-      <p className={s.songHeader_status}>{t("status")}</p>
+      <p className={s.songHeader_invested}>{t("amount")}</p>
+      <p className={s.songHeader_invested}>{t("status")}</p>
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import s from "@/app/[locale]/(public)/auth/Auth.module.scss";
 import { EmailInput } from "@/app/[locale]/(public)/auth/_components/EmailInput";
+import s from "@/app/[locale]/(public)/auth/Auth.module.scss";
 import { Button } from "@/components/ui/Button/Button";
 import { firebaseAuth } from "@/services/auth/firebaseConfig";
 import { LoginSteps } from "@/types/types";
@@ -16,7 +16,7 @@ export function ResetPassword(props: {
   const [email, setEmail] = useState("");
 
   const actionCodeSettings = {
-    url: "https://musicdex.co/" + props.currentLocale + "/auth/login",
+    url: "https://musicdex.com.ua/" + props.currentLocale + "/auth/login",
     handleCodeInApp: true,
   };
 

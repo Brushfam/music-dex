@@ -66,6 +66,94 @@ export function getUserSongs(jwt: string) {
   });
 }
 
+export function getUserTotalEarnings(jwt: string) {
+  return axios.get(
+    process.env.NEXT_PUBLIC_SERVER_URL + "/users/royalties/earned",
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer: " + jwt,
+      },
+    }
+  );
+}
+
+export function getUserRoyaltiesStatistics(jwt: string) {
+  return axios.get(
+    process.env.NEXT_PUBLIC_SERVER_URL + "/users/royalties/statistics",
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer: " + jwt,
+      },
+    }
+  );
+}
+
+export function getUserRoyalties(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/royalties", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+  });
+}
+
+export function getReplenishments(jwt: string) {
+  return axios.get(
+    process.env.NEXT_PUBLIC_SERVER_URL + "/users/replenishments",
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer: " + jwt,
+      },
+    }
+  );
+}
+
+export function getWithdrawals(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/withdrawals", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+  });
+}
+
+export function getInvoices(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/invoice", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+  });
+}
+
+export function fetchInvoice(
+  jwt: string,
+  body: { song_id: number; amount: number; currency: string }
+) {
+  return axios.post(
+    process.env.NEXT_PUBLIC_SERVER_URL + "/users/invoice",
+    body,
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer: " + jwt,
+      },
+    }
+  );
+}
+
+export function getBalances(jwt: string) {
+  return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/balances", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer: " + jwt,
+    },
+  });
+}
+
 export function getUserInfo(jwt: string) {
   return axios.get(process.env.NEXT_PUBLIC_SERVER_URL + "/users/info", {
     headers: {

@@ -1,7 +1,10 @@
+import { BtcList } from "@/app/[locale]/(public)/_components/BtcList/BtcList";
 import { FlowList } from "@/app/[locale]/(public)/_components/FlowList/FlowList";
 import { Partners } from "@/app/[locale]/(public)/_components/Partners/Partners";
 import { TeamList } from "@/app/[locale]/(public)/_components/TeamList/TeamList";
+
 import { Terms } from "@/app/[locale]/(public)/_components/Terms/Terms";
+
 import { TracksSectionAlbums } from "@/app/[locale]/(public)/_components/Tracks/Tracks";
 import FaqSection from "@/components/Faq/FaqSection/FaqSection";
 import { ArtistModal } from "@/components/modals/ArtistModal/ArtistModal";
@@ -25,7 +28,6 @@ export default function Home() {
   return (
     <main className={cs.main}>
       <ArtistModal />
-
       {/*  Banner */}
       <div className={cs.bannerWrapper}>
         <div className={s.videoBackground}>
@@ -48,7 +50,6 @@ export default function Home() {
         </Section>
         <div className={s.shadowBottom} />
       </div>
-
       {/*  Tracks */}
       <Section>
         <div className={s.tracksContainer}>
@@ -67,7 +68,6 @@ export default function Home() {
           <TracksSectionAlbums />
         </div>
       </Section>
-
       {/*  How it works */}
       <div className={s.howItWorksWrapper} id={"home-how-it-works"}>
         <div className={s.howItWorksBg} />
@@ -85,7 +85,6 @@ export default function Home() {
           </div>
         </Section>
       </div>
-
       {/*  Our terms */}
       <div className={s.gradientWrapper}>
         <Section>
@@ -140,6 +139,11 @@ export default function Home() {
         <div className={s.teamContainer}>
           <h3 style={{ maxWidth: 510 }}>{t("team_header")}</h3>
           <TeamList />
+        </div>
+      </Section>
+      <Section>
+        <div className={s.btcWrapper}>
+          <BtcList />
         </div>
       </Section>
       <FaqSection />

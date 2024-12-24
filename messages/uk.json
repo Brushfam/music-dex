@@ -250,15 +250,20 @@
       "activities": "Активність",
       "nfts": "NFT",
       "profile": "Мій профіль",
+      "balance": "Баланс",
       "logout": "Вихід"
     },
     "Overview": {
       "projected_earnings": "Прогнозований річний прибуток: 127%",
-      "title": "Overview",
+      "title": "Огляд",
       "earned": "Отримано роялті",
       "total_songs": "Кількість пісень",
       "invested_amount": "Інвестиції",
       "total_tokens": "Кількість токенів",
+      "total_tokens_dropdown": {
+        "title": "Токени",
+        "token": "{amount} токени"
+      },
       "statistics": "Статистика",
       "sample_statistics": "Статистика Вашого прибутку буде відображена тут",
       "payment_history": "Історія виплат",
@@ -266,7 +271,26 @@
       "empty_history_desc": "Оберіть пісню для інвестицій",
       "suggestions": "Пропозиції",
       "invest": "Інвестувати",
-      "another_error": "Виникла помилка"
+      "another_error": "Виникла помилка",
+
+      "ListOfSongs": {
+        "title": "Список пісень",
+        "no_songs": "Тут ще немає жодної пісні",
+        "invest": "Інвестувати",
+        "header_song": "Пісня",
+        "header_tokens": "Токени",
+        "detailed": {
+          "date": "Дата -",
+          "purchase": "Остання покупка -",
+          "invested": "Інвестований -"
+        }
+      },
+      "payment_history_table": {
+        "date": "Дата",
+        "song": "Трек",
+        "usdt": "USDT",
+        "amount": "Сума"
+      }
     },
     "Songs": {
       "title": "Інвестовані треки",
@@ -281,7 +305,7 @@
       "loading": "Завантаження..."
     },
     "Royalties": {
-      "title": "Royalties",
+      "title": "Роялті",
       "statistics": "Статистика",
       "sample_statistics": "Статистика Вашого прибутку буде відображена тут",
       "payment_history": "Історія виплат",
@@ -289,19 +313,35 @@
       "empty_history_desc": "Оберіть пісню для інвестицій",
       "future_payouts": "Наступні виплати",
       "empty_payouts_title": "Ваші наступні виплати будуть відображені тут",
-      "empty_payouts_desc": "Оберіть пісню з каталогу щоб інвестувати та отримувати роялті"
+      "empty_payouts_desc": "Оберіть пісню з каталогу щоб інвестувати та отримувати роялті",
+      "another_error": "Виникла помилка",
+      "payment_history_table": {
+        "date": "Дата",
+        "song": "Трек",
+        "usdt": "USDT",
+        "amount": "Сума"
+      }
     },
     "Activities": {
       "title": "Активність",
       "no_activities": "Поки що немає активностей",
+      "no_input": "Поки що немає вхіду",
+      "no_output": "Поки що немає вихіду",
       "list_of_activities": "Список активностей",
       "date": "Дата",
       "song": "Пісня",
+      "paymentMethod": "Метод оплати",
       "Activity": "Активність",
       "tokens": "Токени",
       "invested": "Інвестиції",
       "status": "Статус",
-      "loading": "Завантаження..."
+      "loading": "Завантаження...",
+      "input": "Вхід",
+      "dateTime": "Дата / Час",
+      "value": "Значення",
+      "amount": "Сума",
+      "output": "Вихід",
+      "recentPurchases": "Останні покупки"
     },
     "NFTs": {
       "title": "NFT",
@@ -347,7 +387,40 @@
       "social_media": "Соц мережі",
       "cancel": "Відміна",
       "saving": "Збереження...",
-      "save": "Зберегти"
+      "save": "Зберегти",
+      "delete": "Видалити"
+    },
+    "Balance": {
+      "title": "Баланс",
+      "topUp": "Поповнити баланс",
+      "enter": "Введіть суму поповнення",
+      "withdraw": "Вивести",
+      "token": "Токен",
+      "price": "Ціна",
+      "amount": "Сума",
+      "value": "Вартість в USD",
+      "connectedWallet": "З підключеним гаманцем",
+      "whitepay": "Whitepay",
+      "enterAmount": "Введіть суму",
+      "currency": "Валюта",
+      "min": "мін.",
+      "max": "макс.",
+      "back": "Назад",
+      "replenish": "Поповнити",
+      "wallets": "Гаманці",
+      "failed": "Транзакция не удалась.",
+      "successful": "Транзакция прошла успешно.",
+      "errorConnect": "Будь ласка, підключіть свій гаманець спершу.",
+      "send": "Надіслати USDT",
+      "address": "Адреса",
+      "pasteAddress": "Вставити адресу",
+      "withdrawAmount": "Сума для виведення",
+      "network": "Мережа",
+      "notBalance": "Недостатньо балансу",
+      "available": "Доступно",
+      "no_balance": "Немає балансу",
+      "balance": "Баланс",
+      "investmentAccount": "Інвестиційний баланс"
     }
   },
 
@@ -409,6 +482,7 @@
     "tokens": "Токени",
     "min": "мін.",
     "max": "макс.",
+    "balanceStatus": "Статус балансу",
     "please_login": "Увійдіть для покупки токенів.",
     "please_login_artist": "Увійдіть як інвестор для покупки.",
     "sign_agreement": "Договір",
@@ -418,7 +492,7 @@
     "donate": "Донат артисту",
     "donate_crypto": "Криптою",
     "ByCrypto": {
-      "default": "Купити за крипту",
+      "default": "Інвестувати",
       "error": "Помилка при покупці токенів."
     },
     "ApprovePurchaseModal": {
@@ -433,6 +507,30 @@
       "content": "Щоб зробити покупку, вам потрібен крипто-гаманець. У якому будуть зберігатися ваші токени. А також підтвердити контактні дані. Ви можете підключити наявний гаманець або автоматично створити внутрішній гаманець у розділі «Мій профіль».",
       "close": "Закрити",
       "ok": "Профіль"
+    },
+    "pay_with_account": "Оплата з рахунку",
+    "PayAccount": {
+      "title": "Баланс",
+      "topUp": "Поповнити баланс",
+      "withdraw": "Вивести",
+      "token": "Токен",
+      "price": "Ціна",
+      "amount": "Сума",
+      "value": "Вартість в USD",
+      "connectedWallet": "З підключеним гаманцем",
+      "whitepay": "Whitepay",
+      "enterAmount": "Введіть суму",
+      "currency": "Валюта",
+      "min": "мін.",
+      "max": "макс.",
+      "back": "Назад",
+      "replenish": "Поповнити",
+      "wallets": "Гаманці",
+      "payWithAccount": "Оплата з рахунку",
+      "balancebyCriptio": "Баланс за крипто",
+      "successful": "Вдало інвестовано",
+      "failed": "Транзакция не удалась.",
+      "no_balance": "Немає балансу"
     }
   },
 

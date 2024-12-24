@@ -15,6 +15,7 @@ function Card(props: { path: string; name: string; role: string }) {
             alt={props.name}
             fill={true}
             objectFit="cover"
+            objectPosition="top"
           />
         </div>
         <p className={s.teamCard_name}>{props.name}</p>

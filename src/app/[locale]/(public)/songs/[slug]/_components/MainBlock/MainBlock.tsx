@@ -85,6 +85,7 @@ export function MainBlock(props: { songData: SongMainData; slug: string }) {
               tokenName={props.songData.song_name}
               slug={props.slug}
             />
+
             <Donate
               donateLink={props.songData.donate_link}
               artist={props.songData.rightsholder}

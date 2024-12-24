@@ -21,6 +21,7 @@ export function ByCrypto(props: {
   const router = useRouter();
   const setOrderLink = useUserStore((state) => state.setOrderLink);
   const setNoWalletsModal = useUserStore((state) => state.setNoWalletsModal);
+  const setPayAccountModal = useUserStore((state) => state.setPayAccountModal);
 
   async function handlePurchase() {
     firebaseAuth.onAuthStateChanged(async (user) => {
@@ -56,9 +57,7 @@ export function ByCrypto(props: {
       title={t("default")}
       color={"main"}
       arrow={true}
-      action={async () => {
-        await handlePurchase();
-      }}
+      action={() => setPayAccountModal("true")}
     />
   );
 }

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import s from "./Activities.module.scss";
 
 export function ActivitiesRow(props: {
@@ -7,7 +6,6 @@ export function ActivitiesRow(props: {
   tokens: number | string;
   invested: number | string;
   status: string;
-  songLink: string;
 }) {
   function StatusBlock(props: { status: string }) {
     if (props.status === "WAITING") {
@@ -36,20 +34,8 @@ export function ActivitiesRow(props: {
       <p className={s.songRow_date}>{props.lastDate}</p>
       <p className={s.songRow_song}>{props.song}</p>
       <p className={s.songRow_tokens}>{props.tokens}</p>
-      <p className={s.songRow_invested}>${props.invested}</p>
-      <StatusBlock status={props.status} />
-      <a
-        href={props.songLink}
-        target={"_blank"}
-        style={{ position: "absolute", right: 32 }}
-      >
-        <Image
-          src={"/icons/arrow-link.svg"}
-          alt={"arrow"}
-          width={10}
-          height={10}
-        />
-      </a>
+      <p className={s.songRow_invested}>${Number(props.invested).toFixed(2)}</p>
+      <p className={s.songRow_invested}>{StatusBlock({ status: props.status })}</p>
     </div>
   );
 }

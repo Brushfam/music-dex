@@ -58,3 +58,40 @@ button {
   position: relative;
   bottom: -20px;
 }
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 4px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 8px;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(83, 83, 83, 0) 0%,
+    #535353 51%,
+    rgba(83, 83, 83, 0) 100%
+  );
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="radio"] {
+  accent-color: #F6601F;
+}
