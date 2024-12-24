@@ -146,8 +146,9 @@ export function ReplenishPopup({
         setBalanceSol(userBalance);
       }
     };
-
-    fetchBalance();
+    if (token.value === "SOL" || token.value === "USDC") {
+      fetchBalance();
+    }
   }, [getUserBalance, getUserUSDCBalance, token.value]);
 
   const { data: balanceSrtk } = useBalance({

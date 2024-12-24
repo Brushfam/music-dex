@@ -178,7 +178,9 @@ export const Balance = () => {
           <div className={s.balance}>
             <h2>{t("investmentAccount")}</h2>
             <p>
-              {investBalance?.balance ? (+investBalance.balance).toFixed(2) : 0}
+              {investBalance?.balance
+                ? (+investBalance.balance).toFixed(2)
+                : "0.00"}
               $
             </p>
           </div>

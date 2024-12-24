@@ -4,7 +4,6 @@ import { transactionSend } from "@/services/users/investors/wallets";
 import { useBalanceStore } from "@/store/balance";
 import {
   createTransferInstruction,
-  getAccount,
   getAssociatedTokenAddress,
 } from "@solana/spl-token";
 import {
@@ -12,7 +11,6 @@ import {
   PublicKey,
   SystemProgram,
   Transaction,
-  clusterApiUrl,
 } from "@solana/web3.js";
 import { useTranslations } from "next-intl";
 import React, { createContext, useContext, useEffect, useState } from "react";
@@ -60,7 +58,13 @@ export const SolanaWalletProvider: React.FC<{ children: React.ReactNode }> = ({
   const { setTopUpStep } = useBalanceStore();
 
   useEffect(() => {
-    const solanaConnection = new Connection(clusterApiUrl("mainnet-beta"));
+    const solanaConnection = new Connection(
+      "https://mainnet.helius-rpc.com/?api-key=bf9a27ac-1afa-4d08-9235-6dec5ceb58ea"
+    );
+    // const solanaConnection = new Connection(
+    //   "https://rpc.ankr.com/solana",
+    //   "confirmed"
+    // );
     setProvider(solanaConnection);
     if (window.solana && window.solana.isPhantom) {
       setWallet(window.solana);
@@ -288,20 +292,18 @@ export const SolanaWalletProvider: React.FC<{ children: React.ReactNode }> = ({
     try {
       const usdcMintPublicKey = new PublicKey(USDC_MINT_ADDRESS);
       const userPublicKey = new PublicKey(account!);
-
       const userTokenAccountAddress = await getAssociatedTokenAddress(
         usdcMintPublicKey,
         userPublicKey
       );
 
-      const userTokenAccount = await getAccount(
-        provider!,
+      const userTokenAccount = await provider!.getTokenAccountBalance(
         userTokenAccountAddress
       );
 
-      const balance = userTokenAccount.amount;
+      const balance = userTokenAccount.value.uiAmount;
 
-      return Number(balance) / 1_000_000;
+      return Number(balance);
     } catch (error) {
       console.error("Failed to fetch USDC balance:", error);
       return null;

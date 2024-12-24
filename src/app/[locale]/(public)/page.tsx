@@ -107,10 +107,7 @@ export default function Home() {
           </ColumnContainer>
           <div className={`${s.flowContainer} ${s.startBuildingContainer}`}>
             <div className={s.startBuildingImages}>
-              <img src="/start-building/img-1.jpg" alt="" />
-              <div className={s.startBuildingImage2}>
-                <img src="/start-building/img-2.jpg" alt="" />
-              </div>
+              <img src="/start-building/img-3.png" alt="" />
             </div>
             <StartBuildFlowList
               dataEN={startBuildFlowListDataEN}

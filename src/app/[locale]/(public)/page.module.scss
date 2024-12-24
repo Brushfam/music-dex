@@ -285,6 +285,8 @@
     text-align: center;
   }
   .startBuildingContainer {
+    align-items: center;
+
     @media (max-width: $desktop-size) {
       justify-content: space-between;
       gap: 32px;
@@ -309,15 +311,6 @@
       height: 100%;
       object-fit: cover;
       object-position: left;
-    }
-    .startBuildingImage2 {
-      width: 70%;
-      height: 70%;
-      position: absolute;
-      right: -10px;
-      bottom: -50%;
-      transform: translateY(-50%);
-      z-index: 1;
     }
   }
 
