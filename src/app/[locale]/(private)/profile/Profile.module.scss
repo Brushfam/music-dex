@@ -108,6 +108,17 @@
   display: flex;
   align-items: center;
   height: 100%;
+  @media (max-width: 600px) {
+    width: 100%;
+    justify-content: space-between;
+    margin: 30px 0;
+    .balance {
+      border: none !important;
+      &:first-child {
+        text-align: left;
+      }
+    }
+  }
 
   .balance {
     text-align: right;

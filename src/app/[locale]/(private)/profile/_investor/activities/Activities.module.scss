@@ -120,9 +120,9 @@
   &_tokens,
   &_invested {
     text-align: center;
-    display: flex;justify-content: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    
   }
 }
 
@@ -190,9 +190,12 @@
   }
 
   .inputOutputHeader {
+    @media (max-width: 1200px) {
+      min-width: 600px;
+    }
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
     height: 34px;
     align-items: center;
@@ -209,16 +212,19 @@
       padding-left: 32px;
     }
 
-    &_amount {
+    &_status {
       text-align: center;
       padding-left: 0;
     }
   }
 
   .inputOutputRow {
+    @media (max-width: 1200px) {
+      min-width: 600px;
+    }
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
     height: 60px;
     margin-top: 10px;
@@ -238,8 +244,8 @@
     &_value {
       color: rgba(255, 255, 255, 0.4);
     }
-    &_amount {
-      text-align: center;
+    &_status {
+      align-items: center;
       padding-left: 0;
     }
   }

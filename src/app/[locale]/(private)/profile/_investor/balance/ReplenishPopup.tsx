@@ -9,7 +9,6 @@ import { TopUpStepEnum, useBalanceStore } from "@/store/balance";
 import getTokens from "@/utils/getTokens";
 import {
   useAccount,
-  useBalance,
   useContract,
   useSendTransaction,
 } from "@starknet-react/core";
@@ -81,7 +80,7 @@ export function ReplenishPopup({
     } else if (
       !isWalConnected &&
       item.label !== "SOL" &&
-      item.label !== "USDT - TRC20" &&
+      item.label !== "USDT" &&
       item.label !== "USDC"
     ) {
       return item;
@@ -134,47 +133,6 @@ export function ReplenishPopup({
   );
 
   const [balanceSol, setBalanceSol] = useState<number | null>(null);
-
-  useEffect(() => {
-    const fetchBalance = async () => {
-      if (token.value === "SOL") {
-        const userBalance = await getUserBalance();
-        setBalanceSol(userBalance);
-      } else {
-        const userBalance = await getUserUSDCBalance();
-        console.log(userBalance);
-        setBalanceSol(userBalance);
-      }
-    };
-    if (token.value === "SOL" || token.value === "USDC") {
-      fetchBalance();
-    }
-  }, [getUserBalance, getUserUSDCBalance, token.value]);
-
-  const { data: balanceSrtk } = useBalance({
-    address: address,
-    token: token.contractAddress,
-  });
-
-  useEffect(() => {
-    if (token.value === "SOL" || token.value === "USDC") {
-      setAmount(balanceSol!);
-      setAmountToken(
-        Math.round(((balanceSol! * slider) / 100) * 100000) / 100000
-      );
-    } else if (token.value === "STRK" || token.value === "ETH") {
-      setAmount(balanceSrtk?.formatted ? +balanceSrtk?.formatted : 0);
-      setAmountToken(
-        balanceSrtk?.formatted
-          ? Math.round(
-              ((Number(balanceSrtk.formatted) * slider) / 100) * 100000
-            ) / 100000
-          : 0
-      );
-    } else {
-      setAmount(0);
-    }
-  }, [balanceSol, balanceSrtk?.formatted, token.value]);
 
   const { contract } = useContract({
     abi,
@@ -265,6 +223,17 @@ export function ReplenishPopup({
         }
       }
     } else {
+      if (+amountW < 5) {
+        setAmountW(5);
+        toast.error(t(`failedMin`));
+        return;
+      } else if (+amountW > 10000) {
+        setAmountW(10000);
+
+        toast.error(t(`failedMax`));
+
+        return;
+      }
       firebaseAuth.onAuthStateChanged(async (user) => {
         if (user) {
           const userToken = await user.getIdToken();
@@ -298,37 +267,16 @@ export function ReplenishPopup({
                   value={amountToken}
                   onChange={(e) => {
                     if (/^\d*\.?\d*$/.test(e.target.value)) {
-                      setAmountToken(e.target.value);
-
-                      if (token.value === "SOL") {
-                        setSlider((+e.target.value / balanceSol!) * 100);
-                      } else if (
-                        token.value === "STRK" ||
-                        token.value === "ETH"
-                      ) {
-                        setSlider(
-                          (+e.target.value / +balanceSrtk?.formatted!) * 100
-                        );
+                      if (+e.target.value > 0) {
+                        setAmountToken(+e.target.value);
                       } else {
-                        setAmount(0);
+                        setAmountToken(0);
                       }
                     }
                   }}
                   type="text"
                   className={styles.amount}
                 />
-              </div>
-              <div className={styles.sliderContainer}>
-                <span>1 %</span>
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  value={slider}
-                  onChange={handleSliderChangeCry}
-                  className={styles.slider}
-                />
-                <span>100 %</span>
               </div>
             </div>
 
@@ -353,24 +301,26 @@ export function ReplenishPopup({
             <h3>{t("enterAmount")}</h3>
             <div className={styles.amountInput}>
               <button onClick={handleDecrease}>-</button>
-
-              <input
-                value={amountW}
-                onChange={(e) => {
-                  if (/^\d*\.?\d*$/.test(e.target.value)) {
-                    let sum = +e.target.value;
-                    if (sum >= 5 && sum < 500) {
-                      setAmountW(e.target.value);
+              <label className={styles.amountLabel}>
+                <input
+                  value={amountW}
+                  onChange={(e) => {
+                    if (/^\d*\.?\d*$/.test(e.target.value)) {
+                      if (+e.target.value > 0) {
+                        setAmountW(+e.target.value);
+                      } else {
+                        setAmountW(0);
+                      }
                     }
-                  }
-                }}
-                type="text"
-                className={styles.amount}
-              />
+                  }}
+                  type="text"
+                />
+                <p>$</p>
+              </label>
               <button onClick={handleIncrease}>+</button>
             </div>
             <div className={styles.sliderContainer}>
-              <span>5 {t("min")}</span>
+              <span>5 $ {t("min")}</span>
               <input
                 type="range"
                 min="5"
@@ -379,7 +329,7 @@ export function ReplenishPopup({
                 onChange={handleSliderChange}
                 className={styles.slider}
               />
-              <span>10 000 {t("max")}</span>
+              <span>10 000 $ {t("max")}</span>
             </div>
           </div>
         )}

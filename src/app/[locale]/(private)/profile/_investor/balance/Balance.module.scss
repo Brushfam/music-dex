@@ -170,10 +170,16 @@
       height: 35px;
 
       button {
+        cursor: pointer;
         font-size: 24px;
         background-color: transparent;
         outline: none;
         border: none;
+        padding: 5px;
+        transition: 0.5s;
+        &:hover {
+          opacity: 0.7;
+        }
       }
 
       .amount {
@@ -183,6 +189,25 @@
         border: none;
         width: 100%;
         border-bottom: 1px solid white;
+        text-align: center;
+        background: transparent;
+        outline: none;
+      }
+    }
+    .amountLabel {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid white;
+
+      input {
+        font-size: 20px;
+        color: white;
+        padding: 5px 0;
+        width: 60px;
+        border: none;
         text-align: center;
         background: transparent;
         outline: none;

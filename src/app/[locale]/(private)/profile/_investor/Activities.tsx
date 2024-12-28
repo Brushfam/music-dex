@@ -43,13 +43,28 @@ export default function Activities() {
     const timestamp = new Date(date);
     return `${timestamp.getDate()}/${timestamp.getMonth() + 1}/${timestamp.getFullYear()}`;
   }
-
-  useEffect(() => {
-    function computeInvestedAmount(tokenAmount: number, tokenPrice: number) {
-      const floatAmount = tokenAmount * tokenPrice;
-      return parseFloat(floatAmount.toFixed(2));
+  function StatusBlock(props: { status: string }) {
+    if (props.status === "waiting") {
+      return (
+        <div className={s.waiting}>
+          <p>Waiting</p>
+        </div>
+      );
+    } else if (props.status === "complete") {
+      return (
+        <div className={s.complete}>
+          <p>Completed</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className={s.declined}>
+          <p>Declined</p>
+        </div>
+      );
     }
-
+  }
+  useEffect(() => {
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
         try {
@@ -87,7 +102,6 @@ export default function Activities() {
   function ActivitiesList() {
     return invoicesList.length ? (
       invoicesList.map((act, index) => {
-
         return (
           <ActivitiesRow
             key={index}
@@ -131,7 +145,8 @@ export default function Activities() {
                   <div className={s.inputOutputHeader}>
                     <p>{t("dateTime")}</p>
                     <p>{t("value")}</p>
-                    <p className={s.inputOutputHeader_amount}>{t("amount")}</p>
+                    <p>{t("amount")}</p>
+                    <p className={s.inputOutputHeader_status}>{t("status")}</p>
                   </div>
                   {replenishmentsList.map((replenishment, index) => {
                     return (
@@ -148,7 +163,10 @@ export default function Activities() {
                           </div>
                         </div>
                         <div className={s.inputOutputRow_amount}>
-                          {replenishment.amount}
+                          {Number(replenishment.amount).toFixed(2)}
+                        </div>
+                        <div className={s.inputOutputRow_status}>
+                          {StatusBlock(replenishment)}
                         </div>
                       </div>
                     );
@@ -167,7 +185,8 @@ export default function Activities() {
                   <div className={s.inputOutputHeader}>
                     <p>{t("dateTime")}</p>
                     <p>{t("value")}</p>
-                    <p className={s.inputOutputHeader_amount}>{t("amount")}</p>
+                    <p>{t("amount")}</p>
+                    <p className={s.inputOutputHeader_status}>{t("status")}</p>
                   </div>
 
                   {withdrawalsList.map((withdrawal, index) => {
@@ -185,7 +204,10 @@ export default function Activities() {
                           </div>
                         </div>
                         <div className={s.inputOutputRow_amount}>
-                          {withdrawal.amount}
+                          {Number(withdrawal.amount).toFixed(2)}
+                        </div>
+                        <div className={s.inputOutputRow_status}>
+                          {StatusBlock(withdrawal)}
                         </div>
                       </div>
                     );

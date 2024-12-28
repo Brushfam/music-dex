@@ -22,7 +22,7 @@ const WithdrawPopup = ({
     {
       value: "INVESTMENT",
       label: "Investment",
-      image: "/profile/balance/eth.png",
+      image: "/profile/balance/usd.png",
       contractAddress:
         "0x049D36570D4e46f48e99674bd3fcc84644DdD6b96F7C741B1562B82f9e004dC7",
     },
@@ -95,20 +95,7 @@ const WithdrawPopup = ({
         <div className={"currencyContainer"}>
           <form onSubmit={handleSubmit}>
             <div className="containerItem">
-              <h4>{t("address")}</h4>
-              <input
-                onChange={(e) => {
-                  setError(null);
-                  setAddres(e.target.value);
-                }}
-                value={address}
-                className={`${error === "address" ? "error" : ""}`}
-                type="text"
-                placeholder={t("pasteAddress")}
-              />
-            </div>
-            <div className="containerItem">
-              <h4>{t("network")}</h4>
+              <h4>{t("currency")}</h4>
 
               <Select
                 value={token.value}
@@ -146,6 +133,21 @@ const WithdrawPopup = ({
                 {token.value === "INVESTMENT" ? "$" : token.value}
               </p>
             </div>
+            <div className="containerItem">
+              <h4>{t("address")}</h4>
+              <input
+                onChange={(e) => {
+                  setError(null);
+                  setAddres(e.target.value);
+                }}
+                value={address}
+                className={`${error === "address" ? "error" : ""}`}
+                type="text"
+                placeholder={t("pasteAddress")}
+              />
+            </div>
+            <p className="infoText">{t(token.value)}</p>
+
             <div className="sendBlock">
               <div className="line"></div>
               <Button

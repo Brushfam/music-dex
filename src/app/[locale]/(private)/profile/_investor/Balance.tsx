@@ -120,6 +120,7 @@ export const Balance = () => {
       return;
     }
     let name = wallet.name;
+
     try {
       name = JSON.parse(wallet.name);
     } catch (e) {}
@@ -146,6 +147,7 @@ export const Balance = () => {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "flex-start",
+          flexWrap: "wrap",
         }}
       >
         <div className={s.subpageWrapper_tabs}>

@@ -9,7 +9,7 @@ type tokenOptions = {
 const tokenOptions = [
   {
     value: "USDT",
-    label: "USDT - TRC20",
+    label: "USDT",
     image: "/profile/balance/usdt.png",
     contractAddress:
       "0x049D36570D4e46f48e99674bd3fcc84644DdD6b96F7C741B1562B82f9e004dC7",
