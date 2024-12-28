@@ -1,10 +1,10 @@
 "use client";
 import { mainnet } from "@starknet-react/chains";
 import {
+  StarknetConfig,
   argent,
   braavos,
   publicProvider,
-  StarknetConfig,
   useInjectedConnectors,
   voyager,
 } from "@starknet-react/core";

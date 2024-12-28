@@ -62,13 +62,12 @@ export function ConnectWallet({
     setMounted(true);
     if (address && address !== prevAddress) {
       setPrevAddress(address);
-
       const walletExists = connectedWallets.find(
         (wallet) =>
           wallet.address === address &&
           wallet.name.replace(/"/g, "") !== "Solana"
       );
-      if (walletExists) return;
+      if (walletExists || walletName === "") return;
 
       firebaseAuth.onAuthStateChanged(async (user) => {
         if (user) {

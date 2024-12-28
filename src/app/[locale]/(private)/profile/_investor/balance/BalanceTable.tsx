@@ -24,7 +24,7 @@ export const BalanceTable = ({
   }, [sortOrder, balanceList]);
 
   const calculateUsdValue = (balance: string, price: string) => {
-    return (parseFloat(balance) * parseFloat(price)).toFixed(5);
+    return (parseFloat(balance) * parseFloat(price)).toFixed(2);
   };
   return sortedData.length > 0 ? (
     <div className={s.balanceSection}>
@@ -53,8 +53,8 @@ export const BalanceTable = ({
                     />
                     {row.currency.symbol}
                   </td>
-                  <td className={s.price}>{row.price}</td>
-                  <td>{row.balance}</td>
+                  <td className={s.price}>{Number(row.price).toFixed(2)}</td>
+                  <td>{Number(row.balance).toFixed(2)}</td>
                   <td className={s.usdValue}>
                     {calculateUsdValue(row.balance, row.price)}
                   </td>
