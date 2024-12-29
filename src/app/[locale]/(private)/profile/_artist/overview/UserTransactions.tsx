@@ -53,6 +53,7 @@ export function UserTransactions(props: { history: ArtistPurchaseHistory[] }) {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          textAlign: "center",
           justifyContent: "center",
           width: "100%",
           height: "100%",
