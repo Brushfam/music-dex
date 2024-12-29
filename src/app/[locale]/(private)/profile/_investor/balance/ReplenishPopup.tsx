@@ -21,7 +21,15 @@ import styles from "./Balance.module.scss";
 import { Popup } from "./Popup";
 
 const { tokenOptions } = getTokens();
-
+const openInNewTab = (url: string) => {
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 const abi = [
   {
     type: "function",
@@ -66,13 +74,7 @@ export function ReplenishPopup({
   handleGetBalances: () => void;
 }) {
   const t = useTranslations("ProfileInvestor.Balance");
-  const {
-    sendTransaction,
-    sendUSDCTransaction,
-    isWalConnected,
-    getUserBalance,
-    getUserUSDCBalance,
-  } = useWallet();
+  const { sendTransaction, sendUSDCTransaction, isWalConnected } = useWallet();
   const { address } = useAccount();
   let filteredTokens = tokenOptions.filter((item) => {
     if (isWalConnected && (item.label === "SOL" || item.label === "USDC")) {
@@ -89,8 +91,6 @@ export function ReplenishPopup({
 
   const { setTopUpStep, method } = useBalanceStore();
 
-  const [slider, setSlider] = useState(1);
-  const [amount, setAmount] = useState(0);
   const [amountToken, setAmountToken] = useState<number | string>(0);
   const [token, setToken] = useState(filteredTokens[0]);
   const [amountW, setAmountW] = useState<number | string>(5);
@@ -114,25 +114,6 @@ export function ReplenishPopup({
     },
     []
   );
-
-  const handleSliderChangeCry = useCallback<
-    ChangeEventHandler<HTMLInputElement>
-  >(
-    (e) => {
-      const value = Number(e.target.value);
-
-      if (!value) {
-        return;
-      }
-      const newAmount =
-        Math.round(((Number(amount) * value) / 100) * 100000) / 100000;
-      setSlider(value);
-      setAmountToken(newAmount);
-    },
-    [amount]
-  );
-
-  const [balanceSol, setBalanceSol] = useState<number | null>(null);
 
   const { contract } = useContract({
     abi,
@@ -243,7 +224,7 @@ export function ReplenishPopup({
             currency: "USDT",
           })
             .then((res) => {
-              window.open(res.data.orderUrl, "_blank");
+              openInNewTab(res.data.orderUrl);
             })
             .catch((error) => {
               toast.error(t(`failed`));
