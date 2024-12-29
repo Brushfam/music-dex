@@ -226,14 +226,7 @@ export function ReplenishPopup({
             amount: +amountW,
             currency: "USDT",
           });
-          const link = document.createElement("a");
-          link.href = res.data.orderUrl;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
+          window.location.href = res.data.orderUrl;
         } catch (error) {
           console.error("Transaction Error:", error);
           toast.error(t(`failed`));
