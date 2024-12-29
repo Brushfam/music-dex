@@ -62,7 +62,6 @@ export function SampleStatisticsChart() {
             })
           );
         } catch (e) {
-          console.log(e);
           toast.error(t("another_error"));
         } finally {
           setLoading(false);
@@ -73,7 +72,6 @@ export function SampleStatisticsChart() {
     });
   }, [router, t]);
 
-  console.log(data);
   return (
     <ResponsiveContainer height={200}>
       <AreaChart

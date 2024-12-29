@@ -21,7 +21,6 @@ export function ActivitiesRow(props: {
       return (
         <div className={s.complete}>
           <p>{t("completed")}</p>
-
         </div>
       );
     } else {
@@ -39,9 +38,9 @@ export function ActivitiesRow(props: {
       <p className={s.songRow_song}>{props.song}</p>
       <p className={s.songRow_tokens}>{props.tokens}</p>
       <p className={s.songRow_invested}>${Number(props.invested).toFixed(2)}</p>
-      <p className={s.songRow_invested}>
+      <div className={s.songRow_invested}>
         {StatusBlock({ status: props.status })}
-      </p>
+      </div>
     </div>
   );
 }

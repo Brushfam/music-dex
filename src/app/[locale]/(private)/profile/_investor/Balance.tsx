@@ -137,7 +137,7 @@ export const Balance = () => {
         }
       });
     }
-  }, [connectedWallets, connectors, primaryWallet]);
+  }, [connectedWallets, primaryWallet]);
 
   return (
     <div className={s.subpageWrapper}>

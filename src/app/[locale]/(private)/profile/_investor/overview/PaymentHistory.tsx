@@ -21,6 +21,8 @@ function EmptyRoyalties() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        textAlign: "center",
+        fontSize: "14px",
         justifyContent: "center",
         width: "100%",
         height: "100%",

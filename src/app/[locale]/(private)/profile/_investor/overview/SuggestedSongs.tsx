@@ -20,7 +20,6 @@ export function SuggestedSongs(props: { songs: ISongData[] }) {
       try {
         setLoading(true);
         const res = await getCatalog();
-        console.log(res.data.catalog);
         setSongs(res.data.catalog);
       } catch (error) {
         console.error("Error fetching catalog:", error);

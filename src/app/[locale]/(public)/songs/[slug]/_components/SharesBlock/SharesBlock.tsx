@@ -174,7 +174,7 @@ export function SharesBlock(props: {
 
   return totalAmount ? (
     <div className={s.sharesBlock}>
-      <p className={s.title}>{t("header")}</p>
+      <p className={s.title}>{t("header")}asd</p>
       <div className={s.priceBlockWrapper}>
         <PriceBlock />
         <ThemeProvider theme={theme}>

@@ -415,6 +415,7 @@
       "failed": "Transaction failed.",
       "failedMin": "The minimum amount is $5.",
       "failedMax": "The maximum amount is $10,000.",
+      "inputError": "Fill this field",
       "successful": "Transaction successful.",
       "errorConnect": "Please connect your wallet first.",
 
@@ -544,7 +545,8 @@
       "balancebyCriptio": "Balance by crypto",
       "successful": "Invested successfully",
       "failed": "Transaction failed.",
-      "no_balance": "No balance here yet"
+      "no_balance": "No balance here yet",
+      "enter_amount": "Enter the amount"
     }
   },
 

@@ -44,12 +44,12 @@ const WithdrawPopup = ({
 
     if (!address.trim()) {
       setError("address");
-      return toast.error(t("failed"));
+      return toast.error(t("inputError"));
     }
 
     if (!amount.trim()) {
       setError("amount");
-      return toast.error(t("failed"));
+      return toast.error(t("inputError"));
     }
 
     setLoad(true);

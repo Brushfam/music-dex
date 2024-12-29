@@ -45,7 +45,6 @@ export function PayAccountModal({
     () => balances.find((balance) => balance.currency.symbol === token),
     [balances, token]
   );
-  console.log(currentBalance);
   const handleSliderChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
     (e) => {
       const value = Number(e.target.value);
@@ -70,7 +69,11 @@ export function PayAccountModal({
     if (Number(currentBalance?.balance) < +amount) {
       toast.error(t("no_balance"));
       return;
+    } else if (+amount <= 0) {
+      toast.error(t("enter_amount"));
+      return;
     }
+
     try {
       await fetchInvoice(jwt, {
         song_id: songId,
@@ -111,8 +114,11 @@ export function PayAccountModal({
               value={amount}
               onChange={(e) => {
                 if (/^\d*\.?\d*$/.test(e.target.value)) {
-                  setAmount(e.target.value);
-
+                  if (+e.target.value > 0) {
+                    setAmount(+e.target.value);
+                  } else {
+                    setAmount(0);
+                  }
                   setValue((+e.target.value / +currentBalance?.balance!) * 100);
                 }
               }}
