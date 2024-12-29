@@ -90,7 +90,13 @@ const WithdrawPopup = ({
       }}
     >
       <div className={"popupWithdraw"} onClick={(e) => e.stopPropagation()}>
-        <h2>{t("send")}</h2>
+        <div className="title">
+          <h2>{t("send")}</h2>
+
+          <p onClick={() => setTopUpStep(null)}>
+            <img src="/icons/close.svg" alt="close" />
+          </p>
+        </div>
 
         <div className={"currencyContainer"}>
           <form onSubmit={handleSubmit}>

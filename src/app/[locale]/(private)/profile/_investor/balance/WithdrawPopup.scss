@@ -23,12 +23,20 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
-  h2 {
-    color: #fff;
-    font-size: 24px;
-    margin-bottom: 20px;
+  max-height: 90%;
+  overflow: auto;
+  .title {
+    display: flex;
+    justify-content: center;
+    h2 {
+      color: #fff;
+      font-size: 24px;
+      margin-bottom: 20px;
+      margin-left: auto;
+    }
+    p {
+      margin-left: auto;
+    }
   }
 
   .currencyContainer {

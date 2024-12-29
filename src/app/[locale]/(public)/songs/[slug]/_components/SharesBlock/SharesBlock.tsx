@@ -207,20 +207,34 @@ export function SharesBlock(props: {
       </div>
       {currentUser ? (
         <>
-          <PaymentButtons />
-          {balances.length && (
-            <div className={s.balanceContainer}>
-              <div className={s.balanceContainer_cryptos}>
-                <p className={s.balanceContainer_title}>{t("balanceStatus")}</p>
-                {balances.map((item, index) => (
-                  <div key={index} className={s.balanceContainer_cryptoItem}>
-                    <p>{item.currency.symbol} -</p>
-                    <p className={s.balanceContainer_cryptoItem_amount}>
-                      {item.balance}
-                    </p>
-                  </div>
-                ))}
+          {balances.length ? (
+            <>
+              <PaymentButtons />
+
+              <div className={s.balanceContainer}>
+                <div className={s.balanceContainer_cryptos}>
+                  <p className={s.balanceContainer_title}>
+                    {t("balanceStatus")}
+                  </p>
+                  {balances.map((item, index) => (
+                    <div key={index} className={s.balanceContainer_cryptoItem}>
+                      <p>{item.currency.symbol} -</p>
+                      <p className={s.balanceContainer_cryptoItem_amount}>
+                        {Number(item.balance).toFixed(2)}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <Button
+                  title={t("pay_with_account")}
+                  color={"main"}
+                  arrow={true}
+                  path={"/profile"}
+                />
               </div>
+            </>
+          ) : (
+            <div className={s.balanceContainer}>
               <Button
                 title={t("pay_with_account")}
                 color={"main"}
