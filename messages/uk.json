@@ -341,7 +341,11 @@
       "value": "Значення",
       "amount": "Сума",
       "output": "Вихід",
-      "recentPurchases": "Останні покупки"
+      "recentPurchases": "Останні покупки",
+
+      "waiting": "Очікування",
+      "completed": "Завершено",
+      "declined": "Відхилено"
     },
     "NFTs": {
       "title": "NFT",

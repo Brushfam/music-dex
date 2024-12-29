@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import s from "./Activities.module.scss";
 
 export function ActivitiesRow(props: {
@@ -7,23 +8,26 @@ export function ActivitiesRow(props: {
   invested: number | string;
   status: string;
 }) {
+  const t = useTranslations("ProfileInvestor.Activities");
+
   function StatusBlock(props: { status: string }) {
     if (props.status === "WAITING") {
       return (
         <div className={s.waiting}>
-          <p>Waiting</p>
+          <p>{t("waiting")}</p>
         </div>
       );
     } else if (props.status === "COMPLETE") {
       return (
         <div className={s.complete}>
-          <p>Completed</p>
+          <p>{t("completed")}</p>
+
         </div>
       );
     } else {
       return (
         <div className={s.declined}>
-          <p>Declined</p>
+          <p>{t("declined")}</p>
         </div>
       );
     }
@@ -35,7 +39,9 @@ export function ActivitiesRow(props: {
       <p className={s.songRow_song}>{props.song}</p>
       <p className={s.songRow_tokens}>{props.tokens}</p>
       <p className={s.songRow_invested}>${Number(props.invested).toFixed(2)}</p>
-      <p className={s.songRow_invested}>{StatusBlock({ status: props.status })}</p>
+      <p className={s.songRow_invested}>
+        {StatusBlock({ status: props.status })}
+      </p>
     </div>
   );
 }

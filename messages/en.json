@@ -342,7 +342,10 @@
       "value": "Value",
       "amount": "Amount",
       "output": "Output",
-      "recentPurchases": "Recent purchases"
+      "recentPurchases": "Recent purchases",
+      "waiting": "Waiting",
+      "completed": "Completed",
+      "declined": "Declined"
     },
     "NFTs": {
       "title": "NFT",
