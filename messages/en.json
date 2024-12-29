@@ -434,7 +434,9 @@
       "USDC": "You selected USDC. Enter the wallet address strictly for the ERC20 network. Otherwise, funds will be irreversibly lost.",
       "STRK": "You selected STRK. Enter the wallet address strictly for the StarkNet network. Otherwise, funds will be irreversibly lost.",
       "ETH": "You selected ETH. Enter the wallet address strictly for the Ethereum network. Otherwise, funds will be irreversibly lost.",
-      "INVESTMENT": "You selected Investment. Enter the wallet address strictly for the TRC20 network. Otherwise, funds will be irreversibly lost."
+      "INVESTMENT": "You selected Investment. Enter the wallet address strictly for the TRC20 network. Otherwise, funds will be irreversibly lost.",
+      "enter_amount": "Enter the amount"
+
     }
   },
 

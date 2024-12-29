@@ -161,6 +161,10 @@ export function ReplenishPopup({
 
   const handleClick = async () => {
     if (method === "wallet") {
+      if (+amountToken <= 0) {
+        toast.error(t("enter_amount"));
+        return;
+      }
       if (isWalConnected) {
         if (token.label === "USDC") {
           sendUSDCTransaction(+amountToken).then(() => {
@@ -248,11 +252,19 @@ export function ReplenishPopup({
                   value={amountToken}
                   onChange={(e) => {
                     if (/^\d*\.?\d*$/.test(e.target.value)) {
-                      if (+e.target.value > 0) {
-                        setAmountToken(+e.target.value);
-                      } else {
+                      let inputValue = e.target.value.trim();
+                      if (inputValue === "") {
                         setAmountToken(0);
+                        return;
                       }
+                      if (inputValue.indexOf(".") > 0) {
+                        setAmountToken(inputValue);
+                        return;
+                      }
+                      if (inputValue.startsWith("0")) {
+                        inputValue = inputValue.slice(1);
+                      }
+                      setAmountToken(inputValue);
                     }
                   }}
                   type="text"

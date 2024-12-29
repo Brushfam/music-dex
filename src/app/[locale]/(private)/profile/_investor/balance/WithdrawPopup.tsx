@@ -35,7 +35,7 @@ const WithdrawPopup = ({
       : balanceList.find((item) => item.currency.symbol === token.value)
           ?.balance || 0;
   const [address, setAddres] = useState("");
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState<number | string>("");
   const [error, setError] = useState<null | string>(null);
   const [load, setLoad] = useState(false);
 
@@ -46,10 +46,14 @@ const WithdrawPopup = ({
       setError("address");
       return toast.error(t("inputError"));
     }
-
-    if (!amount.trim()) {
+    if (!String(amount).trim()) {
       setError("amount");
       return toast.error(t("inputError"));
+    }
+    if (+amount <= 0) {
+      setError("amount");
+      toast.error(t("enter_amount"));
+      return;
     }
 
     setLoad(true);
@@ -58,7 +62,7 @@ const WithdrawPopup = ({
       if (user) {
         const userToken = await user.getIdToken();
         withdrwFetch(userToken, {
-          amount: amount,
+          amount: String(amount),
           currency: token.value,
           address: address,
         })
@@ -122,7 +126,20 @@ const WithdrawPopup = ({
               <input
                 onChange={(e) => {
                   if (/^\d*\.?\d*$/.test(e.target.value)) {
-                    setAmount(e.target.value);
+                    let inputValue = e.target.value.trim();
+                    if (inputValue === "") {
+                      setAmount(0);
+                      return;
+                    }
+                    if (inputValue.indexOf(".") > 0) {
+                      setAmount(inputValue);
+                      return;
+                    }
+                    if (inputValue.startsWith("0")) {
+                      inputValue = inputValue.slice(1);
+                    }
+                    setAmount(inputValue);
+
                     setError(null);
                   }
                 }}

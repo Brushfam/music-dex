@@ -114,11 +114,19 @@ export function PayAccountModal({
               value={amount}
               onChange={(e) => {
                 if (/^\d*\.?\d*$/.test(e.target.value)) {
-                  if (+e.target.value > 0) {
-                    setAmount(+e.target.value);
-                  } else {
+                  let inputValue = e.target.value.trim();
+                  if (inputValue === "") {
                     setAmount(0);
+                    return;
                   }
+                  if (inputValue.indexOf(".") > 0) {
+                    setAmount(inputValue);
+                    return;
+                  }
+                  if (inputValue.startsWith("0")) {
+                    inputValue = inputValue.slice(1);
+                  }
+                  setAmount(inputValue);
                   setValue((+e.target.value / +currentBalance?.balance!) * 100);
                 }
               }}
