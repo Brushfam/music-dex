@@ -34,7 +34,7 @@ export function Overview() {
             setTotalInvestedAmount(parseFloat(investedAmount.toFixed(2)));
             const tokensAmount = res.data.totalTokensAmount;
             setTotalTokensAmount(parseFloat(tokensAmount.toFixed(2)));
-            setPurchaseHistory(res.data.history);
+            setPurchaseHistory(res.data.history );
           })
           .catch((error) => {
             console.log(error);

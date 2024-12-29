@@ -13,6 +13,7 @@ export function RoyaltiesHistory() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          textAlign: "center",
           width: "100%",
           height: "100%",
         }}

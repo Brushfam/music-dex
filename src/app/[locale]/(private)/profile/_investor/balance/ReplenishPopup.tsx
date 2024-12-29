@@ -27,7 +27,9 @@ const openInNewTab = (url: string) => {
   link.target = "_blank";
   link.rel = "noopener noreferrer";
   document.body.appendChild(link);
+
   link.click();
+
   document.body.removeChild(link);
 };
 const abi = [
@@ -215,25 +217,30 @@ export function ReplenishPopup({
 
         return;
       }
-      firebaseAuth.onAuthStateChanged(async (user) => {
-        if (user) {
+      const user = firebaseAuth.currentUser;
+      if (user) {
+        try {
           const userToken = await user.getIdToken();
-          transactionSend(userToken, {
+          const res = await transactionSend(userToken, {
             method: "whitepay",
             amount: +amountW,
             currency: "USDT",
-          })
-            .then((res) => {
-              openInNewTab(res.data.orderUrl);
-            })
-            .catch((error) => {
-              toast.error(t(`failed`));
-            })
-            .finally(() => {
-              setTopUpStep(null);
-            });
+          });
+          const link = document.createElement("a");
+          link.href = res.data.orderUrl;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } catch (error) {
+          console.error("Transaction Error:", error);
+          toast.error(t(`failed`));
+        } finally {
+          setTopUpStep(null);
         }
-      });
+      }
     }
   };
   return (
