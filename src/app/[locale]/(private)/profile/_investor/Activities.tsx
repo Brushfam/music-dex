@@ -47,19 +47,19 @@ export default function Activities() {
     if (props.status === "waiting") {
       return (
         <div className={s.waiting}>
-          <p>Waiting</p>
+          <p>{t("waiting")}</p>
         </div>
       );
-    } else if (props.status === "complete") {
+    } else if (props.status === "success") {
       return (
         <div className={s.complete}>
-          <p>Completed</p>
+          <p>{t("completed")}</p>
         </div>
       );
     } else {
       return (
         <div className={s.declined}>
-          <p>Declined</p>
+          <p>{t("declined")}</p>
         </div>
       );
     }
