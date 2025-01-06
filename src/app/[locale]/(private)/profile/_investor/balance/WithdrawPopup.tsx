@@ -87,8 +87,6 @@ const WithdrawPopup = ({
       }
       return;
     }
-    console.log(minValue);
-    console.log(+amount);
 
     setLoad(true);
 
@@ -101,7 +99,7 @@ const WithdrawPopup = ({
           address: address,
         })
           .then((res) => {
-            toast.success(t(`successful`));
+            toast.success(t(`successfulWithdraw`));
             handleGetBalances();
           })
           .catch((error) => {
@@ -161,7 +159,7 @@ const WithdrawPopup = ({
                 onChange={(e) => {
                   if (/^\d*\.?\d*$/.test(e.target.value)) {
                     let inputValue = e.target.value.trim();
-                    if (inputValue === "") {
+                    if (inputValue === "" || inputValue === "0") {
                       setAmount(0);
                       return;
                     }

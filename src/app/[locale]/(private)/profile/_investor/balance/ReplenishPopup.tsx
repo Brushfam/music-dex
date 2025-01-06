@@ -253,7 +253,7 @@ export function ReplenishPopup({
                   onChange={(e) => {
                     if (/^\d*\.?\d*$/.test(e.target.value)) {
                       let inputValue = e.target.value.trim();
-                      if (inputValue === "") {
+                      if (inputValue === "" || inputValue === "0") {
                         setAmountToken(0);
                         return;
                       }
