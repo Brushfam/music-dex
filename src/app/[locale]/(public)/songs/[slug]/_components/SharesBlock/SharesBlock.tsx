@@ -218,7 +218,7 @@ export function SharesBlock(props: {
                   </p>
                   {balances.map((item, index) => (
                     <div key={index} className={s.balanceContainer_cryptoItem}>
-                      <p>{item.currency.symbol} -</p>
+                      <p>{item.currency.symbol} - </p>
                       <p className={s.balanceContainer_cryptoItem_amount}>
                         {Number(item.balance).toFixed(2)}
                       </p>

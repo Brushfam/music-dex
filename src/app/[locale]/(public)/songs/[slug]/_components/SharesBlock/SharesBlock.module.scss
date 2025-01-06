@@ -160,7 +160,7 @@
   }
   &_cryptoItem {
     display: flex;
-    justify-content: space-between;
+    gap: 5px;
     &_amount {
       color: #737373;
     }
