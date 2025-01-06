@@ -437,7 +437,8 @@
       "INVESTMENT": "You selected Investment. Enter the wallet address strictly for the TRC20 network. Otherwise, funds will be irreversibly lost.",
       "enter_amount": "Enter the amount",
       "minWithdrawAmount": "Minimum withdrawal amount ",
-      "minAmount": "Minimum amount"
+      "minAmount": "Minimum amount",
+      "successfulWithdraw": "Withdrawal request received. Your funds are securely held for processing and will be transferred to your wallet within 24 hours."
     }
   },
 

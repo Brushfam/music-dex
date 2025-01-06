@@ -115,7 +115,7 @@ export function PayAccountModal({
               onChange={(e) => {
                 if (/^\d*\.?\d*$/.test(e.target.value)) {
                   let inputValue = e.target.value.trim();
-                  if (inputValue === "") {
+                  if (inputValue === "" || inputValue === "0") {
                     setAmount(0);
                     return;
                   }
