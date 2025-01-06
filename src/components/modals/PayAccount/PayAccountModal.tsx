@@ -57,8 +57,6 @@ export function PayAccountModal({
         Math.round(((Number(currentBalance?.balance) * value) / 100) * 100000) /
         100000;
 
-      console.log(newAmount);
-
       setAmount(newAmount);
       setValue(value);
     },
@@ -77,7 +75,7 @@ export function PayAccountModal({
     try {
       await fetchInvoice(jwt, {
         song_id: songId,
-        amount: +((+currentBalance?.price! * +amount) / songToken).toFixed(2),
+        amount: +amount,
         currency: token,
       });
       const balancesRes = await getBalances(jwt);

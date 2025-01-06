@@ -112,6 +112,7 @@ export const Balance = () => {
   }, [router, t]);
 
   const { connect, connectors } = useConnect();
+
   useEffect(() => {
     const wallet = connectedWallets.find(
       (wallet) => wallet.address === primaryWallet
