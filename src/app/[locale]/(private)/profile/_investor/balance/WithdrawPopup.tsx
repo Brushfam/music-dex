@@ -38,9 +38,24 @@ const WithdrawPopup = ({
   const [amount, setAmount] = useState<number | string>("");
   const [error, setError] = useState<null | string>(null);
   const [load, setLoad] = useState(false);
+  const calcMinValue = (tokenName: any, amount: number) => {
+    if (+amount === 0) return `0.00 $`;
+    if (tokenName === "INVESTMENT" || tokenName === "USDT") return `10.00 $`;
+    if (tokenName === "ETH") return `0.01 ${tokenName}`;
+
+    let tokenPrice = balanceList.find(
+      (item) => item.currency.symbol === tokenName
+    ).price;
+
+    const minTokens = 10 / tokenPrice;
+    return `${minTokens.toFixed(2)} ${tokenName}`;
+  };
+
+  const minValue = calcMinValue(token.value, amountToken);
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const minVal = +minValue.split(" ")[0];
 
     if (!address.trim()) {
       setError("address");
@@ -55,6 +70,25 @@ const WithdrawPopup = ({
       toast.error(t("enter_amount"));
       return;
     }
+    if (+amount > +amountToken) {
+      setError("amount");
+      toast.error(t("notBalance"));
+      return;
+    }
+
+    if (+amount < minVal) {
+      setError("amount");
+      if (token.value === "INVESTMENT" || token.value === "USDT") {
+        toast.error(`${t("minWithdrawAmount")} 10 $`);
+      } else if (token.value === "ETH") {
+        toast.error(`${t("minWithdrawAmount")} 0.01 ETH`);
+      } else {
+        toast.error(`${t("minWithdrawAmount")} ${minValue}`);
+      }
+      return;
+    }
+    console.log(minValue);
+    console.log(+amount);
 
     setLoad(true);
 
@@ -155,6 +189,10 @@ const WithdrawPopup = ({
                 {(+amountToken).toFixed(2)}{" "}
                 {token.value === "INVESTMENT" ? "$" : token.value}
               </p>
+            </div>
+            <div className="available">
+              <p>{t("minAmount")} </p>
+              <p>{minValue}</p>
             </div>
             <div className="containerItem">
               <h4>{t("address")}</h4>
